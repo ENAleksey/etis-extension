@@ -1,0 +1,606 @@
+
+:root {
+	/*Neumorphic Light*/
+	/*--body: #ffffff;*/
+	/*--table: #f5f5ff;*/
+	/*--body: #eeeeee;*/
+	/*--table: #eeeeee;*/
+	/*--highlight: #a0a0a0;*/
+	/*--scrollbarThumb: #ccc;*/
+	/*--scrollbarThumbHover: #aaa;*/
+	/*--loginField: #a0a0ff;*/
+	/*--link: #000000de;*/
+	/*--textPrimary: #000000de;*/
+	/*--textPrimaryWhite: #ffffff;*/
+	/*--textSecondary: #00000099;*/
+	/*--red: #f44336;*/
+	/*--green: green;*/
+	/*--blue: #0075ff;*/
+	/*--tableBorder: #00000009;*/
+	/*--weekCurrent: #1b91ff;*/
+	/*--weekHoliday: #66bb6a;*/
+	/*--shadowDark: #cacaca;*/
+	/*--shadowLight: #ffffff;*/
+	/*--shadow: 6px 6px 12px var(--shadowDark), -6px -6px 12px var(--shadowLight);*/
+	/*--loginButtonInnerShadow: inset 6px 6px 12px #cf392e, inset -6px -6px 12px #ff4d3e;*/
+	/*--currentWeekInnerShadow: inset 6px 6px 12px var(--shadowDark), inset -6px -6px 12px var(--shadowLight);*/
+	/*--loginButtonColor: linear-gradient(145deg, #ff483a, #dc3c31);*/
+	/*--loginButtonActiveColor: var(--red);*/
+
+	
+	/*Light*/
+
+	
+	/*Dark*/
+	/*--body: #141518;*/
+	/*--table: #17181b;*/
+	/*--highlight: #1c1d21;*/
+	/*--loginField: #0e0f11;*/
+	/*--scrollbarThumb: #2e3138;*/
+	/*--scrollbarThumbHover: #2e3138;*/
+	--body: #181818;
+	--table: #212121;
+	--highlight: #333333;
+	--loginField: #111111;
+	--scrollbarThumb: #333333;
+	--scrollbarThumbHover: #444444;
+
+	--tableBorder: #ffffff09;
+	--timetableBorder: #ffffff00;
+	--button: #8ab4f8;
+	--red: #e87d7d;
+	--green: #70c27e;
+	--blue: #8ab4f8; /*#5b9bff;*/
+	--weekSession: #ff6d33;
+	--weekHoliday: #47ad60;
+	--link: #ffffffde;
+	--textPrimary: #ffffffde;
+	--textSecondary: #ffffff99;
+	
+	--shadow: none;
+	--loginButtonInnerShadow: none;
+	--currentWeekInnerShadow: none;
+	--loginButtonActiveColor: #ff483a;
+	--loginButtonColor: #ff483a;
+}
+
+
+body > div.container > div > div.span3 > ul:nth-child(2),
+/*body > div.container > div > div.span3 > ul:nth-child(1) > li:nth-child(9) > a,*/
+/*body > div.container > div > div.span3 > ul:nth-child(1) > li:nth-child(11) > a,*/
+/*body > div.container > div > div.span3 > ul:nth-child(1) > li:nth-child(14) > a,*/
+/*body > div.container > div > div.span3 > ul:nth-child(1) > li:nth-child(15) > a,*/
+body > div.container > div > div.span9 > div.week-select > div:nth-child(4),
+.header_message,
+/*.login .choose .right,*/
+.navbar-static-top {
+	display: none !important;
+}
+
+::-webkit-scrollbar {
+    height: 12px !important;
+    width: 14px !important;
+    background: transparent !important;
+    z-index: 12 !important;
+    overflow: visible !important;
+}
+
+::-webkit-scrollbar-corner {
+    background: #202020 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 10px !important;
+    background-color: var(--scrollbarThumb) !important;
+    border-radius: 10px !important;
+    z-index: 12 !important;
+    border: 4px solid #0000 !important;
+    background-clip: padding-box !important;
+    transition: all 0.32s ease-out !important;
+    margin: 4px !important;
+    min-height: 32px !important;
+    min-width: 32px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbarThumbHover) !important;
+    border: 2px solid #0000 !important;
+}
+
+body {
+	background: var(--body) !important;
+	color: var(--textPrimary) !important;
+}
+
+table {
+	background-color: var(--table) !important;
+	box-shadow: var(--shadow) !important;
+	border-radius: 8px !important;
+}
+
+.slimtab_nice, td[style="padding: 5px !important;vertical-align:top !important;"] {
+	color: var(--blue) !important;
+}
+
+.span9 .slimtab_nice {
+	color: var(--textPrimary) !important;
+}
+
+a:link, a:visited, .container div .span9 div:nth-child(2) {
+	color: var(--link) !important;
+	text-decoration: none !important;
+}
+
+.login, .login .choose {
+	border: 1px solid #ffffff00 !important;
+	background-color: var(--table) !important;
+}
+
+.nav.msg {
+	padding: 12px !important;
+	border: 1px solid #ffffff00 !important;
+	border-radius: 8px !important;
+	background-color: var(--table) !important;
+}
+
+.nav.answ {
+	padding: 12px !important;
+	border: 1px solid #ffffff00 !important;
+	border-radius: 8px !important;
+	background-color: var(--highlight) !important;
+}
+
+.week-select {
+	margin-bottom: 32px !important;
+	margin-top: 0px !important;
+}
+
+.weeks {
+	display: flex !important;
+	justify-content: center !important;
+	flex-wrap: wrap !important;
+	margin: 24px auto 0 auto !important;
+}
+
+.week {
+	display: flex !important;
+	justify-content: center !important;
+    align-items: center !important;
+	
+	margin: 0 4px 4px 0 !important;
+	padding: 0 !important;
+	width: auto !important;
+	
+	background-color: var(--table) !important;
+	/*border: 1px solid #ffffff00 !important;*/
+	box-shadow: var(--shadow) !important;
+	border-radius: 8px !important;
+	border: none !important;
+	
+	font-size: 12px !important;
+}
+
+.week:active {
+	box-shadow: var(--currentWeekInnerShadow) !important;
+}
+
+.week:hover {
+    background: var(--highlight) !important;
+}
+
+.week a {
+	display: flex !important;
+	justify-content: center !important;
+    align-items: center !important;
+    width: 38px !important;
+    height: 38px !important;
+}
+
+.week.current {
+	font-weight: bold !important;
+	width: 38px !important;
+    height: 38px !important;
+	
+	box-shadow: var(--currentWeekInnerShadow) !important;
+	color: var(--blue) !important;
+}
+
+.week.current::after {
+	position: absolute !important;
+	transform: translateY(12px) !important;
+    width: 24px !important;
+    height: 4px !important;
+    
+    content: '' !important;
+    border-radius: 8px !important;
+    background: var(--blue) !important;
+}
+
+.badge {
+	background: var(--weekSession) !important;
+	border-radius: 4px !important;
+	margin-left: 2px !important;
+}
+
+.week.session a, .week.session.current {
+	color: var(--red) !important;
+}
+
+.week.holiday a, .week.holiday.current {
+	color: var(--green) !important;
+}
+
+.week.session.current::after {
+    background: var(--red) !important;
+}
+
+.week.holiday.current::after {
+    background: var(--green) !important;
+}
+
+.timetable .table {
+	width: 100% !important;
+}
+
+.timetable td {
+	border-top: 1px solid var(--timetableBorder) !important;
+	border-bottom: 1px solid var(--timetableBorder) !important;
+	vertical-align: middle !important;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+}
+
+.timetable tr:first-child td {
+	padding-top: 6px !important;
+}
+
+.timetable tr:last-child td {
+	padding-bottom: 6px !important;
+}
+
+.pair_num {
+	width: 70px !important;
+	height: 50px !important;
+	border-left: 1px solid var(--timetableBorder) !important;
+	font-size: 0 !important;
+}
+
+.pair_num .eval {
+	font-size: 12px !important;
+	color: var(--textPrimary) !important;
+}
+
+.pair_info {
+	padding-right: 14px !important;
+}
+
+.pair_info .dis a {
+	display: flex !important;
+}
+
+.pair_info .teacher {
+	margin-left: 14px !important;
+}
+
+.pair_info .teacher a {
+	color: var(--textSecondary) !important;
+}
+
+.pair_info .teacher .eval {
+	display: none !important;
+}
+
+.pair_info .aud {
+	color: var(--textSecondary) !important;
+	font-size: 12px !important;
+}
+
+.pair_info .aud a {
+    display: flex !important;
+    align-items: center !important;
+    margin-top: 6px !important;
+}
+
+.pair_info div:nth-child(1) {
+	margin-bottom: 2px !important;
+}
+
+.pair_jour {
+	display: none !important;
+}
+
+/* Timetable Survey */
+.estimate_tt {
+	display: none !important;
+}
+
+.common {
+	width: 100% !important;
+}
+
+.common td, .common th, .slimtab_nice td, .slimtab_nice th {
+	background: var(--table) !important;
+	/*border: 1px solid var(--tableBorder) !important;*/
+	border: 2px solid var(--body) !important;
+	/*border-radius: 8px !important;*/
+	
+	/*padding-top: 8px !important;*/
+	/*padding-bottom: 8px !important;*/
+	padding: 8px 14px !important;
+}
+
+.common th, .common th.subheader {
+	background: var(--highlight) !important;
+	/*font-weight: bold !important;*/
+}
+
+font[color="red"], tr[style="color:red !important;"], span[style="color:red !important;"], div[style="font-size:0.8em !important;color:red !important;"] {
+	color: var(--red) !important;
+}
+
+font[color="green"], div[style="font-size:0.8em !important;color:green !important;"] {
+	color: var(--green) !important;
+}
+
+font[color="blue"], div[style="color:blue !important;font-size: 0.8em !important;"] {
+	color: var(--blue) !important;
+}
+
+font[color="gray"], font[color="#808080"], div[style="font-size:0.8em !important;color:gray !important;"] {
+	color: var(--textSecondary) !important;
+}
+
+.teacher_photo, .teacher_photo img {
+	display: block !important;
+	border: none !important;
+	border-radius: 8px !important;
+}
+
+.container {
+	padding: 0px !important;
+	max-width: 1120px !important;
+	width: 100% !important;
+	margin: 40px auto 100px auto !important;
+}
+
+.container .row {
+	margin: 0px !important;
+}
+
+.span3 {
+	position: fixed !important;
+	width: 240px !important;
+	margin-left: 20px !important;
+	height: 90% !important;
+	z-index: 1 !important;
+	overflow-x: hidden !important;
+	box-shadow: var(--shadow) !important;
+}
+
+.span9 {
+	width: auto !important;
+	margin: 0 20px 0 300px !important;
+}
+
+@media (max-width:960px) {
+	.container {
+		max-width: 800px !important;
+	}
+	
+	.span3 {
+		display: none !important;
+	}
+	
+	.span9 {
+		margin: 0 20px !important;
+	}
+}
+
+.nav.nav-tabs.nav-stacked {
+	border-radius: 8px !important;
+	background: var(--table) !important;
+}
+
+.nav.nav-tabs.nav-stacked li a {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+	padding: 10px 0 10px 14px !important;
+	/*border-radius: 8px !important;*/
+	background: var(--table) !important;
+	border: 1px solid #ffffff00 !important;
+}
+
+.nav.nav-tabs.nav-stacked li a:hover {
+	background: var(--highlight) !important;
+}
+
+.nav.nav-tabs.nav-stacked .active {
+	font-weight: bold !important;
+	display: flex !important;
+	align-items: center !important;
+}
+
+.nav.nav-tabs.nav-stacked .active::before {
+	position: absolute !important;
+	width: 5px !important;
+    height: 34px !important;
+    z-index: 3 !important;
+    
+    content: "" !important;
+	border-radius: 8px !important;
+    background: var(--blue) !important;
+}
+
+.nav.nav-tabs.nav-stacked .active a {
+    width: 100% !important;
+}
+
+.button_gray, .button_gray button {
+	border: 1px solid #ffffff00 !important;
+	color: var(--textPrimary) !important;
+	text-shadow: none !important;
+	background: var(--button) !important;
+	font-size: 14px !important;
+}
+
+.button.blue {
+	background: var(--button) !important;
+}
+
+.button {
+	font-family: 'Arial' !important;
+	border-radius: 50px !important;
+	border: none !important;
+	margin-bottom: 30px !important;
+	margin-top: 40px !important;
+	width: 100% !important;
+	padding: 4px !important;
+}
+
+.button span {
+	border: none !important;
+}
+
+.teacher_desc {
+	width: 100% !important;
+	padding-left: 16px !important;
+}
+
+.teacher_desc .dis, .teacher_desc .chair {
+    font-size: 12px !important;
+}
+.teacher_desc .chair {
+    color: var(--textSecondary) !important;
+    padding-bottom: 4px !important;
+}
+.teacher_name {
+    font-size: 16px !important;
+    padding-bottom: 8px !important;
+}
+
+.ord-name a:hover {
+    text-decoration: underline !important;
+}
+.ord-name a {
+    color: var(--blue) !important;
+}
+
+.form label {
+	color: var(--textSecondary) !important;
+}
+
+input[type="password"], textarea {
+    width: 240px !important;
+    height: 24px !important;
+}
+
+
+
+/* */
+.nav.msg li font[style="font-weight:bold !important;color:blue !important;cursor:pointer"] {
+	color: var(--blue) !important;
+}
+
+
+/* Login Page */
+.login form:before {
+	position: relative !important;
+	content: '' !important;
+	height: 200px !important;
+	width: 100% !important;
+	background: url('https://upload.wikimedia.org/wikipedia/ru/1/1c/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%9F%D0%B5%D1%80%D0%BC%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE_%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D0%B0.png') bottom center no-repeat !important;
+	background-size: 200px !important;
+}
+.login form {
+	display: flex !important;
+	flex-direction: column !important;
+	padding: 16px 0 !important;
+}
+.login .choose{
+	/*position: absolute !important;*/
+	/*top: 250px !important;*/
+	width: 100% !important;
+	padding: 8px 0 0 0 !important;
+	order: 2 !important;
+}
+.login .choose .title {
+	display: none !important;
+}
+.login .choose .right {
+	text-align: center !important;
+	float: none !important;
+	margin-top: 0 !important;
+}
+.login .choose .right a {
+	color: var(--red) !important;
+}
+
+.login .items {
+	color: #ffffff00 !important;
+	font-size: 0 !important;
+	padding: 24px 28px 12px 28px !important;
+	order: 1 !important;
+}
+.login .items .item {
+	margin: 14px 0 0 0 !important;
+	font-size: 14px !important;
+}
+
+.error_message {
+	position: fixed !important;
+	left: 0 !important;
+	right: 0 !important;
+	top: 0 !important;
+	padding: 8px 0 !important;
+	background: var(--red) !important;
+	color: var(--textPrimaryWhite) !important;
+	font-size: 14px !important;
+	text-align: center !important;
+}
+
+.login:before, .login:after {
+	display: none !important;
+}
+
+.login .items .item input {
+	border: 1px solid transparent !important;
+	box-shadow: var(--shadow) !important;
+	border-radius: 8px !important;
+	text-indent: 10px !important;
+	width: 100% !important;
+	height: 40px !important;
+	line-height: 40px !important;
+	background: var(--loginField) !important;
+	color: var(--textPrimary) !important;
+}
+
+/*input[type="text"], input[type="password"], textarea {*/
+/*    background: var(--loginField) !important;*/
+/*    border: 1px solid var(--tableBorder) !important;*/
+/*}*/
+
+.login .items .item input:focus {
+	/*box-shadow: var(--shadow), 0 0 0 2px var(--blue) !important;*/
+	outline: none !important;
+}
+
+.login .items .item label {
+	padding-bottom: 4px !important;
+	text-indent: 10px !important;
+	color: var(--textSecondary) !important;
+	/*position: relative !important;*/
+ /*   top: 35px !important;*/
+}
+
+.button.medium.blue {
+	background: var(--loginButtonColor) !important;
+	box-shadow: var(--shadow) !important;
+	border-radius: 8px !important;
+	margin-bottom: 0px !important;
+}
+.button.medium.blue:active {
+	background: var(--loginButtonActiveColor) !important;
+	box-shadow: var(--loginButtonInnerShadow) !important;
+	border-radius: 8px !important;
+	top: 0 !important;
+}
