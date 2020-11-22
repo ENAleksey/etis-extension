@@ -1,7 +1,8 @@
+html {
+	font-size: 10px;
+}
 
 :root {
-	font-size: 10px;
-
 	/* Цвета */
 	--color-body: #181818;
 	--color-card: #212121;
@@ -13,18 +14,18 @@
 	--color-green: #70C27E;
 	--color-blue: #8AB4F8;
 	--color-accent: #8AB4F8;
-	--color-accent-highlight: #BCD4FB;
+	--color-highlight-accent: #BCD4FB;
 	--color-error: #D04524;
 
-	--color-text-primary-dark: #ffffffde;
-	--color-text-secondary-dark: #ffffff99;
+	--color-text-primary: #ffffffde;
+	--color-text-secondary: #ffffff99;
 	--color-text-primary-invert: #000000;
-	--color-text-error-dark: #ED6545;
+	--color-text-error: #ED6545;
 
 	/* Скругления углов */
 	--radius-small: 5px;
-	--radius-average: 8px;
-	--radius-big: 12px;
+	--radius-medium: 8px;
+	--radius-large: 12px;
 
 	/* Ширина бокового меню */
 	--width-aside: 24rem;
