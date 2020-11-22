@@ -1,4 +1,37 @@
 
 :root {
-	
+	font-size: 10px;
+
+	/* Цвета */
+	--color-body: #181818;
+	--color-card: #212121;
+	--color-highlight: #333333;
+	--color-highlight-light: #555555;
+	--color-highlight-transparent: #ffffff0f;
+	--color-input-field: #0C0C0C;
+	--color-red: #E87D7D;
+	--color-green: #70C27E;
+	--color-blue: #8AB4F8;
+	--color-accent: #8AB4F8;
+	--color-accent-highlight: #BCD4FB;
+	--color-error: #D04524;
+
+	--color-text-primary-dark: #ffffffde;
+	--color-text-secondary-dark: #ffffff99;
+	--color-text-primary-invert: #000000;
+	--color-text-error-dark: #ED6545;
+
+	/* Скругления углов */
+	--radius-small: 5px;
+	--radius-average: 8px;
+	--radius-big: 12px;
+
+	/* Ширина бокового меню */
+	--width-aside: 22.6rem;
+
+	/* Ширина контента */
+	--width-content: 81rem;
+
+	/* Максимальная ширина страницы */
+	--max-width-page: 1120px;
 }
