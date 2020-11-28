@@ -32,6 +32,9 @@ html {
 
 	/* Ширина контента */
 	--width-content: 81rem;
+	
+	/* Отступ слева у основного контента */
+	--margin-left-content: /* 28rem; */ 4rem;
 
 	/* Максимальная ширина страницы */
 	--max-width-page: 1120px;
@@ -41,10 +44,20 @@ body {
 	background-color: var(--color-body) 	!important;
 }
 
-/* Боковое меню */
+/**** ХЭДЕР (от него мы решили избавиться) ****/
+body > div.navbar.navbar-static-top {
+	display: none	!important;
+}
+
+/**** КОНТЕЙНЕР СО ВСЕМ КОНТЕНТОМ ЕТИСА ****/
+body > div.container {
+	max-width: var(--max-width-page)	!important;
+	width: 100% 						!important;
+}
+
+/**** БОКОВОЕ МЕНЮ ****/
 div.span3 > ul.nav-tabs {
-	/* Нужно значение отступа для контента справа, иначе боковое меню при изменении ширины вылезет поверх него. */
-	/* width: var(--width-aside) !important; */
+	width: var(--width-aside)				!important;
     border-radius: var(--radius-small)		!important;
 }
 
@@ -110,4 +123,16 @@ span.badge {
 	background-color: var(--color-accent)		!important;
 	border-radius: var(--radius-small)			!important;
 	color: var(--color-text-primary-invert)		!important;
+}
+
+/**** ОСНОВНОЙ КОНТЕНТ СПРАВА ****/
+body > div.container > div.row > div.span9 {
+	margin-left: var(--margin-left-content) 	!important;
+}
+
+@media screen and (max-width: 575px) {
+	/**** БОКОВОЕ МЕНЮ ****/
+	div.span3 > .nav.nav-tabs {
+		display: none	!important;
+	}
 }
