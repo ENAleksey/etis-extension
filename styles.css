@@ -1,5 +1,5 @@
 html {
-	font-size: 10px;
+	font-size: 10px !important;
 }
 
 :root {
@@ -35,4 +35,8 @@ html {
 
 	/* Максимальная ширина страницы */
 	--max-width-page: 1120px;
+}
+
+body {
+	background-color: var(--color-body) !important;
 }
