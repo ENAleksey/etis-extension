@@ -1,5 +1,5 @@
 html {
-	font-size: 10px !important;
+	font-size: 10px		!important;
 }
 
 :root {
@@ -38,24 +38,27 @@ html {
 }
 
 body {
-	background-color: var(--color-body) !important;
+	background-color: var(--color-body) 	!important;
 }
 
 /* Боковое меню */
-ul.nav-tabs {
+div.span3 > ul.nav-tabs {
 	/* Нужно значение отступа для контента справа, иначе боковое меню при изменении ширины вылезет поверх него. */
 	/* width: var(--width-aside) !important; */
-    background-color: var(--color-card) !important;
-    border-radius: var(--radius-small) !important;
+    background-color: var(--color-card) 	!important;
+    border-radius: var(--radius-small)		!important;
 }
 
 /* Элемент бокового меню */
-ul.nav-tabs > li > a {
-    border: 0 !important;
-    color: var(--color-text-primary) !important;
+div.span3 > ul.nav-tabs > li > a {
+	display: flex						!important;
+	align-items: center 				!important;
+	height: 3rem						!important;
+    border: 0							!important;
+    color: var(--color-text-primary)	!important;
 }
 
 /* Выбранный элемент бокового меню */
-li.active > a {
-	background-color: var(--color-highlight) !important;
+div.span3 > ul.nav-tabs > li.active > a {
+	background-color: var(--color-highlight)	!important;
 }
