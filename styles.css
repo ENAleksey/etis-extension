@@ -46,10 +46,16 @@ ul.nav-tabs {
 	/* Нужно значение отступа для контента справа, иначе боковое меню при изменении ширины вылезет поверх него. */
 	/* width: var(--width-aside) !important; */
     background-color: var(--color-card) !important;
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-small) !important;
 }
 
 /* Элемент бокового меню */
 ul.nav-tabs > li > a {
     border: 0 !important;
+    color: var(--color-text-primary) !important;
+}
+
+/* Выбранный элемент бокового меню */
+li.active > a {
+	background-color: var(--color-highlight) !important;
 }
