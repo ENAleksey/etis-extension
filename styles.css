@@ -45,20 +45,69 @@ body {
 div.span3 > ul.nav-tabs {
 	/* Нужно значение отступа для контента справа, иначе боковое меню при изменении ширины вылезет поверх него. */
 	/* width: var(--width-aside) !important; */
-    background-color: var(--color-card) 	!important;
     border-radius: var(--radius-small)		!important;
 }
 
 /* Элемент бокового меню */
 div.span3 > ul.nav-tabs > li > a {
-	display: flex						!important;
-	align-items: center 				!important;
-	height: 3rem						!important;
-    border: 0							!important;
-    color: var(--color-text-primary)	!important;
+	display: flex							!important;
+	align-items: center 					!important;
+	
+	height: 3rem							!important;
+	
+    border: 0								!important;
+    color: var(--color-text-primary)		!important;
+    background-color: var(--color-card) 	!important;
+}
+
+/* Элемент бокового меню при наведении на него мыши */
+div.span3 > ul.nav-tabs > li > a:hover {
+	background-color: var(--color-highlight-transparent)	!important;
+}
+
+/* Фон элемента бокового меню при клике на него (в ЕТИСе белый) */
+div.span3 > ul.nav-tabs > li > a:focus {
+	background-color: var(--color-highlight-transparent)	!important;
+}
+
+/* Нижний отступ элемента бокового меню (в ЕТИСе равен -1) */
+div.span3 > ul.nav-tabs > li {
+	position: relative	!important;
+	margin-bottom: 0	!important;
+}
+
+/* Элемент бокового меню "Пожалуйста, оцените дистанционное обучение!" */
+div.span3 > ul.nav-tabs > li[style] {
+	background-color: var(--color-card) 							!important;
+	border-radius: 0 0 var(--radius-small) var(--radius-small)		!important;
+}
+
+/* Текст элемента бокового меню "Пожалуйста, оцените дистанционное обучение!"*/
+div.span3 > ul.nav-tabs > li > a > font {
+	color: var(--color-text-primary)	!important;
+	font-weight: normal 				!important;
 }
 
 /* Выбранный элемент бокового меню */
 div.span3 > ul.nav-tabs > li.active > a {
 	background-color: var(--color-highlight)	!important;
+	font-weight: bold							!important;
+}
+
+/* Индикатор количества опросов/сообщений/etc. у бокового меню */
+span.badge {
+	position: absolute							!important;
+	right: 1rem									!important;
+	
+	display: flex								!important;
+	justify-content: center						!important;
+	align-items: center							!important;
+	
+	height: 2.2rem								!important;
+	width: 2.2rem								!important;
+	
+	padding: 0									!important;
+	background-color: var(--color-accent)		!important;
+	border-radius: var(--radius-small)			!important;
+	color: var(--color-text-primary-invert)		!important;
 }
