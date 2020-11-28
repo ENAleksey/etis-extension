@@ -40,3 +40,14 @@ html {
 body {
 	background-color: var(--color-body) !important;
 }
+
+/* Боковое меню */
+.nav-tabs {
+    background-color: var(--color-card) !important;
+    border-radius: var(--radius-small);
+}
+
+/* Элемент бокового меню */
+.nav-tabs > li > a {
+    border: 0 !important;
+}
