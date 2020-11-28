@@ -42,12 +42,14 @@ body {
 }
 
 /* Боковое меню */
-.nav-tabs {
+ul.nav-tabs {
+	/* Нужно значение отступа для контента справа, иначе боковое меню при изменении ширины вылезет поверх него. */
+	/* width: var(--width-aside) !important; */
     background-color: var(--color-card) !important;
     border-radius: var(--radius-small);
 }
 
 /* Элемент бокового меню */
-.nav-tabs > li > a {
+ul.nav-tabs > li > a {
     border: 0 !important;
 }
