@@ -55,11 +55,76 @@ body > div.container {
 	width: 100% 						!important;
 }
 
+/****************************************НАСТЯ START***************************************************************/
+
+	/*******ПРОПУЩЕННЫЕ ЗАНЯТИЯ*********/	
+
+div.span9 {
+	width: var(--width-content) !important;
+	margin-left: var(--margin-left-content) 		!important;
+
+}
+	/*ЦВЕТ СТРОКИ: ОСЕННИЙ ТРИМЕСТР, ВЕСЕННИЙ ТРИМЕСТР, ЛЕТНИЙ ТРИМЕСТР*/	
+.submenu-item, a.dashed {
+	color:var(--color-text-secondary)				!important;
+}
+
+	/* ЦВЕТ ЗАГОЛОВКА "ПРОПУЩЕННЫЕ ЗАНЯТИЯ" И ТЕКСТА В ТАБЛИЦЕ (КРОМЕ ДАТЫ)*/	
+.slimtab_nice th, .slimtab_nice td, h2 {
+	color: var(--color-text-primary)				!important;
+}
+
+	/*ЦВЕТ ДАТЫ*/
+	/*НЕТ ВОЗМОЖНОСТИ СДЕЛАТЬ ЗЕЛЕНЫЙ ЦВЕТ ДАТ, ГДЕ ПРОПУСКИ ПО УВАЖИТЕЛЬНОЙ ПРИЧИНЕ*/
+.slimtab_nice font {
+	color: var(--color-red) !important;
+}
+
+
+	/*ПОДЧЕРКИВАНИЕ ССЫЛОК*/
+a.dashed {
+	border-bottom: 1px solid						!important
+}
+
+	/*ЯЧЕЙКИ ТАБЛИЦЫ*/
+div.span9 > table.slimtab_nice > tbody > tr > td {
+	background-color: var(--color-card)				!important;
+	border: 0.24rem solid var(--color-body) 		!important;
+	padding: 1.5rem 								!important;
+
+}
+	/*ЯЧЕЙКИ ЗАГОЛОВОК ТАБЛИЦЫ */
+div.span9 > table.slimtab_nice > tbody > tr > th {
+	background-color: var(--color-highlight)		!important;
+	border-color: var(--color-body)					!important;
+	font-weight: bold !important;
+	border: 0.24rem solid var(--color-body) 		!important;
+	text-align: center;
+	padding: 1rem;
+}
+
+
+/****ОБЪЯВЛЕНИЯ****/
+
+div.span9 > .msg {
+	color: var(--color-text-primary) !important;
+	border: 0px !important;
+	border-radius: var(--radius-medium) !important;
+	background-color: var(--color-card) !important;
+}
+
+.msg li {
+	text-align: justify !important;
+}
+
+/****************************************НАСТЯ END***************************************************************/
+
 /**** БОКОВОЕ МЕНЮ ****/
 div.span3 > ul.nav-tabs {
 	width: var(--width-aside)				!important;
     border-radius: var(--radius-small)		!important;
 }
+
 
 /* Элемент бокового меню */
 div.span3 > ul.nav-tabs > li > a {
@@ -135,4 +200,5 @@ body > div.container > div.row > div.span9 {
 	div.span3 > .nav.nav-tabs {
 		display: none	!important;
 	}
+
 }
