@@ -58,7 +58,7 @@ body > div.container {
 /****************************************НАСТЯ START***************************************************************/
 
 	/*******ПРОПУЩЕННЫЕ ЗАНЯТИЯ*********/	
-
+	/*Отступ от меню*/
 div.span9 {
 	width: var(--width-content) !important;
 	margin-left: var(--margin-left-content) 		!important;
@@ -74,16 +74,18 @@ div.span9 {
 	color: var(--color-text-primary)				!important;
 }
 
-	/*ЦВЕТ ДАТЫ*/
-	/*НЕТ ВОЗМОЖНОСТИ СДЕЛАТЬ ЗЕЛЕНЫЙ ЦВЕТ ДАТ, ГДЕ ПРОПУСКИ ПО УВАЖИТЕЛЬНОЙ ПРИЧИНЕ*/
+	/*ЦВЕТ ДАТЫ (красный)*/
 .slimtab_nice font {
 	color: var(--color-red) !important;
 }
-
+	/*ЦВЕТ ДАТЫ (зеленый)*/
+.slimtab_nice font[title=больничный] {
+	color: var(--color-green) !important;
+}
 
 	/*ПОДЧЕРКИВАНИЕ ССЫЛОК*/
 a.dashed {
-	border-bottom: 1px solid						!important
+	border-bottom: 1px dashed						!important
 }
 
 	/*ЯЧЕЙКИ ТАБЛИЦЫ*/
@@ -103,6 +105,36 @@ div.span9 > table.slimtab_nice > tbody > tr > th {
 	padding: 1rem;
 }
 
+ /*Скругления углов таблицы*/
+div.span9 > table > tbody > tr:nth-child(1) > th:nth-child(1) {
+	/*border-radius: var(--radius-medium) 0px 0px  0px !important;*/
+	border-top-left-radius:  var(--radius-medium) !important;
+}
+
+div.span9 > table > tbody > tr:nth-last-child(-n+1) > td:nth-child(1){
+	/*border-radius:  0px  0px 0px var(--radius-medium) !important;*/
+	border-bottom-left-radius: var(--radius-medium) !important;
+
+}
+
+div.span9 > table > tbody > tr:nth-child(1) > th:nth-last-child(-n+1){
+	/*border-radius: 0px var(--radius-medium)  0px 0px  !important;*/
+	border-top-right-radius: var(--radius-medium) !important;
+}
+
+div.span9 > table > tbody > tr:nth-last-child(-n+1) > td:nth-last-child(-n+1) {
+	/*border-radius: 0px 0px var(--radius-medium) 0px  !important;*/
+	border-bottom-right-radius:var(--radius-medium) !important;
+}
+
+/*Цвет текста "Всего пропущенных занятий"*/
+div.span9 > font[color=red]{
+	color: var(--color-red) !important;
+}
+
+div.span9 {
+	color: var(--color-text-primary) !important;
+}
 
 /****ОБЪЯВЛЕНИЯ****/
 
@@ -111,11 +143,55 @@ div.span9 > .msg {
 	border: 0px !important;
 	border-radius: var(--radius-medium) !important;
 	background-color: var(--color-card) !important;
-}
-
-.msg li {
 	text-align: justify !important;
 }
+
+ /*К СОЖАЛЕНИЮ АВТОМАТИЧЕСКИ МЕНЯЕТСЯ И РАЗДЕЛ "СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ", НИЧЕГО НЕ МОГУ ПОДЕЛАТЬ С ЭТИМ*/
+ /*паддинг для текста внутри карточки*/
+div.span9 > ul > li {
+	padding: 20px !important;
+}
+div.span9 > ul{
+}
+
+ /*даты*/
+div.span9 > ul > li > font[color]{
+	color: var(--color-text-secondary) !important;
+	/*text-align не работает здесь*/
+	padding-left: 60rem	!important;
+	display: flex	!important;
+}
+
+ /*заголовки*/
+div.span9 > ul > li > font[style]{
+	font-size: 16px !important;
+}
+
+
+ /**УЧЕБНЫЙ ПЛАН**/
+ /*свойства для селекторов .common td, .common th меняют таблицы в УЧЕБНОМ ПЛАНЕ, МОИХ ОЦЕНКАХ (ВСЕ ВКЛАДКИ), БИБЛИОТЕКА, ЭЛЕКТРОННЫЕ РЕСУРСЫ, СМЕНА ЛИЧНОЙ ЗАПИСИ*/
+.common td,
+.common th {
+    color: var(--color-text-primary) !important; 
+	background-color: var(--color-card) !important;
+	border: 0.24rem solid var(--color-body) 	!important;
+	padding: 0.7rem !important;
+}
+
+ /*Подсвечивание "Программы дисциплин", "Практики", "Дисциплины по курсу и выбору", "Дисциплины по выбору стдента"...*/
+body > div.container > div > div.span9 > div > table.common > tbody > tr > td[colspan="10"] {
+	 background-color: var(--color-highlight) !important;
+}
+ /*Отступ между триместрами*/
+body > div.container > div > div.span9 > div > table.common {
+	margin-bottom: 4rem !important;
+}
+
+ /*Цвет ссылок (первая колонка таблицы)*/
+body > div.container > div > div.span9 > div > table.common > tbody > tr > td > a {
+	color: var(--color-text-primary) !important; 
+}
+
 
 /****************************************НАСТЯ END***************************************************************/
 
