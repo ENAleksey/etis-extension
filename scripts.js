@@ -20,15 +20,15 @@ if (index >= 0) {
 	div.appendChild(newDiv);
 }
 
-/*Скругление краев таблицы*/
-const radius_medium = "8px"
-const headers = document.querySelectorAll(".slimtab_nice th");
-headers[0].style = "border-radius: " + radius_medium + " 0px 0px 0px !important;";
-headers[headers.length-1].style = "border-radius: 0px " + radius_medium + " 0px 0px !important;";
-
-const stringsOfTable = document.querySelectorAll(".slimtab_nice tr");
-const lastString = stringsOfTable[stringsOfTable.length-1].children;
-
-lastString
-lastString[0].style = "border-radius: 0px 0px 0px  " + radius_medium + "!important;";
-lastString[lastString.length-1].style = "border-radius: 0px 0px  " + radius_medium + " 0px !important;";
+/*ОБЪЯВЛЕНИЯ*/
+/*сомнительный костыль отступов между абзацами, можно доработать.
+СКРИПТ МЕНЯЕТ ТАКЖЕ И РАЗДЕЛ "СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ", ЧТО ДЕЛАЕТ ЕГО ЕЩЕ БОЛЕЕ СОМНИТЕЛЬНЫМ.
+*/
+const lis = document.querySelectorAll("body > div.container > div > div.span9 > ul > li");
+lis.forEach(li => {
+    li.querySelectorAll("br").forEach(x => { 
+    const new_br = document.createElement('br');
+    li.append(new_br);
+    li.insertBefore(new_br, x);
+    });
+});
