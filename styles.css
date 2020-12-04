@@ -201,6 +201,7 @@ div.span3 > ul.nav-tabs {
 div.span3 > ul.nav-tabs > li > a {
 	display: flex							!important;
 	align-items: center 					!important;
+	padding-right: 3rem					!important;
 	
 	height: 3rem							!important;
 	
@@ -226,6 +227,10 @@ div.span3 > ul.nav-tabs > li {
 }
 
 /* Элемент бокового меню "Пожалуйста, оцените дистанционное обучение!" */
+div.span3 > ul.nav-tabs > li[style]:hover {
+	background-color: transparent	!important;
+}
+
 div.span3 > ul.nav-tabs > li[style] {
 	background-color: var(--color-card) 							!important;
 	border-radius: 0 0 var(--radius-small) var(--radius-small)		!important;
@@ -244,7 +249,7 @@ div.span3 > ul.nav-tabs > li.active > a {
 }
 
 /* Индикатор количества опросов/сообщений/etc. у бокового меню */
-span.badge {
+.span3 span.badge {
 	position: absolute							!important;
 	right: 1rem									!important;
 	
@@ -268,7 +273,7 @@ body > div.container > div.row > div.span9 {
 
 @media screen and (max-width: 575px) {
 	/**** БОКОВОЕ МЕНЮ ****/
-	div.span3 > .nav.nav-tabs {
+	div.span3 {
 		display: none	!important;
 	}
 
