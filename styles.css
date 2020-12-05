@@ -1,3 +1,4 @@
+
 html {
 	font-size: 10px		!important;
 }
@@ -41,125 +42,143 @@ html {
 }
 
 body {
-	background-color: var(--color-body) 	!important;
+	background-color: var(--color-body)	!important;
+}
+
+/**** СМЕНА ЦВЕТА ДЛЯ ТЕКСТА ****/
+font[color=red] {
+	color: var(--color-red)		!important;
+}
+font[color=green] {
+	color: var(--color-green)	!important;
+}
+font[color=blue] {
+	color: var(--color-blue)	!important;
 }
 
 /**** ХЭДЕР (от него мы решили избавиться) ****/
 body > div.navbar.navbar-static-top {
-	display: none	!important;
+	display: none		!important;
 }
 
 /**** КОНТЕЙНЕР СО ВСЕМ КОНТЕНТОМ ЕТИСА ****/
 body > div.container {
 	max-width: var(--max-width-page)	!important;
-	width: 100% 						!important;
+	width: 100%				!important;
 }
+
+/**** СМЕНА ЦВЕТА ДЛЯ ССЫЛОК ВО ВСЕМ ЕТИСЕ ****/
+a {
+	color: var(--color-accent)		!important;
+}
+
+
 
 /****************************************НАСТЯ START***************************************************************/
 
 	/*******ПРОПУЩЕННЫЕ ЗАНЯТИЯ*********/	
 	/*Отступ от меню*/
 div.span9 {
-	width: var(--width-content) 					!important;
-	margin-left: var(--margin-left-content) 		!important;
+	width: var(--width-content) 			!important;
+	margin-left: var(--margin-left-content) 	!important;
 
 }
 	/*ЦВЕТ СТРОКИ: ОСЕННИЙ ТРИМЕСТР, ВЕСЕННИЙ ТРИМЕСТР, ЛЕТНИЙ ТРИМЕСТР*/	
 .submenu-item, a.dashed {
-	color:var(--color-text-secondary)				!important;
+	color:var(--color-text-secondary)		!important;
 }
 
 	/* ЦВЕТ ЗАГОЛОВКА "ПРОПУЩЕННЫЕ ЗАНЯТИЯ" И ТЕКСТА В ТАБЛИЦЕ (КРОМЕ ДАТЫ)*/	
 .slimtab_nice th, .slimtab_nice td, h2 {
-	color: var(--color-text-primary)				!important;
+	color: var(--color-text-primary)		!important;
 }
 
 	/*ЦВЕТ ДАТЫ (красный)*/
 .slimtab_nice font {
-	color: var(--color-red) !important;
+	color: var(--color-red) 			!important;
 }
 	/*ЦВЕТ ДАТЫ (зеленый)*/
 .slimtab_nice font[title=больничный] {
-	color: var(--color-green) !important;
+	color: var(--color-green) 			!important;
 }
 
 	/*ПОДЧЕРКИВАНИЕ ССЫЛОК*/
 a.dashed {
-	border-bottom: 1px dashed						!important
+	border-bottom: 1px dashed			!important
 }
 
 	/*ЯЧЕЙКИ ТАБЛИЦЫ*/
 div.span9 > table.slimtab_nice > tbody > tr > td {
-	background-color: var(--color-card)				!important;
-	border: 0.24rem solid var(--color-body) 		!important;
-	padding: 1.5rem 								!important;
+	background-color: var(--color-card)		!important;
+	border: 0.24rem solid var(--color-body) 	!important;
+	padding: 1.5rem 				!important;
 
 }
 	/*ЯЧЕЙКИ ЗАГОЛОВОК ТАБЛИЦЫ */
 div.span9 > table.slimtab_nice > tbody > tr > th {
-	background-color: var(--color-highlight)		!important;
-	border-color: var(--color-body)					!important;
-	font-weight: bold								!important;
-	border: 0.24rem solid var(--color-body) 		!important;
+	background-color: var(--color-highlight)	!important;
+	border-color: var(--color-body)			!important;
+	font-weight: bold				!important;
+	border: 0.24rem solid var(--color-body) 	!important;
 	text-align: center;
 	padding: 1rem;
 }
 
  /*Скругления углов таблицы*/
 div.span9 > table > tbody > tr:nth-child(1) > *:nth-child(1) {
-	border-top-left-radius:  var(--radius-medium) !important;
+	border-top-left-radius:  var(--radius-large) 	!important;
 }
 
 div.span9 > table > tbody > tr:nth-child(1) > :nth-last-child(1) {
-	border-top-right-radius: var(--radius-medium) !important;
+	border-top-right-radius: var(--radius-large) 	!important;
 }
 
 div.span9 > table > tbody > tr:nth-last-child(1) > *:nth-child(1) {
-	border-bottom-left-radius: var(--radius-medium) !important;
+	border-bottom-left-radius: var(--radius-large) 	!important;
 }
 
 div.span9 > table > tbody > tr:nth-last-child(1) > *:nth-last-child(1) {
-	border-bottom-right-radius:var(--radius-medium) !important;
+	border-bottom-right-radius:var(--radius-large) 	!important;
 }
 
 /*Цвет текста "Всего пропущенных занятий"*/
 div.span9 > font[color=red]{
-	color: var(--color-red) !important;
+	color: var(--color-red) 			!important;
 }
 
 div.span9 {
-	color: var(--color-text-primary) !important;
+	color: var(--color-text-primary) 		!important;
 }
 
 /****ОБЪЯВЛЕНИЯ****/
 
 div.span9 > .msg {
-	color: var(--color-text-primary) !important;
+	color: var(--color-text-primary)		!important;
 	border: 0px !important;
-	border-radius: var(--radius-medium) !important;
-	background-color: var(--color-card) !important;
-	text-align: justify !important;
+	border-radius: var(--radius-medium) 		!important;
+	background-color: var(--color-card) 		!important;
+	text-align: justify 				!important;
 }
 
- /*К СОЖАЛЕНИЮ АВТОМАТИЧЕСКИ МЕНЯЕТСЯ И РАЗДЕЛ "СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ", НИЧЕГО НЕ МОГУ ПОДЕЛАТЬ С ЭТИМ*/
+ /*К СОЖАЛЕНИЮ АВТОМАТИЧЕСКИ МЕНЯЕТСЯ И РАЗДЕЛ "СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ", НИЧЕГО НЕ МОГУ ПОДЕЛАТЬ С ЭТИМ, НО ИРА ИСПРАВИЛА!!!*/
  /*паддинг для текста внутри карточки*/
-div.span9 > ul > li {
-	padding: 20px !important;
+div.span9 > .msg > li {
+	padding: 20px 					!important;
 }
 div.span9 > ul{
 }
 
  /*даты*/
 div.span9 > ul > li > font[color]{
-	color: var(--color-text-secondary) !important;
+	color: var(--color-text-secondary) 		!important;
 	/*text-align не работает здесь*/
-	padding-left: 60rem	!important;
-	display: flex	!important;
+	padding-left: 60rem				!important;
+	display: flex					!important;
 }
 
  /*заголовки*/
 div.span9 > ul > li > font[style]{
-	font-size: 16px !important;
+	font-size: 16px 				!important;
 }
 
 
@@ -167,47 +186,47 @@ div.span9 > ul > li > font[style]{
  /*свойства для селекторов .common td, .common th меняют таблицы в УЧЕБНОМ ПЛАНЕ, МОИХ ОЦЕНКАХ (ВСЕ ВКЛАДКИ), БИБЛИОТЕКА, ЭЛЕКТРОННЫЕ РЕСУРСЫ, СМЕНА ЛИЧНОЙ ЗАПИСИ*/
 .common td,
 .common th {
-    color: var(--color-text-primary) !important; 
-	background-color: var(--color-card) !important;
+    color: var(--color-text-primary) 			!important; 
+	background-color: var(--color-card) 		!important;
 	border: 0.24rem solid var(--color-body) 	!important;
-	padding: 0.7rem !important;
+	padding: 0.7rem 				!important;
 }
 
  /*Подсвечивание "Программы дисциплин", "Практики", "Дисциплины по курсу и выбору", "Дисциплины по выбору стдента"...*/
 body > div.container > div > div.span9 > div > table.common > tbody > tr > td[colspan="10"] {
-	 background-color: var(--color-highlight) !important;
+	 background-color: var(--color-highlight) 	!important;
 }
  /*Отступ между триместрами*/
 body > div.container > div > div.span9 > div > table.common {
-	margin-bottom: 4rem !important;
+	margin-bottom: 4rem 				!important;
 }
 
  /*Цвет ссылок (первая колонка таблицы)*/
 body > div.container > div > div.span9 > div > table.common > tbody > tr > td > a {
-	color: var(--color-text-primary) !important; 
+	color: var(--color-text-primary) 		!important; 
 }
 
 
 /****************************************НАСТЯ END***************************************************************/
 
 /**** БОКОВОЕ МЕНЮ ****/
-div.span3 > ul.nav-tabs {
-	width: var(--width-aside)				!important;
-    border-radius: var(--radius-small)		!important;
+div.span3 {
+	width: var(--width-aside)			!important;
+    border-radius: var(--radius-small)			!important;
 }
 
 
 /* Элемент бокового меню */
 div.span3 > ul.nav-tabs > li > a {
-	display: flex							!important;
-	align-items: center 					!important;
-	padding-right: 3rem					!important;
+	display: flex					!important;
+	align-items: center 				!important;
+	padding-right: 3rem				!important;
 	
-	height: 3rem							!important;
+	height: 3rem					!important;
 	
-    border: 0								!important;
-    color: var(--color-text-primary)		!important;
-    background-color: var(--color-card) 	!important;
+    border: 0						!important;
+    color: var(--color-text-primary)			!important;
+    background-color: var(--color-card) 		!important;
 }
 
 /* Элемент бокового меню при наведении на него мыши */
@@ -222,47 +241,47 @@ div.span3 > ul.nav-tabs > li > a:focus {
 
 /* Нижний отступ элемента бокового меню (в ЕТИСе равен -1) */
 div.span3 > ul.nav-tabs > li {
-	position: relative	!important;
-	margin-bottom: 0	!important;
+	position: relative				!important;
+	margin-bottom: 0				!important;
 }
 
 /* Элемент бокового меню "Пожалуйста, оцените дистанционное обучение!" */
 div.span3 > ul.nav-tabs > li[style]:hover {
-	background-color: transparent	!important;
+	background-color: transparent			!important;
 }
 
 div.span3 > ul.nav-tabs > li[style] {
-	background-color: var(--color-card) 							!important;
-	border-radius: 0 0 var(--radius-small) var(--radius-small)		!important;
+	background-color: var(--color-card) 				!important;
+	border-radius: 0 0 var(--radius-small) var(--radius-small)	!important;
 }
 
 /* Текст элемента бокового меню "Пожалуйста, оцените дистанционное обучение!"*/
 div.span3 > ul.nav-tabs > li > a > font {
-	color: var(--color-text-primary)	!important;
+	color: var(--color-text-primary)		!important;
 	font-weight: normal 				!important;
 }
 
 /* Выбранный элемент бокового меню */
 div.span3 > ul.nav-tabs > li.active > a {
 	background-color: var(--color-highlight)	!important;
-	font-weight: bold							!important;
+	font-weight: bold				!important;
 }
 
 /* Индикатор количества опросов/сообщений/etc. у бокового меню */
 .span3 span.badge {
-	position: absolute							!important;
-	right: 1rem									!important;
+	position: absolute				!important;
+	right: 1rem					!important;
 	
-	display: flex								!important;
-	justify-content: center						!important;
-	align-items: center							!important;
+	display: flex					!important;
+	justify-content: center				!important;
+	align-items: center				!important;
 	
-	height: 2.2rem								!important;
-	width: 2.2rem								!important;
+	height: 2.2rem					!important;
+	width: 2.2rem					!important;
 	
-	padding: 0									!important;
+	padding: 0					!important;
 	background-color: var(--color-accent)		!important;
-	border-radius: var(--radius-small)			!important;
+	border-radius: var(--radius-small)		!important;
 	color: var(--color-text-primary-invert)		!important;
 }
 
@@ -274,7 +293,19 @@ body > div.container > div.row > div.span9 {
 @media screen and (max-width: 575px) {
 	/**** БОКОВОЕ МЕНЮ ****/
 	div.span3 {
-		display: none	!important;
+		display: none				!important;
 	}
 
+}
+
+/*** ПРИКАЗЫ***/
+div.span9 > ul.orders > li.ord {
+	margin-bottom: 5rem;
+	margin-bottom: 5rem;
+}
+
+/*** МОИ ОЦЕНКИ (оценки за сессии)***/
+/*** Заголовок***/
+div.span9 > table.common > tbody > tr > th {
+	background-color: var(--color-highlight) 	!important;
 }
