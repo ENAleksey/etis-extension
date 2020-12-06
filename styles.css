@@ -274,13 +274,18 @@ div.span3 > ul.nav-tabs > li.active > a {
 	justify-content: center				!important;
 	align-items: center				!important;
 	
-	height: 2.2rem					!important;
-	width: 2.2rem					!important;
+	height: 2.4rem					!important;
+	width: 2.4rem					!important;
 	
 	padding: 0					!important;
 	background-color: var(--color-accent)		!important;
 	border-radius: var(--radius-small)		!important;
 	color: var(--color-text-primary-invert)		!important;
+}
+
+/* Шрифт индикатора у активного элемента (не должен быть жирным) */
+div.span3 > ul.nav-tabs > li.active > a > span.badge {
+	font-weight: normal				!important;
 }
 
 /**** ОСНОВНОЙ КОНТЕНТ СПРАВА ****/
