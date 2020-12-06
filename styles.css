@@ -112,6 +112,7 @@ div.span9 > table.slimtab_nice > tbody > tr > td {
 	background-color: var(--color-card)		!important;
 	border: 0.24rem solid var(--color-body) 	!important;
 	padding: 1.5rem 				!important;
+	vertical-align: middle !important;
 
 }
 	/*ЯЧЕЙКИ ЗАГОЛОВОК ТАБЛИЦЫ */
@@ -120,8 +121,9 @@ div.span9 > table.slimtab_nice > tbody > tr > th {
 	border-color: var(--color-body)			!important;
 	font-weight: bold				!important;
 	border: 0.24rem solid var(--color-body) 	!important;
-	text-align: center;
 	padding: 1rem;
+	text-align: center !important;
+	vertical-align: middle !important;
 }
 
  /*Скругления углов таблицы*/
@@ -149,6 +151,11 @@ div.span9 > font[color=red]{
 div.span9 {
 	color: var(--color-text-primary) 		!important;
 }
+
+/*div.span9 > table.slimtab_nice > tbody > tr > th:nth-child(2) {*/
+/*	min-width: 190px !important;*/
+/*	word-wrap: break-word !important;*/
+/*}*/
 
 /****ОБЪЯВЛЕНИЯ****/
 
@@ -183,13 +190,20 @@ div.span9 > ul > li > font[style]{
 
 
  /**УЧЕБНЫЙ ПЛАН**/
+ 
+ /*центрирование текста в таблице (кроме названия дисциплин)*/
+.common td[align] {
+	text-align: center !important;
+}
+ 
  /*свойства для селекторов .common td, .common th меняют таблицы в УЧЕБНОМ ПЛАНЕ, МОИХ ОЦЕНКАХ (ВСЕ ВКЛАДКИ), БИБЛИОТЕКА, ЭЛЕКТРОННЫЕ РЕСУРСЫ, СМЕНА ЛИЧНОЙ ЗАПИСИ*/
 .common td,
 .common th {
     color: var(--color-text-primary) 			!important; 
 	background-color: var(--color-card) 		!important;
 	border: 0.24rem solid var(--color-body) 	!important;
-	padding: 0.7rem 				!important;
+	padding: 0.8rem 				!important;
+	vertical-align: middle !important;
 }
 
  /*Подсвечивание "Программы дисциплин", "Практики", "Дисциплины по курсу и выбору", "Дисциплины по выбору стдента"...*/
@@ -198,12 +212,50 @@ body > div.container > div > div.span9 > div > table.common > tbody > tr > td[co
 }
  /*Отступ между триместрами*/
 body > div.container > div > div.span9 > div > table.common {
-	margin-bottom: 4rem 				!important;
+	margin-bottom: 3rem 				!important;
 }
 
  /*Цвет ссылок (первая колонка таблицы)*/
 body > div.container > div > div.span9 > div > table.common > tbody > tr > td > a {
 	color: var(--color-text-primary) 		!important; 
+}
+
+/*скругления углов таблиц*/
+div.span9 table.common> tbody > tr:nth-child(1) > *:nth-child(1){
+	border-top-left-radius:  var(--radius-large) 	!important;
+}
+
+div.span9 table.common> tbody > tr:nth-child(1) > :nth-last-child(1){
+	border-top-right-radius: var(--radius-large) 	!important;
+}
+
+div.span9 table.common> tbody > tr:nth-last-child(1) > *:nth-child(1){
+	border-bottom-left-radius: var(--radius-large) 	!important;
+}
+
+div.span9 table.common> tbody > tr:nth-last-child(1) > *:nth-last-child(1){
+	border-bottom-right-radius:var(--radius-large) 	!important;
+}
+
+/*скругление фигурной скобки*/
+tr.cgrldatarow > td[rowspan="2"]{
+	border-bottom-left-radius: var(--radius-large) 	!important;
+}
+
+/*СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ*/ 
+
+/*магия*/
+div.span9 > ul> li > b > i {
+	display: flex !important;
+}
+
+div.span9 > ul > input {
+	color: var(--color-text-primary) !important;
+	background-color: var(--color-highlight-transparent) !important;
+	float: right !important;
+    padding: 5px;
+    margin-right: 20px;
+    border-radius: var(--radius-small) !important;
 }
 
 
