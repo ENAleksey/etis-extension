@@ -220,9 +220,7 @@ div.span3 {
 div.span3 > ul.nav-tabs > li > a {
 	display: flex					!important;
 	align-items: center 				!important;
-	padding-right: 3rem				!important;
-	
-	height: 3rem					!important;
+	padding: 1.4rem 3rem 1.4rem 1.4rem				!important;
 	
     border: 0						!important;
     color: var(--color-text-primary)			!important;
@@ -264,7 +262,7 @@ div.span3 > ul.nav-tabs > li > a > font {
 /* Выбранный элемент бокового меню */
 div.span3 > ul.nav-tabs > li.active > a {
 	background-color: var(--color-highlight)	!important;
-	font-weight: bold				!important;
+	font-weight: bold							!important;
 }
 
 /* Индикатор количества опросов/сообщений/etc. у бокового меню */
