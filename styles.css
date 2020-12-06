@@ -84,9 +84,17 @@ div.span9 {
 
 }
 	/*ЦВЕТ СТРОКИ: ОСЕННИЙ ТРИМЕСТР, ВЕСЕННИЙ ТРИМЕСТР, ЛЕТНИЙ ТРИМЕСТР*/	
-.submenu-item, a.dashed {
+a.dashed[href] {
 	color:var(--color-text-secondary)		!important;
+	font-weight: normal					!important;
 }
+
+/*Предложение Лёхи*/
+div.submenu-item:focus {
+	font-weight: bold					!important;
+	color:var(--color-text-primary)		!important;
+}
+
 
 	/* ЦВЕТ ЗАГОЛОВКА "ПРОПУЩЕННЫЕ ЗАНЯТИЯ" И ТЕКСТА В ТАБЛИЦЕ (КРОМЕ ДАТЫ)*/	
 .slimtab_nice th, .slimtab_nice td, h2 {
@@ -152,11 +160,6 @@ div.span9 {
 	color: var(--color-text-primary) 		!important;
 }
 
-/*div.span9 > table.slimtab_nice > tbody > tr > th:nth-child(2) {*/
-/*	min-width: 190px !important;*/
-/*	word-wrap: break-word !important;*/
-/*}*/
-
 /****ОБЪЯВЛЕНИЯ****/
 
 div.span9 > .msg {
@@ -172,10 +175,8 @@ div.span9 > .msg {
 div.span9 > .msg > li {
 	padding: 20px 					!important;
 }
-div.span9 > ul{
-}
 
- /*даты*/
+ /*Даты*/
 div.span9 > ul > li > font[color]{
 	color: var(--color-text-secondary) 		!important;
 	/*text-align не работает здесь*/
@@ -183,7 +184,7 @@ div.span9 > ul > li > font[color]{
 	display: flex					!important;
 }
 
- /*заголовки*/
+ /*Заголовки*/
 div.span9 > ul > li > font[style]{
 	font-size: 16px 				!important;
 }
@@ -196,7 +197,7 @@ div.span9 > ul > li > font[style]{
 	text-align: center !important;
 }
  
- /*свойства для селекторов .common td, .common th меняют таблицы в УЧЕБНОМ ПЛАНЕ, МОИХ ОЦЕНКАХ (ВСЕ ВКЛАДКИ), БИБЛИОТЕКА, ЭЛЕКТРОННЫЕ РЕСУРСЫ, СМЕНА ЛИЧНОЙ ЗАПИСИ*/
+ /*Свойства для селекторов .common td, .common th меняют таблицы в УЧЕБНОМ ПЛАНЕ, МОИХ ОЦЕНКАХ (ВСЕ ВКЛАДКИ), БИБЛИОТЕКА, ЭЛЕКТРОННЫЕ РЕСУРСЫ, СМЕНА ЛИЧНОЙ ЗАПИСИ*/
 .common td,
 .common th {
     color: var(--color-text-primary) 			!important; 
@@ -210,6 +211,12 @@ div.span9 > ul > li > font[style]{
 body > div.container > div > div.span9 > div > table.common > tbody > tr > td[colspan="10"] {
 	 background-color: var(--color-highlight) 	!important;
 }
+
+/*Подсвечивание заголовков таблиц*/
+div.span9 table.common > tbody > tr > th {
+	background-color: var(--color-highlight) 	!important;
+}
+
  /*Отступ между триместрами*/
 body > div.container > div > div.span9 > div > table.common {
 	margin-bottom: 3rem 				!important;
@@ -220,7 +227,7 @@ body > div.container > div > div.span9 > div > table.common > tbody > tr > td > 
 	color: var(--color-text-primary) 		!important; 
 }
 
-/*скругления углов таблиц*/
+/*Скругления углов таблиц*/
 div.span9 table.common> tbody > tr:nth-child(1) > *:nth-child(1){
 	border-top-left-radius:  var(--radius-large) 	!important;
 }
@@ -237,27 +244,45 @@ div.span9 table.common> tbody > tr:nth-last-child(1) > *:nth-last-child(1){
 	border-bottom-right-radius:var(--radius-large) 	!important;
 }
 
-/*скругление фигурной скобки*/
+/*Скругление фигурной скобки*/
+/*Лучше делать скриптом, наверное*/
 tr.cgrldatarow > td[rowspan="2"]{
 	border-bottom-left-radius: var(--radius-large) 	!important;
 }
 
 /*СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ*/ 
-
-/*магия*/
-div.span9 > ul> li > b > i {
-	display: flex !important;
-}
-
+/*Кнопка*/
+/*Вылетает из формы, памагити*/
 div.span9 > ul > input {
 	color: var(--color-text-primary) !important;
 	background-color: var(--color-highlight-transparent) !important;
 	float: right !important;
     padding: 5px;
-    margin-right: 20px;
     border-radius: var(--radius-small) !important;
 }
 
+/*Номера страниц*/
+div.span9 > div.week-select > ul > li {
+	background-color: var(--color-highlight) !important;
+	border: 0px;
+	border-radius: var(--radius-large) !important;
+	padding: 1.1rem !important;
+	margin-bottom: 3.5rem !important;
+	margin-right: 4.9px !important;
+	font-size: 12px !important;
+	line-height: 16px;
+	text-align: center;
+}
+
+/*Скрытие текста "Страница"*/
+div.span9 > div.week-select > ul > li:nth-child(1) {
+	display: none !important;
+}
+
+/*Изменение цвета ссылки в сообщении преподавателя*/
+div.span9 > ul > li > font[onclick] {
+	color: var(--color-blue) !important;
+}
 
 /****************************************НАСТЯ END***************************************************************/
 
