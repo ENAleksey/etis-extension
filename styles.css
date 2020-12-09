@@ -391,13 +391,24 @@ div.span9 > table.common > tbody > tr > th {
 
 /***ВХОД В ЕТИС***/
 
+/*выравнивание карточки по центру
+div.login {
+	height: 100vh !important;
+	display: flex	!important;
+	flex-direction: column	!important;
+	justify-content: center	!important;
+	margin-top: 0	!important;
+	background: none	!important;
+}*/
+
 /*место для Логотипа*/
 div.choose{
 	/*display: none !important;*/
 	width: 34,5rem;
     height: 20rem;
 	background: var(--color-card)						!important;
-	background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/f807e2d3fd133a3089641a6ca003d57efced3d09/psu_logo.svg") 															!important;
+	background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/8bc57f7b991ba8b6a07dec05809ac8c218082db4/psu_logo.svg") 															!important;
+	opacity: .6								!important; 
 	background-position: center 						!important;
 	background-repeat: no-repeat						!important;
 	border-bottom: 0							!important;
@@ -408,9 +419,9 @@ div.choose{
 div.login > form#form{
 	background: var(--color-card)						!important;
 	border-radius:  var(--radius-large) 					!important;
-	box-shadow: none							!important;
 	height: 46.3rem;
 	width: 40rem;
+	box-shadow: 0 1.4rem 2.8rem rgba(0,0,0,0.25), 0 1rem 1rem rgba(0,0,0,0.22) !important;
 }
 
 /*убрать тень на карточке входа*/
@@ -431,27 +442,47 @@ div.login::after{
 /*кнопка Вход*/
 .login .items button#sbmt > span {
 	background: var(--color-accent) 					!important;
-	border-top: 0								!important;
-	outline: none								!important;
+	/*height: 10rem !important;
+	width: 10 rem !important;*/
+
 	text-shadow: none							!important;
 	color: var(--color-text-primary-invert) 				!important;
-	font: 12px 'PT Sans Caption', Verdana, sans-serif			!important;
-	padding: 0.8rem 3rem							!important;
+	font: 14px 'PT Sans Caption', Verdana, sans-serif			!important;
 
+	border-top: none							!important;
 	border-radius: var(--radius-small)					!important;
 	display: block								!important;
 	position: absolute							!important;
-	left: 24.6rem								!important;
+	left: 21.9rem								!important;
+	white-space: normal !important;
+	/*отступы для создания кнопки Вход размером 100х32*/
+	padding: 0.72rem 2.852rem !important;
 }
 
 /*логин и пароль*/
-.login .items .item input {
+.login #form .items .item input {
 	-webkit-box-shadow: 0 0 0px 1000px var(--color-input-field) inset 	!important;
 	background-color: var(--color-input-field) 				!important;
 	outline: none								!important;
-	border: none								!important;
+	border: none;		/*!important не ставить, потому что работает скрипт*/
 	-webkit-text-fill-color: var(--color-text-primary)			!important;
 	border-radius: var(--radius-small)					!important;
+	padding: 1rem								!important;
+	line-height: 0								!important;
+	height: 1.6rem								!important;
+	width: 30rem								!important;
+	background: var(--color-input-field)					!important;
+	text-indent: 0								!important;
+	font-size: 1rem 							!important;
+	font: 12px 'PT Sans Caption', Verdana, sans-serif			!important;
+	transition: background-color 5000s ease-in-out 0s;
+	caret-color: var(--color-text-primary) !important;
+}
+div.items{
+	padding: 0rem 0rem 0rem 4rem !important;
+}
+div.item > label{
+	font: 12px 'PT Sans Caption', Verdana, sans-serif			!important;
 }
 
 /*сообщение об ошибке логина пароля*/
@@ -470,8 +501,8 @@ div.error_message{
 
 /*надпись Студенты 1-го курса для входа используют email и пароль личного кабинета абитуриента*/
 .header_message{
-	position: relative							!important;
-	top: 65rem;
+	position: absolute							!important;
+	bottom: 3rem;
 	left: 20%;
 	height: 5%;
 	width: 60%;
@@ -484,8 +515,9 @@ div.right > a{
 	color: var(--color-text-secondary)					!important;
 	position: absolute							!important;
 	right: 16rem								!important;
-	font: 12px 'PT Sans Caption', Verdana, sans-serif			!important;
-	top: 38.5rem;
+	font: 1.1rem 'PT Sans Caption', Verdana, sans-serif			!important;
+	top: 39.3rem;
+	
 }
 
 /*скрыла надпись Вход*/
