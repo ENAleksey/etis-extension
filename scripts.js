@@ -19,6 +19,22 @@ if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetabl
 	}
 }
 
+/*логин и пароль выделяются красным бордером, если введены неправильно*/
+if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login'){
+	const errorMessage = document.getElementsByClassName('error_message')[0];
+	
+	if (typeof errorMessage !== 'undefined') {
+		const redInputs = document.querySelectorAll(".login .items .item input")
+		const redILabels = document.querySelectorAll("div.item > label")
+		const colorError = "#D04524";
+		redInputs[0].style.border = '2px solid ' + colorError;
+		redInputs[1].style.border = '2px solid ' + colorError;
+		redILabels[0].style.color = colorError;
+		redILabels[1].style.color = colorError;
+	}
+}
+
+
 /****ПРОПУЩЕННЫЕ ЗАНЯТИЯ****/
 
 /*Смена цвета текста "Всего пропущено занятий: */
