@@ -301,7 +301,9 @@ div.span3 {
 div.span3 > ul.nav-tabs > li > a {
 	display: flex								!important;
 	align-items: center 						!important;
-	padding: 1.4rem 3rem 1.4rem 1.4rem			!important;
+	justify-content: space-between				!important;
+	
+	padding: 1.4rem 1.4rem 1.4rem 1.4rem			!important;
 	
     border: 0									!important;
     color: var(--color-text-primary)			!important;
@@ -348,10 +350,8 @@ div.span3 > ul.nav-tabs > li.active > a {
 
 /* Индикатор количества опросов/сообщений/etc. у бокового меню */
 .span3 span.badge {
-	position: absolute						!important;
-	right: 1rem								!important;
-	
 	display: flex							!important;
+	flex: 0 0 2.4rem						!important;
 	justify-content: center					!important;
 	align-items: center						!important;
 	
