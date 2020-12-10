@@ -572,7 +572,7 @@ div.span9 > table.teacher_info div.teacher_photo > img {
 
 /* Информация о преподавателе */
 div.span9 > table.teacher_info td.teacher_desc {
-	padding: 2rem 0 0 2rem							!important;
+	padding: 1.4rem 0 0 2rem							!important;
 }
 
 /* Информация о кафедре */
