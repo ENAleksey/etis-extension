@@ -39,10 +39,14 @@ html {
 
 	/* Максимальная ширина страницы */
 	--max-width-page: 1120px;
+	
+	/* Шрифт */
+	--font-family: 'PT Sans Caption', Verdana, sans-serif;
 }
 
 body {
 	background-color: var(--color-body)	!important;
+	font-family: var(--font-family)	!important;
 }
 
 /**** СМЕНА ЦВЕТА ДЛЯ ТЕКСТА ****/
@@ -384,7 +388,13 @@ div.span9 > ul.orders > li.ord {
 }
 
 /*** МОИ ОЦЕНКИ (оценки за сессии)***/
-/*** Заголовок***/
+
+/* Таблица с оценками (+ таблицы в учебном плане, других вкладках с оценками, библиотеке, электронных ресурсах, смене личной записи) */
+div.span9 > table.common {
+	width: 100% 											!important;
+}
+
+/* Заголовок */
 div.span9 > table.common > tbody > tr > th {
 	background-color: var(--color-highlight) 				!important;
 }
