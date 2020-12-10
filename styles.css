@@ -612,3 +612,71 @@ div.span9 > table.teacher_info td.teacher_desc > div.chair > img.tooltip {
 	display: none;
 	margin-left: 1rem								!important;
 }
+
+/*** РАСПИСАНИЕ ***/
+
+/* Блок расписания дня */
+div.span9 > div.timetable > div.day {
+	padding-top: 1.4rem !important;
+	
+	background-color: var(--color-highlight)	!important;
+	border-radius: var(--radius-medium)			!important;
+}
+
+/* Заголовок (день) блока расписания */
+div.span9 > div.timetable > div.day > h3 {
+	margin: 0 0 1.4rem 1.4rem !important;
+}
+
+/* Нижняя часть блока расписания, если в этот день нет пар */
+div.span9 > div.timetable > div.day > div.no_pairs {
+	background-color: var(--color-card)	!important;
+	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
+	padding: 1.4rem 0 1.4rem 1.4rem !important;
+}
+
+/* Таблица расписания дня */
+div.span9 > div.timetable > div.day > table {
+	background-color: var(--color-card)	!important;
+	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
+}
+
+/* Левая нижняя граница таблицы расписания */
+div.span9 > div.timetable > div.day > table tr:nth-last-child(1) > td:nth-child(1) {
+	border-bottom-left-radius: var(--radius-medium) !important;
+}
+
+/* Правая нижняя граница таблицы расписания */
+div.span9 > div.timetable > div.day > table tr:nth-last-child(1) > td:nth-last-child(1) {
+	border-bottom-right-radius: var(--radius-medium) !important;
+}
+
+/* Ячейка таблицы расписания */
+div.span9 > div.timetable > div.day > table td {
+	border: 0 !important;
+}
+
+/* Ссылка "оценить занятие" */
+/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > a.eval,*/
+/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > br {*/
+/*	display: none !important;*/
+/*}*/
+
+div.span9 > div.timetable table td.pair_jour {
+	width: 100% !important;
+	height: 100% !important;
+	
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+div.span9 > div.timetable table td.pair_jour > a {
+	display: none !important;
+}
+
+.kittens_note {
+	cursor: pointer;
+}

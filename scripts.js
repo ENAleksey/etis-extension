@@ -4,10 +4,16 @@
 // style.href = chrome.extension.getURL('logo.png');
 // document.getElementsByTagName('head')[0].appendChild(style);
 
+/**** ЗАМЕТКИ ****/
+
+const openNote = () => {
+	alert('Ждите в следующих обновлениях!')
+}
+
 /****СТРАНИЦА ВХОДА****/
 /*Удаление текста и перенос его в другой элемент*/
 /*Скрипт выполняется только на двух страницах*/
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetable' || window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login') {
+if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login') {
 	/*Удаление текста при входе в ЕТИС*/
 	const div2 = document.getElementsByClassName("items")[0];
 	const index2 = div2.innerHTML.indexOf("По всем вопросам звоните по телефону 2396870. Специалист службы технической поддержки находится в кабинете 245 (бывший кабинет отдела пропусков), расположенном между первым и вторым корпусом на 2 этаже.");
@@ -79,3 +85,27 @@ lis.forEach(li => {
     li.insertBefore(new_br, x);
     });
 });
+
+/**** РАСПИСАНИЕ ****/
+
+if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetable') {
+	
+	// Добавляем иконки заметок на место иконок журнала старосты
+	const noteWrappers = document.querySelectorAll("div.span9 > div.timetable td.pair_jour");
+	
+	noteWrappers.forEach(noteWrapper => {
+		
+		if (noteWrapper.children[0]) {
+			noteWrapper.children[0].remove()
+			
+			const note = document.createElement('img');
+			note.className = 'kittens_note';
+			note.src = 'https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/note.svg';
+			note.addEventListener('click', () => openNote());
+			
+			noteWrapper.appendChild(note);
+		}
+		
+	})
+	
+}
