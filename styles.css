@@ -524,3 +524,63 @@ div.right > a{
 h1.title{
 	display: none								!important;
 }
+
+/*** СТРАНИЦА ПРЕПОДАВАТЕЛЕЙ ***/
+
+/* Карточка преподавателя */
+div.span9 > table.teacher_info {
+	display: block							!important;
+	
+	height: 15.5rem 						!important;
+	
+	margin-bottom: 1rem 					!important;
+	
+	border-radius: var(--radius-small)		!important;
+	background-color: var(--color-card) 	!important;
+}
+
+/* Верхняя карточка преподавателя */
+div.span9 > table.teacher_info:nth-child(3) {
+	margin-top: 2rem						!important;
+}
+
+/* Контент карточки преподавателя */
+div.span9 > table.teacher_info tr {
+	display: flex							!important;
+}
+
+/* Отдельные блоки в карточке преподавателя */
+div.span9 > table.teacher_info td {
+	display: block							!important;
+	padding: 0								!important;
+}
+
+/* Обёртка фотографии преподавателя */
+div.span9 > table.teacher_info div.teacher_photo {
+	border: none												!important;
+	border-radius: var(--radius-small) 0 0 var(--radius-small)	!important;
+}
+
+/* Фотография преподавателя */
+div.span9 > table.teacher_info div.teacher_photo > img {
+	width: 11.3rem												!important;
+    height: 15.5rem												!important;	
+	
+	border: none												!important;
+	border-radius: var(--radius-small) 0 0 var(--radius-small)	!important;
+}
+
+/* Информация о преподавателе в карточке преподавателя */
+div.span9 > table.teacher_info td.teacher_desc {
+	padding: 2rem 0 0 2rem !important;
+}
+
+div.span9 > table.teacher_info td.teacher_desc > div.chair {
+	margin-top: 2rem !important;
+	color: var(--color-text-secondary)				!important;
+}
+
+div.span9 > table.teacher_info td.teacher_desc > div.dis {
+	margin-top: 0.8rem !important;
+	color: var(--color-text-secondary)				!important;
+}

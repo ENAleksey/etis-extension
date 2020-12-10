@@ -7,7 +7,7 @@
 /****СТРАНИЦА ВХОДА****/
 /*Удаление текста и перенос его в другой элемент*/
 /*Скрипт выполняется только на двух страницах*/
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetable' || 'https://student.psu.ru/pls/stu_cus_et/stu.login') {
+if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetable' || window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login') {
 	/*Удаление текста при входе в ЕТИС*/
 	const div2 = document.getElementsByClassName("items")[0];
 	const index2 = div2.innerHTML.indexOf("По всем вопросам звоните по телефону 2396870. Специалист службы технической поддержки находится в кабинете 245 (бывший кабинет отдела пропусков), расположенном между первым и вторым корпусом на 2 этаже.");
@@ -32,6 +32,15 @@ if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login'){
 		redILabels[0].style.color = colorError;
 		redILabels[1].style.color = colorError;
 	}
+}
+
+/**** СТРАНИЦА ПРЕПОДАВАТЕЛЕЙ ****/
+
+/* Удаление элементов br между ссылкой на статистику и карточками преподов */
+if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.teachers') {
+	const brs = document.querySelectorAll('.span9 > br');
+	console.log(brs);
+	brs.forEach(br => br.remove());
 }
 
 
@@ -63,3 +72,4 @@ lis.forEach(li => {
     li.insertBefore(new_br, x);
     });
 });
+
