@@ -533,7 +533,7 @@ div.span9 > table.teacher_info {
 	
 	height: 15.5rem 						!important;
 	
-	margin-bottom: 1rem 					!important;
+	margin-bottom: 1.2rem 					!important;
 	
 	border-radius: var(--radius-small)		!important;
 	background-color: var(--color-card) 	!important;
@@ -570,17 +570,34 @@ div.span9 > table.teacher_info div.teacher_photo > img {
 	border-radius: var(--radius-small) 0 0 var(--radius-small)	!important;
 }
 
-/* Информация о преподавателе в карточке преподавателя */
+/* Информация о преподавателе */
 div.span9 > table.teacher_info td.teacher_desc {
-	padding: 2rem 0 0 2rem !important;
+	padding: 2rem 0 0 2rem							!important;
 }
 
+/* Информация о кафедре */
 div.span9 > table.teacher_info td.teacher_desc > div.chair {
-	margin-top: 2rem !important;
+	margin-top: 2rem								!important;
 	color: var(--color-text-secondary)				!important;
 }
 
+/* Информация о предметах, которые ведёт преподаватель */
 div.span9 > table.teacher_info td.teacher_desc > div.dis {
-	margin-top: 0.8rem !important;
+	margin-top: 0.8rem								!important;
 	color: var(--color-text-secondary)				!important;
+}
+
+/* Центрирование имени преподавателя/названия кафедры и иконки расписания */
+div.span9 > table.teacher_info td.teacher_desc > div.teacher_name,
+div.span9 > table.teacher_info td.teacher_desc > div.chair {
+	display: flex									!important;
+	align-items: center								!important;
+}
+
+/* Иконки расписания (преподавателей и кафедр) */
+div.span9 > table.teacher_info td.teacher_desc > div.teacher_name > img.tooltip,
+div.span9 > table.teacher_info td.teacher_desc > div.chair > img.tooltip {
+	/* Скрывает их изначально, чтобы потом подменить скриптом */
+	display: none;
+	margin-left: 1rem								!important;
 }

@@ -36,11 +36,18 @@ if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login'){
 
 /**** СТРАНИЦА ПРЕПОДАВАТЕЛЕЙ ****/
 
-/* Удаление элементов br между ссылкой на статистику и карточками преподов */
 if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.teachers') {
+	// Удаление элементов br между ссылкой на статистику и карточками преподов
 	const brs = document.querySelectorAll('.span9 > br');
-	console.log(brs);
 	brs.forEach(br => br.remove());
+	
+	// Добавление иконки расписания (преподавателей и кафедр) вместо исходной
+	const scheduleIcons = document.querySelectorAll("div.span9 > table.teacher_info td.teacher_desc > div.teacher_name > img.tooltip, div.span9 > table.teacher_info td.teacher_desc > div.chair > img.tooltip");
+	scheduleIcons.forEach(icon => {
+		icon.src='https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/schedule.svg'
+		icon.style.display = 'initial';
+		});
+	
 }
 
 
@@ -72,4 +79,3 @@ lis.forEach(li => {
     li.insertBefore(new_br, x);
     });
 });
-
