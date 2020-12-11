@@ -609,9 +609,36 @@ div.span9 > table.teacher_info td.teacher_desc > div.chair > img.tooltip {
 
 /*** РАСПИСАНИЕ ***/
 
+/* Заголовок "Недели" */
+div.span9 > div.week-select > h3 {
+	display: none								!important;
+}
+
 /* Блоки с номерами недель */
 div.span9 > div.week-select > ul.weeks > li.week {
 	margin-bottom: 0.5rem						!important;
+}
+
+/* Номер текущей недели */
+div.span9 > div.week-select > ul.weeks > li.week.current,
+div.span9 > div.week-select > ul.weeks > li.week.current > a{
+	color: var(--color-accent)					!important;
+	border: 0									!important;
+}
+
+/* Номер недели начала каникул */
+div.span9 > div.week-select > ul.weeks > li.week > a {
+	color: var(--color-text-primary)			!important;
+}
+
+/* Номер недели начала каникул */
+div.span9 > div.week-select > ul.weeks > li.week.holiday > a {
+	color: var(--color-green)					!important;
+}
+
+/* Номер недели сессии */
+div.span9 > div.week-select > ul.weeks > li.week.session > a {
+	color: var(--color-red)					!important;
 }
 
 /* Блок расписания дня */

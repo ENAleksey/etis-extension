@@ -88,7 +88,7 @@ lis.forEach(li => {
 
 /**** РАСПИСАНИЕ ****/
 
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetable') {
+if (window.location.href.match('https://student.psu.ru/pls/stu_cus_et/stu.timetable')) {
 	
 	// Добавляем иконки заметок на место иконок журнала старосты
 	const noteWrappers = document.querySelectorAll("div.span9 > div.timetable td.pair_jour");
@@ -112,7 +112,7 @@ if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetabl
 
 /**** СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ ****/
 
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.teacher_notes') {
+if (window.location.href.match('https://student.psu.ru/pls/stu_cus_et/stu.teacher_notes')) {
 	// Скрывает блок с текстом "Страницы"
 	const pagesDiv = document.querySelector('div.span9 > div.week-select > ul > li:nth-child(1)');
 	pagesDiv.remove();
