@@ -1,4 +1,3 @@
-
 html {
 	font-size: 10px		!important;
 }
@@ -39,7 +38,7 @@ html {
 
 	/* Максимальная ширина страницы */
 	--max-width-page: 1120px;
-	
+
 	/* Шрифт */
 	--font-family: 'PT Sans Caption', Verdana, sans-serif;
 }
