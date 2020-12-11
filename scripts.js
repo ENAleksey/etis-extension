@@ -129,4 +129,8 @@ if (window.location.href.match('https://student.psu.ru/pls/stu_cus_et/stu.teache
 	// Первое сообщение от преподавателя
 	const firstMsg = document.querySelector('div.span9 > ul.nav.msg:nth-child(3)');
 	firstMsg.style.marginTop = '3rem';
+	
+	// Убирает отступы (&nbsp) перед именем преподавателя
+	let list_ul = document.querySelectorAll('body > div.container > div > div.span9 > ul')
+	list_ul.forEach(li => li.innerHTML = li.innerHTML.replace('&nbsp;&nbsp;&nbsp;', ''));
 }
