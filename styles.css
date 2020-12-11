@@ -663,38 +663,112 @@ div.span9 > div.timetable > div.day > div.no_pairs {
 
 /* Таблица расписания дня */
 div.span9 > div.timetable > div.day > table {
+	display: block						!important;
+	
 	background-color: var(--color-card)	!important;
 	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
 }
 
-/* Левая нижняя граница таблицы расписания */
-div.span9 > div.timetable > div.day > table tr:nth-last-child(1) > td:nth-child(1) {
-	border-bottom-left-radius: var(--radius-medium) !important;
+/* Контент таблицы расписания */
+div.span9 > div.timetable > div.day > table > tbody {
+	display: flex						!important;
+	flex-direction: column				!important;
+	
+	padding: 1.4rem	1.4rem 0 0			!important;
 }
 
-/* Правая нижняя граница таблицы расписания */
-div.span9 > div.timetable > div.day > table tr:nth-last-child(1) > td:nth-last-child(1) {
-	border-bottom-right-radius: var(--radius-medium) !important;
+/* Строка таблицы расписания */
+div.span9 > div.timetable > div.day > table > tbody > tr {
+	display: flex						!important;
+	margin-bottom: 1.4rem				!important;
 }
 
 /* Ячейка таблицы расписания */
 div.span9 > div.timetable > div.day > table td {
-	border: 0 !important;
+	border: 0							!important;
+}
+
+/* Ячейка с номером пары и временем */
+div.span9 > div.timetable > div.day > table tr > td.pair_num {
+	flex: 0 0 6rem						!important;
+	
+	padding: 0							!important;
+	
+	display: flex						!important;
+	justify-content: center				!important;
+	align-items: center					!important;
+	
+	/* С помощью font-size убирает текст */
+	font-size: 0						!important;
+	color: var(--color-text-secondary)	!important;
+}
+
+/* Время пары */
+div.span9 > div.timetable > div.day > table tr > td.pair_num > font.eval {
+	/* Восстанавливает текст */
+	font-size: 1.2rem					!important;
+}
+
+/* Тег br внутри ячейки с временем пары */
+div.span9 > div.timetable > div.day > table tr > td.pair_num > br {
+	display: none						!important;
+}
+
+/* Ячейка с информацией о паре */
+div.span9 > div.timetable > div.day > table tr > td.pair_info {
+	flex: 0 0 68.3rem					!important;
+}
+
+div.span9 > div.timetable table td.pair_info span.dis > a {
+	color: var(--color-text-primary)	!important;
+	text-decoration: none				!important;
+}
+
+div.span9 > div.timetable table td.pair_info span.aud > a {
+	display: flex						!important;
+	align-items: center					!important;
+	line-height: 1						!important;
+	
+	margin-top: 0.4rem					!important;
+	
+	color: var(--color-text-secondary)	!important;
+}
+
+div.span9 > div.timetable table td.pair_info span.aud > a > img {
+	display: none;
+}
+
+/* Информация о преподавателе в строке */
+div.span9 > div.timetable table td.pair_info span.teacher {
+	/* Костылём вызывает переполнение контейнера, чтобы можно было центрировать ФИО препода по строке */
+	height: 3.8rem !important;
+	
+	display: flex						!important;
+	justify-content: center				!important;
+	align-items: center					!important;
+}
+
+/* Имя преподавателя */
+div.span9 > div.timetable table td.pair_info span.teacher > a {
+	color: var(--color-text-secondary)	!important;
+}
+
+/* Имя преподавателя при наведении на него мыши */
+div.span9 > div.timetable table td.pair_info span.teacher > a:hover {
+	text-decoration: none				!important;
 }
 
 /* Ссылка "оценить занятие" */
-/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > a.eval,*/
-/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > br {*/
-/*	display: none !important;*/
-/*}*/
+div.span9 > div.timetable table td.pair_info span.teacher > a.eval {
+	display: none						!important;
+}
 
 /* Ячейка с иконкой журнала старосты (у нас - иконка заметки) */
 div.span9 > div.timetable table td.pair_jour {
 	width: 100% !important;
-	height: 100% !important;
 	
 	display: flex !important;
-	justify-content: center !important;
+	justify-content: flex-end !important;
 	align-items: center !important;
 	padding: 0 !important;
 	margin: 0 !important;
@@ -705,6 +779,15 @@ div.span9 > div.timetable table td.pair_jour > a {
 	display: none !important;
 }
 
+/* Ссылка "оценить занятие" */
+/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > a.eval,*/
+/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > br {*/
+/*	display: none !important;*/
+/*}*/
+
+/*** ЗАМЕТКИ ***/
+
+/* Класс заметок */
 .kittens_note {
 	cursor: pointer;
 }

@@ -94,18 +94,23 @@ lis.forEach(li => {
 
 if (window.location.href.match('https://student.psu.ru/pls/stu_cus_et/stu.timetable')) {
 	
+	const zoomLogos = document.querySelectorAll("div.span9 > div.timetable table td.pair_info span.aud > a > img");
+	zoomLogos.forEach(logo => {
+		logo.src = 'https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/zoom.svg';
+		logo.style.display = 'initial';
+	})
+	
 	// Добавляем иконки заметок на место иконок журнала старосты
 	const noteWrappers = document.querySelectorAll("div.span9 > div.timetable td.pair_jour");
 	
 	noteWrappers.forEach(noteWrapper => {
+		const note = document.createElement('img');
+		note.className = 'kittens_note';
+		note.src = 'https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/note.svg';
+		note.addEventListener('click', () => openNote());
 		
 		if (noteWrapper.children[0]) {
 			noteWrapper.children[0].remove()
-			
-			const note = document.createElement('img');
-			note.className = 'kittens_note';
-			note.src = 'https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/note.svg';
-			note.addEventListener('click', () => openNote());
 			
 			noteWrapper.appendChild(note);
 		}
