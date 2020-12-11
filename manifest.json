@@ -1,5 +1,5 @@
 {
-  "name": "Редизайн ЕТИСа",
+  "name": "ЕТИС 2.0",
   "version": "1.0",
   "description": "Удобная и современная версия ЕТИСа",
   "content_scripts": [
@@ -11,9 +11,9 @@
       "run_at": "document_end"
     }
   ],
-  "icons": { "16": "logo.png",
-             "48": "logo.png",
-            "128": "logo.png" },
+  "icons": { "16": "official logo.png",
+             "48": "official logo.png",
+            "128": "official logo.png" },
   "web_accessible_resources": ["logo.png"],
   "manifest_version": 2
 }
