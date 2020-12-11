@@ -11,9 +11,13 @@ const openNote = () => {
 }
 
 /****СТРАНИЦА ВХОДА****/
+
+const login = document.querySelector('.login');
+
 /*Удаление текста и перенос его в другой элемент*/
 /*Скрипт выполняется только на двух страницах*/
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login') {
+if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login' ||
+login) {
 	/*Удаление текста при входе в ЕТИС*/
 	const div2 = document.getElementsByClassName("items")[0];
 	const index2 = div2.innerHTML.indexOf("По всем вопросам звоните по телефону 2396870. Специалист службы технической поддержки находится в кабинете 245 (бывший кабинет отдела пропусков), расположенном между первым и вторым корпусом на 2 этаже.");
