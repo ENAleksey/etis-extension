@@ -854,3 +854,35 @@ div.span9 > div.timetable table td.pair_jour > a {
 .kittens_note {
 	cursor: pointer;
 }
+
+/*палочки для выделенных элементов в меню*/
+.nav.nav-tabs.nav-stacked .active::before {
+position: absolute !important;
+width: 0.5rem !important;
+height: 4rem !important;
+z-index: 3 !important;
+
+margin-top: 0.4rem !important;
+
+
+content: "" !important;
+border-radius: var(--radius-medium) !important;
+background: var(--color-blue) !important;
+}
+
+/*палочки для выделенных неделей в расписании*/
+.week.current::after {
+	position: absolute !important;
+	bottom: 0.5rem;
+	left: 0.7rem;
+    width: 2.4rem !important;
+    height: 0.4rem !important;
+    
+    content: '' !important;
+    border-radius: 8px !important;
+    background: var(--color-blue) !important;
+}
+/*обязательная штука для выделения недели*/
+div.span9 > div.week-select > ul.weeks > li.week.current{
+	position: relative !important;
+}
