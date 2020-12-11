@@ -193,6 +193,11 @@ div.span9 > ul > li > font[style]{
 	font-size: 16px 				!important;
 }
 
+/*Изменение карточки нового объявления*/
+div.span9 > ul.nav.answ {
+	background-color: var(--color-highlight);
+	padding: 20px;
+}
 
  /**УЧЕБНЫЙ ПЛАН**/
  
@@ -256,13 +261,23 @@ tr.cgrldatarow > td[rowspan="2"]{
 
 /*СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ*/ 
 /*Кнопка*/
-/*Вылетает из формы, памагити*/
 div.span9 > ul > input {
 	color: var(--color-text-primary) !important;
 	background-color: var(--color-highlight-transparent) !important;
-	float: right !important;
-    padding: 5px;
+   
+    margin-left: 65rem !important;
+    margin-bottom: 20px !important;
+    padding-left: 35px !important;
+	padding-right: 15px !important;
+	padding-bottom: 10px !important;
+	padding-top: 10px !important;
+	
     border-radius: var(--radius-small) !important;
+    border: none !important;
+    
+	font-family: var(--font-family) !important;
+	
+	background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/5ea6e525751c62f9c2b9c56a20c45a102ee74e04/Send.svg") !important;
 }
 
 /*Номера страниц*/
@@ -282,6 +297,54 @@ div.span9 > ul > li > font[onclick] {
 	color: var(--color-blue) !important;
 }
 
+/*Кнопка "Отправить ответ"*/
+div.span9 > ul form[action="stu.send_reply"] input  {
+	color: var(--color-text-primary) !important;
+	background-color: var(--color-highlight-transparent) !important;
+   
+    margin-left: 2rem !important;
+    margin-bottom: 2rem !important;
+    margin-top: 2rem !important;
+	padding: 8px 20px !important;
+	
+    border-radius: var(--radius-small) !important;
+    border: none !important;
+    
+	font-family: var(--font-family) !important;
+}
+
+/*Цвет надписи "После того как ответ будет отправлен..." в форме отправке ответа*/
+form[action="stu.send_reply"] font[style] {
+	color: var(--color-accent) !important;
+	margin: 20px;
+}
+
+/*Пространство ввода*/
+div.span9 > ul textarea {
+	color: var(--color-text-primary) !important;
+	background-color: var(--color-highlight) !important;
+	
+	border: 0px !important;
+	border-radius: var(--radius-small) !important;
+	height: 50px !important;
+	width: 748px !important;
+	margin: 20px !important;
+}
+
+/*Кнопка "Прикрепить файлы"*/
+div.span9 > ul.nav.msg.repl_s input {
+	color: var(--color-text-primary) !important;
+	background-color: var(--color-highlight-transparent) !important;
+   
+    margin-bottom: 2rem !important;
+    margin-top: 2rem !important;
+	padding: 8px 20px !important;
+	
+    border-radius: var(--radius-small) !important;
+    border: none !important;
+    
+	font-family: var(--font-family) !important;
+}
 /****************************************НАСТЯ END***************************************************************/
 
 /**** БОКОВОЕ МЕНЮ ****/
