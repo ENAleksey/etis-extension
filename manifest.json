@@ -11,9 +11,9 @@
       "run_at": "document_end"
     }
   ],
-  "icons": { "16": "logo.svg",
-             "48": "logo.svg",
-            "128": "logo.svg" },
+  "icons": { "16": "logo.png",
+             "48": "logo.png",
+            "128": "logo.png" },
   "web_accessible_resources": ["logo.svg"],
   "manifest_version": 2
 }
