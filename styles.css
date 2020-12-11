@@ -677,6 +677,18 @@ div.span9 > div.week-select > h3 {
 	display: none								!important;
 }
 
+/* Надписи "Напишите, что думаете о расписании!", "Консультации", "Подробное расписание" */
+div.span9 > a.estimate_tt,
+div.span9 > div[style="float: right;margin-right:15px;color:#0088CC;cursor:pointer;"] {
+	color: var(--color-accent)					!important;
+	font-size: 1.2rem							!important;
+}
+
+/* Чекбокс для консультаций */
+div.span9 > div[style="float: right;margin-right:15px;color:#0088CC;cursor:pointer;"] > input {
+	background-color: var(--color-accent)		!important;
+}
+
 /* Блоки с номерами недель */
 div.span9 > div.week-select > ul.weeks > li.week {
 	margin-bottom: 0.5rem						!important;
@@ -857,17 +869,17 @@ div.span9 > div.timetable table td.pair_jour > a {
 
 /*палочки для выделенных элементов в меню*/
 .nav.nav-tabs.nav-stacked .active::before {
-position: absolute !important;
-width: 0.5rem !important;
-height: 4rem !important;
-z-index: 3 !important;
-
-margin-top: 0.4rem !important;
-
-
-content: "" !important;
-border-radius: var(--radius-medium) !important;
-background: var(--color-blue) !important;
+	position: absolute !important;
+	left: 0;
+	top: 10%;
+	
+	width: 0.5rem !important;
+	height: 80%;
+	z-index: 3 !important;
+	
+	content: "" !important;
+	border-radius: var(--radius-medium) !important;
+	background: var(--color-blue) !important;
 }
 
 /*палочки для выделенных неделей в расписании*/
@@ -879,7 +891,7 @@ background: var(--color-blue) !important;
     height: 0.4rem !important;
     
     content: '' !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-medium) !important;
     background: var(--color-blue) !important;
 }
 /*обязательная штука для выделения недели*/
