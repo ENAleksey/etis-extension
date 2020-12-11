@@ -271,16 +271,10 @@ div.span9 > div.week-select > ul > li {
 	border: 0px;
 	border-radius: var(--radius-large) !important;
 	padding: 1.1rem !important;
-	margin-bottom: 3.5rem !important;
-	margin-right: 4.9px !important;
+	margin-right: 0.5rem !important;
 	font-size: 12px !important;
 	line-height: 16px;
 	text-align: center;
-}
-
-/*Скрытие текста "Страница"*/
-div.span9 > div.week-select > ul > li:nth-child(1) {
-	display: none !important;
 }
 
 /*Изменение цвета ссылки в сообщении преподавателя*/
@@ -615,6 +609,11 @@ div.span9 > table.teacher_info td.teacher_desc > div.chair > img.tooltip {
 
 /*** РАСПИСАНИЕ ***/
 
+/* Блоки с номерами недель */
+div.span9 > div.week-select > ul.weeks > li.week {
+	margin-bottom: 0.5rem						!important;
+}
+
 /* Блок расписания дня */
 div.span9 > div.timetable > div.day {
 	padding-top: 1.4rem !important;
@@ -662,6 +661,7 @@ div.span9 > div.timetable > div.day > table td {
 /*	display: none !important;*/
 /*}*/
 
+/* Ячейка с иконкой журнала старосты (у нас - иконка заметки) */
 div.span9 > div.timetable table td.pair_jour {
 	width: 100% !important;
 	height: 100% !important;
@@ -673,6 +673,7 @@ div.span9 > div.timetable table td.pair_jour {
 	margin: 0 !important;
 }
 
+/* Иконка журнала старосты */
 div.span9 > div.timetable table td.pair_jour > a {
 	display: none !important;
 }

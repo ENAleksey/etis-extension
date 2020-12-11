@@ -109,3 +109,15 @@ if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.timetabl
 	})
 	
 }
+
+/**** СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ ****/
+
+if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.teacher_notes') {
+	// Скрывает блок с текстом "Страницы"
+	const pagesDiv = document.querySelector('div.span9 > div.week-select > ul > li:nth-child(1)');
+	pagesDiv.remove();
+	
+	// Первое сообщение от преподавателя
+	const firstMsg = document.querySelector('div.span9 > ul.nav.msg:nth-child(3)');
+	firstMsg.style.marginTop = '3rem';
+}
