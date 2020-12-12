@@ -12,13 +12,13 @@
 Пока наш продукт проходит проверку в интернет-магазине Chrome, мы предлагаем вам легкий способ поставить расширение вручную.
 
 ### Шаг 1. Скачать расширение
-- Перейдите по [ссылке](https://drive.google.com/file/d/1qHpue4McAdcP0PnvbuyeZEb-uS3Ib0Iw/view?usp=sharing) на гугл-диск и скачайте архив с названием ETIS 2.0.zip;
+- Перейдите по [ссылке](https://drive.google.com/file/d/1qHpue4McAdcP0PnvbuyeZEb-uS3Ib0Iw/view?usp=sharing) на гугл-диск и скачайте архив с названием **ETIS 2.0.zip**.
 
 <img src="https://github.com/ENAleksey/etis-extension/blob/master/screenshots/step1.png" width="500" />
 
 ***
 
-- Извлеките из архива папку ETIS 2.0 на свой компьютер.
+- Извлеките из архива папку **ETIS 2.0** на свой компьютер.
 
 
 ### Шаг 2. Установить расширение в браузере
