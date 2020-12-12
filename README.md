@@ -48,12 +48,12 @@
 ***
 
 - Найдите  и выберите на своем компьютере папку с расширением ЕТИС 2.0
-*(после извлечения из архива папка по умолчанию назвается ETIS 2.0)*.
+*(после извлечения из архива папка по умолчанию называется ETIS 2.0)*.
 
 
 - В браузерных настройках расширения появится новый элемент. Убедитесь, что расширение активировано.
 
-<img src="https://github.com/ENAleksey/etis-extension/blob/master/screenshots/step2.5.png" width="400" />
+<img src="https://github.com/ENAleksey/etis-extension/blob/master/screenshots/step2.5.png" width="500" />
 
 ***
 
