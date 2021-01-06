@@ -216,6 +216,10 @@ span[style="color:#333333"] {
 	color: var(--color-text-secondary) !important;
 }
 
+font[color="#6A0035"] {
+    color: var(--color-text-accent);
+}
+
 /* Links */
 
 a {

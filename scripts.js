@@ -84,7 +84,7 @@ if (login) {
 	
 } else {
 	// Add Extension Settings button in Sidebar
-	const nav = document.querySelector('div.span3 > ul:nth-child(4)');
+	const nav = document.querySelector('div.span3 > ul:nth-last-child(1)');
 	if (nav) {
 		const el1 = document.createElement("li");
 		const el2 = document.createElement("a");
@@ -119,14 +119,14 @@ if (login) {
 			el = span9.querySelector('a');
 			el.className = 'icon-button icon-analytics';
 			
-			const descriptions = document.querySelectorAll('.teacher_desc');
+			const descriptions = span9.querySelectorAll('.teacher_desc');
 			descriptions.forEach(desc => {
 				const name = desc.querySelector('.teacher_name');
 				btn = document.createElement('a');
 				btn.className = 'icon-button2';
 				btn.text = 'today';
 				img = name.querySelector('img');
-				btn.onclick = img.onclick;
+				btn.setAttribute('onclick', img.getAttribute('onclick'));
 				btn.title = img.title;
 				img.remove();
 				name.appendChild(btn);
@@ -136,7 +136,7 @@ if (login) {
 				btn.className = 'icon-button2';
 				btn.text = 'today';
 				img = chair.querySelector('img');
-				btn.onclick = img.onclick;
+				btn.setAttribute('onclick', img.getAttribute('onclick'));
 				btn.title = img.title;
 				img.remove();
 				chair.appendChild(btn);
