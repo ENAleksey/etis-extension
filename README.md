@@ -3,6 +3,8 @@
 
 **ЕТИС** - [информационная система](https://k.psu.ru/centre/etis-about), используемая для автоматизации учебного процесса ПГНИУ.
 
+# Установка
+
 **Скачать:**
 - [Для Google Chrome](https://chrome.google.com/webstore/detail/%D0%B5%D1%82%D0%B8%D1%81-20/lnggbapghkjneppcomlegoocpdeaiafa?hl=en-US)
 
