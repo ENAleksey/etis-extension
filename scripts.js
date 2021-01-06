@@ -65,7 +65,7 @@ if (login) {
 			loginContainer.insertBefore(errorMessage, loginContainer.childNodes[0]);
 			item.remove();
 		}
-		
+
 		input = item.querySelector('input');
 		if (input) {
 			input.placeholder = ' ';
@@ -83,37 +83,40 @@ if (login) {
 	loginContainer.appendChild(loginFooter);
 	
 } else {
+	// Add Extension Settings button in Sidebar
 	const nav = document.querySelector('div.span3 > ul:nth-child(4)');
-	const el1 = document.createElement("li");
-	const el2 = document.createElement("a");
-	el2.appendChild(document.createTextNode("Настройки расширения"));
-	el1.appendChild(el2);
-	nav.insertBefore(el1, nav.childNodes[0]);
-	el1.addEventListener('click', switchTheme, false);
-	
+	if (nav) {
+		const el1 = document.createElement("li");
+		const el2 = document.createElement("a");
+		el2.appendChild(document.createTextNode("Настройки расширения"));
+		el1.appendChild(el2);
+		nav.insertBefore(el1, nav.childNodes[0]);
+		el1.addEventListener('click', switchTheme, false);
+	}
+
 	const span9 = document.querySelector('div.span9');
 	const page = window.location.pathname.split('/').pop();
 	
 	switch (page) {
 		case 'stu.teach_plan':
-			el = document.querySelector('div.span9 > div:nth-child(2)');
+			el = span9.querySelector('div:nth-child(2)');
 			el.className = 'teach-plan';
 			
-			el = document.querySelector('div.span9 > div:nth-child(2) > div > a');
+			el = span9.querySelector('div:nth-child(2) > div > a');
 			el.className = 'icon-button icon-feedback';
 			el.text = 'Оставить отзыв';
 			
 			break;
 			
 		case 'stu.tpr':
-			el = document.querySelector('div.span9 > a');
+			el = span9.querySelector('a');
 			el.className = 'icon-button icon-feedback';
 			el.text = 'Оставить отзыв';
 			
 			break;
 			
 		case 'stu.teachers':
-			el = document.querySelector('div.span9 > a');
+			el = span9.querySelector('a');
 			el.className = 'icon-button icon-analytics';
 			
 			const descriptions = document.querySelectorAll('.teacher_desc');
@@ -146,16 +149,16 @@ if (login) {
 			buttonbar.className = 'timetable-buttonbar';
 			span9.insertBefore(buttonbar, span9.childNodes[0]);
 			
-			el = document.querySelector('div.span9 > div:nth-child(6)');
+			el = span9.querySelector('div:nth-child(6)');
 			el.className = 'timetable-btn consultations';
 			buttonbar.appendChild(el);
 			
-			el = document.querySelector('div.span9 > a.estimate_tt');
+			el = span9.querySelector('a.estimate_tt');
 			el.className = 'timetable-btn icon-button icon-feedback';
 			el.text = 'Оставить отзыв';
 			buttonbar.appendChild(el);
 			
-			el = document.querySelector('div.span9 > a:nth-child(5)');
+			el = span9.querySelector('a:nth-child(5)');
 			el.className = 'timetable-btn icon-button icon-today';
 			buttonbar.appendChild(el);
 			
@@ -188,7 +191,7 @@ if (login) {
 			const items = document.createElement('div');
 			items.className = "items";
 			form.insertBefore(items, form.childNodes[0]);
-			form.insertBefore(document.querySelector('div.span9 > h3'), form.childNodes[0]);
+			form.insertBefore(span9.querySelector('h3'), form.childNodes[0]);
 			
 			const labels = form.querySelectorAll('label');
 			const inputs = form.querySelectorAll('input');
@@ -210,8 +213,8 @@ if (login) {
 			const changeEmailItems = document.createElement('div');
 			changeEmailItems.className = "items";
 			changeEmailForm.insertBefore(changeEmailItems, changeEmailForm.childNodes[0]);
-			changeEmailForm.insertBefore(document.querySelector('div.span9 > div'), changeEmailForm.childNodes[0]);
-			changeEmailForm.insertBefore(document.querySelector('div.span9 > h3'), changeEmailForm.childNodes[0]);
+			changeEmailForm.insertBefore(span9.querySelector('div'), changeEmailForm.childNodes[0]);
+			changeEmailForm.insertBefore(span9.querySelector('h3'), changeEmailForm.childNodes[0]);
 
 			const emailLabel = changeEmailForm.querySelector('label');
 			const emailInput = changeEmailForm.querySelector("#email");
