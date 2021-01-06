@@ -6,7 +6,7 @@
 **Скачать:**
 - [Для Google Chrome](https://chrome.google.com/webstore/detail/%D0%B5%D1%82%D0%B8%D1%81-20/lnggbapghkjneppcomlegoocpdeaiafa?hl=en-US)
 
-# Контакты
+# Обратная связь
 
 Если у вас возникли вопросы или предложения по улучшению расширения, обратитесь в нашу службу технической поддержки:
 
