@@ -143,6 +143,24 @@ if (login) {
 			});
 			
 			break;
+
+		case 'stu.sc_portfolio':
+			const loadDocImgs = span9.querySelectorAll('img[name="load_doc"]');
+			loadDocImgs.forEach(img => {
+				btn = document.createElement('a');
+				btn.className = 'icon-button2';
+				btn.text = 'attach_file';
+				btn.setAttribute('name', img.getAttribute('name'));
+				btn.setAttribute('data-tab', img.getAttribute('data-tab'));
+				btn.setAttribute('data-term', img.getAttribute('data-term'));
+				btn.setAttribute('data-ttp', img.getAttribute('data-ttp'));
+				btn.setAttribute('data-dis', img.getAttribute('data-dis'));
+				btn.setAttribute('onclick', 'get_files()');
+				img.parentNode.appendChild(btn);
+				img.remove();
+			});
+
+			break;
 			
 		case 'stu.timetable':
 			const buttonbar = document.createElement('div');
