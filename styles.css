@@ -1191,6 +1191,7 @@ html[theme="light"] .login > form:before {
 	color: var(--color-text-primary) !important;
 	font-size: 1.4rem !important;
 	text-align: center !important;
+	z-index: 1;
 }
 
 /* Also for stu.change_pass_form and stu_email_pkg.change_email */

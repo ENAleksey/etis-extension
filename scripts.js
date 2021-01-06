@@ -44,6 +44,7 @@ function switchTheme(e) {
 var login = document.querySelector('body > div.login');
 if (login) {
 	document.body.innerHTML = '<div class ="login-container">' + document.body.innerHTML + '</div>';
+	const loginContainer = document.querySelector('div.login-container');
 	
 	const loginItems = document.querySelector('#form > div.items');
 	const loginActions = document.createElement('div');
@@ -59,6 +60,12 @@ if (login) {
 	
 	const items = loginItems.querySelectorAll('div.item');
 	items.forEach(item => {
+		const errorMessage = item.querySelector('div.error_message');
+		if (errorMessage) {
+			loginContainer.insertBefore(errorMessage, loginContainer.childNodes[0]);
+			item.remove();
+		}
+		
 		input = item.querySelector('input');
 		if (input) {
 			input.placeholder = ' ';
@@ -73,7 +80,7 @@ if (login) {
 	const loginFooter = document.querySelector('div.header_message');
 	loginFooter.className = 'footer';
 	loginFooter.innerHTML = '<p>' + loginFooter.innerHTML + '</p><p>' + infoStr + '</p>';
-	document.querySelector('div.login-container').appendChild(loginFooter);
+	loginContainer.appendChild(loginFooter);
 	
 } else {
 	const nav = document.querySelector('div.span3 > ul:nth-child(4)');
