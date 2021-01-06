@@ -208,7 +208,9 @@ span[style="color:blue;"] {
 	color: var(--color-blue) !important;
 }
 
-font[color="gray"], font[color="#808080"],
+font[color="gray"],
+font[color="#808080"],
+font[style="font-size:10px;color:#808080"],
 div[style="font-size:0.8em;color:gray;"],
 span[style="color:#808080"],
 font[style="font-weight:bold;color:#333333;"],
@@ -356,11 +358,6 @@ textarea {
     border: var(--border-input) !important;
 }
 
-textarea {
-    width: 24rem !important;
-    height: 2.4rem !important;
-}
-
 /* Input Fields */
 
 input[type="text"],
@@ -407,7 +404,7 @@ input:-webkit-autofill:active {
 
 input[type="checkbox"],
 input[type="radio"] {
-	display: flex !important;
+	display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     margin-right: 1rem !important;
@@ -945,7 +942,6 @@ span.holiday {
 }
 
 .pair_info .dis a {
-	display: inline-flex !important;
 	color: var(--color-text-primary) !important;
 	text-decoration: none !important;
 	font-size: 1.4rem !important;
@@ -980,7 +976,7 @@ span.holiday {
 }
 
 .pair_info .aud > a {
-    display: inline-flex !important;
+    display: flex !important;
     align-items: center !important;
     color: var(--color-text-secondary) !important;
     text-decoration: none !important;
