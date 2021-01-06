@@ -1,19 +1,19 @@
 {
-  "name": "ЕТИС 2.0",
-  "version": "1.0",
-  "description": "Удобная и современная версия ЕТИСа",
-  "content_scripts": [
-    {
-      "matches": ["https://student.psu.ru/*"],
-      "js": ["scripts.js"],
-      "css": ["styles.css"],
-      "all_frames": true,
-      "run_at": "document_end"
-    }
-  ],
-  "icons": { "16": "logo.png",
-             "48": "logo.png",
-            "128": "logo.png" },
-  "web_accessible_resources": ["logo.svg"],
-  "manifest_version": 2
+	"name": "ЕТИС 2.0",
+	"version": "0.1",
+	"description": "Удобная и современная версия ЕТИСа",
+	"content_scripts": [
+		{
+			"matches": ["https://student.psu.ru/*"],
+			"js": ["scripts.js"],
+			"css": ["styles.css"],
+			"all_frames": true,
+			"run_at": "document_end"
+		}
+	],
+	"icons": {  "16": "logo.png",
+				"48": "logo.png",
+				"128": "logo.png" },
+	"web_accessible_resources": ["logo.png"],
+	"manifest_version": 2
 }

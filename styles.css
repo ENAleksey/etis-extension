@@ -1,891 +1,824 @@
-html {
-	font-size: 10px		!important;
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v38/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
 }
 
+
 :root {
-	/* Цвета */
-	--color-body: #181818;
-	--color-card: #212121;
-	--color-highlight: #333333;
-	--color-highlight-light: #555555;
-	--color-highlight-transparent: #ffffff0f;
-	--color-input-field: #0C0C0C;
-	--color-red: #E87D7D;
-	--color-green: #70C27E;
-	--color-blue: #8AB4F8;
-	--color-accent: #8AB4F8;
-	--color-highlight-accent: #BCD4FB;
-	--color-error: #D04524;
-
-	--color-text-primary: #ffffffde;
-	--color-text-secondary: #ffffff99;
-	--color-text-primary-invert: #000000;
-	--color-text-error: #ED6545;
-
-	/* Скругления углов */
+	--font-family: 'PT Sans Caption', Verdana, sans-serif;
+	/*--font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";*/
+	
 	--radius-small: 5px;
 	--radius-medium: 8px;
 	--radius-large: 12px;
-
-	/* Ширина бокового меню */
-	--width-aside: 24rem;
-
-	/* Ширина контента */
-	--width-content: 81rem;
 	
-	/* Отступ слева у основного контента */
-	--margin-left-content: /* 28rem; */ 4rem;
+	--width-aside: 24rem;
+	--width-page: 1120px;
+	--width-content: 80rem;
+	--width-content-margin-left: 4rem;
+}
 
-	/* Максимальная ширина страницы */
-	--max-width-page: 1120px;
+[theme="light"] {
+	--color-body: #ebebed;
+	--color-card: #f2f2f2;
+	--color-highlight: #f6f6f6;
+	--color-highlight-light: #fff;
+	--color-input: #f6f6f6;
+	--color-scrollbar-thumb: #bbb;
+	--color-scrollbar-thumb-highlight: #aaa;
+	--color-table-border: #ffffffa0;
+	--color-table-header: #f6f6f6;
+	--color-table-highlight: #f6f6f6;
+	--color-accent: #a49dc2;
+	--color-accent-dark: #6d61a0;
+	--color-accent-hightlight: #bcb4da;
+	--color-accent-active: #c9c1e9;
+	--color-red: #f44336;
+	--color-green: #38a73d;
+	--color-blue: #a49dc2;
+	--color-yellow: #c47500;
+	--color-error: #d04524;
+	
+	--color-text-link: #6d61a0;
+	--color-text-primary: #000000de;
+	--color-text-secondary: #00000099;
+	--color-text-primary-invert: #fff;
+	--color-text-accent: #6d61a0;
+	--color-text-highlight: #000;
+	--color-text-error: #ed6545;
+	
+	--shadow-main: 0 8px 16px #a49dc220;
+	
+	--border-input: 1px solid #a49dc2;
+}
 
-	/* Шрифт */
-	--font-family: 'PT Sans Caption', Verdana, sans-serif;
+
+[theme="dark"] {
+	--color-body: #181818;
+	--color-card: #212121;
+	--color-highlight: #333333;
+	--color-highlight-light: #444444;
+	--color-input: #111111;
+	--color-scrollbar-thumb: #333333;
+	--color-scrollbar-thumb-highlight: #444444;
+	--color-table-border: #ffffff10;
+	--color-table-header: #333333;
+	--color-table-highlight: #272727;
+	--color-accent: #8ab4f8;
+	--color-accent-dark: #5b9bff;
+	--color-accent-hightlight: #9bc0fb;
+	--color-accent-active: #bcd4fb;
+	--color-red: #e87d7d;
+	--color-green: #70c27e;
+	--color-blue: #8ab4f8; /*9bb6df*/
+	--color-yellow: #dad676;
+	--color-error: #d04524;
+	
+	--color-text-link: #8ab4f8;
+	--color-text-primary: #ffffffde;
+	--color-text-secondary: #ffffff99;
+	--color-text-primary-invert: #000;
+	--color-text-accent: #8ab4f8;
+	--color-text-highlight: #fff;
+	--color-text-error: #ed6545;
+	
+	--shadow-main: 0 4px 12px #0002;
+	
+	--border-input: 1px solid #333;
+}
+
+
+
+/* Page Base */
+/* ----------------------------------------------- */
+
+html {
+	font-size: 10px !important;
+	height: 100% !important;
 }
 
 body {
-	background-color: var(--color-body)	!important;
-	font-family: var(--font-family)	!important;
-}
-
-/**** СМЕНА ЦВЕТА ДЛЯ ТЕКСТА ****/
-font[color=red] {
-	color: var(--color-red)		!important;
-}
-font[color=green] {
-	color: var(--color-green)	!important;
-}
-font[color=blue] {
-	color: var(--color-blue)	!important;
-}
-
-/**** ХЭДЕР (от него мы решили избавиться) ****/
-body > div.navbar.navbar-static-top {
-	display: none		!important;
-}
-
-/**** КОНТЕЙНЕР СО ВСЕМ КОНТЕНТОМ ЕТИСА ****/
-body > div.container {
-	max-width: var(--max-width-page)	!important;
-	width: 100%				!important;
-}
-
-/**** СМЕНА ЦВЕТА ДЛЯ ССЫЛОК ВО ВСЕМ ЕТИСЕ ****/
-a {
-	color: var(--color-accent)		!important;
-}
-
-
-
-/****************************************НАСТЯ START***************************************************************/
-
-	/*******ПРОПУЩЕННЫЕ ЗАНЯТИЯ*********/	
-	/*Отступ от меню*/
-div.span9 {
-	width: var(--width-content) 			!important;
-	margin-left: var(--margin-left-content) 	!important;
-
-}
-	/*ЦВЕТ СТРОКИ: ОСЕННИЙ ТРИМЕСТР, ВЕСЕННИЙ ТРИМЕСТР, ЛЕТНИЙ ТРИМЕСТР*/	
-a.dashed[href] {
-	color:var(--color-text-secondary)		!important;
-	font-weight: normal					!important;
-}
-
-/*Предложение Лёхи*/
-div.submenu-item:focus {
-	font-weight: bold					!important;
-	color:var(--color-text-primary)		!important;
-}
-
-
-	/* ЦВЕТ ЗАГОЛОВКА "ПРОПУЩЕННЫЕ ЗАНЯТИЯ" И ТЕКСТА В ТАБЛИЦЕ (КРОМЕ ДАТЫ)*/	
-.slimtab_nice th, .slimtab_nice td, h2 {
-	color: var(--color-text-primary)		!important;
-}
-
-	/*ЦВЕТ ДАТЫ (красный)*/
-.slimtab_nice font {
-	color: var(--color-red) 			!important;
-}
-	/*ЦВЕТ ДАТЫ (зеленый)*/
-.slimtab_nice font[title=больничный] {
-	color: var(--color-green) 			!important;
-}
-
-	/*ПОДЧЕРКИВАНИЕ ССЫЛОК*/
-a.dashed {
-	border-bottom: 1px dashed			!important
-}
-
-	/*ЯЧЕЙКИ ТАБЛИЦЫ*/
-div.span9 > table.slimtab_nice > tbody > tr > td {
-	background-color: var(--color-card)		!important;
-	border: 0.24rem solid var(--color-body) 	!important;
-	padding: 1.5rem 				!important;
-	vertical-align: middle !important;
-
-}
-	/*ЯЧЕЙКИ ЗАГОЛОВОК ТАБЛИЦЫ */
-div.span9 > table.slimtab_nice > tbody > tr > th {
-	background-color: var(--color-highlight)	!important;
-	border-color: var(--color-body)			!important;
-	font-weight: bold				!important;
-	border: 0.24rem solid var(--color-body) 	!important;
-	padding: 1rem;
-	text-align: center !important;
-	vertical-align: middle !important;
-}
-
- /*Скругления углов таблицы*/
-div.span9 > table > tbody > tr:nth-child(1) > *:nth-child(1) {
-	border-top-left-radius:  var(--radius-large) 	!important;
-}
-
-div.span9 > table > tbody > tr:nth-child(1) > :nth-last-child(1) {
-	border-top-right-radius: var(--radius-large) 	!important;
-}
-
-div.span9 > table > tbody > tr:nth-last-child(1) > *:nth-child(1) {
-	border-bottom-left-radius: var(--radius-large) 	!important;
-}
-
-div.span9 > table > tbody > tr:nth-last-child(1) > *:nth-last-child(1) {
-	border-bottom-right-radius:var(--radius-large) 	!important;
-}
-
-/*Цвет текста "Всего пропущенных занятий"*/
-div.span9 > font[color=red]{
-	color: var(--color-red) 			!important;
-}
-
-div.span9 {
-	color: var(--color-text-primary) 		!important;
-}
-
-/****ОБЪЯВЛЕНИЯ****/
-
-div.span9 > .msg {
-	color: var(--color-text-primary)		!important;
-	border: 0px !important;
-	border-radius: var(--radius-medium) 		!important;
-	background-color: var(--color-card) 		!important;
-	text-align: justify 				!important;
-}
-
- /*К СОЖАЛЕНИЮ АВТОМАТИЧЕСКИ МЕНЯЕТСЯ И РАЗДЕЛ "СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ", НИЧЕГО НЕ МОГУ ПОДЕЛАТЬ С ЭТИМ, НО ИРА ИСПРАВИЛА!!!*/
- /*паддинг для текста внутри карточки*/
-div.span9 > .msg > li {
-	padding: 20px 					!important;
-}
-
- /*Даты*/
-div.span9 > ul > li > font[color]{
-	color: var(--color-text-secondary) 		!important;
-	/*text-align не работает здесь*/
-	padding-left: 60rem				!important;
-	display: flex					!important;
-}
-
- /*Заголовки*/
-div.span9 > ul > li > font[style]{
-	font-size: 16px 				!important;
-}
-
-/*Изменение карточки нового объявления*/
-div.span9 > ul.nav.answ {
-	background-color: var(--color-highlight);
-	padding: 20px;
-}
-
- /**УЧЕБНЫЙ ПЛАН**/
- 
- /*центрирование текста в таблице (кроме названия дисциплин)*/
-.common td[align] {
-	text-align: center !important;
-}
- 
- /*Свойства для селекторов .common td, .common th меняют таблицы в УЧЕБНОМ ПЛАНЕ, МОИХ ОЦЕНКАХ (ВСЕ ВКЛАДКИ), БИБЛИОТЕКА, ЭЛЕКТРОННЫЕ РЕСУРСЫ, СМЕНА ЛИЧНОЙ ЗАПИСИ*/
-.common td,
-.common th {
-    color: var(--color-text-primary) 			!important; 
-	background-color: var(--color-card) 		!important;
-	border: 0.24rem solid var(--color-body) 	!important;
-	padding: 0.8rem 				!important;
-	vertical-align: middle !important;
-}
-
- /*Подсвечивание "Программы дисциплин", "Практики", "Дисциплины по курсу и выбору", "Дисциплины по выбору стдента"...*/
-body > div.container > div > div.span9 > div > table.common > tbody > tr > td[colspan="10"] {
-	 background-color: var(--color-highlight) 	!important;
-}
-
-/*Подсвечивание заголовков таблиц*/
-div.span9 table.common > tbody > tr > th {
-	background-color: var(--color-highlight) 	!important;
-}
-
- /*Отступ между триместрами*/
-body > div.container > div > div.span9 > div > table.common {
-	margin-bottom: 3rem 				!important;
-}
-
- /*Цвет ссылок (первая колонка таблицы)*/
-body > div.container > div > div.span9 > div > table.common > tbody > tr > td > a {
-	color: var(--color-text-primary) 		!important; 
-}
-
-/*Скругления углов таблиц*/
-div.span9 table.common> tbody > tr:nth-child(1) > *:nth-child(1){
-	border-top-left-radius:  var(--radius-large) 	!important;
-}
-
-div.span9 table.common> tbody > tr:nth-child(1) > :nth-last-child(1){
-	border-top-right-radius: var(--radius-large) 	!important;
-}
-
-div.span9 table.common> tbody > tr:nth-last-child(1) > *:nth-child(1){
-	border-bottom-left-radius: var(--radius-large) 	!important;
-}
-
-div.span9 table.common> tbody > tr:nth-last-child(1) > *:nth-last-child(1){
-	border-bottom-right-radius:var(--radius-large) 	!important;
-}
-
-/*Скругление фигурной скобки*/
-/*Лучше делать скриптом, наверное*/
-tr.cgrldatarow > td[rowspan="2"]{
-	border-bottom-left-radius: var(--radius-large) 	!important;
-}
-
-/*СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ*/ 
-/*Кнопка*/
-div.span9 > ul > input {
+	height: 100% !important;
+	
+	background: var(--color-body) !important;
 	color: var(--color-text-primary) !important;
-	background-color: var(--color-highlight-transparent) !important;
-   
-    margin-left: 65rem !important;
-    margin-bottom: 20px !important;
-    padding-left: 35px !important;
-	padding-right: 15px !important;
-	padding-bottom: 10px !important;
-	padding-top: 10px !important;
 	
-    border-radius: var(--radius-small) !important;
-    border: none !important;
-    
 	font-family: var(--font-family) !important;
+}
+
+.container {
+	padding: 0 !important;
+	max-width: var(--width-page) !important;
+	width: 100% !important;
+	margin: 0 auto !important;
+}
+
+.container .row {
+	margin: 0 !important;
+	padding: 4rem 2rem 10rem !important;
+}
+
+.span3 {
+	position: fixed !important;
+	width: var(--width-aside) !important;
+	margin: 0 !important;
+	height: 90% !important;
+	z-index: 1 !important;
+	overflow-x: hidden !important;
+}
+
+.span9 {
+	width: auto !important;
+	margin-left: calc(var(--width-aside) + var(--width-content-margin-left)) !important;
+}
+
+/* @media (max-width:960px) {
+	.container {
+		max-width: var(--width-content) !important;
+	}
 	
-	background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/5ea6e525751c62f9c2b9c56a20c45a102ee74e04/Send.svg") !important;
+	.span3 {
+		display: none !important;
+	}
+	
+	.span9 {
+		margin: 0 2rem !important;
+	}
+} */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box !important;
 }
 
-/*Номера страниц*/
-div.span9 > div.week-select > ul > li {
-	background-color: var(--color-highlight) !important;
-	border: 0px;
-	border-radius: var(--radius-large) !important;
-	padding: 1.1rem !important;
-	margin-right: 0.5rem !important;
-	font-size: 12px !important;
-	line-height: 16px;
-	text-align: center;
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    height: 1.4rem !important;
+    width: 1.4rem !important;
+    background: transparent !important;
+    z-index: 12 !important;
+    overflow: visible !important;
 }
 
-/*Изменение цвета ссылки в сообщении преподавателя*/
-div.span9 > ul > li > font[onclick] {
+::-webkit-scrollbar-corner {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 1rem !important;
+    background-color: var(--color-scrollbar-thumb) !important;
+    border-radius: var(--radius-large) !important;
+    z-index: 12 !important;
+    border: 0.4rem solid transparent !important;
+    background-clip: padding-box !important;
+    transition: all 0.32s ease-out !important;
+    margin: 0.4rem !important;
+    min-height: 3.2rem !important;
+    min-width: 3.2rem !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scrollbar-thumb-highlight) !important;
+    border: 0.2rem solid transparent !important;
+}
+
+/* Default Colors */
+
+font[color="red"],
+tr[style="color:red;"],
+span[style="color:red;"],
+div[style="font-size:0.8em;color:red;"],
+font[style="color:red;font-weight:bold"] {
+	color: var(--color-red) !important;
+}
+
+font[color="green"],
+div[style="font-size:0.8em;color:green;"] {
+	color: var(--color-green) !important;
+}
+
+font[color="blue"],
+font[style="font-weight:bold;color:blue;cursor:pointer"],
+div[style="color:blue;font-size: 0.8em;"],
+span[style="color:blue;"] {
 	color: var(--color-blue) !important;
 }
 
-/*Кнопка "Отправить ответ"*/
-div.span9 > ul form[action="stu.send_reply"] input  {
-	color: var(--color-text-primary) !important;
-	background-color: var(--color-highlight-transparent) !important;
-   
-    margin-left: 2rem !important;
-    margin-bottom: 2rem !important;
-    margin-top: 2rem !important;
-	padding: 8px 20px !important;
-	
-    border-radius: var(--radius-small) !important;
-    border: none !important;
-    
-	font-family: var(--font-family) !important;
+font[color="gray"], font[color="#808080"],
+div[style="font-size:0.8em;color:gray;"],
+span[style="color:#808080"],
+font[style="font-weight:bold;color:#333333;"],
+span[style="color:#333333"] {
+	color: var(--color-text-secondary) !important;
 }
 
-/*Цвет надписи "После того как ответ будет отправлен..." в форме отправке ответа*/
-form[action="stu.send_reply"] font[style] {
-	color: var(--color-accent) !important;
-	margin: 20px;
-}
-
-/*Пространство ввода*/
-div.span9 > ul textarea {
-	color: var(--color-text-primary) !important;
-	background-color: var(--color-highlight) !important;
-	
-	border: 0px !important;
-	border-radius: var(--radius-small) !important;
-	height: 50px !important;
-	width: 748px !important;
-	margin: 20px !important;
-}
-
-/*Кнопка "Прикрепить файлы"*/
-div.span9 > ul.nav.msg.repl_s input {
-	color: var(--color-text-primary) !important;
-	background-color: var(--color-highlight-transparent) !important;
-   
-    margin-bottom: 2rem !important;
-    margin-top: 2rem !important;
-	padding: 8px 20px !important;
-	
-    border-radius: var(--radius-small) !important;
-    border: none !important;
-    
-	font-family: var(--font-family) !important;
-}
-/****************************************НАСТЯ END***************************************************************/
-
-/**** БОКОВОЕ МЕНЮ ****/
-div.span3 {
-	width: var(--width-aside)					!important;
-    border-radius: var(--radius-small)			!important;
-}
-
-
-/* Элемент бокового меню */
-div.span3 > ul.nav-tabs > li > a {
-	display: flex								!important;
-	align-items: center 						!important;
-	justify-content: space-between				!important;
-	
-	padding: 1.4rem 1.4rem 1.4rem 1.4rem			!important;
-	
-    border: 0									!important;
-    color: var(--color-text-primary)			!important;
-    background-color: var(--color-card) 		!important;
-}
-
-/* Элемент бокового меню при наведении на него мыши */
-div.span3 > ul.nav-tabs > li > a:hover {
-	background-color: var(--color-highlight-transparent)	!important;
-}
-
-/* Фон элемента бокового меню при клике на него (в ЕТИСе белый) */
-div.span3 > ul.nav-tabs > li > a:focus {
-	background-color: var(--color-highlight-transparent)	!important;
-}
-
-/* Нижний отступ элемента бокового меню (в ЕТИСе равен -1) */
-div.span3 > ul.nav-tabs > li {
-	position: relative				!important;
-	margin-bottom: 0				!important;
-}
-
-/* Элемент бокового меню "Пожалуйста, оцените дистанционное обучение!" */
-div.span3 > ul.nav-tabs > li[style]:hover {
-	background-color: transparent								!important;
-}
-
-div.span3 > ul.nav-tabs > li[style] {
-	background-color: var(--color-card) 						!important;
-	border-radius: 0 0 var(--radius-small) var(--radius-small)	!important;
-}
-
-/* Текст элемента бокового меню "Пожалуйста, оцените дистанционное обучение!"*/
-div.span3 > ul.nav-tabs > li > a > font {
-	color: var(--color-text-primary)			!important;
-	font-weight: normal 						!important;
-}
-
-/* Выбранный элемент бокового меню */
-div.span3 > ul.nav-tabs > li.active > a {
-	background-color: var(--color-highlight)	!important;
-	font-weight: bold							!important;
-}
-
-/* Индикатор количества опросов/сообщений/etc. у бокового меню */
-.span3 span.badge {
-	display: flex							!important;
-	flex: 0 0 2.4rem						!important;
-	justify-content: center					!important;
-	align-items: center						!important;
-	
-	height: 2.4rem							!important;
-	width: 2.4rem							!important;
-	
-	padding: 0										!important;
-	background-color: var(--color-accent)			!important;
-	border-radius: var(--radius-small)				!important;
-	color: var(--color-text-primary-invert)			!important;
-}
-
-/* Шрифт индикатора у активного элемента (не должен быть жирным) */
-div.span3 > ul.nav-tabs > li.active > a > span.badge {
-	font-weight: normal									!important;
-}
-
-/**** ОСНОВНОЙ КОНТЕНТ СПРАВА ****/
-body > div.container > div.row > div.span9 {
-	margin-left: var(--margin-left-content) 			!important;
-}
-
-@media screen and (max-width: 575px) {
-	/**** БОКОВОЕ МЕНЮ ****/
-	div.span3 {
-		display: none							!important;
-	}
-
-}
-
-/*** ПРИКАЗЫ***/
-div.span9 > ul.orders > li.ord {
-	margin-bottom: 3rem;
-}
-
-/*** МОИ ОЦЕНКИ (оценки за сессии)***/
-
-/* Таблица с оценками (+ таблицы в учебном плане, других вкладках с оценками, библиотеке, электронных ресурсах, смене личной записи) */
-div.span9 > table.common {
-	width: 100% 											!important;
-}
-
-/* Заголовок */
-div.span9 > table.common > tbody > tr > th {
-	background-color: var(--color-highlight) 				!important;
-}
-
-/***ВХОД В ЕТИС***/
-
-/*выравнивание карточки по центру
-div.login {
-	height: 100vh !important;
-	display: flex	!important;
-	flex-direction: column	!important;
-	justify-content: center	!important;
-	margin-top: 0	!important;
-	background: none	!important;
-}*/
-
-/*место для Логотипа*/
-div.choose{
-	/*display: none !important;*/
-	width: 34,5rem;
-    height: 20rem;
-	background: var(--color-card)						!important;
-	background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/8bc57f7b991ba8b6a07dec05809ac8c218082db4/psu_logo.svg") 															!important;
-	opacity: .6								!important; 
-	background-position: center 						!important;
-	background-repeat: no-repeat						!important;
-	border-bottom: 0							!important;
-}
-
-
-/*карточка входа*/
-div.login > form#form{
-	background: var(--color-card)						!important;
-	border-radius:  var(--radius-large) 					!important;
-	height: 46.3rem;
-	width: 40rem;
-	box-shadow: 0 1.4rem 2.8rem rgba(0,0,0,0.25), 0 1rem 1rem rgba(0,0,0,0.22) !important;
-}
-
-/*убрать тень на карточке входа*/
-div.login::before{
-	display: none								!important;
-}
-div.login::after{
-	display: none								!important;
-}
-
-
-/*капча*/
-.login .items button#sbmt {
-	background: var(--color-card)						!important;
-	border: 0								!important;
-}
-
-/*кнопка Вход*/
-.login .items button#sbmt > span {
-	background: var(--color-accent) 					!important;
-	/*height: 10rem !important;
-	width: 10 rem !important;*/
-
-	text-shadow: none							!important;
-	color: var(--color-text-primary-invert) 				!important;
-	font: 14px 'PT Sans Caption', Verdana, sans-serif			!important;
-
-	border-top: none							!important;
-	border-radius: var(--radius-small)					!important;
-	display: block								!important;
-	position: absolute							!important;
-	left: 21.9rem								!important;
-	white-space: normal !important;
-	/*отступы для создания кнопки Вход размером 100х32*/
-	padding: 0.72rem 2.852rem !important;
-}
-
-/*логин и пароль*/
-.login #form .items .item input {
-	-webkit-box-shadow: 0 0 0px 1000px var(--color-input-field) inset 	!important;
-	background-color: var(--color-input-field) 				!important;
-	outline: none								!important;
-	border: none;		/*!important не ставить, потому что работает скрипт*/
-	-webkit-text-fill-color: var(--color-text-primary)			!important;
-	border-radius: var(--radius-small)					!important;
-	padding: 1rem								!important;
-	line-height: 0								!important;
-	height: 1.6rem								!important;
-	width: 30rem								!important;
-	background: var(--color-input-field)					!important;
-	text-indent: 0								!important;
-	font-size: 1rem 							!important;
-	font: 12px 'PT Sans Caption', Verdana, sans-serif			!important;
-	transition: background-color 5000s ease-in-out 0s;
-	caret-color: var(--color-text-primary) !important;
-}
-div.items{
-	padding: 0rem 0rem 0rem 4rem !important;
-}
-div.item > label{
-	font: 12px 'PT Sans Caption', Verdana, sans-serif			!important;
-}
-
-/*сообщение об ошибке логина пароля*/
-div.error_message{
-	color: var(--color-text-primary)					!important;
-	background: var(--color-error)						!important;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 5%;
-	display: flex								!important;
-	align-items: center							!important;
-	justify-content: center							!important;
-}
-
-/*надпись Студенты 1-го курса для входа используют email и пароль личного кабинета абитуриента*/
-.header_message{
-	position: absolute							!important;
-	bottom: 3rem;
-	left: 20%;
-	height: 5%;
-	width: 60%;
-	color: var(--color-text-secondary)					!important;
-	background: var(--color-body)						!important;
-}
-
-/*надпись Регистрация (для работадателей)*/
-div.right > a{
-	color: var(--color-text-secondary)					!important;
-	position: absolute							!important;
-	right: 16rem								!important;
-	font: 1.1rem 'PT Sans Caption', Verdana, sans-serif			!important;
-	top: 39.3rem;
-	
-}
-
-/*скрыла надпись Вход*/
-h1.title{
-	display: none								!important;
-}
-
-/*** СТРАНИЦА ПРЕПОДАВАТЕЛЕЙ ***/
+/* Links */
 
-/* Карточка преподавателя */
-div.span9 > table.teacher_info {
-	display: block							!important;
-	
-	margin-bottom: 1.2rem 					!important;
-	padding: 0.6rem 0 0.6rem 0.6rem			!important;
-	
-	border-radius: var(--radius-small)		!important;
-	background-color: var(--color-card) 	!important;
+a {
+	color: var(--color-text-link) !important;
 }
 
-/* Верхняя карточка преподавателя */
-div.span9 > table.teacher_info:nth-child(3) {
-	margin-top: 2rem						!important;
+a.dashed {
+	color: var(--color-text-secondary) !important;
 }
 
-/* Контент карточки преподавателя */
-div.span9 > table.teacher_info tr {
-	display: flex							!important;
-	height: 15.5rem 						!important;
+a.dashed:hover {
+	color: var(--color-text-highlight) !important;
 }
 
-/* Отдельные блоки в карточке преподавателя */
-div.span9 > table.teacher_info td {
-	display: block							!important;
-	padding: 0								!important;
-}
-
-/* Обёртка фотографии преподавателя */
-div.span9 > table.teacher_info div.teacher_photo {
-	border: none												!important;
-	border-radius: var(--radius-small)							!important;
-}
-
-/* Фотография преподавателя */
-div.span9 > table.teacher_info div.teacher_photo > img {
-	/*width: 11.3rem												!important;*/
-    height: 15.5rem												!important;	
-	
-	border: none												!important;
-	border-radius: var(--radius-small)							!important;
-}
-
-/* Информация о преподавателе */
-div.span9 > table.teacher_info td.teacher_desc {
-	padding: 1.4rem 0 0 2rem							!important;
-}
-
-/* Информация о кафедре */
-div.span9 > table.teacher_info td.teacher_desc > div.chair {
-	margin-top: 2rem								!important;
-	color: var(--color-text-secondary)				!important;
-}
-
-/* Информация о предметах, которые ведёт преподаватель */
-div.span9 > table.teacher_info td.teacher_desc > div.dis {
-	margin-top: 0.8rem								!important;
-	color: var(--color-text-secondary)				!important;
-}
-
-/* Центрирование имени преподавателя/названия кафедры и иконки расписания */
-div.span9 > table.teacher_info td.teacher_desc > div.teacher_name,
-div.span9 > table.teacher_info td.teacher_desc > div.chair {
-	display: flex									!important;
-	align-items: center								!important;
-	line-height: 1									!important;
-}
-
-/* Иконки расписания (преподавателей и кафедр) */
-div.span9 > table.teacher_info td.teacher_desc > div.teacher_name > img.tooltip,
-div.span9 > table.teacher_info td.teacher_desc > div.chair > img.tooltip {
-	/* Скрывает их изначально, чтобы потом подменить скриптом */
-	display: none;
-	margin-left: 1rem								!important;
-}
-
-/*** РАСПИСАНИЕ ***/
-
-/* Заголовок "Недели" */
-div.span9 > div.week-select > h3 {
-	display: none								!important;
-}
-
-/* Надписи "Напишите, что думаете о расписании!", "Консультации", "Подробное расписание" */
-div.span9 > a.estimate_tt,
-div.span9 > div[style="float: right;margin-right:15px;color:#0088CC;cursor:pointer;"] {
-	color: var(--color-accent)					!important;
-	font-size: 1.2rem							!important;
-}
-
-/* Чекбокс для консультаций */
-div.span9 > div[style="float: right;margin-right:15px;color:#0088CC;cursor:pointer;"] > input {
-	background-color: var(--color-accent)		!important;
-}
-
-/* Блоки с номерами недель */
-div.span9 > div.week-select > ul.weeks > li.week {
-	margin-bottom: 0.5rem						!important;
-}
-
-/* Номер текущей недели */
-div.span9 > div.week-select > ul.weeks > li.week.current,
-div.span9 > div.week-select > ul.weeks > li.week.current > a{
-	color: var(--color-accent)					!important;
-	border: 0									!important;
-}
-
-/* Номер недели начала каникул */
-div.span9 > div.week-select > ul.weeks > li.week > a {
-	color: var(--color-text-primary)			!important;
-}
-
-/* Номер недели начала каникул */
-div.span9 > div.week-select > ul.weeks > li.week.holiday > a {
-	color: var(--color-green)					!important;
-}
-
-/* Номер недели сессии */
-div.span9 > div.week-select > ul.weeks > li.week.session > a {
-	color: var(--color-red)					!important;
-}
-
-/* Блок расписания дня */
-div.span9 > div.timetable > div.day {
-	padding-top: 1.4rem !important;
-	
-	background-color: var(--color-highlight)	!important;
-	border-radius: var(--radius-medium)			!important;
-}
-
-/* Заголовок (день) блока расписания */
-div.span9 > div.timetable > div.day > h3 {
-	margin: 0 0 1.4rem 1.4rem !important;
-}
-
-/* Нижняя часть блока расписания, если в этот день нет пар */
-div.span9 > div.timetable > div.day > div.no_pairs {
-	background-color: var(--color-card)	!important;
-	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
-	padding: 1.4rem 0 1.4rem 1.4rem !important;
-}
-
-/* Таблица расписания дня */
-div.span9 > div.timetable > div.day > table {
-	display: block						!important;
-	
-	background-color: var(--color-card)	!important;
-	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
-}
-
-/* Контент таблицы расписания */
-div.span9 > div.timetable > div.day > table > tbody {
-	display: flex						!important;
-	flex-direction: column				!important;
-	
-	padding: 1.4rem	1.4rem 0 0			!important;
-}
-
-/* Строка таблицы расписания */
-div.span9 > div.timetable > div.day > table > tbody > tr {
-	display: flex						!important;
-	margin-bottom: 1.4rem				!important;
-}
-
-/* Ячейка таблицы расписания */
-div.span9 > div.timetable > div.day > table td {
-	border: 0							!important;
-}
-
-/* Ячейка с номером пары и временем */
-div.span9 > div.timetable > div.day > table tr > td.pair_num {
-	flex: 0 0 6rem						!important;
-	
-	padding: 0							!important;
-	
-	display: flex						!important;
-	justify-content: center				!important;
-	align-items: center					!important;
-	
-	/* С помощью font-size убирает текст */
-	font-size: 0						!important;
-	color: var(--color-text-secondary)	!important;
-}
-
-/* Время пары */
-div.span9 > div.timetable > div.day > table tr > td.pair_num > font.eval {
-	/* Восстанавливает текст */
-	font-size: 1.2rem					!important;
-}
-
-/* Тег br внутри ячейки с временем пары */
-div.span9 > div.timetable > div.day > table tr > td.pair_num > br {
-	display: none						!important;
-}
-
-/* Ячейка с информацией о паре */
-div.span9 > div.timetable > div.day > table tr > td.pair_info {
-	flex: 0 0 68.3rem					!important;
-}
-
-div.span9 > div.timetable table td.pair_info span.dis > a {
-	color: var(--color-text-primary)	!important;
-	text-decoration: none				!important;
-}
-
-div.span9 > div.timetable table td.pair_info span.aud > a {
-	display: flex						!important;
-	align-items: center					!important;
-	line-height: 1						!important;
-	
-	margin-top: 0.4rem					!important;
-	
-	color: var(--color-text-secondary)	!important;
-}
-
-div.span9 > div.timetable table td.pair_info span.aud > a > img {
-	display: none;
-}
-
-/* Информация о преподавателе в строке */
-div.span9 > div.timetable table td.pair_info span.teacher {
-	/* Костылём вызывает переполнение контейнера, чтобы можно было центрировать ФИО препода по строке */
-	height: 3.8rem !important;
-	
-	display: flex						!important;
-	justify-content: center				!important;
-	align-items: center					!important;
-}
-
-/* Имя преподавателя */
-div.span9 > div.timetable table td.pair_info span.teacher > a {
-	color: var(--color-text-secondary)	!important;
-}
-
-/* Имя преподавателя при наведении на него мыши */
-div.span9 > div.timetable table td.pair_info span.teacher > a:hover {
-	text-decoration: none				!important;
-}
-
-/* Ссылка "оценить занятие" */
-div.span9 > div.timetable table td.pair_info span.teacher > a.eval {
-	display: none						!important;
-}
-
-/* Ячейка с иконкой журнала старосты (у нас - иконка заметки) */
-div.span9 > div.timetable table td.pair_jour {
-	width: 100% !important;
-	
-	display: flex !important;
-	justify-content: flex-end !important;
-	align-items: center !important;
-	padding: 0 !important;
-	margin: 0 !important;
-}
+/* Header */
 
-/* Иконка журнала старосты */
-div.span9 > div.timetable table td.pair_jour > a {
+.navbar-static-top {
 	display: none !important;
 }
 
-/* Ссылка "оценить занятие" */
-/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > a.eval,*/
-/*div.span9 > div.timetable > div.day > table td.pair_info span.teacher > br {*/
-/*	display: none !important;*/
+/* Tables */
+
+table {
+	border-radius: var(--radius-medium) !important;
+	color: var(--color-text-primary) !important;
+}
+
+table tr td:nth-child(1), table tr th:nth-child(1) {
+	border-left: none !important;
+}
+
+table tr td:nth-last-child(1), table tr th:nth-last-child(1) {
+	border-right: none !important;
+}
+
+table tr:nth-child(1) td, table tr:nth-child(1) th {
+	border-top: none !important;
+}
+
+table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
+	border-bottom: none !important;
+}
+
+.common,
+.slimtab_nice,
+.teach_plan {
+	width: 100% !important;
+	box-shadow: var(--shadow-main) !important;
+	overflow: hidden !important;
+	position: relative !important;
+	color: var(--color-text-primary) !important;
+}
+
+.common:after,
+.slimtab_nice:after,
+.teach_plan:after {
+    top: 0 !important;
+    box-shadow: 0 0 0 0.1rem var(--color-table-border) inset !important;
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: var(--radius-medium) !important;
+    pointer-events: none !important;
+}
+
+.common td,
+.common th,
+.slimtab_nice td,
+.slimtab_nice th {
+	border: 0.2rem solid var(--color-body) !important;
+	padding: 0.8rem 1.4rem !important;
+}
+
+.common tr,
+.slimtab_nice tr,
+.teach_plan tr {
+	background: var(--color-card) !important;
+}
+
+.common tr:hover,
+.slimtab_nice tr:hover,
+.timetable > .day > table tr:hover,
+.teach_plan tr:hover {
+	background: var(--color-table-highlight) !important;
+}
+
+.common th,
+.common th.subheader,
+.common td[colspan="10"],
+.slimtab_nice th,
+.teach_plan th {
+	background: var(--color-table-header) !important;
+	vertical-align: middle !important;
+	font-weight: bold !important;
+}
+
+.teach_plan td.bg_bold, .teach_plan td.bgsu {
+    background: var(--color-highlight) !important;
+}
+
+.teach_plan td,
+.teach_plan th {
+	border: 0.2rem solid var(--color-body) !important;
+}
+
+.teach_plan.dis_table {
+	border-collapse: collapse !important;
+}
+
+.teach_plan td.w {
+	background: var(--color-card) !important;
+}
+
+
+
+/* Inputs */
+/* ----------------------------------------------- */
+
+input,
+select,
+textarea,
+button {
+	font-family: inherit !important;
+}
+
+select,
+textarea {
+    background: var(--color-input) !important;
+    color: var(--color-text-primary) !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: var(--radius-small) !important;
+    border: var(--border-input) !important;
+}
+
+textarea {
+    width: 24rem !important;
+    height: 2.4rem !important;
+}
+
+/* Input Fields */
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    background: transparent !important;
+    color: var(--color-text-primary) !important;
+    border: none !important;
+    box-shadow: none !important;
+    box-shadow: inset 0 -0.1rem 0 0 var(--color-text-secondary) !important;
+    width: 100% !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    box-shadow: inset 0 -0.2rem 0 0 var(--color-blue) !important;
+    outline: none !important;
+}
+
+input[type="text"]:focus ~ label,
+input[type="text"]:not(:placeholder-shown) ~ label,
+input[type="text"]:-webkit-autofill ~ label,
+input[type="password"]:focus ~ label,
+input[type="password"]:not(:placeholder-shown) ~ label,
+input[type="password"]:-webkit-autofill ~ label,
+input[type="email"]:focus ~ label,
+input[type="email"]:not(:placeholder-shown) ~ label,
+input[type="email"]:-webkit-autofill ~ label {
+    top: -2rem !important;
+    font-size: 1.2rem !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 9999s ease-in-out 9999s !important;
+    -webkit-text-fill-color: var(--color-text-primary) !important;
+    caret-color: var(--color-text-primary) !important;
+}
+
+/* Checkboxes, Radio Buttons */
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 1rem !important;
+}
+
+input[type="checkbox"]:before {
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    background: var(--color-input) !important;
+    content: '' !important;
+    position: absolute !important;
+    border-radius: 0.2rem !important;
+    border: var(--border-input) !important;
+}
+
+input[type="checkbox"]:checked:after {
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    background: var(--color-blue) !important;
+    content: '' !important;
+    position: absolute !important;
+    border-radius: 0.1rem !important;
+    margin: 0.5rem !important;
+}
+
+
+input[type="radio"]:before {
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    background: var(--color-input) !important;
+    content: '' !important;
+    position: absolute !important;
+    border-radius: 50% !important;
+    border: var(--border-input) !important;
+}
+
+
+input[type="radio"]:checked:after {
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    background: var(--color-blue) !important;
+    content: '' !important;
+    position: absolute !important;
+    border-radius: 50% !important;
+    margin: 0.5rem !important;
+}
+
+input[type="checkbox"]:hover:before,
+input[type="radio"]:hover:before {
+    background: var(--color-text-primary-invert) !important;
+}
+input[type="checkbox"]:checked:hover:after,
+input[type="radio"]:checked:hover:after {
+    background: var(--color-accent-dark) !important;
+}
+
+/* Default Buttons */
+
+.button_gray {
+	width: fit-content !important;
+    align-self: flex-end !important;
+    box-shadow: var(--shadow-main) !important;
+}
+
+.button_gray button {
+	padding: 0.6rem 1.2rem !important;
+}
+
+.button_gray,
+.button_gray button {
+	border: none !important;
+	color: var(--color-text-primary-invert) !important;
+	text-shadow: none !important;
+	background: var(--color-accent) !important;
+	font-size: 1.4rem !important;
+	border-radius: var(--radius-small) !important;
+}
+
+.button_gray button:hover {
+	background: var(--color-accent-hightlight) !important;
+}
+
+.button_gray button:active,
+.button_gray button:focus{
+	background: var(--color-accent-active) !important;
+}
+
+.button.blue {
+	background: var(--color-accent) !important;
+}
+
+.button.blue:hover {
+	background: var(--color-accent-hightlight) !important;
+}
+
+.button.blue:active,
+.button.blue:focus {
+	background: var(--color-accent-active) !important;
+}
+
+.button {
+	font-family: inherit !important;
+	border-radius: var(--radius-small) !important;
+	border: none !important;
+	margin: 0 !important;
+	box-shadow: var(--shadow-main) !important;
+	padding: 1rem 3.2rem !important;
+}
+
+.button:active, .button.active {
+	top: 0 !important;
+	box-shadow: none !important;
+}
+
+.button span {
+	border: none !important;
+	color: var(--color-text-primary-invert) !important;
+	text-shadow: none !important;
+	padding: 0 !important;
+}
+
+/*Custom Buttons*/
+
+.icon-button {
+	display: flex !important;
+	align-items: center !important;
+	background: var(--color-card) !important;
+	color: var(--color-text-primary) !important;
+	font-size: 1.2rem !important;
+	padding: 0.4rem 0.8rem !important;
+	border-radius: var(--radius-small) !important;
+	width: fit-content !important;
+	box-shadow: var(--shadow-main) !important;
+	text-decoration: none !important;
+}
+
+.icon-button2 {
+	margin-left: 0.4rem !important;
+    font-family: 'Material Icons Outlined' !important;
+    font-size: 2rem !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    color: var(--color-text-secondary) !important;
+}
+
+.icon-button2:hover {
+	color: var(--color-text-highlight) !important;
+}
+
+.icon-button:hover {
+	background: var(--color-highlight) !important;
+}
+
+.icon-button:active {
+	background: var(--color-highlight-light) !important;
+	box-shadow: none !important;
+}
+
+.icon-button:before {
+	margin-right: 0.6rem !important;
+    
+    font-family: 'Material Icons Outlined' !important;
+    font-size: 1.8rem !important;
+}
+
+.icon-button.icon-feedback:before {
+    content: 'feedback' !important;
+}
+
+.icon-button.icon-analytics:before {
+    content: 'analytics' !important;
+}
+
+.icon-button.icon-today:before {
+    content: 'today' !important;
+}
+
+
+
+/* Feedback page */
+/* ----------------------------------------------- */
+
+.review {
+    padding-bottom: 3rem !important;
+    background: var(--color-card) !important;
+    border-radius: var(--radius-medium) !important;
+    padding: 2rem !important;
+    width: 100% !important; !important;
+}
+
+.question {
+    margin: 0 0 1.6rem 0 !important;
+}
+
+.question li {
+    margin-left: 0.8rem !important;
+    margin-top: 0.4rem !important;
+}
+
+.question > .text {
+	color: var(--color-text-primary) !important;
+}
+
+.question label {
+	color: var(--color-text-secondary) !important;
+	display: flex !important;
+    align-items: center !important;
+}
+
+.comment > label {
+	color: var(--color-text-primary) !important;
+	margin-bottom: 0.4rem !important;
+}
+
+.comment > textarea {
+    width: 100% !important;
+    height: 20rem !important;
+    padding: 0.8rem 1.2rem !important;
+    resize: none !important;
+}
+
+
+
+/* Sidebar */
+/* ----------------------------------------------- */
+
+.span3 > .nav.nav-tabs.nav-stacked {
+	border-radius: var(--radius-medium) !important;
+	background: var(--color-card) !important;
+	box-shadow: var(--shadow-main) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li {
+	background: var(--color-card) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .warn_menu > a {
+	color: var(--color-text-accent) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li:first-child {
+	border-top-right-radius: var(--radius-small) !important;
+    border-top-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li:last-child {
+	border-bottom-right-radius: var(--radius-small) !important;
+    border-bottom-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav-tabs.nav-stacked > li:first-child > a {
+    border-top-right-radius: var(--radius-small) !important;
+    border-top-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav-tabs.nav-stacked > li:last-child > a {
+    border-bottom-right-radius: var(--radius-small) !important;
+    border-bottom-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a {
+	display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    
+	padding: 1.1rem 0 1.1rem 1.4rem !important;
+	background: var(--color-card) !important;
+	color: var(--color-text-primary) !important;
+	border: none !important;
+	cursor: pointer !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a:hover {
+	background: var(--color-highlight) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active {
+	font-weight: bold !important;
+	display: flex !important;
+	align-items: center !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active:before {
+	position: absolute !important;
+	width: 0.5rem !important;
+    height: 3.2rem !important;
+    z-index: 3 !important;
+    
+    content: "" !important;
+	border-radius: var(--radius-medium) !important;
+    background: var(--color-blue) !important;
+    transition: height 0.08s ease-out !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active:hover:before {
+    height: 4rem !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active > a {
+    width: 100% !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a > .badge {
+    background-color: var(--color-blue) !important;
+    padding: 0.4rem 0 !important;
+    color: var(--color-text-primary-invert) !important;
+    border-radius: var(--radius-small) !important;
+    margin: -1.2rem 0.4rem -1.2rem 0 !important;
+    width: 2.6rem !important;
+    font-weight: normal !important;
+}
+
+
+
+/* Teach Plan Page */
+/* ----------------------------------------------- */
+
+.themes .hour,
+.ctl_hours,
+.book_list .pages,
+.link_list .descr{
+	color: var(--color-text-secondary) !important;
+}
+
+.badge.ctl {
+	padding: 0.2rem 0.4rem !important;
+	background: var(--color-error) !important;
+	border-radius: 0.4rem !important;
+	display: inline !important;
+}
+
+
+
+/* Week Select */
+/* ----------------------------------------------- */
+
+.week-select h3 {
+	display: none !important;
+}
+
+.week-select {
+	margin: 0 auto 3.2rem !important;
+	width: 100% !important;
+}
+
+.weeks {
+	display: flex !important;
+	justify-content: center !important;
+	flex-wrap: wrap !important;
+}
+
+/*.weeks {*/
+/*    display: flex!important !important;*/
+/*    flex-wrap: wrap!important !important;*/
+/*    width: 276px !important;*/
+/*    background: var(--color-card) !important;*/
+/*    padding: 12px !important;*/
+/*    border-radius: var(--radius-medium) !important;*/
+/*    box-shadow: 0 4px 16px #0006 !important;*/
+/*    position: absolute !important;*/
+/*    left: 50% !important;*/
+/*    top: 26% !important;*/
 /*}*/
 
-/*** ЗАМЕТКИ ***/
-
-/* Класс заметок */
-.kittens_note {
-	cursor: pointer;
-}
-
-/*палочки для выделенных элементов в меню*/
-.nav.nav-tabs.nav-stacked .active::before {
-	position: absolute !important;
-	left: 0;
-	top: 10%;
+.week {
+	display: flex !important;
+	justify-content: center !important;
+    align-items: center !important;
 	
-	width: 0.5rem !important;
-	height: 80%;
-	z-index: 3 !important;
+	margin: 0 0.4rem 0.4rem 0 !important;
+	padding: 0 !important;
+	width: auto !important;
 	
-	content: "" !important;
+	background-color: var(--color-card) !important;
+	box-shadow: var(--shadow-main) !important;
 	border-radius: var(--radius-medium) !important;
-	background: var(--color-blue) !important;
+	border: none !important;
+	
+	font-size: 1.2rem !important;
+	overflow: hidden !important;
 }
 
-/*палочки для выделенных неделей в расписании*/
-.week.current::after {
+.week:hover {
+    background: var(--color-highlight) !important;
+}
+
+.week:active {
+	box-shadow: none !important;
+}
+
+.weeks > .week > a {
+	display: flex !important;
+	justify-content: center !important;
+    align-items: center !important;
+    width: 3.8rem !important;
+    height: 3.8rem !important;
+    color: var(--color-text-primary) !important;
+    text-decoration: none !important;
+}
+
+.weeks > .week > a:active {
+	background: var(--color-highlight-light) !important;
+}
+
+.weeks .week.current {
+	font-weight: bold !important;
+	width: 3.8rem !important;
+    height: 3.8rem !important;
+	
+	color: var(--color-blue) !important;
+}
+
+.weeks .week.current::after {
 	position: absolute !important;
-	bottom: 0.5rem;
-	left: 0.7rem;
+	margin-top: 2.4rem !important;
     width: 2.4rem !important;
     height: 0.4rem !important;
     
@@ -893,7 +826,418 @@ div.span9 > div.timetable table td.pair_jour > a {
     border-radius: var(--radius-medium) !important;
     background: var(--color-blue) !important;
 }
-/*обязательная штука для выделения недели*/
-div.span9 > div.week-select > ul.weeks > li.week.current{
+
+.weeks .week.session a, .weeks .week.session, .weeks .week.session.current {
+	color: var(--color-red) !important;
+	border: none !important;
+	border-radius: var(--radius-medium) !important;
+}
+
+.weeks .week.holiday a, .weeks .week.holiday, .weeks .week.holiday.current {
+	color: var(--color-green) !important;
+	border: none !important;
+	border-radius: var(--radius-medium) !important;
+}
+
+.weeks .week.pract a, .weeks .week.pract, .weeks .week.pract.current {
+	color: var(--color-yellow) !important;
+	border: none !important;
+	border-radius: var(--radius-medium) !important;
+}
+
+.weeks .week.session.current::after {
+    background: var(--color-red) !important;
+}
+
+.weeks .week.holiday.current::after {
+    background: var(--color-green) !important;
+}
+
+.weeks .week.pract.current::after {
+    background: var(--color-yellow) !important;
+}
+
+
+
+/* Timetable Page */
+/* ----------------------------------------------- */
+
+div.timetable-buttonbar {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: flex-end !important;
+	flex-wrap: wrap !important;
+	white-space: nowrap !important;
+}
+
+.timetable-btn {
+	margin: 0 0 1.4rem 1.4rem !important;
+}
+
+div.consultations {
+	display: flex !important;
+    align-items: center !important;
+    float: none !important;
+    color: var(--color-text-primary) !important;
+}
+
+span.holiday {
+    background-color: var(--color-green) !important;
+    color: var(--color-text-primary-invert) !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 50rem !important;
+    margin-top: 0.6rem !important;
+    display: inline-block !important;
+}
+
+.day {
+	border-radius: var(--radius-medium) !important;
+	background-color: var(--color-card) !important;
+	box-shadow: var(--shadow-main) !important;
+	overflow: hidden !important;
+	padding: 0.6rem 0 !important;
+	margin-bottom: 2rem !important;
+}
+
+.day h3 {
+    padding: 1rem 1.6rem 1.4rem !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+}
+
+.no_pairs {
+    padding: 1.2rem 1.6rem 2rem !important;
+}
+
+.timetable {
+	display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+}
+
+.timetable td {
+	border: none !important;
+	vertical-align: middle !important;
+	padding-top: 0.2rem !important;
+	padding-bottom: 0.2rem !important;
+	font-size: 1.2rem !important;
+}
+
+.pair_num {
+	width: 8rem !important;
+	height: 5rem !important;
+	border: none !important;
+	font-size: 0 !important;
+}
+
+.pair_num .eval {
+	font-size: 1.1rem !important;
+	color: var(--color-text-secondary) !important;
+}
+
+.pair_info {
+	padding-right: 1.4rem !important;
+}
+
+.pair_info .dis a {
+	display: inline-flex !important;
+	color: var(--color-text-primary) !important;
+	text-decoration: none !important;
+	font-size: 1.4rem !important;
+}
+
+.pair_info .dis a:hover {
+	color: var(--color-text-highlight) !important;
+}
+
+.pair_teacher {
+    width: 13rem !important;
+    text-align: right !important;
+    padding-right: 1.4rem !important;
+}
+
+.pair_teacher > a {
+	color: var(--color-text-secondary) !important;
+	text-decoration: none !important;
+}
+
+.pair_teacher > a:hover {
+	color: var(--color-text-highlight) !important;
+}
+
+.pair_teacher .eval {
+	display: none !important;
+}
+
+.pair_info .aud {
+	color: var(--color-text-secondary) !important;
+	font-size: 1.1rem !important;
+}
+
+.pair_info .aud > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: var(--color-text-secondary) !important;
+    text-decoration: none !important;
+}
+
+.pair_info .aud > a:hover {
+    color: var(--color-text-highlight) !important;
+}
+
+.pair_info .aud > a > img {
+    display: none !important;
+}
+
+.pair_info .aud > a:before {
+	margin-right: 0.6rem !important;
+    
+    font-family: 'Material Icons Outlined' !important;
+    content: 'videocam' !important;
+    font-size: 1.8rem !important;
+}
+
+.pair_info div:nth-child(1) {
+	margin-bottom: 0.2rem !important;
+}
+
+
+
+/* Teachers Page */
+/* ----------------------------------------------- */
+
+.teacher_info {
+	background-color: var(--color-card) !important;
+	box-shadow: var(--shadow-main) !important;
+}
+
+.teacher_photo {
+	padding: 0.5rem !important;
+	border: none !important;
+}
+
+.teacher_photo > img {
+	display: block !important;
+	border: none !important;
+	border-radius: var(--radius-small) !important;
+}
+
+.teacher_desc {
+	width: 100% !important;
+	padding-left: 1.6rem !important;
+	font-size: 1.2rem !important;
+}
+
+.teacher_desc > .chair {
+    color: var(--color-text-secondary) !important;
+    padding-bottom: 0.4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+}
+
+.teacher_desc > .teacher_name {
+    font-size: 1.6rem !important;
+    padding-bottom: 0.8rem !important;
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+}
+
+.empty {
+    background: initial !important;
+}
+
+
+
+/* Survey Page and Visit Log Page */
+/* ----------------------------------------------- */
+
+.span9 > .nav.nav-tabs.nav-stacked > li > a {
+	border: none !important;
+}
+
+.span9 > .nav.nav-tabs.nav-stacked > li > a:hover {
+	background: none !important;
+	text-decoration: underline !important;
+}
+
+.span9 > .nav.nav-tabs.nav-stacked > li > a:focus {
+	background: none !important;
+}
+
+.nav.msg {
+	padding: 1.2rem !important;
+	border: none !important;
+	border-radius: var(--radius-medium) !important;
+	background-color: var(--color-card) !important;
+	box-shadow: var(--shadow-main) !important;
+}
+
+.nav.msg > li > a {
+	background: none !important;
+}
+
+.nav.msg > li > a:hover {
+	background: none !important;
+	text-decoration: underline !important;
+}
+
+.nav.answ {
+	padding: 1.2rem !important;
+	border: none !important;
+	border-radius: var(--radius-medium) !important;
+	background: var(--color-highlight) !important;
+}
+
+
+
+/* Orders Page */
+/* ----------------------------------------------- */
+
+.ord-inactive {
+    color: var(--color-text-secondary) !important;
+}
+
+.ord-name > a {
+	text-decoration: none !important;
+}
+
+.ord-name > a:hover {
+    text-decoration: underline !important;
+}
+
+
+
+/* Login Page */
+/* ----------------------------------------------- */
+
+.login-container {
+	display: flex !important;
+	flex-direction: column !important;
+	height: 100% !important;
+}
+
+.login {
+	margin: 2rem auto 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	flex: 1 0 auto !important;
+	background: var(--color-body) !important;
+}
+
+.login:before, .login:after {
+	display: none !important;
+}
+
+.login > form:before {
 	position: relative !important;
+	content: '' !important;
+	height: 20rem !important;
+	width: 100% !important;
+	background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/8bc57f7b991ba8b6a07dec05809ac8c218082db4/psu_logo.svg") !important;
+	opacity: .6 !important;
+	background-size: 20rem !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	margin-bottom: 2.4rem !important;
+}
+
+html[theme="light"] .login > form:before {
+	filter: invert(1) !important;
+}
+
+.login > form > .choose {
+	display: none !important;
+}
+
+.login-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-size: 1.4rem !important;
+}
+
+.login-actions > a {
+	color: var(--color-text-secondary) !important;
+}
+
+.grecaptcha-badge {
+	display: none !important;
+}
+
+.footer {
+	margin: 0 auto !important;
+	max-width: var(--width-content) !important;
+	padding: 2rem !important;
+	color: var(--color-text-secondary) !important;
+	font-size: 1.2rem !important;
+	text-align: center !important;
+}
+
+.footer p + p {
+	margin-top: 1.2rem !important;
+}
+
+.error_message {
+	position: fixed !important;
+	left: 0 !important;
+	right: 0 !important;
+	top: 0 !important;
+	padding: 0.8rem 0 !important;
+	background: var(--color-error) !important;
+	color: var(--color-text-primary) !important;
+	font-size: 1.4rem !important;
+	text-align: center !important;
+}
+
+/* Also for stu.change_pass_form and stu_email_pkg.change_email */
+
+.login form, .form {
+	display: flex !important;
+	flex-direction: column !important;
+	padding: 3.2rem !important;
+	box-shadow: var(--shadow-main) !important;
+	background: var(--color-card) !important;
+	border-radius: var(--radius-large) !important;
+	width: 36rem !important;
+	margin: 0 auto !important;
+}
+
+form br {
+    display: none !important;
+}
+
+form > .items {
+	padding: 0 !important;
+	font-size: 0 !important;
+	margin-top: 3.2rem !important;
+}
+
+form > .items > .item {
+	position: relative !important;
+	margin: 0 0 3.2rem !important;
+	z-index: 0 !important;
+}
+
+.items > .item > input {
+    text-indent: 0 !important;
+    height: auto !important;
+    line-height: normal !important;
+    font-size: 1.4rem !important;
+    padding: 0 0 0.8rem !important;
+}
+
+.items > .item > label {
+    color: var(--color-text-secondary) !important;
+    position: absolute !important;
+    margin: 0 !important;
+    top: 0 !important;
+    padding: 0 0 0.8rem !important;
+    z-index: -1 !important;
+    transition: 0.2s !important;
+	user-select: none !important;
+	font-size: 1.4rem !important;
 }

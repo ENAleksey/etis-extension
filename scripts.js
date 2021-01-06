@@ -1,136 +1,221 @@
-// var style = document.createElement('link');
-// style.rel = 'icon';
-// style.type = 'image/png';
-// style.href = chrome.extension.getURL('logo.png');
-// document.getElementsByTagName('head')[0].appendChild(style);
+// Set Icon
+var style = document.createElement('link');
+style.rel = 'icon';
+style.type = 'image/png';
+style.href = chrome.extension.getURL('logo.png');
+document.getElementsByTagName('head')[0].appendChild(style);
 
-/**** ЗАМЕТКИ ****/
 
-const openNote = () => {
-	alert('Ждите в следующих обновлениях!')
-}
+// Select Theme
+var darkTheme = false;
+function detectColorScheme(){
+    if (localStorage.getItem("theme")) {
+        if (localStorage.getItem("theme") == "dark") {
+            darkTheme = true;
+        }
+    } else if (!window.matchMedia) {
+        return false;
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        darkTheme = true;
+    }
 
-/****СТРАНИЦА ВХОДА****/
-
-const login = document.querySelector('.login');
-
-/*Удаление текста и перенос его в другой элемент*/
-/*Скрипт выполняется только на двух страницах*/
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login' ||
-login) {
-	/*Удаление текста при входе в ЕТИС*/
-	const div2 = document.getElementsByClassName("items")[0];
-	const index2 = div2.innerHTML.indexOf("По всем вопросам звоните по телефону 2396870. Специалист службы технической поддержки находится в кабинете 245 (бывший кабинет отдела пропусков), расположенном между первым и вторым корпусом на 2 этаже.");
-	if (index2 >= 0) {
-		const etis_text = div2.innerHTML.substring(index2);
-		div2.innerHTML = div2.innerHTML.substring(0, index2);
-		const headerMessage = document.getElementsByClassName('header_message')[0];
-		headerMessage.innerText = etis_text;
+    if (darkTheme) {
+		document.documentElement.setAttribute("theme", "dark");
+	} else {
+		document.documentElement.setAttribute("theme", "light");
 	}
 }
+detectColorScheme();
 
-/*логин и пароль выделяются красным бордером, если введены неправильно*/
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.login'){
-	const errorMessage = document.getElementsByClassName('error_message')[0];
-	
-	if (typeof errorMessage !== 'undefined') {
-		const redInputs = document.querySelectorAll(".login .items .item input")
-		const redILabels = document.querySelectorAll("div.item > label")
-		const colorError = "#D04524";
-		redInputs[0].style.border = '2px solid ' + colorError;
-		redInputs[1].style.border = '2px solid ' + colorError;
-		redILabels[0].style.color = colorError;
-		redILabels[1].style.color = colorError;
-	}
-}
 
-/**** СТРАНИЦА ПРЕПОДАВАТЕЛЕЙ ****/
-
-if (window.location.href === 'https://student.psu.ru/pls/stu_cus_et/stu.teachers') {
-	// Удаление элементов br между ссылкой на статистику и карточками преподов
-	const brs = document.querySelectorAll('.span9 > br');
-	brs.forEach(br => br.remove());
-	
-	// Добавление иконки расписания (преподавателей и кафедр) вместо исходной
-	const scheduleIcons = document.querySelectorAll("div.span9 > table.teacher_info td.teacher_desc > div.teacher_name > img.tooltip, div.span9 > table.teacher_info td.teacher_desc > div.chair > img.tooltip");
-	scheduleIcons.forEach(icon => {
-		icon.src='https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/schedule.svg'
-		icon.style.display = 'initial';
-		});
-	
+function switchTheme(e) {
+	darkTheme = !darkTheme;
+    if (darkTheme) {
+    	localStorage.setItem('theme', 'dark');
+        document.documentElement.setAttribute('theme', 'dark');
+    } else {
+    	localStorage.setItem('theme', 'light');
+        document.documentElement.setAttribute('theme', 'light');
+    }    
 }
 
 
-/****ПРОПУЩЕННЫЕ ЗАНЯТИЯ****/
-
-/*Смена цвета текста "Всего пропущено занятий: */
-const div = document.querySelector(".span9");
-const color_red = "#E87D7D";
-
-const index = div.innerHTML.indexOf("\nВсего пропущено занятий:");
-if (index >= 0) {
-	const propusk = div.innerHTML.substring(index);
-	div.innerHTML = div.innerHTML.substring(0, index);
-	const newDiv = document.createElement('div');
-	newDiv.style.color = color_red;
-	newDiv.innerHTML = propusk;
-	div.appendChild(newDiv);
-}
-
-/*ОБЪЯВЛЕНИЯ*/
-/*сомнительный костыль отступов между абзацами, можно доработать.
-СКРИПТ МЕНЯЕТ ТАКЖЕ И РАЗДЕЛ "СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ", ЧТО ДЕЛАЕТ ЕГО ЕЩЕ БОЛЕЕ СОМНИТЕЛЬНЫМ.
-*/
-const lis = document.querySelectorAll("body > div.container > div > div.span9 > ul > li");
-lis.forEach(li => {
-    li.querySelectorAll("br").forEach(x => { 
-    const new_br = document.createElement('br');
-    li.append(new_br);
-    li.insertBefore(new_br, x);
-    });
-});
-
-/**** РАСПИСАНИЕ ****/
-
-if (window.location.href.match('https://student.psu.ru/pls/stu_cus_et/stu.timetable')) {
+// Style Pages
+var login = document.querySelector('body > div.login');
+if (login) {
+	document.body.innerHTML = '<div class ="login-container">' + document.body.innerHTML + '</div>';
 	
-	const zoomLogos = document.querySelectorAll("div.span9 > div.timetable table td.pair_info span.aud > a > img");
-	zoomLogos.forEach(logo => {
-		logo.src = 'https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/zoom.svg';
-		logo.style.display = 'initial';
-	})
+	const loginItems = document.querySelector('#form > div.items');
+	const loginActions = document.createElement('div');
+	loginActions.className = 'login-actions';
+	loginItems.appendChild(loginActions);
 	
-	// Добавляем иконки заметок на место иконок журнала старосты
-	const noteWrappers = document.querySelectorAll("div.span9 > div.timetable td.pair_jour");
+	el = loginItems.querySelector('a');
+	el.className = 'forgot-password';
+	loginActions.appendChild(el);
 	
-	noteWrappers.forEach(noteWrapper => {
-		const note = document.createElement('img');
-		note.className = 'kittens_note';
-		note.src = 'https://raw.githubusercontent.com/ENAleksey/etis-extension/dev/note.svg';
-		note.addEventListener('click', () => openNote());
-		
-		if (noteWrapper.children[0]) {
-			noteWrapper.children[0].remove()
-			
-			noteWrapper.appendChild(note);
+	el = document.getElementById('sbmt');
+	loginActions.appendChild(el);
+	
+	const items = loginItems.querySelectorAll('div.item');
+	items.forEach(item => {
+		input = item.querySelector('input');
+		if (input) {
+			input.placeholder = ' ';
 		}
+    	label = item.querySelector('label');
+    	if (label) {
+    		item.appendChild(label);
+    	}
+	});
+	
+	const infoStr = loginItems.textContent.split("\n").slice(-3)[0].trim();
+	const loginFooter = document.querySelector('div.header_message');
+	loginFooter.className = 'footer';
+	loginFooter.innerHTML = '<p>' + loginFooter.innerHTML + '</p><p>' + infoStr + '</p>';
+	document.querySelector('div.login-container').appendChild(loginFooter);
+	
+} else {
+	const nav = document.querySelector('div.span3 > ul:nth-child(4)');
+	const el1 = document.createElement("li");
+	const el2 = document.createElement("a");
+	el2.appendChild(document.createTextNode("Настройки расширения"));
+	el1.appendChild(el2);
+	nav.insertBefore(el1, nav.childNodes[0]);
+	el1.addEventListener('click', switchTheme, false);
+	
+	const span9 = document.querySelector('div.span9');
+	const page = window.location.pathname.split('/').pop();
+	
+	switch (page) {
+		case 'stu.teach_plan':
+			el = document.querySelector('div.span9 > div:nth-child(2)');
+			el.className = 'teach-plan';
+			
+			el = document.querySelector('div.span9 > div:nth-child(2) > div > a');
+			el.className = 'icon-button icon-feedback';
+			el.text = 'Оставить отзыв';
+			
+			break;
+			
+		case 'stu.tpr':
+			el = document.querySelector('div.span9 > a');
+			el.className = 'icon-button icon-feedback';
+			el.text = 'Оставить отзыв';
+			
+			break;
+			
+		case 'stu.teachers':
+			el = document.querySelector('div.span9 > a');
+			el.className = 'icon-button icon-analytics';
+			
+			const descriptions = document.querySelectorAll('.teacher_desc');
+			descriptions.forEach(desc => {
+				const name = desc.querySelector('.teacher_name');
+				btn = document.createElement('a');
+				btn.className = 'icon-button2';
+				btn.text = 'today';
+				img = name.querySelector('img');
+				btn.onclick = img.onclick;
+				btn.title = img.title;
+				img.remove();
+				name.appendChild(btn);
+				
+				const chair = desc.querySelector('.chair');
+				btn = document.createElement('a');
+				btn.className = 'icon-button2';
+				btn.text = 'today';
+				img = chair.querySelector('img');
+				btn.onclick = img.onclick;
+				btn.title = img.title;
+				img.remove();
+				chair.appendChild(btn);
+			});
+			
+			break;
+			
+		case 'stu.timetable':
+			const buttonbar = document.createElement('div');
+			buttonbar.className = 'timetable-buttonbar';
+			span9.insertBefore(buttonbar, span9.childNodes[0]);
+			
+			el = document.querySelector('div.span9 > div:nth-child(6)');
+			el.className = 'timetable-btn consultations';
+			buttonbar.appendChild(el);
+			
+			el = document.querySelector('div.span9 > a.estimate_tt');
+			el.className = 'timetable-btn icon-button icon-feedback';
+			el.text = 'Оставить отзыв';
+			buttonbar.appendChild(el);
+			
+			el = document.querySelector('div.span9 > a:nth-child(5)');
+			el.className = 'timetable-btn icon-button icon-today';
+			buttonbar.appendChild(el);
+			
+			
+			// const disciplines = document.querySelectorAll("span.dis > a");
+			// disciplines.forEach(dis => {
+			// 	dis.text = dis.text.replace('(лек)', '/ лекция');
+			// 	dis.text = dis.text.replace('(лаб)', '/ лабораторная');
+			// 	dis.text = dis.text.replace('(практ)', '/ практика');
+			// });
+			
+			const pairs = document.querySelectorAll("div.day > table > tbody > tr");
+			pairs.forEach(pair => {
+				const teacher = pair.querySelector('span.teacher');
+				if (teacher) {
+					const pairTeacher = document.createElement('td');
+					pairTeacher.className = 'pair_teacher';
+					pairTeacher.innerHTML = teacher.innerHTML;
+					pair.appendChild(pairTeacher);
+					
+					pair.querySelector('td.pair_jour').remove();
+					teacher.remove();
+				}
+			});
+			
+			break;
 		
-	})
-	
-}
+		case 'stu.change_pass_form':
+			const form = document.querySelector('.form');
+			const items = document.createElement('div');
+			items.className = "items";
+			form.insertBefore(items, form.childNodes[0]);
+			form.insertBefore(document.querySelector('div.span9 > h3'), form.childNodes[0]);
+			
+			const labels = form.querySelectorAll('label');
+			const inputs = form.querySelectorAll('input');
+			
+			for (i = 0; i < inputs.length; i++) {
+				inputs[i].placeholder = ' ';
+				
+				const item = document.createElement('div');
+				item.className = "item";
+				item.appendChild(inputs[i]);
+				item.appendChild(labels[i]);
+				items.appendChild(item);
+			}
+			
+			break;
+			
+		case 'stu_email_pkg.change_email':
+			const changeEmailForm = document.querySelector('.form');
+			const changeEmailItems = document.createElement('div');
+			changeEmailItems.className = "items";
+			changeEmailForm.insertBefore(changeEmailItems, changeEmailForm.childNodes[0]);
+			changeEmailForm.insertBefore(document.querySelector('div.span9 > div'), changeEmailForm.childNodes[0]);
+			changeEmailForm.insertBefore(document.querySelector('div.span9 > h3'), changeEmailForm.childNodes[0]);
 
-/**** СООБЩЕНИЯ ОТ ПРЕПОДАВАТЕЛЕЙ ****/
-
-if (window.location.href.match('https://student.psu.ru/pls/stu_cus_et/stu.teacher_notes')) {
-	// Скрывает блок с текстом "Страницы"
-	const pagesDiv = document.querySelector('div.span9 > div.week-select > ul > li:nth-child(1)');
-	pagesDiv.remove();
-	
-	// Первое сообщение от преподавателя
-	const firstMsg = document.querySelector('div.span9 > ul.nav.msg:nth-child(3)');
-	firstMsg.style.marginTop = '3rem';
-	
-	// Убирает отступы (&nbsp) перед именем преподавателя
-	let list_ul = document.querySelectorAll('body > div.container > div > div.span9 > ul')
-	list_ul.forEach(li => li.innerHTML = li.innerHTML.replace('&nbsp;&nbsp;&nbsp;', ''));
+			const emailLabel = changeEmailForm.querySelector('label');
+			const emailInput = changeEmailForm.querySelector("#email");
+			emailInput.placeholder = ' ';
+				
+			const changeEmailItem = document.createElement('div');
+			changeEmailItem.className = "item";
+			changeEmailItem.appendChild(emailInput);
+			changeEmailItem.appendChild(emailLabel);
+			changeEmailItems.appendChild(changeEmailItem);
+			
+			break;
+	}
 }
