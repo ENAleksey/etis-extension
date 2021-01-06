@@ -96,15 +96,30 @@ if (login) {
 
 	const span9 = document.querySelector('div.span9');
 	const page = window.location.pathname.split('/').pop();
+	const urlParams = new URLSearchParams(window.location.search);
+	const pageMode = urlParams.get('p_mode');
 	
 	switch (page) {
 		case 'stu.teach_plan':
-			el = span9.querySelector('div:nth-child(2)');
-			el.className = 'teach-plan';
-			
-			el = span9.querySelector('div:nth-child(2) > div > a');
-			el.className = 'icon-button icon-feedback';
-			el.text = 'Оставить отзыв';
+
+			switch (pageMode) {
+				case 'advanced':
+					el = span9.querySelector('a:nth-child(2)');
+					el.className = 'icon-button icon-feedback';
+					el.text = 'Оставить отзыв';
+
+					break;
+
+				default:
+					el = span9.querySelector('div:nth-child(2)');
+					el.className = 'teach-plan';
+					
+					el = span9.querySelector('div:nth-child(2) > div > a');
+					el.className = 'icon-button icon-feedback';
+					el.text = 'Оставить отзыв';
+
+					break;
+			}
 			
 			break;
 			
