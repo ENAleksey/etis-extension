@@ -40,6 +40,7 @@
 	  --color-blue: #a49dc2;
 	  --color-yellow: #c47500;
 	  --color-error: #d04524;
+	  --color-dialog-fade: #aaa7;
 	  
 	  --color-text-link: #6d61a0;
 	  --color-text-primary: #000000de;
@@ -50,6 +51,7 @@
 	  --color-text-error: #ed6545;
 	  
 	  --shadow-main: 0 8px 16px #a49dc220;
+	  --shadow-dialog: 0 0 16px #a49dc280;
 	  
 	  --border-input: 1px solid #a49dc2;
   }
@@ -75,6 +77,7 @@
 	  --color-blue: #8ab4f8; /*9bb6df*/
 	  --color-yellow: #dad676;
 	  --color-error: #d04524;
+	  --color-dialog-fade: #0007;
 	  
 	  --color-text-link: #8ab4f8;
 	  --color-text-primary: #ffffffde;
@@ -85,6 +88,7 @@
 	  --color-text-error: #ed6545;
 	  
 	  --shadow-main: 0 4px 12px #0002;
+	  --shadow-dialog: 0 0 16px #00000080;
 	  
 	  --border-input: 1px solid #333;
   }
@@ -346,6 +350,67 @@
   
   .teach_plan td.w {
 	  background: var(--color-card) !important;
+  }
+
+  /* Default Dialog Window */
+
+  .ui-dialog {
+	  box-shadow: var(--shadow-dialog) !important;
+  }
+
+  .ui-dialog .ui-dialog-content {
+	  width: initial !important;
+	  height: initial !important;
+  }
+
+  .ui-dialog .ui-dialog-content > form {
+	display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .ui-dialog .ui-dialog-content > form > input {
+	  margin-top: 6px !important;
+  }
+
+  .ui-dialog .ui-dialog-content > form > input.btn {
+	  align-self: flex-end !important;
+  }
+
+  .ui-widget-content {
+	  border: none !important;
+	  background: var(--color-card) !important;
+	  color: var(--color-text-primary) !important;
+  }
+
+  .ui-widget-header {
+	  border: none !important;
+	  background: var(--color-highlight) !important;
+	  color: var(--color-text-primary) !important;
+  }
+
+  .ui-widget-overlay {
+	  background: var(--color-dialog-fade) !important;
+	  opacity: 1 !important;
+  }
+
+  .ui-dialog .ui-dialog-titlebar-close {
+	  border: none !important;
+	  background: none !important;
+	  color: var(--color-text-secondary) !important;
+  }
+
+  .ui-dialog .ui-dialog-titlebar-close > .ui-button-icon-primary {
+	  display: none !important;
+  }
+
+  .ui-dialog .ui-dialog-titlebar-close:before {
+	  content: 'close' !important;
+	  font-family: 'Material Icons Outlined' !important;
+	  font-size: 18px !important;
+  }
+
+  .ui-dialog .ui-dialog-titlebar-close:hover:before {
+	  color: var(--color-text-highlight) !important;
   }
   
   
