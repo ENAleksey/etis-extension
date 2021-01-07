@@ -110,7 +110,8 @@ if (login) {
 
 					break;
 
-				default:
+				case 'short':
+				case null:
 					el = span9.querySelector('div:nth-child(2)');
 					el.className = 'teach-plan';
 					
