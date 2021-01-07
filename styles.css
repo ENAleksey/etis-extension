@@ -758,7 +758,7 @@ input[type="radio"]:checked:hover:after {
 	align-items: center !important;
 	justify-content: space-between !important;
 	
-	padding: 1.1rem 0 1.1rem 1.4rem !important;
+	padding: 1.1rem 0.8rem 1.1rem 1.4rem !important;
 	background: var(--color-card) !important;
 	color: var(--color-text-primary) !important;
 	border: none !important;
@@ -797,11 +797,11 @@ input[type="radio"]:checked:hover:after {
 
 .span3 > .nav.nav-tabs.nav-stacked > li > a > .badge {
 	background-color: var(--color-blue) !important;
-	padding: 0.4rem 0 !important;
+	padding: 0.2rem 0 !important;
 	color: var(--color-text-primary-invert) !important;
 	border-radius: var(--radius-small) !important;
-	margin: -1.2rem 0.4rem -1.2rem 0 !important;
-	width: 2.6rem !important;
+	margin: -1.2rem 0 !important;
+	width: 2.4rem !important;
 	font-weight: normal !important;
 }
 
