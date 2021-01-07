@@ -325,6 +325,16 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	font-weight: bold !important;
 }
 
+.slimtab_nice > tbody > tr > td[valign="top"] {
+	vertical-align: top !important;
+	text-align: left !important;
+}
+
+.slimtab_nice > tbody > tr > td[valign="top"]:nth-child(1) {
+	vertical-align: middle !important;
+	text-align: center !important;
+}
+
 .common tr > td,
 .common > tbody > tr > td[align="center"],
 .slimtab_nice tr > td {
