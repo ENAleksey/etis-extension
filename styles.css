@@ -299,6 +299,7 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 .slimtab_nice th {
 	border: 0.2rem solid var(--color-body) !important;
 	padding: 0.8rem 1.4rem !important;
+	vertical-align: middle !important;
 }
 
 .common tr,
@@ -331,7 +332,8 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 }
 
 .common tr > td:nth-child(1),
-.slimtab_nice tr > td:nth-child(1) {
+.slimtab_nice tr > td:nth-child(1),
+.cgrldatarow > td[style="border-left:none;"] {
 	text-align: left !important;
 }
 
