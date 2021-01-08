@@ -43,6 +43,7 @@ function switchTheme(e) {
 
 
 // Style Pages
+
 var login = document.querySelector('body > div.login');
 if (login) {
 	document.body.innerHTML = '<div class ="login-container">' + document.body.innerHTML + '</div>';
@@ -294,6 +295,56 @@ if (login) {
 				const msgBodyBrElements = msg.querySelectorAll('li > br');
 				msgBodyBrElements[0].remove();
 				msgBodyBrElements[1].remove();
+			})
+
+			break;
+		
+		case 'stu.teacher_notes':
+			const notes = document.querySelectorAll('.nav.msg');
+
+			notes.forEach(msg => {
+
+				msg.classList.add('message')
+
+				const msgHeader = document.createElement('li');
+				msgHeader.className = 'message-header';
+				msg.insertBefore(msgHeader, msg.children[0]);
+
+				const teacher = msg.querySelector('b');
+				const title = msg.querySelector('font[style="font-weight:bold"]');
+				const time = msg.querySelector('font[color="#808080"]');
+				const discipline = msg.querySelector('font[title="Показать все сообщения по этой дисциплине"]');
+
+				const mainInfo = document.createElement('div');
+				const secondaryInfo = document.createElement('div');
+
+				mainInfo.classList.add('message-info', 'main-info');
+				secondaryInfo.classList.add('message-info', 'secondary-info');
+
+				mainInfo.appendChild(teacher);
+				if (title)
+					mainInfo.appendChild(title);
+
+				secondaryInfo.appendChild(time);
+				if (discipline)
+					secondaryInfo.appendChild(discipline);
+
+				msgHeader.append(mainInfo, secondaryInfo);
+
+				const msgBodyBrElements = msg.querySelectorAll('li > br');
+				msgBodyBrElements[0].remove();
+				msgBodyBrElements[1].remove();
+				msgBodyBrElements[2].remove();
+				msgBodyBrElements[msgBodyBrElements.length - 2].remove();
+				msgBodyBrElements[msgBodyBrElements.length - 1].remove();
+
+				const msgBody = msg.querySelectorAll('li')[1];
+				msgBody.innerHTML = msgBody.innerHTML.substring('&nbsp;&nbsp;&nbsp;'.length);
+
+				const answerWrapper = document.createElement('li');
+				answerWrapper.className = 'answer-wrapper';
+				answerWrapper.appendChild(msg.querySelector('input[type="button"]'));
+				msg.appendChild(answerWrapper);
 			})
 
 			break;
