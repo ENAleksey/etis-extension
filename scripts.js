@@ -5,7 +5,6 @@ icon.type = 'image/png';
 icon.href = chrome.extension.getURL('logo.png');
 document.getElementsByTagName('head')[0].appendChild(icon);
 
-
 // Switch and save Theme
 function switchTheme(e) {
 	darkTheme = !darkTheme;
@@ -64,6 +63,17 @@ if (login) {
 	loginContainer.appendChild(loginFooter);
 	
 } else {
+	// Add 'active' class to all active elements in Sidebar
+	const asideElements = document.querySelectorAll('.span3 > .nav.nav-tabs.nav-stacked > li');
+	for (let i = 0; i < asideElements.length; i++) {
+		const element = asideElements[i];
+		const link = element.querySelector('a');
+		if (link && link.href === window.location.href) {
+			element.classList.add('active');
+			break;
+		}
+	}
+
 	// Add Theme Switcher button in Sidebar
 	const nav = document.querySelector('div.span3 > ul:nth-last-child(1)');
 	if (nav) {
