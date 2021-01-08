@@ -1361,8 +1361,18 @@ form > .items > .item {
 }
 
 /* message's body */
-.nav.msg.message > li {
+.nav.msg.message > li:nth-child(2) {
 	background-color: var(--color-card) !important;
 	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
-	padding: 2rem 3.2rem 2rem 3.2rem !important;
+	padding-top: 3.2rem !important;
+	padding-right: 2rem !important;
+	padding-bottom: 3.2rem !important;
+}
+
+.nav.msg.message > li {
+	padding-left: 2rem !important;
+}
+
+.nav.msg.message > li:nth-last-child(1) {
+	padding-bottom: 3.2rem !important;
 }
