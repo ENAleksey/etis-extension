@@ -268,5 +268,34 @@ if (login) {
 			changeEmailItems.appendChild(changeEmailItem);
 			
 			break;
+
+		case 'stu.announce':
+			const messages = document.querySelectorAll('.nav.msg');
+
+			messages.forEach(msg => {
+
+				msg.classList.add('message')
+
+				const msgHeader = document.createElement('li');
+				msgHeader.className = 'message-header';
+				msg.insertBefore(msgHeader, msg.children[0]);
+
+				const title = msg.querySelector('font[style="font-weight:bold"]');
+				const time = msg.querySelector('font[color="#808080"]');
+				time.innerText = time.innerText.substring(0, time.innerText.length - 3);
+
+				// move message's title and date/time to added message's header
+				if (title)
+					msgHeader.appendChild(title);
+				else
+					msgHeader.appendChild(document.createElement('font'))
+				msgHeader.appendChild(time);
+
+				const msgBodyBrElements = msg.querySelectorAll('li > br');
+				msgBodyBrElements[0].remove();
+				msgBodyBrElements[1].remove();
+			})
+
+			break;
 	}
 }

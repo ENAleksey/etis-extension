@@ -1330,3 +1330,39 @@ form > .items > .item {
 	user-select: none !important;
 	font-size: 1.4rem !important;
 }
+
+/* Announcements Page and Teachers Messages Page */
+/* ----------------------------------------------- */
+
+/* added class for messages */
+.nav.msg.message {
+	padding: 0 !important;
+}
+
+/* added class for message's header */
+.nav.msg.message > .message-header {
+	display: flex !important;
+	justify-content: space-between !important;
+	background-color: var(--color-highlight) !important;
+	border-radius: var(--radius-medium) var(--radius-medium) 0 0 !important;
+	padding: 1.8rem 3.2rem 1.8rem 3.2rem !important;
+}
+
+/* message's title */
+.message-header > font[style="font-weight:bold"] {
+	color: var(--color-text-primary) !important;
+}
+
+/* message's date and time */
+.message-header > font[color="#808080"] {
+	color: var(--color-text-secondary) !important;
+	min-width: 11rem !important;
+	margin-left: 5rem !important;
+}
+
+/* message's body */
+.nav.msg.message > li {
+	background-color: var(--color-card) !important;
+	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
+	padding: 2rem 3.2rem 2rem 3.2rem !important;
+}
