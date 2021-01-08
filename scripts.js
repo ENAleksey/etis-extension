@@ -1,9 +1,9 @@
 // Set Icon
-var style = document.createElement('link');
-style.rel = 'icon';
-style.type = 'image/png';
-style.href = chrome.extension.getURL('logo.png');
-document.getElementsByTagName('head')[0].appendChild(style);
+const icon = document.createElement('link');
+icon.rel = 'icon';
+icon.type = 'image/png';
+icon.href = chrome.extension.getURL('logo.png');
+document.getElementsByTagName('head')[0].appendChild(icon);
 
 
 // Select Theme
@@ -33,17 +33,17 @@ function switchTheme(e) {
     if (darkTheme) {
     	localStorage.setItem('theme', 'dark');
 		document.documentElement.setAttribute('theme', 'dark');
-		e.srcElement.text = 'Тема: Темная';
+		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Светлая', 'Темная');
     } else {
     	localStorage.setItem('theme', 'light');
 		document.documentElement.setAttribute('theme', 'light');
-		e.srcElement.text = 'Тема: Светлая';
+		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Темная', 'Светлая');
     }    
 }
 
 
 // Style Pages
-var login = document.querySelector('body > div.login');
+const login = document.querySelector('body > div.login');
 if (login) {
 	document.body.innerHTML = '<div class ="login-container">' + document.body.innerHTML + '</div>';
 	const loginContainer = document.querySelector('div.login-container');
@@ -64,7 +64,7 @@ if (login) {
 	items.forEach(item => {
 		const errorMessage = item.querySelector('div.error_message');
 		if (errorMessage) {
-			loginContainer.insertBefore(errorMessage, loginContainer.childNodes[0]);
+			loginContainer.prepend(errorMessage);
 			item.remove();
 		}
 
@@ -88,16 +88,44 @@ if (login) {
 	// Add Theme Switcher button in Sidebar
 	const nav = document.querySelector('div.span3 > ul:nth-last-child(1)');
 	if (nav) {
-		const el1 = document.createElement("li");
-		const el2 = document.createElement("a");
+		el = document.createElement("li");
+		nav.prepend(el);
+		const themeSwitcher = document.createElement("a");
 		if (darkTheme) {
-			el2.appendChild(document.createTextNode("Тема: Темная"));
+			themeSwitcher.appendChild(document.createTextNode("Тема: Темная"));
 		} else {
-			el2.appendChild(document.createTextNode("Тема: Светлая"));
+			themeSwitcher.appendChild(document.createTextNode("Тема: Светлая"));
 		}
-		el1.appendChild(el2);
-		nav.insertBefore(el1, nav.childNodes[0]);
-		el1.addEventListener('click', switchTheme, false);
+		themeSwitcher.addEventListener('click', switchTheme, false);
+		el.appendChild(themeSwitcher);
+
+		nav.querySelectorAll('li > a').forEach(a => {
+			navIcon = document.createElement('span');
+			navIcon.className = 'material-icons';
+			a.prepend(navIcon);
+			
+			switch (a.getAttribute('href')) {
+				case null:
+					navIcon.textContent = 'brightness_6';
+					break;
+
+				case 'stu.change_pass_form':
+					navIcon.innerHTML = 'vpn_key';
+					break;
+
+				case 'stu_email_pkg.change_email':
+					navIcon.innerHTML = 'alternate_email';
+					break;
+
+				case 'stu.change_pr_page':
+					navIcon.innerHTML = 'account_box';
+					break;
+
+				case 'stu.logout':
+					navIcon.innerHTML = 'exit_to_app';
+					break;
+			}
+		});
 	}
 
 	// Main page content
@@ -188,7 +216,7 @@ if (login) {
 		case 'stu.timetable':
 			const buttonbar = document.createElement('div');
 			buttonbar.className = 'timetable-buttonbar';
-			span9.insertBefore(buttonbar, span9.childNodes[0]);
+			span9.prepend(buttonbar);
 			
 			el = span9.querySelector('div:nth-child(6)');
 			el.className = 'timetable-btn consultations';
@@ -231,8 +259,8 @@ if (login) {
 			const form = document.querySelector('.form');
 			const items = document.createElement('div');
 			items.className = "items";
-			form.insertBefore(items, form.childNodes[0]);
-			form.insertBefore(span9.querySelector('h3'), form.childNodes[0]);
+			form.prepend(items);
+			form.prepend(span9.querySelector('h3'));
 			
 			const labels = form.querySelectorAll('label');
 			const inputs = form.querySelectorAll('input');
@@ -253,9 +281,9 @@ if (login) {
 			const changeEmailForm = document.querySelector('.form');
 			const changeEmailItems = document.createElement('div');
 			changeEmailItems.className = "items";
-			changeEmailForm.insertBefore(changeEmailItems, changeEmailForm.childNodes[0]);
-			changeEmailForm.insertBefore(span9.querySelector('div'), changeEmailForm.childNodes[0]);
-			changeEmailForm.insertBefore(span9.querySelector('h3'), changeEmailForm.childNodes[0]);
+			changeEmailForm.prepend(changeEmailItems);
+			changeEmailForm.prepend(span9.querySelector('div'));
+			changeEmailForm.prepend(span9.querySelector('h3'));
 
 			const emailLabel = changeEmailForm.querySelector('label');
 			const emailInput = changeEmailForm.querySelector("#email");
@@ -278,7 +306,7 @@ if (login) {
 
 				const msgHeader = document.createElement('li');
 				msgHeader.className = 'message-header';
-				msg.insertBefore(msgHeader, msg.children[0]);
+				msg.prepend(msgHeader);
 
 				const title = msg.querySelector('font[style="font-weight:bold"]');
 				const time = msg.querySelector('font[color="#808080"]');
