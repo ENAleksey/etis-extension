@@ -32,10 +32,12 @@ function switchTheme(e) {
 	darkTheme = !darkTheme;
     if (darkTheme) {
     	localStorage.setItem('theme', 'dark');
-        document.documentElement.setAttribute('theme', 'dark');
+		document.documentElement.setAttribute('theme', 'dark');
+		e.srcElement.text = 'Тема: Темная';
     } else {
     	localStorage.setItem('theme', 'light');
-        document.documentElement.setAttribute('theme', 'light');
+		document.documentElement.setAttribute('theme', 'light');
+		e.srcElement.text = 'Тема: Светлая';
     }    
 }
 
@@ -83,17 +85,22 @@ if (login) {
 	loginContainer.appendChild(loginFooter);
 	
 } else {
-	// Add Extension Settings button in Sidebar
+	// Add Theme Switcher button in Sidebar
 	const nav = document.querySelector('div.span3 > ul:nth-last-child(1)');
 	if (nav) {
 		const el1 = document.createElement("li");
 		const el2 = document.createElement("a");
-		el2.appendChild(document.createTextNode("Настройки расширения"));
+		if (darkTheme) {
+			el2.appendChild(document.createTextNode("Тема: Темная"));
+		} else {
+			el2.appendChild(document.createTextNode("Тема: Светлая"));
+		}
 		el1.appendChild(el2);
 		nav.insertBefore(el1, nav.childNodes[0]);
 		el1.addEventListener('click', switchTheme, false);
 	}
 
+	// Main page content
 	const span9 = document.querySelector('div.span9');
 	const page = window.location.pathname.split('/').pop();
 	const urlParams = new URLSearchParams(window.location.search);
