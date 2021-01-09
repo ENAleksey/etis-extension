@@ -1393,8 +1393,8 @@ form > .items > .item {
 }
 
 .nav.msg.message > li {
-	padding-left: 2rem !important;
-	padding-right: 2rem !important;
+	padding-left: 3.2rem !important;
+	padding-right: 3.2rem !important;
 }
 
 .nav.msg.message > li:nth-last-child(1) {
@@ -1403,24 +1403,28 @@ form > .items > .item {
 
 /* Teachers Messages Page only */
 
+/* added class for message page numbers */
+.message-pages {
+	display: flex !important;
+	justify-content: start !important;
+}
+
+.message-pages > li[style="width:5em"] {
+	display: none !important;
+}
+
+/* message header's content */
 .message-info {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 }
 
 .message-info > *:nth-child(1) {
 	margin-bottom: 1.2rem !important;
 }
 
-.secondary-info {
-	text-align: right !important;
-}
-
-.answer-wrapper {
-	display: flex;
-	flex-direction: row-reverse;
-}
-
+/* teacher's name */
 .message-info.main-info > b > i {
 	display: flex !important;
 	align-items: center !important;
@@ -1428,6 +1432,7 @@ form > .items > .item {
 	font-size: 1.6rem !important;
 }
 
+/* teacher's icon */
 .message-info.main-info > b > i::before {
 	font-family: 'Material Icons Round' !important;
 	content: 'person' !important;
@@ -1435,8 +1440,14 @@ form > .items > .item {
 	margin-right: 0.5rem !important;
 }
 
-.message-info.secondary-info {
+.secondary-info {
+	text-align: right !important;
 	margin-left: 5rem !important;
+}
+
+.message-info.secondary-info > * {
+	color: var(--color-text-secondary) !important;
+	font-weight: normal !important;
 }
 
 .message-info.secondary-info > font[title="Показать все сообщения по этой дисциплине"]::before {
@@ -1448,11 +1459,23 @@ form > .items > .item {
 	width: 100% !important;
 }
 
-.message-info.secondary-info > * {
-	color: var(--color-text-secondary) !important;
-	font-weight: normal !important;
+/* message's date and time */
+.secondary-info > font[color="#808080"] {
+	margin-top: 5px !important;
 }
 
+/* element above send button */
+.message.nav.msg > li:nth-last-child(3) {
+	padding-bottom: 3.2rem !important;
+}
+
+/* send button added wrapper */
+.answer-wrapper {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+/* send button */
 .answer-wrapper > button {
 	width: 12.7rem !important;
 	height: 3.2rem !important;
@@ -1468,6 +1491,7 @@ form > .items > .item {
 	line-height: 1 !important;
 }
 
+/* send button's icon */
 .answer-wrapper > button::before {
 	font-family: 'Material Icons Outlined' !important;
 	content: 'send' !important;
@@ -1476,11 +1500,44 @@ form > .items > .item {
 	line-height: 1 !important;
 }
 
-.message-pages {
+/* form that appears after click on send button */
+.message > div > form {
 	display: flex !important;
-	justify-content: start !important;
+	flex-direction: column !important;
+	padding: 0 3.2rem 3.2rem 3.2rem !important
 }
 
-.message-pages > li[style="width:5em"] {
-	display: none !important;
+.message > div > form > textarea {
+	margin: 0 0 1rem 0 !important;
+}
+
+.message > div > form > font {
+	font-size: 1.2rem !important;
+	color: var(--color-text-secondary) !important;
+	margin: 0 0 1rem 0 !important;
+	align-self: flex-end !important;
+}
+
+.message > div > form > input {
+	width: 12.7rem !important;
+	height: 3.2rem !important;
+
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+
+	background-color: var(--color-highlight) !important;
+	color: var(--color-text-primary) !important;
+	border: 0 !important;
+	border-radius: var(--radius-small) !important;
+	align-self: flex-end !important;
+}
+
+/* message that was sent to teacher */
+.message.repl_s.nav.msg {
+	padding: 3.2rem !important;
+}
+
+.message.repl_s.nav.msg > li {
+	padding: 0 !important;
 }

@@ -356,54 +356,79 @@ function stylePages() {
 
 					msg.classList.add('message')
 
-					const msgHeader = document.createElement('li');
-					msgHeader.className = 'message-header';
-					msg.insertBefore(msgHeader, msg.children[0]);
+					// don't style messages that were sent to teachers
+					if (!msg.className.match(/repl_s/)) 
+					{
+						// create new blocks into message's header
+						// and move teacher's name, title, time, discipline to them
+						const msgHeader = document.createElement('li');
+						msgHeader.className = 'message-header';
+						msg.insertBefore(msgHeader, msg.children[0]);
 
-					const teacher = msg.querySelector('b');
-					const title = msg.querySelector('font[style="font-weight:bold"]');
-					const time = msg.querySelector('font[color="#808080"]');
-					const discipline = msg.querySelector('font[title="Показать все сообщения по этой дисциплине"]');
+						const teacher = msg.querySelector('b');
+						const title = msg.querySelector('font[style="font-weight:bold"]');
+						const time = msg.querySelector('font[color="#808080"]');
+						time.innerText = time.innerText.substring(0, time.innerText.length - 3);
+						const discipline = msg.querySelector('font[title="Показать все сообщения по этой дисциплине"]');
 
-					const mainInfo = document.createElement('div');
-					const secondaryInfo = document.createElement('div');
+						const mainInfo = document.createElement('div');
+						const secondaryInfo = document.createElement('div');
 
-					mainInfo.classList.add('message-info', 'main-info');
-					secondaryInfo.classList.add('message-info', 'secondary-info');
+						mainInfo.classList.add('message-info', 'main-info');
+						secondaryInfo.classList.add('message-info', 'secondary-info');
 
-					mainInfo.appendChild(teacher);
-					if (title)
-						mainInfo.appendChild(title);
+						mainInfo.appendChild(teacher);
+						if (title)
+							mainInfo.appendChild(title);
 
-					secondaryInfo.appendChild(time);
-					if (discipline)
-						secondaryInfo.appendChild(discipline);
+						secondaryInfo.appendChild(time);
+						if (discipline)
+							secondaryInfo.appendChild(discipline);
 
-					msgHeader.append(mainInfo, secondaryInfo);
+						msgHeader.append(mainInfo, secondaryInfo);
 
-					const msgBodyBrElements = msg.querySelectorAll('li > br');
-					msgBodyBrElements[0].remove();
-					msgBodyBrElements[1].remove();
-					msgBodyBrElements[2].remove();
-					msgBodyBrElements[msgBodyBrElements.length - 2].remove();
-					msgBodyBrElements[msgBodyBrElements.length - 1].remove();
+						// remove unnecessary <br> elements from message
+						const msgBodyBrElements = msg.querySelectorAll('li > br');
+						msgBodyBrElements[0].remove();
+						msgBodyBrElements[1].remove();
+						msgBodyBrElements[2].remove();
+						msgBodyBrElements[msgBodyBrElements.length - 2].remove();
+						msgBodyBrElements[msgBodyBrElements.length - 1].remove();
 
-					const msgBody = msg.querySelectorAll('li')[1];
-					msgBody.innerHTML = msgBody.innerHTML.substring('&nbsp;&nbsp;&nbsp;'.length);
+						// remove unnecessary space from message
+						const msgBody = msg.querySelectorAll('li')[1];
+						msgBody.innerHTML = msgBody.innerHTML.substring('&nbsp;&nbsp;&nbsp;'.length);
 
-					const answerWrapper = document.createElement('li');
-					answerWrapper.className = 'answer-wrapper';
-					const answerInput = msg.querySelector('input[type="button"]');
-					const answerButton = document.createElement('button');
+						const answerWrapper = document.createElement('li');
+						answerWrapper.className = 'answer-wrapper';
+						const answerInput = msg.querySelector('input[type="button"]');
+						const answerButton = document.createElement('button');
 
-					answerButton.setAttribute('id', answerInput.id);
-					answerButton.setAttribute('onclick', answerInput.getAttribute('onclick'));
-					answerButton.innerText = answerInput.value;
+						// replace send input with send button
+						answerButton.setAttribute('id', answerInput.id);
+						answerButton.setAttribute('onclick', answerInput.getAttribute('onclick'));
+						answerButton.innerText = answerInput.value;
+						answerButton.addEventListener('click', () => {
+							answerButton.remove();
+							answerWrapper.remove();
 
-					answerInput.remove();
-					answerWrapper.appendChild(answerButton);
+							const listElementsCount = msg.querySelectorAll('li').length;
+							const listElementWithPadding = msg.querySelector('li:nth-last-child(3)');
+							const listElemenNeedsPadding = msg.querySelector('li:nth-last-child(2)');
+							if (listElementsCount > 2) {
+								listElementWithPadding.style = 'padding-bottom: 0 !important';
+								listElemenNeedsPadding.style.paddingBottom = '3.2rem';
+							}
+							else {
+								listElementWithPadding.style = 'padding-bottom: 1.8rem !important';
+							}
+						});
 
-					msg.appendChild(answerWrapper);
+						answerInput.remove();
+						answerWrapper.appendChild(answerButton);
+
+						msg.appendChild(answerWrapper);
+					}
 				})
 
 				break;
