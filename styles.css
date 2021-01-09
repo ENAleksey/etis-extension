@@ -1413,3 +1413,13 @@ form > .items > .item {
 	display: flex;
 	flex-direction: row-reverse;
 }
+
+.message-info.main-info > b > i {
+	font-weight: normal !important;
+	font-size: 1.6rem !important;
+}
+
+.message-info.secondary-info > * {
+	color: var(--color-text-secondary) !important;
+	font-weight: normal !important;
+}
