@@ -393,7 +393,16 @@ function stylePages() {
 
 					const answerWrapper = document.createElement('li');
 					answerWrapper.className = 'answer-wrapper';
-					answerWrapper.appendChild(msg.querySelector('input[type="button"]'));
+					const answerInput = msg.querySelector('input[type="button"]');
+					const answerButton = document.createElement('button');
+
+					answerButton.setAttribute('id', answerInput.id);
+					answerButton.setAttribute('onclick', answerInput.getAttribute('onclick'));
+					answerButton.innerText = answerInput.value;
+
+					answerInput.remove();
+					answerWrapper.appendChild(answerButton);
+
 					msg.appendChild(answerWrapper);
 				})
 

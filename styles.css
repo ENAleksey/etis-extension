@@ -1421,10 +1421,6 @@ form > .items > .item {
 	flex-direction: row-reverse;
 }
 
-/* .message-info.main-info {
-	max-width: 250px !important;
-} */
-
 .message-info.main-info > b > i {
 	display: flex !important;
 	align-items: center !important;
@@ -1457,7 +1453,7 @@ form > .items > .item {
 	font-weight: normal !important;
 }
 
-.answer-wrapper > input {
+.answer-wrapper > button {
 	width: 12.7rem !important;
 	height: 3.2rem !important;
 
@@ -1469,6 +1465,15 @@ form > .items > .item {
 	color: var(--color-text-primary) !important;
 	border: 0 !important;
 	border-radius: var(--radius-small) !important;
+	line-height: 1 !important;
+}
+
+.answer-wrapper > button::before {
+	font-family: 'Material Icons Outlined' !important;
+	content: 'send' !important;
+	font-size: 1.8rem !important;
+	margin-right: 5px !important;
+	line-height: 1 !important;
 }
 
 .message-pages {
