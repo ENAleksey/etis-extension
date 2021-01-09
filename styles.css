@@ -5,6 +5,13 @@
 	src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v38/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
 }
 
+@font-face {
+	font-family: 'Material Icons Round';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.gstatic.com/s/materialiconsround/v37/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format('woff2');
+  }
+
 
 :root {
 	--font-family: 'PT Sans Caption', Verdana, sans-serif;
@@ -1414,16 +1421,51 @@ form > .items > .item {
 	flex-direction: row-reverse;
 }
 
+/* .message-info.main-info {
+	max-width: 250px !important;
+} */
+
 .message-info.main-info > b > i {
+	display: flex !important;
+	align-items: center !important;
 	font-weight: normal !important;
 	font-size: 1.6rem !important;
+}
+
+.message-info.main-info > b > i::before {
+	font-family: 'Material Icons Round' !important;
+	content: 'person' !important;
+	font-size: 2.4rem !important;
+	margin-right: 0.5rem !important;
 }
 
 .message-info.secondary-info {
 	margin-left: 5rem !important;
 }
 
+.message-info.secondary-info > font[title="Показать все сообщения по этой дисциплине"]::before {
+	font-family: 'Material Icons Outlined' !important;
+	content: 'analytics' !important;
+	font-size: 1.6rem !important;
+	margin-right: 3px !important;
+	vertical-align: top !important;
+}
+
 .message-info.secondary-info > * {
 	color: var(--color-text-secondary) !important;
 	font-weight: normal !important;
+}
+
+.answer-wrapper > input {
+	width: 12.7rem !important;
+	height: 3.2rem !important;
+
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+
+	background-color: var(--color-highlight) !important;
+	color: var(--color-text-primary) !important;
+	border: 0 !important;
+	border-radius: var(--radius-small) !important;
 }
