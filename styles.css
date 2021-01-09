@@ -1419,6 +1419,10 @@ form > .items > .item {
 	font-size: 1.6rem !important;
 }
 
+.message-info.secondary-info {
+	margin-left: 5rem !important;
+}
+
 .message-info.secondary-info > * {
 	color: var(--color-text-secondary) !important;
 	font-weight: normal !important;
