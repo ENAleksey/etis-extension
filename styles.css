@@ -39,6 +39,7 @@
 	--color-green: #38a73d;
 	--color-blue: #a49dc2;
 	--color-yellow: #c47500;
+	--color-white: #fff;
 	--color-error: #d04524;
 	--color-dialog-fade: #aaa7;
 	
@@ -76,6 +77,7 @@
 	--color-green: #70c27e;
 	--color-blue: #8ab4f8; /*9bb6df*/
 	--color-yellow: #dad676;
+	--color-white: #fff;
 	--color-error: #d04524;
 	--color-dialog-fade: #0007;
 	
@@ -1291,7 +1293,7 @@ html[theme="light"] .login > form:before {
 	top: 0 !important;
 	padding: 0.8rem 0 !important;
 	background: var(--color-error) !important;
-	color: var(--color-text-primary) !important;
+	color: var(--color-white) !important;
 	font-size: 1.4rem !important;
 	text-align: center !important;
 	z-index: 1;
