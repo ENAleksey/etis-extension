@@ -5,13 +5,9 @@
 	"content_scripts": [
 		{
 			"matches": ["https://student.psu.ru/*"],
-			"js": ["theme.js"],
-			"run_at": "document_start"
-		},
-		{
-			"matches": ["https://student.psu.ru/*"],
 			"js": ["scripts.js"],
-			"css": ["styles.css"]
+			"css": ["styles.css"],
+			"run_at": "document_start"
 		}
 	],
 	"icons": {  "16": "logo.png",
