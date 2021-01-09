@@ -348,8 +348,10 @@ function stylePages() {
 				break;
 			
 			case 'stu.teacher_notes':
-				const notes = document.querySelectorAll('.nav.msg');
+				const weeks = document.querySelector('.weeks');
+				weeks.classList.add('message-pages');
 
+				const notes = document.querySelectorAll('.nav.msg');
 				notes.forEach(msg => {
 
 					msg.classList.add('message')

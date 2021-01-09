@@ -1449,6 +1449,7 @@ form > .items > .item {
 	font-size: 1.6rem !important;
 	margin-right: 3px !important;
 	vertical-align: top !important;
+	width: 100% !important;
 }
 
 .message-info.secondary-info > * {
@@ -1468,4 +1469,13 @@ form > .items > .item {
 	color: var(--color-text-primary) !important;
 	border: 0 !important;
 	border-radius: var(--radius-small) !important;
+}
+
+.message-pages {
+	display: flex !important;
+	justify-content: start !important;
+}
+
+.message-pages > li[style="width:5em"] {
+	display: none !important;
 }
