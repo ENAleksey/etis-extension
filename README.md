@@ -1,4 +1,14 @@
 # ЕТИС 2.0
+<p align="center">
+  <img src="screenshots/login_old.png" width="33%"/>
+  <img src="screenshots/login_light.png" width="33%"/>
+  <img src="screenshots/login_dark.png" width="33%"/>
+</p>
+<p align="center">
+  <img src="screenshots/timetable_old.png" width="33%"/>
+  <img src="screenshots/timetable_light.png" width="33%"/>
+  <img src="screenshots/timetable_dark.png" width="33%"/>
+</p>
 Браузерное расширение, меняющее дизайн [ЕТИСа](https://student.psu.ru/), сайта электронного журнала студентов Пермского государственного национального исследовательского университета.
 
 # Установка
