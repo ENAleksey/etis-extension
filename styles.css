@@ -1460,6 +1460,10 @@ form > .items > .item {
 	width: 100% !important;
 }
 
+.message-info.secondary-info > font[title="Показать все сообщения по этой дисциплине"]:hover {
+	color: var(--color-text-primary) !important;
+}
+
 /* message's date and time */
 .secondary-info > font[color="#808080"] {
 	margin-top: 5px !important;
@@ -1490,6 +1494,10 @@ form > .items > .item {
 	border: 0 !important;
 	border-radius: var(--radius-small) !important;
 	line-height: 1 !important;
+}
+
+.answer-wrapper > button:hover {
+	background-color: var(--color-highlight-light) !important;
 }
 
 /* send button's icon */
