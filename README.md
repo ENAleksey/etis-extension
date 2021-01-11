@@ -15,8 +15,12 @@
 
 Поддерживаются браузеры на базе Chromium.
 
+Список протестированных браузеров:
+- Google Chrome
+- Microsoft Edge
+
 **Скачать:**
-- [Для Google Chrome](https://chrome.google.com/webstore/detail/%D0%B5%D1%82%D0%B8%D1%81-20/lnggbapghkjneppcomlegoocpdeaiafa?hl=en-US)
+- [Из Интернет-магазина Chrome](https://chrome.google.com/webstore/detail/%D0%B5%D1%82%D0%B8%D1%81-20/lnggbapghkjneppcomlegoocpdeaiafa?hl=en-US)
 
 # Обратная связь
 
