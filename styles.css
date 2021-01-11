@@ -10,7 +10,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url(https://fonts.gstatic.com/s/materialiconsround/v37/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format('woff2');
-  }
+}
 
 
 :root {
@@ -56,7 +56,7 @@
 	--color-text-primary-invert: #fff;
 	--color-text-accent: #6d61a0;
 	--color-text-highlight: #000;
-	--color-text-error: #ed6545;
+	--color-text-error: #ff2d00;
 	
 	--shadow-main: 0 8px 16px #a49dc220;
 	--shadow-dialog: 0 0 16px #a49dc280;
@@ -94,7 +94,7 @@
 	--color-text-primary-invert: #000;
 	--color-text-accent: #8ab4f8;
 	--color-text-highlight: #fff;
-	--color-text-error: #ed6545;
+	--color-text-error: #ff775a;
 	
 	--shadow-main: 0 4px 12px #0002;
 	--shadow-dialog: 0 0 16px #00000080;
@@ -208,10 +208,8 @@ body {
 	margin: 0 !important;
 	width: auto !important;
 	margin-bottom: 2rem !important;
-	border-radius: var(--radius-medium) !important;
-	background: var(--color-error) !important;
-	color: var(--color-white) !important;
-	padding: 1rem !important;
+	background: none !important;
+	color: var(--color-text-error) !important;
 	font-size: 1.2rem !important;
 }
 
