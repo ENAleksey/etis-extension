@@ -1416,7 +1416,7 @@ form > .items > .item {
 	justify-content: space-between !important;
 	background-color: var(--color-highlight) !important;
 	border-radius: var(--radius-medium) var(--radius-medium) 0 0 !important;
-	padding: 1.8rem 3.2rem 1.8rem 3.2rem !important;
+	padding: 1.8rem 2.4rem 1.8rem 2.4rem !important;
 }
 
 /* message's title */
@@ -1435,17 +1435,18 @@ form > .items > .item {
 .nav.msg.message > li:nth-child(2) {
 	background-color: var(--color-card) !important;
 	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
-	padding-top: 3.2rem !important;
-	padding-bottom: 3.2rem !important;
+	padding-top: 2.4rem !important;
+	padding-bottom: 2.4rem !important;
+	line-height: 1.5;
 }
 
 .nav.msg.message > li {
-	padding-left: 3.2rem !important;
-	padding-right: 3.2rem !important;
+	padding-left: 2.4rem !important;
+	padding-right: 2.4rem !important;
 }
 
 .nav.msg.message > li:nth-last-child(1) {
-	padding-bottom: 3.2rem !important;
+	padding-bottom: 2.4rem !important;
 }
 
 /* Teachers Messages Page only */
@@ -1560,7 +1561,7 @@ form > .items > .item {
 .message > div > form {
 	display: flex !important;
 	flex-direction: column !important;
-	padding: 0 3.2rem 3.2rem 3.2rem !important
+	padding: 0 2.4rem 2.4rem 2.4rem !important
 }
 
 .message > div > form > textarea {
@@ -1591,7 +1592,7 @@ form > .items > .item {
 
 /* message that was sent to teacher */
 .message.repl_s.nav.msg {
-	padding: 3.2rem !important;
+	padding: 2.4rem !important;
 }
 
 .message.repl_s.nav.msg > li {
