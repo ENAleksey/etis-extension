@@ -200,6 +200,15 @@ body {
 	border: 0.2rem solid transparent !important;
 }
 
+/* message that appears if you must take a survey about teachers */
+.warning {
+	width: var(--width-page) !important;
+	margin: 0 auto 0 auto !important;
+	margin-top: 1rem !important;
+	padding: 1rem !important;
+	border-radius: var(--radius-small) !important;
+}
+
 /* Default Colors */
 
 font[color="red"],
