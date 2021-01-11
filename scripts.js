@@ -1,5 +1,5 @@
 // Load and apply Theme
-function detectColorScheme() {
+function isDarkTheme() {
 	if (localStorage.getItem("theme")) {
 		if (localStorage.getItem("theme") == "dark") {
 			return true;
@@ -9,9 +9,11 @@ function detectColorScheme() {
 	} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 		return true;
 	}
+
+	return false;
 }
 
-darkTheme = detectColorScheme();
+darkTheme = isDarkTheme();
 if (darkTheme) {
 	document.documentElement.setAttribute("theme", "dark");
 } else {
