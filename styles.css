@@ -1489,6 +1489,7 @@ form > .items > .item {
 	align-items: center !important;
 	justify-content: center !important;
 
+	box-shadow: var(--shadow-main) !important;
 	background-color: var(--color-highlight) !important;
 	color: var(--color-text-primary) !important;
 	border: 0 !important;
