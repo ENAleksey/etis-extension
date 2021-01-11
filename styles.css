@@ -141,11 +141,13 @@ body {
 	height: 95% !important;
 	z-index: 1 !important;
 	overflow-x: hidden !important;
+	float: none !important;
 }
 
 .span9 {
 	width: auto !important;
 	margin-left: calc(var(--width-aside) + var(--width-content-margin-left)) !important;
+	float: none !important;
 }
 
 /* @media (max-width:960px) {
