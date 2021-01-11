@@ -154,6 +154,11 @@ function stylePages() {
 		const page = window.location.pathname.split('/').pop();
 		const urlParams = new URLSearchParams(window.location.search);
 		const pageMode = urlParams.get('p_mode');
+
+		const warning = document.querySelector('div.warning');
+		if (warning && span9) {
+			span9.prepend(warning);
+		}
 		
 		switch (page) {
 			case 'stu.teach_plan':
