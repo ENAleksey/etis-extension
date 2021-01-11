@@ -294,7 +294,8 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 
 .common,
 .slimtab_nice,
-.teach_plan {
+.teach_plan,
+.question_table {
 	width: 100% !important;
 	box-shadow: var(--shadow-main) !important;
 	overflow: hidden !important;
@@ -304,7 +305,8 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 
 .common:after,
 .slimtab_nice:after,
-.teach_plan:after {
+.teach_plan:after,
+.question_table:after {
 	top: 0 !important;
 	box-shadow: 0 0 0 0.1rem var(--color-table-border) inset !important;
 	content: '' !important;
@@ -319,7 +321,8 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 .common td,
 .common th,
 .slimtab_nice td,
-.slimtab_nice th {
+.slimtab_nice th,
+.question_table td {
 	border: 0.2rem solid var(--color-body) !important;
 	padding: 0.8rem 1.4rem !important;
 	vertical-align: middle !important;
@@ -327,7 +330,8 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 
 .common tr,
 .slimtab_nice tr,
-.teach_plan tr {
+.teach_plan tr,
+.question_table tr {
 	background: var(--color-card) !important;
 }
 
@@ -700,9 +704,7 @@ input[type="radio"]:checked:hover:after {
 
 .review {
 	padding-bottom: 3rem !important;
-	background: var(--color-card) !important;
 	border-radius: var(--radius-medium) !important;
-	padding: 2rem !important;
 	width: 100% !important;
 }
 
@@ -735,6 +737,32 @@ input[type="radio"]:checked:hover:after {
 	height: 20rem !important;
 	padding: 0.8rem 1.2rem !important;
 	resize: none !important;
+}
+
+
+
+/* Questioning page */
+/* ----------------------------------------------- */
+
+form.que_form {
+    margin-top: 1rem !important;
+}
+
+.question_table {
+	margin: 1.4rem 0 3rem !important;
+}
+
+.question_table .text,
+.question_table tr:first-child {
+    background: var(--color-table-header) !important;
+}
+
+.cgrldatarow:hover {
+	background: var(--color-table-highlight) !important;
+}
+
+.question_table .answer_cell .answer {
+	margin: 0 !important;
 }
 
 
