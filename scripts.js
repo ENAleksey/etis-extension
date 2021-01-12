@@ -1,24 +1,64 @@
-// Load and apply Theme
-function isDarkTheme() {
-	if (localStorage.getItem("theme")) {
-		if (localStorage.getItem("theme") == "dark") {
-			return true;
+// Set Theme
+theme = 'auto';
+if (window.matchMedia) {
+	prefersColorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+}
+
+function setDarkTheme(e) {
+	document.documentElement.setAttribute('theme', e.matches ? 'dark' : 'light');
+}
+
+function setSystemThemeDetection() {
+	if (window.matchMedia) {
+		prefersColorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+		document.documentElement.setAttribute('theme', prefersColorSchemeMedia.matches ? 'dark' : 'light');
+		prefersColorSchemeMedia.addEventListener('change', setDarkTheme);
+	}
+}
+
+function removeSystemThemeDetection() {
+	if (window.matchMedia) {
+		prefersColorSchemeMedia.removeEventListener('change', setDarkTheme);
+	}
+}
+
+function detectTheme() {
+	if (localStorage.getItem('theme')) {
+		theme = localStorage.getItem('theme');
+		if (theme == 'auto') {
+			setSystemThemeDetection();
+		} else {
+			document.documentElement.setAttribute('theme', theme);
 		}
-	} else if (!window.matchMedia) {
-		return false;
-	} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-		return true;
+	} else {
+		theme = 'auto';
+		setSystemThemeDetection()
+	}
+}
+
+function switchTheme(e) {
+	if (theme == 'auto') {
+		theme = 'light';
+		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Системная', 'Светлая');
+	} else if (theme == 'light') {
+		theme = 'dark';
+		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Светлая', 'Темная');
+	} else if (theme == 'dark') {
+		theme = 'auto';
+		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Темная', 'Системная');
 	}
 
-	return false;
+	localStorage.setItem('theme', theme);
+
+	if (theme == 'auto') {
+		setSystemThemeDetection();
+	} else {
+		document.documentElement.setAttribute('theme', theme);
+		removeSystemThemeDetection();
+	}
 }
 
-darkTheme = isDarkTheme();
-if (darkTheme) {
-	document.documentElement.setAttribute("theme", "dark");
-} else {
-	document.documentElement.setAttribute("theme", "light");
-}
+detectTheme();
 
 
 // Style
@@ -35,21 +75,6 @@ function setIcon() {
 	icon.type = 'image/png';
 	icon.href = chrome.extension.getURL('logo.png');
 	document.querySelector('head').appendChild(icon);
-}
-
-
-// Switch and save Theme
-function switchTheme(e) {
-	darkTheme = !darkTheme;
-    if (darkTheme) {
-    	localStorage.setItem('theme', 'dark');
-		document.documentElement.setAttribute('theme', 'dark');
-		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Светлая', 'Темная');
-    } else {
-    	localStorage.setItem('theme', 'light');
-		document.documentElement.setAttribute('theme', 'light');
-		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Темная', 'Светлая');
-    }    
 }
 
 
@@ -114,11 +139,7 @@ function stylePages() {
 			el = document.createElement("li");
 			nav.prepend(el);
 			const themeSwitcher = document.createElement("a");
-			if (darkTheme) {
-				themeSwitcher.appendChild(document.createTextNode("Тема: Темная"));
-			} else {
-				themeSwitcher.appendChild(document.createTextNode("Тема: Светлая"));
-			}
+			themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
 			themeSwitcher.addEventListener('click', switchTheme, false);
 			el.appendChild(themeSwitcher);
 
