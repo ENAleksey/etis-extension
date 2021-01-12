@@ -907,6 +907,19 @@ form.que_form {
 	display: inline !important;
 }
 
+.tpr_part {
+	line-height: 1.5 !important;
+}
+
+
+
+/* Educational Standard Page */
+/* ----------------------------------------------- */
+
+.ses_part {
+	line-height: 1.5 !important;
+}
+
 
 
 /* Week Select */
