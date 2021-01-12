@@ -574,25 +574,34 @@ input[type="radio"]:checked:hover:after {
 .button_gray {
 	width: fit-content !important;
 	align-self: flex-end !important;
-	box-shadow: var(--shadow-main) !important;
+	border: none !important;
+    background: none !important;
 }
 
 .button_gray button {
 	padding: 0.6rem 1.2rem !important;
-}
-
-.button_gray,
-.button_gray button {
-	border: none !important;
 	color: var(--color-text-primary-invert) !important;
-	text-shadow: none !important;
 	background: var(--color-accent) !important;
 	font-size: 1.4rem !important;
+	border: none !important;
 	border-radius: var(--radius-small) !important;
+	text-shadow: none !important;
+	box-shadow: var(--shadow-main) !important;
+}
+
+.button_gray button[disabled] {
+    border: none !important;
+    background: var(--color-highlight) !important;
+	color: var(--color-text-secondary) !important;
+	box-shadow: none !important;
 }
 
 .button_gray button:hover {
 	background: var(--color-accent-hightlight) !important;
+}
+
+.button_gray button[disabled]:hover {
+    background: var(--color-highlight) !important;
 }
 
 .button_gray button:active,
@@ -1209,6 +1218,15 @@ span.holiday {
 	border: none !important;
 }
 
+.span9 > .nav.answ.nav-tabs.nav-stacked > li > a:hover,
+.span9 > .nav.msg.nav-tabs.nav-stacked > li > a:hover {
+	text-decoration: none !important;
+}
+
+.span9 > .nav.answ.nav-tabs.nav-stacked {
+	border: 0.1rem solid var(--color-accent) !important;
+}
+
 .span9 > .nav.nav-tabs.nav-stacked > li > a:hover {
 	background: none !important;
 	text-decoration: underline !important;
@@ -1218,28 +1236,24 @@ span.holiday {
 	background: none !important;
 }
 
+.nav.answ > li > a:hover > font,
+.nav.msg > li > a:hover > font {
+	color: var(--color-text-primary) !important;
+}
+
+.nav.answ,
 .nav.msg {
 	padding: 1.2rem !important;
 	border: none !important;
 	border-radius: var(--radius-medium) !important;
-	background-color: var(--color-card) !important;
+	background: var(--color-card) !important;
 	box-shadow: var(--shadow-main) !important;
+	text-decoration: none !important;
 }
 
-.nav.msg > li > a {
-	background: none !important;
-}
-
-.nav.msg > li > a:hover {
-	background: none !important;
-	text-decoration: underline !important;
-}
-
-.nav.answ {
-	padding: 1.2rem !important;
-	border: none !important;
-	border-radius: var(--radius-medium) !important;
-	background: var(--color-highlight) !important;
+.nav.answ .review,
+.nav.msg .review {
+	padding: 0 !important;
 }
 
 
