@@ -26,6 +26,7 @@
 	--color-highlight: #f6f6f6;
 	--color-highlight-light: #fff;
 	--color-input: #f6f6f6;
+	--color-input-highlight: #fff;
 	--color-scrollbar-thumb: #bbb;
 	--color-scrollbar-thumb-highlight: #aaa;
 	--color-table-border: #ffffffa0;
@@ -64,6 +65,7 @@
 	--color-highlight: #333333;
 	--color-highlight-light: #444444;
 	--color-input: #111111;
+	--color-input-highlight: #000;
 	--color-scrollbar-thumb: #333333;
 	--color-scrollbar-thumb-highlight: #444444;
 	--color-table-border: #ffffff10;
@@ -457,6 +459,10 @@ button {
 	font-family: inherit !important;
 }
 
+textarea {
+	width: 100% !important;
+}
+
 select,
 textarea {
 	background: var(--color-input) !important;
@@ -464,6 +470,10 @@ textarea {
 	padding: 0.4rem 0.8rem !important;
 	border-radius: var(--radius-small) !important;
 	border: var(--border-input) !important;
+}
+
+select:hover {
+	background: var(--color-input-highlight) !important;
 }
 
 /* Input Fields */
@@ -562,7 +572,7 @@ input[type="radio"]:checked:after {
 
 input[type="checkbox"]:hover:before,
 input[type="radio"]:hover:before {
-	background: var(--color-text-primary-invert) !important;
+	background: var(--color-input-highlight) !important;
 }
 input[type="checkbox"]:checked:hover:after,
 input[type="radio"]:checked:hover:after {
@@ -1254,6 +1264,10 @@ span.holiday {
 .nav.answ .review,
 .nav.msg .review {
 	padding: 0 !important;
+}
+
+.nav.answ .comment {
+	margin-bottom: 1.4rem !important;
 }
 
 
