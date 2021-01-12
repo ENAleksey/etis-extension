@@ -40,22 +40,19 @@ function switchTheme(e) {
 	if (theme == 'auto') {
 		theme = 'light';
 		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Системная', 'Светлая');
+		document.documentElement.setAttribute('theme', theme);
+		removeSystemThemeDetection();
 	} else if (theme == 'light') {
 		theme = 'dark';
 		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Светлая', 'Темная');
+		document.documentElement.setAttribute('theme', theme);
 	} else if (theme == 'dark') {
 		theme = 'auto';
 		e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Темная', 'Системная');
+		setSystemThemeDetection();
 	}
 
 	localStorage.setItem('theme', theme);
-
-	if (theme == 'auto') {
-		setSystemThemeDetection();
-	} else {
-		document.documentElement.setAttribute('theme', theme);
-		removeSystemThemeDetection();
-	}
 }
 
 detectTheme();

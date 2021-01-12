@@ -36,12 +36,12 @@
 	--color-accent-dark: #6d61a0;
 	--color-accent-hightlight: #bcb4da;
 	--color-accent-active: #c9c1e9;
-	--color-red: #f44336;
+	--color-red: #e53935;
 	--color-green: #38a73d;
 	--color-blue: #a49dc2;
 	--color-yellow: #c47500;
 	--color-white: #fff;
-	--color-error: #ff5722;
+	--color-error: #e53935;
 	--color-dialog-fade: #aaa7;
 	
 	--color-text-link: #6d61a0;
@@ -50,7 +50,7 @@
 	--color-text-primary-invert: #fff;
 	--color-text-accent: #6d61a0;
 	--color-text-highlight: #000;
-	--color-text-error: #ff2d00;
+	--color-text-error: #e53935;
 	
 	--shadow-main: 0 8px 16px #a49dc220;
 	--shadow-dialog: 0 0 16px #a49dc280;
