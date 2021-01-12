@@ -214,7 +214,8 @@ font[color="red"],
 tr[style="color:red;"],
 span[style="color:red;"],
 div[style="font-size:0.8em;color:red;"],
-font[style="color:red;font-weight:bold"] {
+font[style="color:red;font-weight:bold"],
+font[style="color:#d00;"] {
 	color: var(--color-red) !important;
 }
 
