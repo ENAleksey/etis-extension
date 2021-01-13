@@ -30,4 +30,4 @@
 
 Владислав - https://t.me/landvermess
 
-Наш телеграм-канал - https://t.me/etis2
+Наш телеграм-канал - https://t.me/etis20
