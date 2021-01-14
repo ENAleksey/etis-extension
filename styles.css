@@ -1527,7 +1527,7 @@ form > .items > .item {
 
 .message-info.secondary-info > font[title="Показать все сообщения по этой дисциплине"]::before {
 	font-family: 'Material Icons Outlined' !important;
-	content: 'analytics' !important;
+	content: 'filter_alt' !important;
 	font-size: 1.6rem !important;
 	margin-right: 3px !important;
 	vertical-align: top !important;
