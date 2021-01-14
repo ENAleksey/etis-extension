@@ -23,6 +23,7 @@
 [theme="light"] {
 	--color-body: #ebebed;
 	--color-card: #f2f2f2;
+	--color-tooltip: #fff;
 	--color-highlight: #f6f6f6;
 	--color-highlight-light: #fff;
 	--color-input: #f6f6f6;
@@ -62,6 +63,7 @@
 [theme="dark"] {
 	--color-body: #181818;
 	--color-card: #212121;
+	--color-tooltip: #222;
 	--color-highlight: #333333;
 	--color-highlight-light: #444444;
 	--color-input: #111111;
@@ -135,7 +137,6 @@ body {
     bottom: 0 !important;
 	width: var(--width-aside) !important;
 	margin: 0 !important;
-	z-index: 1 !important;
 	overflow-x: hidden !important;
 	float: none !important;
 }
@@ -144,6 +145,22 @@ body {
 	width: auto !important;
 	margin-left: calc(var(--width-aside) + var(--width-content-margin-left)) !important;
 	float: none !important;
+}
+
+.warning {
+	margin: 0 !important;
+	width: auto !important;
+	margin-bottom: 2rem !important;
+	background: none !important;
+	color: var(--color-text-error) !important;
+	font-size: 1.2rem !important;
+}
+
+#tooltip {
+	background: var(--color-tooltip) !important;
+	color: var(--color-text-primary) !important;
+	border: 0.1rem solid var(--color-text-primary) !important;
+	padding: 0.4rem 0.6rem !important;
 }
 
 /* @media (max-width:960px) {
@@ -196,16 +213,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background-color: var(--color-scrollbar-thumb-highlight) !important;
 	border: 0.2rem solid transparent !important;
-}
-
-/* message that appears if you must take a survey about teachers */
-.warning {
-	margin: 0 !important;
-	width: auto !important;
-	margin-bottom: 2rem !important;
-	background: none !important;
-	color: var(--color-text-error) !important;
-	font-size: 1.2rem !important;
 }
 
 /* Default Colors */
