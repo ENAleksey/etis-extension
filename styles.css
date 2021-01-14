@@ -114,7 +114,7 @@ body {
 	color: var(--color-text-primary) !important;
 	
 	font-family: var(--font-family) !important;
-	overflow-y: scroll;
+	overflow-y: overlay !important;
 }
 
 .container {
