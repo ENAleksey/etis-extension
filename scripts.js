@@ -77,6 +77,7 @@ function setIcon() {
 
 // Style Pages
 function stylePages() {
+	// Style Login Page
 	const login = document.querySelector('body > div.login');
 	if (login) {
 		document.body.innerHTML = '<div class ="login-container">' + document.body.innerHTML + '</div>';
@@ -119,54 +120,69 @@ function stylePages() {
 		loginContainer.appendChild(loginFooter);
 		
 	} else {
-		// Add 'active' class to all active elements in Sidebar
-		const asideElements = document.querySelectorAll('.span3 > .nav.nav-tabs.nav-stacked > li');
-		for (let i = 0; i < asideElements.length; i++) {
-			const element = asideElements[i];
-			const link = element.querySelector('a');
-			if (link && link.href === window.location.href) {
-				element.classList.add('active');
-				break;
+		// Style Sidebar
+		const sidebar = document.querySelector("div.span3");
+		if (sidebar) {
+			// Save scroll position for Sidebar on page reload
+			const top = localStorage.getItem("sidebar-scroll");
+			if (top) {
+				sidebar.scrollTop = parseInt(top, 10);
 			}
-		}
-
-		// Add Theme Switcher button in Sidebar
-		const nav = document.querySelector('div.span3 > ul:nth-last-child(1)');
-		if (nav) {
-			el = document.createElement("li");
-			nav.prepend(el);
-			const themeSwitcher = document.createElement("a");
-			themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
-			themeSwitcher.addEventListener('click', switchTheme, false);
-			el.appendChild(themeSwitcher);
-
-			nav.querySelectorAll('li > a').forEach(a => {
-				navIcon = document.createElement('span');
-				navIcon.className = 'material-icons';
-				a.prepend(navIcon);
-				
-				switch (a.getAttribute('href')) {
-					case null:
-						navIcon.textContent = 'brightness_6';
-						break;
-
-					case 'stu.change_pass_form':
-						navIcon.innerHTML = 'vpn_key';
-						break;
-
-					case 'stu_email_pkg.change_email':
-						navIcon.innerHTML = 'alternate_email';
-						break;
-
-					case 'stu.change_pr_page':
-						navIcon.innerHTML = 'account_box';
-						break;
-
-					case 'stu.logout':
-						navIcon.innerHTML = 'exit_to_app';
-						break;
-				}
+			window.addEventListener("beforeunload", () => {
+				localStorage.setItem("sidebar-scroll", sidebar.scrollTop);
 			});
+
+			// Add 'active' class to all active elements in Sidebar
+			const asideElements = sidebar.querySelectorAll('.nav.nav-tabs.nav-stacked > li');
+			for (let i = 0; i < asideElements.length; i++) {
+				const element = asideElements[i];
+				const link = element.querySelector('a');
+				if (link && link.href === window.location.href) {
+					element.classList.add('active');
+					break;
+				}
+			}
+
+			// Style last nav of Sidebar
+			const nav = sidebar.querySelector('ul:nth-last-child(1)');
+			if (nav) {
+				// Add Theme Switcher button in Sidebar
+				el = document.createElement("li");
+				nav.prepend(el);
+				const themeSwitcher = document.createElement("a");
+				themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
+				themeSwitcher.addEventListener('click', switchTheme, false);
+				el.appendChild(themeSwitcher);
+
+				// Add icons
+				nav.querySelectorAll('li > a').forEach(a => {
+					navIcon = document.createElement('span');
+					navIcon.className = 'material-icons';
+					a.prepend(navIcon);
+					
+					switch (a.getAttribute('href')) {
+						case null:
+							navIcon.textContent = 'brightness_6';
+							break;
+
+						case 'stu.change_pass_form':
+							navIcon.innerHTML = 'vpn_key';
+							break;
+
+						case 'stu_email_pkg.change_email':
+							navIcon.innerHTML = 'alternate_email';
+							break;
+
+						case 'stu.change_pr_page':
+							navIcon.innerHTML = 'account_box';
+							break;
+
+						case 'stu.logout':
+							navIcon.innerHTML = 'exit_to_app';
+							break;
+					}
+				});
+			}
 		}
 
 		// Main page content
