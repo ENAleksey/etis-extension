@@ -448,7 +448,7 @@ function stylePages() {
 						// replace send input with send button
 						answerButton.setAttribute('id', answerInput.id);
 						answerButton.setAttribute('onclick', answerInput.getAttribute('onclick'));
-						answerButton.innerText = answerInput.value;
+						answerButton.innerText = 'Добавить ответ';
 						answerButton.addEventListener('click', () => {
 							answerButton.remove();
 							answerWrapper.remove();

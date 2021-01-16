@@ -589,6 +589,34 @@ input[type="radio"]:checked:hover:after {
 
 /* Default Buttons */
 
+button {
+	padding: 0.8rem 1.6rem !important;
+	color: var(--color-text-primary) !important;
+	background: var(--color-highlight) !important;
+	font-size: 1.4rem !important;
+	border: none !important;
+	border-radius: var(--radius-small) !important;
+	text-shadow: none !important;
+	box-shadow: var(--shadow-main) !important;
+	display: flex !important;
+	align-items: center !important;
+	line-height: 1 !important;
+}
+
+button[disabled] {
+	border: none !important;
+    background: var(--color-highlight) !important;
+	color: var(--color-text-secondary) !important;
+	box-shadow: none !important;
+	cursor: default !important;
+}
+
+button:hover,
+button:active,
+button:focus {
+	background: var(--color-highlight-light) !important;
+}
+
 .button_gray {
 	width: fit-content !important;
 	align-self: flex-end !important;
@@ -597,22 +625,13 @@ input[type="radio"]:checked:hover:after {
 }
 
 .button_gray button {
-	padding: 0.6rem 1.2rem !important;
 	color: var(--color-text-primary-invert) !important;
 	background: var(--color-accent) !important;
-	font-size: 1.4rem !important;
-	border: none !important;
-	border-radius: var(--radius-small) !important;
-	text-shadow: none !important;
-	box-shadow: var(--shadow-main) !important;
 }
 
 .button_gray button[disabled] {
-    border: none !important;
     background: var(--color-highlight) !important;
 	color: var(--color-text-secondary) !important;
-	box-shadow: none !important;
-	cursor: default !important;
 }
 
 .button_gray button:hover {
@@ -624,7 +643,7 @@ input[type="radio"]:checked:hover:after {
 }
 
 .button_gray button:active,
-.button_gray button:focus{
+.button_gray button:focus {
 	background: var(--color-accent-active) !important;
 }
 
@@ -650,7 +669,8 @@ input[type="radio"]:checked:hover:after {
 	padding: 1rem 3.2rem !important;
 }
 
-.button:active, .button.active {
+.button:active,
+.button.active {
 	top: 0 !important;
 	box-shadow: none !important;
 }
@@ -1564,38 +1584,20 @@ form > .items > .item {
 
 /* send button added wrapper */
 .answer-wrapper {
-	display: flex;
-	flex-direction: row-reverse;
-}
-
-/* send button */
-.answer-wrapper > button {
-	width: 12.7rem !important;
-	height: 3.2rem !important;
-
 	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-
-	box-shadow: var(--shadow-main) !important;
-	background-color: var(--color-highlight) !important;
-	color: var(--color-text-primary) !important;
-	border: 0 !important;
-	border-radius: var(--radius-small) !important;
-	line-height: 1 !important;
+	flex-direction: row-reverse !important;
 }
 
-.answer-wrapper > button:hover {
-	background-color: var(--color-highlight-light) !important;
+.answer-wrapper > button {
+	padding: 0.6rem 1.2rem !important;
 }
 
 /* send button's icon */
 .answer-wrapper > button::before {
 	font-family: 'Material Icons Outlined' !important;
-	content: 'send' !important;
+	content: 'add' !important;
 	font-size: 1.8rem !important;
-	margin-right: 5px !important;
-	line-height: 1 !important;
+	margin-right: 0.5rem !important;
 }
 
 /* form that appears after click on send button */
