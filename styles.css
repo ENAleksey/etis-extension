@@ -1464,6 +1464,37 @@ form > .items > .item {
 	font-size: 1.4rem !important;
 }
 
+
+
+/* Change Email Page */
+/* ----------------------------------------------- */
+
+.form > .error {
+	color: var(--color-text-error) !important;
+	padding-bottom: 1.6rem !important;
+}
+
+
+
+/* Change Email Page */
+/* ----------------------------------------------- */
+
+.form-info > span {
+	color: var(--color-text-error) !important;
+    font-size: inherit !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    display: block !important;
+    padding-bottom: 0.6rem !important;
+}
+
+.form-info > ul {
+	padding-left: 1.6rem !important;
+	padding-top: 0.6rem !important;
+}
+
+
+
 /* Announcements Page and Teachers Messages Page */
 /* ----------------------------------------------- */
 
@@ -1517,6 +1548,7 @@ form > .items > .item {
 .nav.msg.message > li:nth-last-child(1) {
 	padding-bottom: 2.4rem !important;
 }
+
 
 /* Teachers Messages Page only */
 

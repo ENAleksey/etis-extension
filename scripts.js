@@ -294,14 +294,14 @@ function stylePages() {
 				buttonbar.appendChild(el);
 				
 				
-				// const disciplines = document.querySelectorAll("span.dis > a");
+				// const disciplines = span9.querySelectorAll("span.dis > a");
 				// disciplines.forEach(dis => {
 				// 	dis.text = dis.text.replace('(лек)', '/ лекция');
 				// 	dis.text = dis.text.replace('(лаб)', '/ лабораторная');
 				// 	dis.text = dis.text.replace('(практ)', '/ практика');
 				// });
 				
-				const pairs = document.querySelectorAll("div.day > table > tbody > tr");
+				const pairs = span9.querySelectorAll("div.day > table > tbody > tr");
 				pairs.forEach(pair => {
 					const teacher = pair.querySelector('span.teacher');
 					if (teacher) {
@@ -318,7 +318,8 @@ function stylePages() {
 				break;
 			
 			case 'stu.change_pass_form':
-				const form = document.querySelector('.form');
+			case 'stu.change_pass':
+				const form = span9.querySelector('.form');
 				const items = document.createElement('div');
 				items.className = "items";
 				form.prepend(items);
@@ -340,11 +341,13 @@ function stylePages() {
 				break;
 				
 			case 'stu_email_pkg.change_email':
-				const changeEmailForm = document.querySelector('.form');
+				const changeEmailForm = span9.querySelector('.form');
+				const changeEmailInfo = span9.querySelector('div');
+				changeEmailInfo.className = "form-info";
 				const changeEmailItems = document.createElement('div');
 				changeEmailItems.className = "items";
 				changeEmailForm.prepend(changeEmailItems);
-				changeEmailForm.prepend(span9.querySelector('div'));
+				changeEmailForm.prepend(changeEmailInfo);
 				changeEmailForm.prepend(span9.querySelector('h3'));
 
 				const emailLabel = changeEmailForm.querySelector('label');
