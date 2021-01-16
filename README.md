@@ -20,9 +20,10 @@
 - Google Chrome
 - Microsoft Edge
 - Opera
+- Яндекс.Браузер
 
 **Скачать:**
-- [Из Интернет-магазина Chrome](https://chrome.google.com/webstore/detail/%D0%B5%D1%82%D0%B8%D1%81-20/lnggbapghkjneppcomlegoocpdeaiafa)
+- [Из Интернет-магазина Chrome](https://vk.cc/bXbdKh)
 
 # Обратная связь
 
