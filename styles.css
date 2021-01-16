@@ -1488,6 +1488,12 @@ form > .items > .item {
 	padding-right: 2.4rem !important;
 }
 
+.nav.msg.message > li > a:hover,
+.nav.msg.message > li > a:focus {
+	background: none !important;
+	text-decoration: underline !important;
+}
+
 .nav.msg.message > li:nth-last-child(1) {
 	padding-bottom: 2.4rem !important;
 }
