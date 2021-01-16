@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function setIcon() {
 	const icon = document.createElement('link');
 	icon.rel = 'icon';
-	icon.type = 'image/png';
-	icon.href = chrome.extension.getURL('logo.png');
+	icon.type = 'image/svg+xml';
+	icon.href = chrome.extension.getURL('icon.svg');
 	document.querySelector('head').appendChild(icon);
 }
 
