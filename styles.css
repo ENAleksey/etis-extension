@@ -215,10 +215,13 @@ body {
 	border: 0.2rem solid transparent !important;
 }
 
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-scrollbar-thumb) #00000000;
+}
+
 @supports (-moz-appearance:none) {
-	:root, .span3 {
-		scrollbar-width: thin;
-		scrollbar-color: var(--color-scrollbar-thumb) #00000000;
+	.span3 {
 		padding-right: 0.4rem !important;
 	}
 }
