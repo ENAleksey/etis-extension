@@ -21,6 +21,7 @@
 - Microsoft Edge
 - Opera
 - Яндекс.Браузер
+- Firefox
 
 **Скачать:**
 - [Из Интернет-магазина Chrome](https://vk.cc/bXbdKh)
