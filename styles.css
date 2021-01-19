@@ -131,6 +131,29 @@ body {
 	padding: 4rem 2rem 10rem !important;
 }
 
+input#menu__toggle[type="checkbox"] {
+	position: relative;
+	top: -30px;
+	opacity: 0;
+}
+
+.menu__btn {
+	display: none; 
+	align-items: center;
+	position: fixed;
+	width: 3.3em;
+	height: 3.3em;
+	cursor: pointer;
+	z-index: 12;
+	user-select: none;
+}
+
+.menu__btn > span {
+	display: block;
+  	position: absolute;
+  	width: 100%;
+}
+
 .span3 {
 	position: fixed !important;
 	top: 4rem !important;
@@ -145,6 +168,44 @@ body {
 	width: auto !important;
 	margin-left: calc(var(--width-aside) + var(--width-content-margin-left)) !important;
 	float: none !important;
+}
+
+@media (max-width: 768px) {
+	.container > .row {
+		padding-top: 3px !important;
+	}
+
+	.span3 {
+		display: block;
+		top: 6rem !important;
+		visibility: hidden;
+	}
+
+	.span3[visible] {
+		visibility: visible !important;
+		background-color: var(--color-body);
+		z-index: 10;
+	}
+
+	.span9 {
+		width: auto !important;
+		margin-left: 0 !important;
+		float: none !important;
+	}
+
+	.timetable-buttonbar, .span9 > .submenu{
+		padding-left: 4.2rem;
+	}
+
+	.menu__btn {
+		display: inline-block !important;
+		top: 8px !important;
+		left: 20px !important;
+	}
+
+	.menu__btn span {
+		font-size: 3.3em !important;
+	}
 }
 
 .warning {
@@ -857,7 +918,7 @@ form.que_form {
 	display: flex !important;
 	align-items: center !important;
 	justify-content: space-between !important;
-
+	user-select: none;
 	padding: 1.1rem 0.8rem 1.1rem 1.4rem !important;
 	background: var(--color-card) !important;
 	color: var(--color-text-primary) !important;
