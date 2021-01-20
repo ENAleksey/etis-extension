@@ -124,12 +124,12 @@ function stylePages() {
 		const sidebar = document.querySelector("div.span3");
 		if (sidebar) {
 			// Save scroll position for Sidebar on page reload
-			const top = localStorage.getItem("sidebar-scroll");
+			const top = sessionStorage.getItem("sidebar-scroll");
 			if (top) {
 				sidebar.scrollTop = parseInt(top, 10);
 			}
 			window.addEventListener("beforeunload", () => {
-				localStorage.setItem("sidebar-scroll", sidebar.scrollTop);
+				sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
 			});
 
 			// Add 'active' class to all active elements in Sidebar
