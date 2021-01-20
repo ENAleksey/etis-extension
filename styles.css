@@ -215,6 +215,17 @@ body {
 	border: 0.2rem solid transparent !important;
 }
 
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-scrollbar-thumb) #00000000;
+}
+
+@supports (-moz-appearance:none) {
+	.span3 {
+		padding-right: 0.4rem !important;
+	}
+}
+
 /* Default Colors */
 
 font[color="red"],
@@ -506,12 +517,16 @@ input[type="email"]:focus {
 
 input[type="text"]:focus ~ label,
 input[type="text"]:not(:placeholder-shown) ~ label,
-input[type="text"]:-webkit-autofill ~ label,
 input[type="password"]:focus ~ label,
 input[type="password"]:not(:placeholder-shown) ~ label,
-input[type="password"]:-webkit-autofill ~ label,
 input[type="email"]:focus ~ label,
-input[type="email"]:not(:placeholder-shown) ~ label,
+input[type="email"]:not(:placeholder-shown) ~ label {
+	top: -2rem !important;
+	font-size: 1.2rem !important;
+}
+
+input[type="text"]:-webkit-autofill ~ label,
+input[type="password"]:-webkit-autofill ~ label,
 input[type="email"]:-webkit-autofill ~ label {
 	top: -2rem !important;
 	font-size: 1.2rem !important;
