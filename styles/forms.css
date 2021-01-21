@@ -1,0 +1,72 @@
+/* Forms */
+/* ----------------------------------------------- */
+
+.login form, .form {
+	display: flex !important;
+	flex-direction: column !important;
+	padding: 3.2rem !important;
+	box-shadow: var(--shadow-main) !important;
+	background: var(--color-card) !important;
+	border-radius: var(--radius-large) !important;
+	width: 36rem !important;
+	margin: 0 auto !important;
+}
+
+form br {
+	display: none !important;
+}
+
+form > .items {
+	padding: 0 !important;
+	font-size: 0 !important;
+}
+
+form > .items > .item {
+	position: relative !important;
+	margin: 0 !important;
+	z-index: 0 !important;
+	font-size: 1.2rem !important;
+}
+
+.items > .item > input {
+	text-indent: 0 !important;
+	height: auto !important;
+	line-height: normal !important;
+	font-size: 1.4rem !important;
+	padding: 0 0 0.8rem !important;
+	margin: 3.2rem 0 0 !important;
+}
+
+.items > .item > label {
+	color: var(--color-text-secondary) !important;
+	position: absolute !important;
+	margin: 0 !important;
+	top: 0 !important;
+	padding: 0 0 0.8rem !important;
+	z-index: -1 !important;
+	transition: 0.2s !important;
+	user-select: none !important;
+	font-size: 1.4rem !important;
+}
+
+/* Change Email Page */
+/* ----------------------------------------------- */
+
+.form > .error {
+	color: var(--color-text-error) !important;
+	padding-bottom: 1.6rem !important;
+}
+
+.form-info > span {
+	color: var(--color-text-error) !important;
+    font-size: inherit !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    display: block !important;
+    padding-bottom: 0.6rem !important;
+}
+
+.form-info > ul {
+	padding-left: 1.6rem !important;
+	padding-top: 0.6rem !important;
+}

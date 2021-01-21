@@ -1,0 +1,22 @@
+@font-face {
+	font-family: 'Material Icons Outlined';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v38/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+}
+
+
+:root {
+	--font-family: 'PT Sans Caption', Verdana, sans-serif;
+	/*--font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";*/
+	
+	--radius-small: 5px;
+	--radius-medium: 8px;
+	--radius-large: 12px;
+	
+	--width-aside: 24rem;
+	--width-page: 1120px;
+	--width-content: 80rem;
+	--width-content-margin-left: 4rem;
+}
+

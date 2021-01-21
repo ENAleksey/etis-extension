@@ -1,0 +1,107 @@
+/* Sidebar */
+/* ----------------------------------------------- */
+
+.span3 > .nav.nav-tabs.nav-stacked {
+	border-radius: var(--radius-medium) !important;
+	background: var(--color-card) !important;
+	box-shadow: var(--shadow-main) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked:last-child {
+	margin-bottom: 4rem !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li {
+	background: var(--color-card) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .warn_menu > a {
+	color: var(--color-text-accent) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li:first-child {
+	border-top-right-radius: var(--radius-small) !important;
+	border-top-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li:last-child {
+	border-bottom-right-radius: var(--radius-small) !important;
+	border-bottom-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav-tabs.nav-stacked > li:first-child > a {
+	border-top-right-radius: var(--radius-small) !important;
+	border-top-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav-tabs.nav-stacked > li:last-child > a {
+	border-bottom-right-radius: var(--radius-small) !important;
+	border-bottom-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked:last-child > li > a {
+	justify-content: left !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	user-select: none;
+	padding: 1.1rem 0.8rem 1.1rem 1.4rem !important;
+	background: var(--color-card) !important;
+	color: var(--color-text-primary) !important;
+	border: none !important;
+	cursor: pointer !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a:hover {
+	background: var(--color-highlight) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active {
+	font-weight: bold !important;
+	display: flex !important;
+	align-items: center !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active:before {
+	position: absolute !important;
+	width: 0.5rem !important;
+	height: 3.2rem !important;
+	z-index: 3 !important;
+	
+	content: "" !important;
+	border-radius: var(--radius-medium) !important;
+	background: var(--color-accent) !important;
+	transition: height 0.08s ease-out !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active:hover:before {
+	height: 4rem !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active > a {
+	width: 100% !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a > .badge {
+	background-color: var(--color-accent) !important;
+	padding: 0.2rem 0 !important;
+	color: var(--color-text-primary-invert) !important;
+	border-radius: var(--radius-small) !important;
+	margin: -1.2rem 0 !important;
+	width: 2.4rem !important;
+	font-weight: normal !important;
+}
+
+.material-icons {
+    font-family: 'Material Icons Outlined' !important;
+	font-size: 20px !important;
+	font-weight: normal !important;
+	pointer-events: none !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a > .material-icons {
+	margin-right: 10px !important;
+}
