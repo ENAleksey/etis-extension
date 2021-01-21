@@ -64,38 +64,12 @@ function insertMeta() {
 	document.getElementsByTagName('head')[0].appendChild(meta);
 }
 
-function hamburgerMenu() {
-	menu = document.createElement('label');
-	menu.classList.add('menu__btn');
-	menu.setAttribute('for', 'menu__toggle');
-	document.body.prepend(menu);
-
-	span = document.createElement('span');
-	span.classList.add('material-icons');
-	span.innerHTML = 'menu';
-	menu.append(span);
-
-	check = document.createElement('input');
-	check.id = 'menu__toggle';
-	check.type = 'checkbox';
-	check.addEventListener('change', (event) => {
-		if (event.target.checked) {
-			document.getElementsByClassName('span3')[0].setAttribute('visible', '');
-		} else {
-			document.getElementsByClassName('span3')[0].removeAttribute('visible');
-		}
-	})
-	document.body.prepend(check);
-}
-
 // Style
 document.addEventListener("DOMContentLoaded", function(event) { 
+	insertMeta();
 	setIcon();
 	stylePages();
-	insertMeta();
-	hamburgerMenu();
 });
-
 
 // Set Icon
 function setIcon() {
@@ -105,7 +79,6 @@ function setIcon() {
 	icon.href = chrome.extension.getURL('icon.svg');
 	document.querySelector('head').appendChild(icon);
 }
-
 
 // Style Pages
 function stylePages() {
