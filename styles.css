@@ -276,6 +276,17 @@ input#menu__toggle[type="checkbox"] {
 	border: 0.2rem solid transparent !important;
 }
 
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-scrollbar-thumb) #00000000;
+}
+
+@supports (-moz-appearance:none) {
+	.span3 {
+		padding-right: 0.4rem !important;
+	}
+}
+
 /* Default Colors */
 
 font[color="red"],
@@ -567,12 +578,16 @@ input[type="email"]:focus {
 
 input[type="text"]:focus ~ label,
 input[type="text"]:not(:placeholder-shown) ~ label,
-input[type="text"]:-webkit-autofill ~ label,
 input[type="password"]:focus ~ label,
 input[type="password"]:not(:placeholder-shown) ~ label,
-input[type="password"]:-webkit-autofill ~ label,
 input[type="email"]:focus ~ label,
-input[type="email"]:not(:placeholder-shown) ~ label,
+input[type="email"]:not(:placeholder-shown) ~ label {
+	top: -2rem !important;
+	font-size: 1.2rem !important;
+}
+
+input[type="text"]:-webkit-autofill ~ label,
+input[type="password"]:-webkit-autofill ~ label,
 input[type="email"]:-webkit-autofill ~ label {
 	top: -2rem !important;
 	font-size: 1.2rem !important;
@@ -728,6 +743,9 @@ button:focus {
 	margin: 0 !important;
 	box-shadow: var(--shadow-main) !important;
 	padding: 1rem 3.2rem !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
 }
 
 .button:active,
@@ -1402,7 +1420,7 @@ span.holiday {
 }
 
 .login {
-	margin: 2rem auto 0 !important;
+	margin: 2rem auto !important;
 	display: flex !important;
 	align-items: center !important;
 	justify-content: center !important;
@@ -1414,7 +1432,7 @@ span.holiday {
 	display: none !important;
 }
 
-.login > form:before {
+.psu-logo {
 	position: relative !important;
 	content: '' !important;
 	height: 20rem !important;
@@ -1427,12 +1445,25 @@ span.holiday {
 	margin-bottom: 2.4rem !important;
 }
 
-html[theme="light"] .login > form:before {
+html[theme="light"] .psu-logo {
 	filter: invert(1) !important;
 }
 
 .login > form > .choose {
+	display: block !important;
+    padding: 0 !important;
+    border-bottom: none !important;
+	background: none !important;
+	margin-bottom: 2.4rem !important;
+	font-size: 0 !important;
+}
+
+.login > form > .choose > .right {
 	display: none !important;
+}
+
+.login > form > .choose > h1 {
+	font-size: 1.8rem !important;
 }
 
 .login-actions {
@@ -1440,9 +1471,10 @@ html[theme="light"] .login > form:before {
 	align-items: center !important;
 	justify-content: space-between !important;
 	font-size: 1.4rem !important;
+	margin-top: 3.2rem !important;
 }
 
-.login-actions > a {
+.forgot-password {
 	color: var(--color-text-secondary) !important;
 }
 
@@ -1476,7 +1508,14 @@ html[theme="light"] .login > form:before {
 	z-index: 1;
 }
 
-/* Also for stu.change_pass_form and stu_email_pkg.change_email */
+.header_message {
+	display: none !important;
+}
+
+
+
+/* Forms */
+/* ----------------------------------------------- */
 
 .login form, .form {
 	display: flex !important;
@@ -1496,13 +1535,13 @@ form br {
 form > .items {
 	padding: 0 !important;
 	font-size: 0 !important;
-	margin-top: 3.2rem !important;
 }
 
 form > .items > .item {
 	position: relative !important;
-	margin: 0 0 3.2rem !important;
+	margin: 0 !important;
 	z-index: 0 !important;
+	font-size: 1.2rem !important;
 }
 
 .items > .item > input {
@@ -1511,6 +1550,7 @@ form > .items > .item {
 	line-height: normal !important;
 	font-size: 1.4rem !important;
 	padding: 0 0 0.8rem !important;
+	margin: 3.2rem 0 0 !important;
 }
 
 .items > .item > label {
