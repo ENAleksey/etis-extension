@@ -77,6 +77,8 @@ function setIcon() {
 
 // Style Pages
 function stylePages() {
+	const page = window.location.pathname.split('/').pop();
+
 	// Style Login Page
 	const login = document.querySelector('body > div.login');
 	if (login) {
@@ -88,10 +90,17 @@ function stylePages() {
 		loginActions.className = 'login-actions';
 		loginItems.appendChild(loginActions);
 		
-		el = loginItems.querySelector('a');
-		el.className = 'forgot-password';
-		loginActions.appendChild(el);
-		
+		if (page != 'stu_email_pkg.send_r_email') {
+			document.querySelector('div.choose').remove();
+			const psuLogo = document.createElement('div');
+			psuLogo.className = 'psu-logo';
+			document.getElementById('form').prepend(psuLogo);
+
+			el = loginItems.querySelector('a');
+			el.className = 'forgot-password';
+			loginActions.appendChild(el);
+		}
+
 		el = document.getElementById('sbmt');
 		loginActions.appendChild(el);
 		
@@ -113,12 +122,14 @@ function stylePages() {
 			}
 		});
 		
-		const infoStr = loginItems.textContent.split("\n").slice(-3)[0].trim();
-		const loginFooter = document.querySelector('div.header_message');
-		loginFooter.className = 'footer';
-		loginFooter.innerHTML = '<p>' + loginFooter.innerHTML + '</p><p>' + infoStr + '</p>';
-		loginContainer.appendChild(loginFooter);
-		
+		if (page != 'stu_email_pkg.send_r_email') {
+			const infoStr = loginItems.textContent.split("\n").slice(-3)[0].trim();
+			const loginFooter = document.querySelector('div.header_message');
+			loginFooter.className = 'footer';
+			loginFooter.innerHTML = '<p>' + loginFooter.innerHTML + '</p><p>' + infoStr + '</p>';
+			loginContainer.appendChild(loginFooter);
+		}
+
 	} else {
 		// Style Sidebar
 		const sidebar = document.querySelector("div.span3");
@@ -162,7 +173,7 @@ function stylePages() {
 					
 					switch (a.getAttribute('href')) {
 						case null:
-							navIcon.textContent = 'brightness_6';
+							navIcon.innerHTML = 'brightness_6';
 							break;
 
 						case 'stu.change_pass_form':
@@ -187,7 +198,6 @@ function stylePages() {
 
 		// Main page content
 		const span9 = document.querySelector('div.span9');
-		const page = window.location.pathname.split('/').pop();
 		const urlParams = new URLSearchParams(window.location.search);
 		const pageMode = urlParams.get('p_mode');
 
