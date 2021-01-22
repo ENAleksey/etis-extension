@@ -30,7 +30,7 @@
 	background-size: 20rem !important;
 	background-position: center !important;
 	background-repeat: no-repeat !important;
-	margin-bottom: 2.4rem !important;
+	margin-bottom: 4.8rem !important;
 }
 
 html[theme="light"] .psu-logo {
@@ -59,7 +59,6 @@ html[theme="light"] .psu-logo {
 	align-items: center !important;
 	justify-content: space-between !important;
 	font-size: 1.4rem !important;
-	margin-top: 3.2rem !important;
 }
 
 .forgot-password {
