@@ -64,10 +64,21 @@ function insertMeta() {
 	document.getElementsByTagName('head')[0].appendChild(meta);
 }
 
+function changeTitle() {
+	let text = 'ЕТИС';
+	const page = window.location.pathname.split('/').pop();
+	if (page in titles) {
+		text += ' - ' + titles[page];
+	}
+	const title = document.querySelector('title');
+	title.textContent = text;
+}
+
 // Style
 document.addEventListener("DOMContentLoaded", function(event) { 
 	insertMeta();
 	setIcon();
+	changeTitle();
 	stylePages();
 });
 
