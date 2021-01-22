@@ -1,5 +1,31 @@
+let titles = {
+	'stu.teach_plan': 'Учебный план',
+	'stu.tpr': 'Оставить отзыв',
+	'stu.teachers': 'Преподаватели',
+	'stu.sc_portfolio': 'Портфолио',
+	'stu.timetable': 'Расписание',
+	'stu.change_pass_form': 'Изменить пароль',
+	'stu.change_pass': 'Изменить пароль',
+	'stu_email_pkg.change_email': 'Изменить почту',
+	'stu.announce': 'Объявления',
+	'stu.teacher_notes': 'Сообщения',
+	'est_pkg.show_list': 'Обратная связь',
+	'stu.signs': 'Оценки',
+	'stu.absence': 'Пропущенные',
+	'stu.orders': 'Приказы',
+	'stu_jour.group_tt': 'Журнал посещений',
+	'stu.ses': 'Образовательный стандарт',
+	'stu.electr': 'Электронные ресурсы',
+	'stu.about': 'О ресурсе',
+	'cert_pkg.stu_certif': 'Заказ справок',
+	'stu.term_test': 'Анкетирование',
+	'stu.special_est_list': 'Опросы',
+	'stu.fcl_choice': 'Факультативы',
+};
+
 // Set Theme
-theme = 'auto';
+let theme = 'auto';
+let prefersColorSchemeMedia = false;
 if (window.matchMedia) {
 	prefersColorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
 }
@@ -58,7 +84,7 @@ function switchTheme(e) {
 detectTheme();
 
 function insertMeta() {
-	meta = document.createElement('meta');
+	const meta = document.createElement('meta');
 	meta.name = 'viewport';
 	meta.content = 'width=device-width, initial-scale=1';
 	document.getElementsByTagName('head')[0].appendChild(meta);
@@ -112,12 +138,12 @@ function stylePages() {
 			psuLogo.className = 'psu-logo';
 			document.getElementById('form').prepend(psuLogo);
 
-			el = loginItems.querySelector('a');
+			let el = loginItems.querySelector('a');
 			el.className = 'forgot-password';
 			loginActions.appendChild(el);
 		}
 
-		el = document.getElementById('sbmt');
+		const el = document.getElementById('sbmt');
 		loginActions.appendChild(el);
 		
 		const items = loginItems.querySelectorAll('div.item');
@@ -128,11 +154,11 @@ function stylePages() {
 				item.remove();
 			}
 
-			input = item.querySelector('input');
+			const input = item.querySelector('input');
 			if (input) {
 				input.placeholder = ' ';
 			}
-			label = item.querySelector('label');
+			const label = item.querySelector('label');
 			if (label) {
 				item.appendChild(label);
 			}
@@ -174,7 +200,7 @@ function stylePages() {
 			const nav = sidebar.querySelector('ul:nth-last-child(1)');
 			if (nav) {
 				// Add Theme Switcher button in Sidebar
-				el = document.createElement("li");
+				let el = document.createElement("li");
 				nav.prepend(el);
 				const themeSwitcher = document.createElement("a");
 				themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
@@ -183,7 +209,7 @@ function stylePages() {
 
 				// Add icons
 				nav.querySelectorAll('li > a').forEach(a => {
-					navIcon = document.createElement('span');
+					let navIcon = document.createElement('span');
 					navIcon.className = 'material-icons';
 					a.prepend(navIcon);
 					
@@ -306,7 +332,7 @@ function stylePages() {
 				buttonbar.className = 'timetable-buttonbar';
 				span9.prepend(buttonbar);
 				
-				el = span9.querySelector('div:nth-child(6)');
+				let el = span9.querySelector('div:nth-child(6)');
 				el.className = 'timetable-btn consultations';
 				buttonbar.appendChild(el);
 				
