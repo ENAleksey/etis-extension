@@ -58,7 +58,7 @@
 /* added class for message page numbers */
 .message-pages {
 	display: flex !important;
-	justify-content: start !important;
+	justify-content: flex-start !important;
 }
 
 .message-pages > li[style="width:5em"] {
