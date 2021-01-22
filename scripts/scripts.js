@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	setIcon();
 	changeTitle();
 	stylePages();
+	computeNavPositions();
 });
 
 // Set Icon
@@ -123,6 +124,12 @@ function setIcon() {
 	icon.type = 'image/svg+xml';
 	icon.href = chrome.runtime.getURL('icon.svg');
 	document.querySelector('head').appendChild(icon);
+}
+
+function computeNavPositions() {
+	const nbrStyle = window.getComputedStyle(document.querySelector('.navbar-inner'), null);
+	document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
+	document.documentElement.style.setProperty('--profile-margin', nbrStyle.getPropertyValue('margin-right'));
 }
 
 // Style Pages
@@ -192,24 +199,55 @@ function stylePages() {
 		const profileHTML = `
 			<div class="profile-info">
 				<div class="profile-picture">
-					<span class="material-icons"></span>
+					<span class="material-icons outlined">account_circle</span>
 				</div>
 				<span class="profile-fullname"></span>
 				<span class="profile-email"></span>
 				<span class="profile-specialization"></span>
 				<div class="ext-settings">
-					<span class="ext-settings-icon"></span>
+					<span class="ext-settings-icon material-icons">settings</span>
 				</div>
 			</div>
+			<hr>
 			<ul class="profile-actions">
-				<li class="profile-action-change-password">Смена пароля</li>
-				<li class="profile-action-change-email">Указать email</li>
-				<li class="profile-action-switch-account">Смена учётной записи</li>
-				<li class="profile-action-logout">Выход</li>
+				<li>
+					<a class="themeSwitcher">
+						<span class="material-icons">brightness_6</span>
+					</a>
+				</li>
+				<li>
+					<a href="stu.change_pass_form">
+						<span class="material-icons">vpn_key</span>
+						Смена пароля
+					</a>
+				</li>
+				<li>
+					<a href="stu_email_pkg.change_email">
+						<span class="material-icons">alternate_email</span>
+						Указать email
+					</a>
+				</li>
+				<li>
+					<a href="stu.change_pr_page">
+						<span class="material-icons">account_box</span>
+						Смена личной записи
+					</a>
+				</li>
+				<li>
+					<a href="stu.logout" class="need_redirect">
+						<span class="material-icons">exit_to_app</span>
+						Выход
+					</a>
+				</li>
 			</ul>
 		`;
 
 		profile.innerHTML = profileHTML;
+		const fullname = Array.from(document.querySelector('.span12 > span').childNodes)
+		.filter(node => node.nodeType === 3 && node.textContent.trim().length > 1)[0].textContent.split('(')[0];
+		profile.querySelector('.profile-fullname').textContent = fullname;
+		profile.querySelector('.profile-email').textContent = 'jmishenko@mail.com';
+		profile.querySelector('.profile-specialization').textContent = document.querySelector('.span12 > span > span').textContent;
 
 		// Wrap content
 		if (navbar && container) {
@@ -217,14 +255,12 @@ function stylePages() {
 			const wrapper = document.createElement('div');
 			wrapper.classList.add('wrapper');
 			fragment.appendChild(wrapper);
-			wrapper.appendChild(profile);
 			wrapper.appendChild(navbar);
+			navbar.after(profile);
 			wrapper.appendChild(container);
 
 			document.body.appendChild(fragment);
 		}
-
-		const oldNav = navbar.cloneNode(true);
 
 		// Style Navbar
 		if (navbar) {
@@ -248,6 +284,7 @@ function stylePages() {
 			menuDropdown.appendChild(menuDropdownTitle);
 			menuDropdown.addEventListener('click', function() {
 				if (sidebar) {
+					computeNavPositions();
 					sidebar.toggleAttribute('visible');
 				}
 			})
@@ -260,32 +297,35 @@ function stylePages() {
 			notificationsIcon.setAttribute('for', 'notifications-toggle');
 			notificationsIcon.textContent = 'notifications';
 			notifications.appendChild(notificationsIcon);
+			notifications.addEventListener('click', function() {
+				computeNavPositions();
+				notifications.toggleAttribute('visible');
+			})
 			navbarDoc.appendChild(notifications);
 
-			const profile = document.createElement('div');
-			profile.classList.add('navbar-profile');
+			const profileNav = document.createElement('div');
+			profileNav.classList.add('navbar-profile');
 			const profileName = document.createElement('span');
-			profileName.textContent = 'Жмышенко';
-			profile.appendChild(profileName);
+			profileName.textContent = fullname.split(' ')[0];
+			profileNav.appendChild(profileName);
 			const profileIcon = document.createElement('span');
 			profileIcon.classList.add('material-icons', 'outlined');
 			profileIcon.textContent = 'account_circle';
-			profile.appendChild(profileIcon);
-			navbarDoc.appendChild(profile);
+			profileNav.appendChild(profileIcon);
+			profileNav.addEventListener('click', function() {
+				computeNavPositions();
+				profile.toggleAttribute('visible');
+			})
+			navbarDoc.appendChild(profileNav);
 
 			navbar.querySelector('.navbar-inner').appendChild(navbarDoc);
 		}
 
 		// Style Sidebar
 		if (sidebar) {
-			function computeSidebarPosition() {
-				const nbrStyle = window.getComputedStyle(navbar.querySelector('.navbar-inner'), null);
-				document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
-			}
 			// Move sidebar to wrapper root
 			navbar.after(sidebar);
-			computeSidebarPosition();
-			window.addEventListener("resize", computeSidebarPosition);
+			window.addEventListener("resize", computeNavPositions);
 
 			// Save scroll position for Sidebar on page reload
 			const top = sessionStorage.getItem("sidebar-scroll");
@@ -307,46 +347,11 @@ function stylePages() {
 				}
 			}
 
-			// Style last nav of Sidebar
-			const nav = sidebar.querySelector('ul:nth-last-child(1)');
-			if (nav) {
-				// Add Theme Switcher button in Sidebar
-				let el = document.createElement("li");
-				nav.prepend(el);
-				const themeSwitcher = document.createElement("a");
-				themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
-				themeSwitcher.addEventListener('click', switchTheme, false);
-				el.appendChild(themeSwitcher);
+			const themeSwitcher = document.querySelector(".themeSwitcher");
+			themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
+			themeSwitcher.addEventListener('click', switchTheme, false);
 
-				// Add icons
-				nav.querySelectorAll('li > a').forEach(a => {
-					let navIcon = document.createElement('span');
-					navIcon.className = 'material-icons';
-					a.prepend(navIcon);
-					
-					switch (a.getAttribute('href')) {
-						case null:
-							navIcon.innerHTML = 'brightness_6';
-							break;
-
-						case 'stu.change_pass_form':
-							navIcon.innerHTML = 'vpn_key';
-							break;
-
-						case 'stu_email_pkg.change_email':
-							navIcon.innerHTML = 'alternate_email';
-							break;
-
-						case 'stu.change_pr_page':
-							navIcon.innerHTML = 'account_box';
-							break;
-
-						case 'stu.logout':
-							navIcon.innerHTML = 'exit_to_app';
-							break;
-					}
-				});
-			}
+			sidebar.querySelector('.nav:last-child').remove();
 		}
 
 		// Main page content

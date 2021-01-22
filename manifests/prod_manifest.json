@@ -13,7 +13,6 @@
 	"icons": {  "16": "logo.png",
 				"48": "logo.png",
 				"128": "logo.png" },
-	"web_accessible_resources": ["scripts.js.map", "styles.css.map", "icon.svg"],
-	"manifest_version": 2,
-	"stylesInPage": false
+	"web_accessible_resources": ["icon.svg"],
+	"manifest_version": 2
 }

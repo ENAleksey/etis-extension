@@ -12,7 +12,7 @@
 	"icons": {  "16": "logo.png",
 				"48": "logo.png",
 				"128": "logo.png" },
-	"web_accessible_resources": ["scripts.js.map", "styles.css", "styles.css.map", "icon.svg"],
+	"web_accessible_resources": ["styles.css", "icon.svg"],
 	"manifest_version": 2,
 	"stylesInPage": true
 }
