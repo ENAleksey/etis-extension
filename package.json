@@ -25,22 +25,10 @@
     "cssnano": "^4.1.10",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-concat-css": "^3.1.0",
-    "gulp-postcss": "^9.0.0",
-    "postcss": "^8.2.4",
-    "postcss-unprefix": "^2.1.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "last 1 ie version"
-    ]
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2"
   }
 }
