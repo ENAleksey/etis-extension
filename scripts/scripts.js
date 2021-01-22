@@ -318,6 +318,20 @@ function stylePages() {
 				el = span9.querySelector('a:nth-child(5)');
 				el.className = 'timetable-btn icon-button icon-today';
 				buttonbar.appendChild(el);
+
+				// Move week header to top
+				const fragment = new DocumentFragment();
+				const header = document.querySelector('.week-select div:last-child');
+				const text = Array.from(header.querySelector('span').childNodes)
+					.filter(node => node.nodeType === 3 && node.textContent.trim().length > 1)[0];
+				const h3 = document.createElement('h3');
+				header.querySelector('span').after(h3);
+				h3.appendChild(text);
+				header.querySelector('span').remove();
+				header.classList.add('week-select-header');
+				fragment.appendChild(header);
+
+				document.querySelector('.timetable-buttonbar').prepend(fragment);
 				
 				
 				// const disciplines = span9.querySelectorAll("span.dis > a");
