@@ -5,6 +5,12 @@
 	src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v38/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
 }
 
+@font-face {
+	font-family: 'Material Icons Filled';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.gstatic.com/s/materialicons/v70/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
 
 :root {
 	--font-family: 'PT Sans Caption', Verdana, sans-serif;
@@ -97,4 +103,55 @@
 	--shadow-dialog: 0 0 16px #00000080;
 	
 	--border-input: 1px solid #333;
+}
+
+/* Default Colors */
+
+font[color="red"],
+tr[style="color:red;"],
+span[style="color:red;"],
+div[style="font-size:0.8em;color:red;"],
+font[style="color:red;font-weight:bold"],
+font[style="color:#d00;"] {
+	color: var(--color-red) !important;
+}
+
+font[color="green"],
+div[style="font-size:0.8em;color:green;"] {
+	color: var(--color-green) !important;
+}
+
+font[color="blue"],
+font[style="font-weight:bold;color:blue;cursor:pointer"],
+div[style="color:blue;font-size: 0.8em;"],
+span[style="color:blue;"] {
+	color: var(--color-blue) !important;
+}
+
+font[color="gray"],
+font[color="#808080"],
+font[style="font-size:10px;color:#808080"],
+div[style="font-size:0.8em;color:gray;"],
+span[style="color:#808080"],
+font[style="font-weight:bold;color:#333333;"],
+span[style="color:#333333"] {
+	color: var(--color-text-secondary) !important;
+}
+
+font[color="#6A0035"] {
+	color: var(--color-text-accent);
+}
+
+/* Links */
+
+a {
+	color: var(--color-text-link) !important;
+}
+
+a.dashed {
+	color: var(--color-text-secondary) !important;
+}
+
+a.dashed:hover {
+	color: var(--color-text-highlight) !important;
 }

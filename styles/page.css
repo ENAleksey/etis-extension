@@ -13,23 +13,26 @@ body {
 	color: var(--color-text-primary) !important;
 	
 	font-family: var(--font-family) !important;
-	overflow-y: overlay !important;
+	overflow: hidden !important;
 }
 
-.navbar-static-top {
-	display: none !important;
+.wrapper {
+    display: flex;
+	flex-direction: column;
+	width: 100vw;
+    height: 100vh;
 }
 
-.container {
-	padding: 0 !important;
-	max-width: var(--width-page) !important;
+.wrapper > .container {
 	width: 100% !important;
-	margin: 0 auto !important;
+	padding: 2rem 2rem 0 !important;
+	overflow-y: scroll !important;
 }
 
-.container .row {
-	margin: 0 !important;
-	padding: 4rem 2rem 10rem !important;
+.wrapper > .container > .row {
+	max-width: var(--width-content);
+	margin: 0 auto !important;
+	padding: 0 !important;
 }
 
 input#menu__toggle[type="checkbox"] {
@@ -55,24 +58,15 @@ input#menu__toggle[type="checkbox"] {
   	width: 100%;
 }
 
-.span3 {
-	position: fixed !important;
-	top: 4rem !important;
-    bottom: 0 !important;
-	width: var(--width-aside) !important;
-	margin: 0 !important;
-	overflow-x: hidden !important;
-	float: none !important;
-}
-
 .span9 {
+	position: relative;
 	width: auto !important;
-	margin-left: calc(var(--width-aside) + var(--width-content-margin-left)) !important;
 	float: none !important;
+	margin: 0 !important;
 }
 
-@media (max-width: 768px) {
-	.container > .row {
+/* @media (max-width: 768px) {
+	body > .container > .row {
 		padding-top: 3px !important;
 	}
 
@@ -107,7 +101,7 @@ input#menu__toggle[type="checkbox"] {
 	.menu__btn span {
 		font-size: 3.3em !important;
 	}
-}
+} */
 
 .warning {
 	margin: 0 !important;

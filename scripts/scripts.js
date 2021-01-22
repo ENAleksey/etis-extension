@@ -102,6 +102,14 @@ function changeTitle() {
 
 // Style
 document.addEventListener("DOMContentLoaded", function(event) { 
+	if (chrome.runtime.getManifest().stylesInPage){
+		const styles = chrome.runtime.getURL('styles.css');
+		const link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = styles;
+		document.head.append(link);
+	}
 	insertMeta();
 	setIcon();
 	changeTitle();
@@ -173,9 +181,112 @@ function stylePages() {
 		}
 
 	} else {
-		// Style Sidebar
 		const sidebar = document.querySelector("div.span3");
+		const navbar = document.querySelector('body > div.navbar');
+		const container = document.querySelector('body > div.container');
+
+		// Create Profile Card
+		const profile = document.createElement('div');
+		profile.classList.add('profile');
+
+		const profileHTML = `
+			<div class="profile-info">
+				<div class="profile-picture">
+					<span class="material-icons"></span>
+				</div>
+				<span class="profile-fullname"></span>
+				<span class="profile-email"></span>
+				<span class="profile-specialization"></span>
+				<div class="ext-settings">
+					<span class="ext-settings-icon"></span>
+				</div>
+			</div>
+			<ul class="profile-actions">
+				<li class="profile-action-change-password">Смена пароля</li>
+				<li class="profile-action-change-email">Указать email</li>
+				<li class="profile-action-switch-account">Смена учётной записи</li>
+				<li class="profile-action-logout">Выход</li>
+			</ul>
+		`;
+
+		profile.innerHTML = profileHTML;
+
+		// Wrap content
+		if (navbar && container) {
+			const fragment = new DocumentFragment();
+			const wrapper = document.createElement('div');
+			wrapper.classList.add('wrapper');
+			fragment.appendChild(wrapper);
+			wrapper.appendChild(profile);
+			wrapper.appendChild(navbar);
+			wrapper.appendChild(container);
+
+			document.body.appendChild(fragment);
+		}
+
+		const oldNav = navbar.cloneNode(true);
+
+		// Style Navbar
+		if (navbar) {
+			document.querySelector('.navbar .container').remove();
+			const navbarDoc = new DocumentFragment();
+
+			let menuTitle = 'ЕТИС';
+			const page = window.location.pathname.split('/').pop();
+			if (page in titles) {
+				menuTitle = titles[page];
+			}
+
+			const menuDropdown = document.createElement('div');
+			menuDropdown.classList.add('navbar-dropdown-menu');
+			const menuDropdownIcon = document.createElement('span');
+			menuDropdownIcon.classList.add('material-icons');
+			menuDropdownIcon.textContent = 'menu';
+			menuDropdown.appendChild(menuDropdownIcon);
+			const menuDropdownTitle = document.createElement('span');
+			menuDropdownTitle.textContent = menuTitle;
+			menuDropdown.appendChild(menuDropdownTitle);
+			menuDropdown.addEventListener('click', function() {
+				if (sidebar) {
+					sidebar.toggleAttribute('visible');
+				}
+			})
+			navbarDoc.appendChild(menuDropdown);
+
+			const notifications = document.createElement('div');
+			notifications.classList.add('navbar-notifications');
+			const notificationsIcon = document.createElement('span');
+			notificationsIcon.classList.add('material-icons');
+			notificationsIcon.setAttribute('for', 'notifications-toggle');
+			notificationsIcon.textContent = 'notifications';
+			notifications.appendChild(notificationsIcon);
+			navbarDoc.appendChild(notifications);
+
+			const profile = document.createElement('div');
+			profile.classList.add('navbar-profile');
+			const profileName = document.createElement('span');
+			profileName.textContent = 'Жмышенко';
+			profile.appendChild(profileName);
+			const profileIcon = document.createElement('span');
+			profileIcon.classList.add('material-icons', 'outlined');
+			profileIcon.textContent = 'account_circle';
+			profile.appendChild(profileIcon);
+			navbarDoc.appendChild(profile);
+
+			navbar.querySelector('.navbar-inner').appendChild(navbarDoc);
+		}
+
+		// Style Sidebar
 		if (sidebar) {
+			function computeSidebarPosition() {
+				const nbrStyle = window.getComputedStyle(navbar.querySelector('.navbar-inner'), null);
+				document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
+			}
+			// Move sidebar to wrapper root
+			navbar.after(sidebar);
+			computeSidebarPosition();
+			window.addEventListener("resize", computeSidebarPosition);
+
 			// Save scroll position for Sidebar on page reload
 			const top = sessionStorage.getItem("sidebar-scroll");
 			if (top) {

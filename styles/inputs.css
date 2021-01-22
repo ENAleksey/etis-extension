@@ -75,6 +75,8 @@ input:-webkit-autofill:active {
 
 input[type="checkbox"],
 input[type="radio"] {
+	width: 1.8rem !important;
+	height: 1.8rem !important;
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
@@ -82,8 +84,8 @@ input[type="radio"] {
 }
 
 input[type="checkbox"]:before {
-	width: 1.8rem !important;
-	height: 1.8rem !important;
+	width: inherit !important;
+	height: inherit !important;
 	background: var(--color-input) !important;
 	content: '' !important;
 	position: absolute !important;
@@ -103,8 +105,8 @@ input[type="checkbox"]:checked:after {
 
 
 input[type="radio"]:before {
-	width: 1.8rem !important;
-	height: 1.8rem !important;
+	width: inherit !important;
+	height: inherit !important;
 	background: var(--color-input) !important;
 	content: '' !important;
 	position: absolute !important;

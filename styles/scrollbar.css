@@ -34,9 +34,3 @@
 	scrollbar-width: thin;
 	scrollbar-color: var(--color-scrollbar-thumb) #00000000;
 }
-
-@supports (-moz-appearance:none) {
-	.span3 {
-		padding-right: 0.4rem !important;
-	}
-}

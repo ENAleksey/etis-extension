@@ -45,6 +45,19 @@ span.holiday {
 	font-size: 14px !important;
 }
 
+.week-select-header {
+	margin: 0 !important;
+	padding: .4rem 0 !important;
+	align-self: flex-start !important;
+	flex-grow: 3;
+	text-align: left !important;
+}
+
+.week-select-header h3 {
+	margin: 0 !important;
+	font-size: 14px !important;
+}
+
 .no_pairs {
 	padding: 1.2rem 1.6rem 2rem !important;
 }

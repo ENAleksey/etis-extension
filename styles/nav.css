@@ -1,5 +1,117 @@
+/* Navbar (Menu, Profile) */
+
+/* probably good idea to put those in _default */
+.navbar .material-icons {
+    font-family: 'Material Icons Filled';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.navbar .material-icons.outlined {
+    font-family: 'Material Icons Outlined';
+}
+
+/* Navbar */
+
+.navbar {
+    padding: 0 1.2rem !important;
+    height: 4.8rem !important;
+    box-shadow: var(--shadow-main) !important;
+    background: var(--color-body) !important;
+    z-index: 10 !important;
+}
+
+.navbar-inner {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    position: relative !important;
+    max-width: var(--width-page) !important;
+    height: 100% !important;
+    min-height: unset !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden !important;
+}
+
+.navbar-inner [class*="navbar"] {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.navbar-dropdown-menu {
+    margin-right: auto !important;
+}
+
+.navbar-dropdown-menu span:last-child {
+    margin-left: 1.6rem !important;
+    font-size: 18px;
+}
+
+.navbar-notifications {
+    margin-right: 2.5rem !important;
+}   
+
+.navbar-profile span:first-child{
+    margin-right: .8rem !important;
+    font-size: 14px;
+}
+
+.navbar-profile span:last-child{
+    font-size: 28px;
+}
+
 /* Sidebar */
 /* ----------------------------------------------- */
+
+:root {
+    --sidebar-margin: 0;
+}
+
+.span3 {
+    visibility: hidden;
+	position: fixed !important;
+    top: 4.8rem !important;
+    left: var(--sidebar-margin) !important;
+    bottom: 0 !important;
+	width: var(--width-aside) !important;
+	margin: 0 !important;
+	overflow-x: hidden !important;
+    float: none !important;
+    z-index: 11 !important;
+}
+
+.span3[visible] {
+    visibility: visible;
+}
 
 .span3 > .nav.nav-tabs.nav-stacked {
 	border-radius: var(--radius-medium) !important;
@@ -95,7 +207,7 @@
 	font-weight: normal !important;
 }
 
-.material-icons {
+.span3 .material-icons {
     font-family: 'Material Icons Outlined' !important;
 	font-size: 20px !important;
 	font-weight: normal !important;
@@ -104,4 +216,13 @@
 
 .span3 > .nav.nav-tabs.nav-stacked > li > a > .material-icons {
 	margin-right: 10px !important;
+}
+
+.span3 {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.span3::-webkit-scrollbar {
+    display: none;
 }
