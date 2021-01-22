@@ -76,7 +76,7 @@ function setIcon() {
 	const icon = document.createElement('link');
 	icon.rel = 'icon';
 	icon.type = 'image/svg+xml';
-	icon.href = chrome.extension.getURL('icon.svg');
+	icon.href = chrome.runtime.getURL('icon.svg');
 	document.querySelector('head').appendChild(icon);
 }
 
