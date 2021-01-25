@@ -71,8 +71,18 @@
     margin-right: auto !important;
 }
 
-.navbar-dropdown-menu span:last-child {
-    margin-left: 1.6rem !important;
+.navbar-dropdown-menu span:last-child{
+    margin-left: 1rem !important;
+    font-size: 14px;
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
     font-size: 18px;
 }
 
@@ -87,6 +97,12 @@
 
 .navbar-profile span:last-child{
     font-size: 28px;
+}
+
+@media (max-width: 550px){
+    .page-title {
+        visibility: hidden;
+    }
 }
 
 /* Sidebar */

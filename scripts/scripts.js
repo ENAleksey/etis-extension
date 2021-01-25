@@ -280,7 +280,7 @@ function stylePages() {
 			menuDropdownIcon.textContent = 'menu';
 			menuDropdown.appendChild(menuDropdownIcon);
 			const menuDropdownTitle = document.createElement('span');
-			menuDropdownTitle.textContent = menuTitle;
+			menuDropdownTitle.textContent = 'Меню';
 			menuDropdown.appendChild(menuDropdownTitle);
 			menuDropdown.addEventListener('click', function() {
 				if (sidebar) {
@@ -289,6 +289,11 @@ function stylePages() {
 				}
 			})
 			navbarDoc.appendChild(menuDropdown);
+
+			const pageTitle = document.createElement('div');
+			pageTitle.classList.add('page-title');
+			pageTitle.textContent = menuTitle;
+			navbarDoc.appendChild(pageTitle);
 
 			const notifications = document.createElement('div');
 			notifications.classList.add('navbar-notifications');
