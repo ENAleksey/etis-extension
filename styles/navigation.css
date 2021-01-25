@@ -67,9 +67,9 @@
     cursor: pointer;
 }
 
-.navbar-dropdown-menu {
-    margin-right: auto !important;
-}
+/*.navbar-dropdown-menu {*/
+/*    margin-right: auto !important;*/
+/*}*/
 
 .navbar-dropdown-menu span:last-child{
     margin-left: 1rem !important;
@@ -79,10 +79,11 @@
 .page-title {
     display: flex;
     align-items: center;
-    position: absolute;
-    left: 50%;
+    /*position: absolute;*/
+    /*left: 50%;*/
     height: 100%;
-    transform: translateX(-50%);
+    margin: 0 auto;
+    /*transform: translateX(-50%);*/
     font-size: 18px;
 }
 
