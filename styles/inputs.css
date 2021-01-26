@@ -286,3 +286,10 @@ button:focus {
 .icon-button.icon-today:before {
 	content: 'today' !important;
 }
+
+.icon-button.icon-feedback:before,
+.icon-button.icon-analytics:before,
+.icon-button.icon-today:before{
+	width: 18px !important;
+	height: 18px !important;
+}

@@ -62,13 +62,17 @@
 .navbar-inner [class*="navbar"] {
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 100%;
     user-select: none;
     cursor: pointer;
 }
 
 .navbar-dropdown-menu {
     margin-right: auto !important;
+}
+
+.navbar-dropdown-menu span:first-child{
+    width: 24px;
 }
 
 .navbar-dropdown-menu span:last-child{
@@ -88,6 +92,7 @@
 }
 
 .navbar-notifications {
+    width: 24px;
     margin-right: 2.5rem !important;
 }   
 
@@ -97,6 +102,7 @@
 }
 
 .navbar-profile span:last-child{
+    width: 28px;
     font-size: 28px;
 }
 
