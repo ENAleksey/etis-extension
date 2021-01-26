@@ -46,6 +46,7 @@
     border: 1px solid var(--color-table-border) !important;
     background-color: var(--color-card) !important;
     z-index: 100;
+    box-shadow: var(--shadow-main);
 }
 
 .profile[visible] {
