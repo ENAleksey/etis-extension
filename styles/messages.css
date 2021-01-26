@@ -72,10 +72,6 @@
 	justify-content: space-between;
 }
 
-.message-info > *:nth-child(1) {
-	margin-bottom: 1.2rem !important;
-}
-
 /* teacher's name */
 .message-info.main-info > b > i {
 	display: flex !important;
@@ -107,10 +103,24 @@
 	color: var(--color-text-primary) !important;
 }
 
-/* message's date and time */
-.secondary-info > font[color="#808080"] {
-	margin-top: 5px !important;
+.message-info.secondary-info {
+	flex-direction: row-reverse !important;
+	flex-wrap: wrap !important;
+	align-items: center !important;
 }
+
+.secondary-info > font:first-child {
+	margin: 0 !important;
+}
+
+.message-info.secondary-info > font {
+	margin: 0 .5rem !important;
+}
+
+/* message's date and time */
+/*.secondary-info > font[color="#808080"] {*/
+/*	margin-top: 5px !important;*/
+/*}*/
 
 /* element above send button */
 .message.nav.msg > li:nth-last-child(3) {
