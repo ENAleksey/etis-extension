@@ -1,0 +1,121 @@
+/* Tables */
+
+table {
+	border-radius: var(--radius-medium) !important;
+	color: var(--color-text-primary) !important;
+}
+
+table tr td:nth-child(1), table tr th:nth-child(1) {
+	border-left: none !important;
+}
+
+table tr td:nth-last-child(1), table tr th:nth-last-child(1) {
+	border-right: none !important;
+}
+
+table tr:nth-child(1) td, table tr:nth-child(1) th {
+	border-top: none !important;
+}
+
+table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
+	border-bottom: none !important;
+}
+
+.common,
+.slimtab_nice,
+.teach_plan,
+.question_table {
+	width: 100% !important;
+	box-shadow: var(--shadow-main) !important;
+	overflow: hidden !important;
+	position: relative !important;
+	color: var(--color-text-primary) !important;
+}
+
+.common:after,
+.slimtab_nice:after,
+.teach_plan:after,
+.question_table:after {
+	top: 0 !important;
+	box-shadow: 0 0 0 0.1rem var(--color-table-border) inset !important;
+	content: '' !important;
+	display: block !important;
+	position: absolute !important;
+	width: 100% !important;
+	height: 100% !important;
+	border-radius: var(--radius-medium) !important;
+	pointer-events: none !important;
+}
+
+.common td,
+.common th,
+.slimtab_nice td,
+.slimtab_nice th,
+.question_table td {
+	border: 0.2rem solid var(--color-body) !important;
+	padding: 0.8rem 1.4rem !important;
+	vertical-align: middle !important;
+}
+
+.common tr,
+.slimtab_nice tr,
+.teach_plan tr,
+.question_table tr {
+	background: var(--color-card) !important;
+}
+
+.common tr:hover,
+.slimtab_nice tr:hover,
+.timetable > .day > table tr:hover,
+.teach_plan tr:hover {
+	background: var(--color-table-highlight) !important;
+}
+
+.common th,
+.common th.subheader,
+.common td[colspan="10"],
+.slimtab_nice th,
+.teach_plan th {
+	background: var(--color-table-header) !important;
+	vertical-align: middle !important;
+	font-weight: bold !important;
+}
+
+.slimtab_nice > tbody > tr > td[valign="top"] {
+	vertical-align: top !important;
+	text-align: left !important;
+}
+
+.slimtab_nice > tbody > tr > td[valign="top"]:nth-child(1) {
+	vertical-align: middle !important;
+	text-align: center !important;
+}
+
+.common tr > td,
+.common > tbody > tr > td[align="center"],
+.slimtab_nice tr > td {
+	text-align: center !important;
+}
+
+.common tr > td:nth-child(1),
+.slimtab_nice tr > td:nth-child(1),
+.cgrldatarow > td[style="border-left:none;"] {
+	text-align: left !important;
+}
+
+.teach_plan td.bg_bold, .teach_plan td.bgsu {
+	background: var(--color-highlight) !important;
+}
+
+.teach_plan td,
+.teach_plan th {
+	border: 0.2rem solid var(--color-body) !important;
+}
+
+.teach_plan.dis_table {
+	border-collapse: collapse !important;
+}
+
+.teach_plan td.w {
+	background: var(--color-card) !important;
+}

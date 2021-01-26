@@ -1,0 +1,44 @@
+/* Teachers Page */
+/* ----------------------------------------------- */
+
+.teacher_info {
+	background-color: var(--color-card) !important;
+	box-shadow: var(--shadow-main) !important;
+}
+
+.teacher_photo {
+	padding: 0.5rem !important;
+	border: none !important;
+}
+
+.teacher_photo > img {
+	display: block !important;
+	border: none !important;
+	border-radius: var(--radius-small) !important;
+}
+
+.teacher_desc {
+	width: 100% !important;
+	padding-left: 1.6rem !important;
+	font-size: 1.2rem !important;
+}
+
+.teacher_desc > .chair {
+	color: var(--color-text-secondary) !important;
+	padding-bottom: 0.4rem !important;
+	display: flex !important;
+	align-items: center !important;
+	line-height: 1 !important;
+}
+
+.teacher_desc > .teacher_name {
+	font-size: 1.6rem !important;
+	padding-bottom: 0.8rem !important;
+	display: flex !important;
+	align-items: center !important;
+	line-height: 1 !important;
+}
+
+.empty {
+	background: initial !important;
+}

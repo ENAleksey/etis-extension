@@ -1,0 +1,140 @@
+/* Page Base */
+/* ----------------------------------------------- */
+
+html {
+	font-size: 10px !important;
+	height: 100% !important;
+}
+
+body {
+	height: 100% !important;
+	
+	background: var(--color-body) !important;
+	color: var(--color-text-primary) !important;
+	
+	font-family: var(--font-family) !important;
+	overflow: hidden !important;
+}
+
+.wrapper {
+    display: flex;
+	flex-direction: column;
+	width: 100vw;
+    height: 100vh;
+}
+
+.wrapper > .container {
+	width: 100% !important;
+	padding: 2rem 2rem 0 !important;
+	overflow-y: scroll !important;
+}
+
+.wrapper > .container > .row {
+	max-width: var(--width-content);
+	margin: 0 auto !important;
+	padding: 0 !important;
+}
+
+input#menu__toggle[type="checkbox"] {
+	position: relative;
+	top: -30px;
+	opacity: 0;
+}
+
+.menu__btn {
+	display: none; 
+	align-items: center;
+	position: fixed;
+	width: 3.3em;
+	height: 3.3em;
+	cursor: pointer;
+	z-index: 12;
+	user-select: none;
+}
+
+.menu__btn > span {
+	display: block;
+  	position: absolute;
+  	width: 100%;
+}
+
+.span9 {
+	position: relative;
+	width: auto !important;
+	float: none !important;
+	margin: 0 !important;
+}
+
+/* @media (max-width: 768px) {
+	body > .container > .row {
+		padding-top: 3px !important;
+	}
+
+	.span3 {
+		display: block;
+		top: 6rem !important;
+		visibility: hidden;
+	}
+
+	.span3[visible] {
+		visibility: visible !important;
+		background-color: var(--color-body);
+		z-index: 10;
+	}
+
+	.span9 {
+		width: auto !important;
+		margin-left: 0 !important;
+		float: none !important;
+	}
+
+	.timetable-buttonbar, .span9 > .submenu{
+		padding-left: 4.2rem;
+	}
+
+	.menu__btn {
+		display: inline-block !important;
+		top: 8px !important;
+		left: 20px !important;
+	}
+
+	.menu__btn span {
+		font-size: 3.3em !important;
+	}
+} */
+
+.warning {
+	margin: 0 !important;
+	width: auto !important;
+	margin-bottom: 2rem !important;
+	background: none !important;
+	color: var(--color-text-error) !important;
+	font-size: 1.2rem !important;
+}
+
+#tooltip {
+	background: var(--color-tooltip) !important;
+	color: var(--color-text-primary) !important;
+	border: 0.1rem solid var(--color-text-primary) !important;
+	padding: 0.4rem 0.6rem !important;
+}
+
+/* @media (max-width:960px) {
+	.container {
+		max-width: var(--width-content) !important;
+	}
+	
+	.span3 {
+		display: none !important;
+	}
+	
+	.span9 {
+		margin: 0 2rem !important;
+	}
+} */
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box !important;
+}
