@@ -29,7 +29,6 @@ form > .items {
 
 form > .items > .item {
 	position: relative !important;
-	margin: 0 !important;
 	z-index: 0 !important;
 	font-size: 1.2rem !important;
 	margin: 0 0 3.2rem !important;
