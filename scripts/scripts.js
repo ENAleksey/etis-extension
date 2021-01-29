@@ -515,7 +515,7 @@ function stylePages() {
 				const labels = form.querySelectorAll('label');
 				const inputs = form.querySelectorAll('input');
 				
-				for (i = 0; i < inputs.length; i++) {
+				for (let i = 0; i < inputs.length; i++) {
 					inputs[i].placeholder = ' ';
 					
 					const item = document.createElement('div');
