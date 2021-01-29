@@ -1,8 +1,13 @@
 /* Default Dialog Window */
 
 .ui-dialog {
+	box-sizing: unset !important;
 	box-shadow: var(--shadow-dialog) !important;
 }
+
+/*.ui-dialog * {*/
+/*	box-sizing: unset !important;*/
+/*}*/
 
 .ui-dialog .ui-dialog-content {
 	width: initial !important;
@@ -43,6 +48,7 @@ flex-direction: column !important;
 	border: none !important;
 	background: none !important;
 	color: var(--color-text-secondary) !important;
+	box-shadow: none !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close > .ui-button-icon-primary {
