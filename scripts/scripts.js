@@ -550,7 +550,7 @@ function stylePages() {
 				break;
 
 			case 'stu.announce':
-				const messages = document.querySelectorAll('.nav.msg');
+				const messages = document.querySelectorAll('.nav.msg, .nav.answ');
 
 				messages.forEach(msg => {
 
