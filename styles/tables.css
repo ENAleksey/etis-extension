@@ -32,6 +32,17 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	color: var(--color-text-primary) !important;
 }
 
+/* Scroll tables of teach plan on mobile */
+.teach-plan {
+	display: block !important;
+	overflow-x: scroll !important;
+}
+
+.teach-plan::-webkit-scrollbar {
+	display:none !important;
+}
+/* end of gorgeous fix */
+
 .common:after,
 .slimtab_nice:after,
 .teach_plan:after,
