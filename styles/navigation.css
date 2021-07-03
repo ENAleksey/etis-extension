@@ -45,8 +45,8 @@
     flex-flow: row nowrap !important;
     position: relative !important;
     max-width: var(--width-page) !important;
-    height: 100% !important;
-    min-height: unset !important;
+    height: inherit !important;
+    min-height: inherit !important;
     margin: 0 auto !important;
     padding: 0 !important;
     background: transparent !important;
