@@ -1,0 +1,20 @@
+/* Teach Plan Page */
+/* ----------------------------------------------- */
+
+.themes .hour,
+.ctl_hours,
+.book_list .pages,
+.link_list .descr{
+	color: var(--color-text-secondary) !important;
+}
+
+.badge.ctl {
+	padding: 0.2rem 0.4rem !important;
+	background: var(--color-error) !important;
+	border-radius: 0.4rem !important;
+	display: inline !important;
+}
+
+.tpr_part {
+	line-height: 1.5 !important;
+}

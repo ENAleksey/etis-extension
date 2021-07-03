@@ -1,5 +1,31 @@
+let titles = {
+	'stu.teach_plan': 'Учебный план',
+	'stu.tpr': 'Оставить отзыв',
+	'stu.teachers': 'Преподаватели',
+	'stu.sc_portfolio': 'Портфолио',
+	'stu.timetable': 'Расписание',
+	'stu.change_pass_form': 'Изменить пароль',
+	'stu.change_pass': 'Изменить пароль',
+	'stu_email_pkg.change_email': 'Изменить почту',
+	'stu.announce': 'Объявления',
+	'stu.teacher_notes': 'Сообщения',
+	'est_pkg.show_list': 'Обратная связь',
+	'stu.signs': 'Оценки',
+	'stu.absence': 'Пропущенные',
+	'stu.orders': 'Приказы',
+	'stu_jour.group_tt': 'Журнал посещений',
+	'stu.ses': 'Образовательный стандарт',
+	'stu.electr': 'Электронные ресурсы',
+	'stu.about': 'О ресурсе',
+	'cert_pkg.stu_certif': 'Заказ справок',
+	'stu.term_test': 'Анкетирование',
+	'stu.special_est_list': 'Опросы',
+	'stu.fcl_choice': 'Факультативы',
+};
+
 // Set Theme
-theme = 'auto';
+let theme = 'auto';
+let prefersColorSchemeMedia = false;
 if (window.matchMedia) {
 	prefersColorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
 }
@@ -57,23 +83,54 @@ function switchTheme(e) {
 
 detectTheme();
 
+function insertMeta() {
+	const meta = document.createElement('meta');
+	meta.name = 'viewport';
+	meta.content = 'width=device-width, initial-scale=1';
+	document.getElementsByTagName('head')[0].appendChild(meta);
+}
+
+function changeTitle() {
+	let text = 'ЕТИС';
+	const page = window.location.pathname.split('/').pop();
+	if (page in titles) {
+		text += ' - ' + titles[page];
+	}
+	const title = document.querySelector('title');
+	title.textContent = text;
+}
 
 // Style
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function (event) {
+	// if (chrome.runtime.getManifest().stylesInPage){
+	// 	const styles = chrome.runtime.getURL('styles.css');
+	// 	const link = document.createElement('link');
+	// 	link.rel = 'stylesheet';
+	// 	link.type = 'text/css';
+	// 	link.href = styles;
+	// 	document.head.append(link);
+	// }
+	insertMeta();
 	setIcon();
+	changeTitle();
 	stylePages();
+	computeNavPositions();
 });
-
 
 // Set Icon
 function setIcon() {
 	const icon = document.createElement('link');
 	icon.rel = 'icon';
 	icon.type = 'image/svg+xml';
-	icon.href = chrome.extension.getURL('icon.svg');
+	icon.href = chrome.runtime.getURL('icon.svg');
 	document.querySelector('head').appendChild(icon);
 }
 
+function computeNavPositions() {
+	const nbrStyle = window.getComputedStyle(document.querySelector('.navbar-inner'), null);
+	document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
+	document.documentElement.style.setProperty('--profile-margin', nbrStyle.getPropertyValue('margin-right'));
+}
 
 // Style Pages
 function stylePages() {
@@ -84,26 +141,26 @@ function stylePages() {
 	if (login) {
 		document.body.innerHTML = '<div class ="login-container">' + document.body.innerHTML + '</div>';
 		const loginContainer = document.querySelector('div.login-container');
-		
+
 		const loginItems = document.querySelector('#form > div.items');
 		const loginActions = document.createElement('div');
 		loginActions.className = 'login-actions';
 		loginItems.appendChild(loginActions);
-		
+
 		if (page != 'stu_email_pkg.send_r_email') {
 			document.querySelector('div.choose').remove();
 			const psuLogo = document.createElement('div');
 			psuLogo.className = 'psu-logo';
 			document.getElementById('form').prepend(psuLogo);
 
-			el = loginItems.querySelector('a');
+			let el = loginItems.querySelector('a');
 			el.className = 'forgot-password';
 			loginActions.appendChild(el);
 		}
 
-		el = document.getElementById('sbmt');
+		const el = document.getElementById('sbmt');
 		loginActions.appendChild(el);
-		
+
 		const items = loginItems.querySelectorAll('div.item');
 		items.forEach(item => {
 			const errorMessage = item.querySelector('div.error_message');
@@ -112,16 +169,16 @@ function stylePages() {
 				item.remove();
 			}
 
-			input = item.querySelector('input');
+			const input = item.querySelector('input');
 			if (input) {
 				input.placeholder = ' ';
 			}
-			label = item.querySelector('label');
+			const label = item.querySelector('label');
 			if (label) {
 				item.appendChild(label);
 			}
 		});
-		
+
 		if (page != 'stu_email_pkg.send_r_email') {
 			const infoStr = loginItems.textContent.split("\n").slice(-3)[0].trim();
 			const loginFooter = document.querySelector('div.header_message');
@@ -131,9 +188,150 @@ function stylePages() {
 		}
 
 	} else {
-		// Style Sidebar
 		const sidebar = document.querySelector("div.span3");
+		const navbar = document.querySelector('body > div.navbar');
+		const container = document.querySelector('body > div.container');
+
+		// Create Profile Card
+		const profile = document.createElement('div');
+		profile.classList.add('profile');
+
+		const profileHTML = `
+			<div class="profile-info">
+				<div class="profile-picture">
+					<span class="material-icons outlined">account_circle</span>
+				</div>
+				<span class="profile-fullname"></span>
+				<span class="profile-email"></span>
+				<span class="profile-specialization"></span>
+				<div class="ext-settings">
+					<span class="ext-settings-icon material-icons">settings</span>
+				</div>
+			</div>
+			<hr>
+			<ul class="profile-actions">
+				<li>
+					<a class="themeSwitcher">
+						<span class="material-icons">brightness_6</span>
+					</a>
+				</li>
+				<li>
+					<a href="stu.change_pass_form">
+						<span class="material-icons">vpn_key</span>
+						Смена пароля
+					</a>
+				</li>
+				<li>
+					<a href="stu_email_pkg.change_email">
+						<span class="material-icons">alternate_email</span>
+						Указать email
+					</a>
+				</li>
+				<li>
+					<a href="stu.change_pr_page">
+						<span class="material-icons">account_box</span>
+						Смена личной записи
+					</a>
+				</li>
+				<li>
+					<a href="stu.logout" class="need_redirect">
+						<span class="material-icons">exit_to_app</span>
+						Выход
+					</a>
+				</li>
+			</ul>
+		`;
+
+		profile.innerHTML = profileHTML;
+		const fullname = Array.from(document.querySelector('.span12 > span').childNodes)
+			.filter(node => node.nodeType === 3 && node.textContent.trim().length > 1)[0].textContent.split('(')[0];
+		profile.querySelector('.profile-fullname').textContent = fullname;
+		profile.querySelector('.profile-email').textContent = 'jmishenko@mail.com';
+		profile.querySelector('.profile-specialization').textContent = document.querySelector('.span12 > span > span').textContent;
+
+		// Wrap content
+		if (navbar && container) {
+			const fragment = new DocumentFragment();
+			const wrapper = document.createElement('div');
+			wrapper.classList.add('wrapper');
+			fragment.appendChild(wrapper);
+			wrapper.appendChild(navbar);
+			navbar.after(profile);
+			wrapper.appendChild(container);
+
+			document.body.appendChild(fragment);
+		}
+
+		// Style Navbar
+		if (navbar) {
+			document.querySelector('.navbar .container').remove();
+			const navbarDoc = new DocumentFragment();
+
+			let menuTitle = 'ЕТИС';
+			const page = window.location.pathname.split('/').pop();
+			if (page in titles) {
+				menuTitle = titles[page];
+			}
+
+			const menuDropdown = document.createElement('div');
+			menuDropdown.classList.add('navbar-dropdown-menu');
+			const menuDropdownIcon = document.createElement('span');
+			menuDropdownIcon.classList.add('material-icons');
+			menuDropdownIcon.textContent = 'menu';
+			menuDropdown.appendChild(menuDropdownIcon);
+			const menuDropdownTitle = document.createElement('span');
+			menuDropdownTitle.textContent = 'Меню';
+			menuDropdown.appendChild(menuDropdownTitle);
+			menuDropdown.addEventListener('click', function () {
+				if (sidebar) {
+					computeNavPositions();
+					sidebar.toggleAttribute('visible');
+				}
+			})
+			navbarDoc.appendChild(menuDropdown);
+
+			const pageTitle = document.createElement('div');
+			pageTitle.classList.add('page-title');
+			pageTitle.textContent = menuTitle;
+			navbarDoc.appendChild(pageTitle);
+
+			const notifications = document.createElement('div');
+			notifications.classList.add('navbar-notifications');
+			const notificationsIcon = document.createElement('span');
+			notificationsIcon.classList.add('material-icons');
+			notificationsIcon.setAttribute('for', 'notifications-toggle');
+			notificationsIcon.textContent = 'notifications';
+			notifications.appendChild(notificationsIcon);
+			notifications.addEventListener('click', function () {
+				computeNavPositions();
+				notifications.toggleAttribute('visible');
+			})
+			navbarDoc.appendChild(notifications);
+
+			const profileNav = document.createElement('div');
+			profileNav.classList.add('navbar-profile');
+			const profileName = document.createElement('span');
+			profileName.textContent = fullname.split(' ')[0];
+			profileNav.appendChild(profileName);
+			const profileIcon = document.createElement('span');
+			profileIcon.classList.add('material-icons', 'outlined');
+			profileIcon.textContent = 'account_circle';
+			profileNav.appendChild(profileIcon);
+			profileNav.addEventListener('click', function () {
+				computeNavPositions();
+				profile.toggleAttribute('visible');
+			})
+			navbarDoc.appendChild(profileNav);
+
+			navbar.querySelector('.navbar-inner').appendChild(navbarDoc);
+		}
+
+		// Style Sidebar
 		if (sidebar) {
+			// Move sidebar to wrapper root
+			navbar.after(sidebar);
+			window.addEventListener("resize", computeNavPositions);
+
 			// Save scroll position for Sidebar on page reload
 			const top = sessionStorage.getItem("sidebar-scroll");
 			if (top) {
@@ -154,46 +352,11 @@ function stylePages() {
 				}
 			}
 
-			// Style last nav of Sidebar
-			const nav = sidebar.querySelector('ul:nth-last-child(1)');
-			if (nav) {
-				// Add Theme Switcher button in Sidebar
-				el = document.createElement("li");
-				nav.prepend(el);
-				const themeSwitcher = document.createElement("a");
-				themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
-				themeSwitcher.addEventListener('click', switchTheme, false);
-				el.appendChild(themeSwitcher);
+			const themeSwitcher = document.querySelector(".themeSwitcher");
+			themeSwitcher.appendChild(document.createTextNode('Тема: ' + ((theme == 'auto') ? 'Системная' : ((theme == 'dark') ? 'Темная' : 'Светлая'))));
+			themeSwitcher.addEventListener('click', switchTheme, false);
 
-				// Add icons
-				nav.querySelectorAll('li > a').forEach(a => {
-					navIcon = document.createElement('span');
-					navIcon.className = 'material-icons';
-					a.prepend(navIcon);
-					
-					switch (a.getAttribute('href')) {
-						case null:
-							navIcon.innerHTML = 'brightness_6';
-							break;
-
-						case 'stu.change_pass_form':
-							navIcon.innerHTML = 'vpn_key';
-							break;
-
-						case 'stu_email_pkg.change_email':
-							navIcon.innerHTML = 'alternate_email';
-							break;
-
-						case 'stu.change_pr_page':
-							navIcon.innerHTML = 'account_box';
-							break;
-
-						case 'stu.logout':
-							navIcon.innerHTML = 'exit_to_app';
-							break;
-					}
-				});
-			}
+			sidebar.querySelector('.nav:last-child').remove();
 		}
 
 		// Main page content
@@ -205,7 +368,7 @@ function stylePages() {
 		if (warning && span9) {
 			span9.prepend(warning);
 		}
-		
+
 		switch (page) {
 			case 'stu.teach_plan':
 
@@ -221,27 +384,27 @@ function stylePages() {
 					case null:
 						el = span9.querySelector('div:nth-child(2)');
 						el.className = 'teach-plan';
-						
+
 						el = span9.querySelector('div:nth-child(2) > div > a');
 						el.className = 'icon-button icon-feedback';
 						el.text = 'Оставить отзыв';
 
 						break;
 				}
-				
+
 				break;
-				
+
 			case 'stu.tpr':
 				el = span9.querySelector('a');
 				el.className = 'icon-button icon-feedback';
 				el.text = 'Оставить отзыв';
-				
+
 				break;
-				
+
 			case 'stu.teachers':
 				el = span9.querySelector('a');
 				el.className = 'icon-button icon-analytics';
-				
+
 				const descriptions = span9.querySelectorAll('.teacher_desc');
 				descriptions.forEach(desc => {
 					const name = desc.querySelector('.teacher_name');
@@ -253,7 +416,7 @@ function stylePages() {
 					btn.title = img.title;
 					img.remove();
 					name.appendChild(btn);
-					
+
 					const chair = desc.querySelector('.chair');
 					btn = document.createElement('a');
 					btn.className = 'icon-button2';
@@ -264,7 +427,7 @@ function stylePages() {
 					img.remove();
 					chair.appendChild(btn);
 				});
-				
+
 				break;
 
 			case 'stu.sc_portfolio':
@@ -284,33 +447,47 @@ function stylePages() {
 				});
 
 				break;
-				
+
 			case 'stu.timetable':
 				const buttonbar = document.createElement('div');
 				buttonbar.className = 'timetable-buttonbar';
 				span9.prepend(buttonbar);
-				
-				el = span9.querySelector('div:nth-child(6)');
+
+				let el = span9.querySelector('div:nth-child(6)');
 				el.className = 'timetable-btn consultations';
 				buttonbar.appendChild(el);
-				
+
 				el = span9.querySelector('a.estimate_tt');
 				el.className = 'timetable-btn icon-button icon-feedback';
 				el.text = 'Оставить отзыв';
 				buttonbar.appendChild(el);
-				
+
 				el = span9.querySelector('a:nth-child(5)');
 				el.className = 'timetable-btn icon-button icon-today';
 				buttonbar.appendChild(el);
-				
-				
+
+				// Move week header to top
+				const fragment = new DocumentFragment();
+				const header = document.querySelector('.week-select div:last-child');
+				const text = Array.from(header.querySelector('span').childNodes)
+					.filter(node => node.nodeType === 3 && node.textContent.trim().length > 1)[0];
+				const h3 = document.createElement('h3');
+				header.querySelector('span').after(h3);
+				h3.appendChild(text);
+				header.querySelector('span').remove();
+				header.classList.add('week-select-header');
+				fragment.appendChild(header);
+
+				document.querySelector('.timetable-buttonbar').prepend(fragment);
+
+
 				// const disciplines = span9.querySelectorAll("span.dis > a");
 				// disciplines.forEach(dis => {
 				// 	dis.text = dis.text.replace('(лек)', '/ лекция');
 				// 	dis.text = dis.text.replace('(лаб)', '/ лабораторная');
 				// 	dis.text = dis.text.replace('(практ)', '/ практика');
 				// });
-				
+
 				const pairs = span9.querySelectorAll("div.day > table > tbody > tr");
 				pairs.forEach(pair => {
 					const teacher = pair.querySelector('span.teacher');
@@ -319,14 +496,14 @@ function stylePages() {
 						pairTeacher.className = 'pair_teacher';
 						pairTeacher.innerHTML = teacher.innerHTML;
 						pair.appendChild(pairTeacher);
-						
+
 						pair.querySelector('td.pair_jour').remove();
 						teacher.remove();
 					}
 				});
-				
+
 				break;
-			
+
 			case 'stu.change_pass_form':
 			case 'stu.change_pass':
 				const form = span9.querySelector('.form');
@@ -334,22 +511,22 @@ function stylePages() {
 				items.className = "items";
 				form.prepend(items);
 				form.prepend(span9.querySelector('h3'));
-				
+
 				const labels = form.querySelectorAll('label');
 				const inputs = form.querySelectorAll('input');
-				
-				for (i = 0; i < inputs.length; i++) {
+
+				for (let i = 0; i < inputs.length; i++) {
 					inputs[i].placeholder = ' ';
-					
+
 					const item = document.createElement('div');
 					item.className = "item";
 					item.appendChild(inputs[i]);
 					item.appendChild(labels[i]);
 					items.appendChild(item);
 				}
-				
+
 				break;
-				
+
 			case 'stu_email_pkg.change_email':
 				const changeEmailForm = span9.querySelector('.form');
 				const changeEmailInfo = span9.querySelector('div');
@@ -363,17 +540,17 @@ function stylePages() {
 				const emailLabel = changeEmailForm.querySelector('label');
 				const emailInput = changeEmailForm.querySelector("#email");
 				emailInput.placeholder = ' ';
-					
+
 				const changeEmailItem = document.createElement('div');
 				changeEmailItem.className = "item";
 				changeEmailItem.appendChild(emailInput);
 				changeEmailItem.appendChild(emailLabel);
 				changeEmailItems.appendChild(changeEmailItem);
-				
+
 				break;
 
 			case 'stu.announce':
-				const messages = document.querySelectorAll('.nav.msg');
+				const messages = document.querySelectorAll('.nav.msg, .nav.answ');
 
 				messages.forEach(msg => {
 
@@ -400,7 +577,7 @@ function stylePages() {
 				})
 
 				break;
-			
+
 			case 'stu.teacher_notes':
 				const weeks = document.querySelector('.weeks');
 				weeks.classList.add('message-pages');
@@ -411,8 +588,7 @@ function stylePages() {
 					msg.classList.add('message')
 
 					// don't style messages that were sent to teachers
-					if (!msg.className.match(/repl_s/)) 
-					{
+					if (!msg.className.match(/repl_s/)) {
 						// create new blocks into message's header
 						// and move teacher's name, title, time, discipline to them
 						const msgHeader = document.createElement('li');
