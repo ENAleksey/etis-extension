@@ -1554,6 +1554,10 @@ form > .items > .item {
 	background-color: var(--color-card) !important;
 }
 
+.nav.msg.answ.message {
+	border: 0.1rem solid var(--color-accent) !important;
+}
+
 /* added class for message's header */
 .nav.msg.message > .message-header {
 	display: flex !important;
