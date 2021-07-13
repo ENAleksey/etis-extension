@@ -1695,6 +1695,7 @@ form > .items > .item {
 
 .answer-wrapper > button {
 	padding: 0.6rem 1.2rem !important;
+	font-size: 1.2rem !important;
 }
 
 /* send button's icon */
