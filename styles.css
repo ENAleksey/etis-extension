@@ -972,6 +972,10 @@ form.que_form {
 	line-height: 1.5 !important;
 }
 
+.cpt_list + h3 {
+    margin-top: 2rem !important;
+}
+
 
 
 /* Week Select */
