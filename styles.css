@@ -356,6 +356,11 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	background: var(--color-table-highlight) !important;
 }
 
+/* remove vertical merged cell highlight on line hover */
+.cgrldatarow:hover td[rowspan="2"] {
+    background: var(--color-card);
+}
+
 .common th,
 .common th.subheader,
 .common td[colspan="10"],
@@ -388,7 +393,8 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	text-align: left !important;
 }
 
-.teach_plan td.bg_bold, .teach_plan td.bgsu {
+.teach_plan td.bg_bold,
+.teach_plan td.bgsu {
 	background: var(--color-highlight) !important;
 }
 
