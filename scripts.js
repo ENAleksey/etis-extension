@@ -486,6 +486,12 @@ function stylePages() {
 				})
 
 				break;
+
+			case 'cert_pkg.stu_certif':
+				el = span9.querySelector('span[style="color:#00b050;font-size:1.2em;font-weight:bold;"]');
+				el.className = 'certificates-info';
+
+				break;
 		}
 	}
 }

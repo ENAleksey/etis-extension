@@ -1346,7 +1346,7 @@ span.holiday {
 
 
 
-/* Orders Page */
+/* Orders and Certificates Page */
 /* ----------------------------------------------- */
 
 .ord-inactive {
@@ -1363,6 +1363,13 @@ span.holiday {
 
 .ord-name > a:hover {
 	text-decoration: underline !important;
+}
+
+.certificates-info {
+    color: var(--color-green) !important;
+    font-size: 1.2rem !important;
+    display: block !important;
+    margin-bottom: 2rem !important;
 }
 
 
