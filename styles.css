@@ -1353,6 +1353,10 @@ span.holiday {
 	color: var(--color-text-secondary) !important;
 }
 
+.ord-name {
+	font-size: 1.2rem !important;
+}
+
 .ord-name > a {
 	text-decoration: none !important;
 }
