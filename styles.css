@@ -1336,6 +1336,14 @@ span.holiday {
 	margin-bottom: 1.4rem !important;
 }
 
+/* margin between text and cards */
+.nav {
+    margin-bottom: 2rem !important;
+}
+.nav + .nav {
+    margin-top: 2rem !important;
+}
+
 
 
 /* Orders Page */
