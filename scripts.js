@@ -492,6 +492,21 @@ function stylePages() {
 				el.className = 'certificates-info';
 
 				break;
+
+			case 'stu.signs':
+				const signTables = document.querySelectorAll('table.common')
+				signTables.forEach(table => {
+					const themes = table.querySelectorAll('a')
+					themes.forEach((theme, index) => {
+						if (theme.getAttribute('href').split('?')[0] !== 'stu.theme') {
+							console.log('Не тема:')
+							console.log(theme)
+							return
+						}
+						theme.innerText = 'КТ ' + (index + 1)
+					})
+				})
+				break;
 		}
 	}
 }
