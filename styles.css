@@ -1759,14 +1759,14 @@ form > .items > .item {
 	padding: 0 !important;
 }
 
-.tooltip {
+.sign-tooltip {
 	position: fixed;
-	padding: 10px 20px;
-	border: 1px solid #b3c9ce;
-	border-radius: 4px;
+	padding: 1.2rem 2.4rem;
+	max-width: 50rem;
+	border: 1px solid var(--color-highlight-light);
+	border-radius: var(--radius-small);
+	font-size: 1.2rem;
 	text-align: center;
-	font: italic 14px/1.3 sans-serif;
-	color: #333;
-	background: #fff;
-	box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+	color: var(--color-white);
+	background: var(--color-body);
   }

@@ -494,6 +494,8 @@ function stylePages() {
 				break;
 
 			case 'stu.signs':
+				if (window.location.search.split('&')[0] !== '?p_mode=current') break;
+
 				let tooltipElem
 
 				// create tooltip for a control point
@@ -504,7 +506,7 @@ function stylePages() {
 					if (!tooltipText) return
 
 					tooltipElem = document.createElement('div')
-					tooltipElem.className = 'tooltip'
+					tooltipElem.className = 'sign-tooltip'
 					tooltipElem.innerText = tooltipText
 					document.body.appendChild(tooltipElem)
 
