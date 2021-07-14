@@ -494,6 +494,44 @@ function stylePages() {
 				break;
 
 			case 'stu.signs':
+				let tooltipElem
+
+				// create tooltip for a control point
+				const renderTooltip = () => {
+					const target = event.target
+
+					const tooltipText = target.dataset.tooltip
+					if (!tooltipText) return
+
+					tooltipElem = document.createElement('div')
+					tooltipElem.className = 'tooltip'
+					tooltipElem.innerText = tooltipText
+					document.body.appendChild(tooltipElem)
+
+					// position the element
+					const coords = target.getBoundingClientRect()
+
+					let right = coords.right + 5;
+
+					let top = coords.top - tooltipElem.offsetHeight;
+					// the element mustn't extend beyond the viewport
+					if (top < 0) {
+						top = coords.top + target.offsetHeight + 5;
+					}
+
+					tooltipElem.style.left = right + 'px';
+					tooltipElem.style.top = top + 'px';
+				}
+
+				const removeTooltip = () => {
+					if (tooltipElem) {
+						tooltipElem.remove();
+						tooltipElem = null;
+					  }
+				}
+
+				document.addEventListener('wheel', removeTooltip)
+
 				const signTables = document.querySelectorAll('table.common')
 				signTables.forEach(table => {
 					const themes = table.querySelectorAll('a')
@@ -503,7 +541,10 @@ function stylePages() {
 							console.log(theme)
 							return
 						}
+						theme.setAttribute('data-tooltip', theme.innerText)
 						theme.innerText = 'КТ ' + (index + 1)
+						theme.addEventListener('mouseover', renderTooltip)
+						theme.addEventListener('mouseout', removeTooltip)
 					})
 				})
 				break;
