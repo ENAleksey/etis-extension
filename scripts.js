@@ -544,7 +544,7 @@ function stylePages() {
 							return
 						}
 						theme.setAttribute('data-tooltip', theme.innerText)
-						theme.innerText = 'КТ ' + (index + 1)
+						theme.innerHTML = 'КТ' + '&nbsp;' + (index + 1)
 						theme.addEventListener('mouseover', renderTooltip)
 						theme.addEventListener('mouseout', removeTooltip)
 					})
