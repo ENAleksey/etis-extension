@@ -493,6 +493,36 @@ function stylePages() {
 					el.className = 'certificates-info';
 				}
 
+				const orders = span9.querySelectorAll('.ord-name');
+				orders.forEach(ord => {
+					img = ord.querySelector('img');
+					if (img) {
+						btn = document.createElement('a');
+						btn.className = 'icon-button2';
+						btn.text = 'description';
+						btn.setAttribute('onclick', img.getAttribute('onclick'));
+						btn.title = img.title;
+						img.remove();
+						ord.prepend(btn);
+						ord.classList.add('flex-row');
+					}
+				});
+
+				const fonts = span9.querySelectorAll('font[color="blue"]');
+				fonts.forEach(font => {
+					img = span9.querySelector('img[src="/etis/pic/text-2.png"]');
+					if (img) {
+						btn = document.createElement('a');
+						btn.className = 'icon-button2';
+						btn.text = 'description';
+						btn.setAttribute('onclick', img.getAttribute('onclick'));
+						btn.title = img.title;
+						img.remove();
+						font.append(btn);
+						font.classList.add('flex-row');
+					}
+				});
+
 				break;
 
 			case 'stu.signs':

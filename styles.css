@@ -176,6 +176,11 @@ body {
 	padding: 0.4rem 0.6rem !important;
 }
 
+.flex-row {
+	display: flex !important;
+	align-items: center !important;
+}
+
 /* @media (max-width:960px) {
 	.container {
 		max-width: var(--width-content) !important;
@@ -1385,6 +1390,14 @@ span.holiday {
 
 .ord-name > a:hover {
 	text-decoration: underline !important;
+}
+
+.ord-name > .icon-button2 {
+	margin: 0 0.4rem 0 0 !important;
+}
+
+.ord-name > .icon-button2:hover {
+	text-decoration: none !important;
 }
 
 .certificates-info {
