@@ -250,6 +250,7 @@ font[style="color:#d00;"] {
 	color: var(--color-red) !important;
 }
 
+span[style="color:green;"],
 font[color="green"],
 div[style="font-size:0.8em;color:green;"] {
 	color: var(--color-green) !important;
