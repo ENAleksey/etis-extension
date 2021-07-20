@@ -147,6 +147,19 @@ body {
 	float: none !important;
 }
 
+.span9 > h3 {
+	margin-bottom: 1.4rem !important;
+}
+
+.submenu {
+    font-size: 1.2rem !important;
+    margin-bottom: 2.4rem !important;
+}
+
+.submenu + .submenu {
+    margin-top: -1.2rem !important;
+}
+
 .warning {
 	margin: 0 !important;
 	width: auto !important;
@@ -304,6 +317,10 @@ table tr:nth-child(1) td, table tr:nth-child(1) th {
 
 table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	border-bottom: none !important;
+}
+
+.common {
+	margin-bottom: 2.4rem !important;
 }
 
 .common,
