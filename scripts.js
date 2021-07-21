@@ -194,6 +194,21 @@ function stylePages() {
 					}
 				});
 			}
+
+			// Add point indicators
+			sidebar.querySelectorAll('li').forEach(li => {
+				a = li.querySelector('a');
+				if (a) {
+					const href = a.getAttribute('href');
+					if (href == 'stu_plus.add_snils' ||
+						href == 'ebl_stu.ebl_choice' ||
+						li.classList.contains('warn_menu')) {
+						const indicator = document.createElement('span');
+						indicator.className = 'badge-point';
+						a.appendChild(indicator);
+					}
+				}
+			});
 		}
 
 		// Main page content
