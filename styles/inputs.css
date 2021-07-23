@@ -5,24 +5,24 @@ input,
 select,
 textarea,
 button {
-	font-family: inherit !important;
+  font-family: inherit !important;
 }
 
 textarea {
-	width: 100% !important;
+  width: 100% !important;
 }
 
 select,
 textarea {
-	background: var(--color-input) !important;
-	color: var(--color-text-primary) !important;
-	padding: 0.4rem 0.8rem !important;
-	border-radius: var(--radius-small) !important;
-	border: var(--border-input) !important;
+  background: var(--color-input) !important;
+  color: var(--color-text-primary) !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: var(--radius-small) !important;
+  border: var(--border-input) !important;
 }
 
 select:hover {
-	background: var(--color-input-highlight) !important;
+  background: var(--color-input-highlight) !important;
 }
 
 /* Input Fields */
@@ -30,18 +30,18 @@ select:hover {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-	background: transparent !important;
-	color: var(--color-text-primary) !important;
-	border: none !important;
-	box-shadow: inset 0 -0.1rem 0 0 var(--color-text-secondary) !important;
-	width: 100% !important;
+  background: transparent !important;
+  color: var(--color-text-primary) !important;
+  border: none !important;
+  box-shadow: inset 0 -0.1rem 0 0 var(--color-text-secondary) !important;
+  width: 100% !important;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
-	box-shadow: inset 0 -0.2rem 0 0 var(--color-accent) !important;
-	outline: none !important;
+  box-shadow: inset 0 -0.2rem 0 0 var(--color-accent) !important;
+  outline: none !important;
 }
 
 input[type="text"]:focus ~ label,
@@ -50,246 +50,244 @@ input[type="password"]:focus ~ label,
 input[type="password"]:not(:placeholder-shown) ~ label,
 input[type="email"]:focus ~ label,
 input[type="email"]:not(:placeholder-shown) ~ label {
-	top: -2rem !important;
-	font-size: 1.2rem !important;
+  top: -2rem !important;
+  font-size: 1.2rem !important;
 }
 
 input[type="text"]:-webkit-autofill ~ label,
 input[type="password"]:-webkit-autofill ~ label,
 input[type="email"]:-webkit-autofill ~ label {
-	top: -2rem !important;
-	font-size: 1.2rem !important;
+  top: -2rem !important;
+  font-size: 1.2rem !important;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	transition: background-color 9999s ease-in-out 9999s !important;
-	-webkit-text-fill-color: var(--color-text-primary) !important;
-	caret-color: var(--color-text-primary) !important;
+  transition: background-color 9999s ease-in-out 9999s !important;
+  -webkit-text-fill-color: var(--color-text-primary) !important;
+  caret-color: var(--color-text-primary) !important;
 }
 
 /* Checkboxes, Radio Buttons */
 
 input[type="checkbox"],
 input[type="radio"] {
-	width: 1.8rem !important;
-	height: 1.8rem !important;
-	display: inline-flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	margin-right: 1rem !important;
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-right: 1rem !important;
 }
 
 input[type="checkbox"]:before {
-	width: inherit !important;
-	height: inherit !important;
-	background: var(--color-input) !important;
-	content: '' !important;
-	position: absolute !important;
-	border-radius: 0.2rem !important;
-	border: var(--border-input) !important;
+  width: inherit !important;
+  height: inherit !important;
+  background: var(--color-input) !important;
+  content: "" !important;
+  position: absolute !important;
+  border-radius: 0.2rem !important;
+  border: var(--border-input) !important;
 }
 
 input[type="checkbox"]:checked:after {
-	width: 0.8rem !important;
-	height: 0.8rem !important;
-	background: var(--color-accent) !important;
-	content: '' !important;
-	position: absolute !important;
-	border-radius: 0.1rem !important;
-	margin: 0.5rem !important;
+  width: 0.8rem !important;
+  height: 0.8rem !important;
+  background: var(--color-accent) !important;
+  content: "" !important;
+  position: absolute !important;
+  border-radius: 0.1rem !important;
+  margin: 0.5rem !important;
 }
-
 
 input[type="radio"]:before {
-	width: inherit !important;
-	height: inherit !important;
-	background: var(--color-input) !important;
-	content: '' !important;
-	position: absolute !important;
-	border-radius: 50% !important;
-	border: var(--border-input) !important;
+  width: inherit !important;
+  height: inherit !important;
+  background: var(--color-input) !important;
+  content: "" !important;
+  position: absolute !important;
+  border-radius: 50% !important;
+  border: var(--border-input) !important;
 }
 
-
 input[type="radio"]:checked:after {
-	width: 0.8rem !important;
-	height: 0.8rem !important;
-	background: var(--color-accent) !important;
-	content: '' !important;
-	position: absolute !important;
-	border-radius: 50% !important;
-	margin: 0.5rem !important;
+  width: 0.8rem !important;
+  height: 0.8rem !important;
+  background: var(--color-accent) !important;
+  content: "" !important;
+  position: absolute !important;
+  border-radius: 50% !important;
+  margin: 0.5rem !important;
 }
 
 input[type="checkbox"]:hover:before,
 input[type="radio"]:hover:before {
-	background: var(--color-input-highlight) !important;
+  background: var(--color-input-highlight) !important;
 }
 input[type="checkbox"]:checked:hover:after,
 input[type="radio"]:checked:hover:after {
-	background: var(--color-accent-dark) !important;
+  background: var(--color-accent-dark) !important;
 }
 
 /* Default Buttons */
 
 button {
-	padding: 0.8rem 1.6rem !important;
-	color: var(--color-text-primary) !important;
-	background: var(--color-highlight) !important;
-	font-size: 1.4rem !important;
-	border: none !important;
-	border-radius: var(--radius-small) !important;
-	text-shadow: none !important;
-	box-shadow: var(--shadow-main) !important;
-	display: flex !important;
-	align-items: center !important;
-	line-height: 1 !important;
+  padding: 0.8rem 1.6rem !important;
+  color: var(--color-text-primary) !important;
+  background: var(--color-highlight) !important;
+  font-size: 1.4rem !important;
+  border: none !important;
+  border-radius: var(--radius-small) !important;
+  text-shadow: none !important;
+  box-shadow: var(--shadow-main) !important;
+  display: flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
 }
 
 button[disabled] {
-	border: none !important;
-    background: var(--color-highlight) !important;
-	color: var(--color-text-secondary) !important;
-	box-shadow: none !important;
-	cursor: default !important;
+  border: none !important;
+  background: var(--color-highlight) !important;
+  color: var(--color-text-secondary) !important;
+  box-shadow: none !important;
+  cursor: default !important;
 }
 
 button:hover,
 button:active,
 button:focus {
-	background: var(--color-highlight-light) !important;
+  background: var(--color-highlight-light) !important;
 }
 
 .button_gray {
-	width: fit-content !important;
-	align-self: flex-end !important;
-	border: none !important;
-    background: none !important;
+  width: fit-content !important;
+  align-self: flex-end !important;
+  border: none !important;
+  background: none !important;
 }
 
 .button_gray button {
-	color: var(--color-text-primary-invert) !important;
-	background: var(--color-accent) !important;
+  color: var(--color-text-primary-invert) !important;
+  background: var(--color-accent) !important;
 }
 
 .button_gray button[disabled] {
-    background: var(--color-highlight) !important;
-	color: var(--color-text-secondary) !important;
+  background: var(--color-highlight) !important;
+  color: var(--color-text-secondary) !important;
 }
 
 .button_gray button:hover {
-	background: var(--color-accent-hightlight) !important;
+  background: var(--color-accent-hightlight) !important;
 }
 
 .button_gray button[disabled]:hover {
-    background: var(--color-highlight) !important;
+  background: var(--color-highlight) !important;
 }
 
 .button_gray button:active,
 .button_gray button:focus {
-	background: var(--color-accent-active) !important;
+  background: var(--color-accent-active) !important;
 }
 
 .button.blue {
-	background: var(--color-accent) !important;
+  background: var(--color-accent) !important;
 }
 
 .button.blue:hover {
-	background: var(--color-accent-hightlight) !important;
+  background: var(--color-accent-hightlight) !important;
 }
 
 .button.blue:active,
 .button.blue:focus {
-	background: var(--color-accent-active) !important;
+  background: var(--color-accent-active) !important;
 }
 
 .button {
-	font-family: inherit !important;
-	border-radius: var(--radius-small) !important;
-	border: none !important;
-	margin: 0 !important;
-	box-shadow: var(--shadow-main) !important;
-	padding: 1rem 3.2rem !important;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
+  font-family: inherit !important;
+  border-radius: var(--radius-small) !important;
+  border: none !important;
+  margin: 0 !important;
+  box-shadow: var(--shadow-main) !important;
+  padding: 1rem 3.2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .button:active,
 .button.active {
-	top: 0 !important;
-	box-shadow: none !important;
+  top: 0 !important;
+  box-shadow: none !important;
 }
 
 .button span {
-	border: none !important;
-	color: var(--color-text-primary-invert) !important;
-	text-shadow: none !important;
-	padding: 0 !important;
+  border: none !important;
+  color: var(--color-text-primary-invert) !important;
+  text-shadow: none !important;
+  padding: 0 !important;
 }
 
 /*Custom Buttons*/
 
 .icon-button {
-	display: flex !important;
-	align-items: center !important;
-	background: var(--color-card) !important;
-	color: var(--color-text-primary) !important;
-	font-size: 1.2rem !important;
-	padding: 0.4rem 0.8rem !important;
-	border-radius: var(--radius-small) !important;
-	width: fit-content !important;
-	box-shadow: var(--shadow-main) !important;
-	text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  background: var(--color-card) !important;
+  color: var(--color-text-primary) !important;
+  font-size: 1.2rem !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: var(--radius-small) !important;
+  width: fit-content !important;
+  box-shadow: var(--shadow-main) !important;
+  text-decoration: none !important;
 }
 
 .icon-button2 {
-	margin-left: 0.4rem !important;
-	font-family: 'Material Icons Outlined' !important;
-	font-size: 2rem !important;
-	cursor: pointer !important;
-	text-decoration: none !important;
-	color: var(--color-text-secondary) !important;
+  margin-left: 0.4rem !important;
+  font-family: "Material Icons Outlined" !important;
+  font-size: 2rem !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  color: var(--color-text-secondary) !important;
 }
 
 .icon-button2:hover {
-	color: var(--color-text-highlight) !important;
+  color: var(--color-text-highlight) !important;
 }
 
 .icon-button:hover {
-	background: var(--color-highlight) !important;
+  background: var(--color-highlight) !important;
 }
 
 .icon-button:active {
-	background: var(--color-highlight-light) !important;
-	box-shadow: none !important;
+  background: var(--color-highlight-light) !important;
+  box-shadow: none !important;
 }
 
 .icon-button:before {
-	margin-right: 0.6rem !important;
-	
-	font-family: 'Material Icons Outlined' !important;
-	font-size: 1.8rem !important;
+  margin-right: 0.6rem !important;
+
+  font-family: "Material Icons Outlined" !important;
+  font-size: 1.8rem !important;
 }
 
 .icon-button.icon-feedback:before {
-	content: 'feedback' !important;
+  content: "feedback" !important;
 }
 
 .icon-button.icon-analytics:before {
-	content: 'analytics' !important;
+  content: "analytics" !important;
 }
 
 .icon-button.icon-today:before {
-	content: 'today' !important;
+  content: "today" !important;
 }
 
 .icon-button.icon-feedback:before,
 .icon-button.icon-analytics:before,
-.icon-button.icon-today:before{
-	width: 18px !important;
-	height: 18px !important;
+.icon-button.icon-today:before {
+  width: 18px !important;
+  height: 18px !important;
 }

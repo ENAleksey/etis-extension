@@ -2,22 +2,22 @@
 /* ----------------------------------------------- */
 
 form.que_form {
-    margin-top: 1rem !important;
+  margin-top: 1rem !important;
 }
 
 .question_table {
-	margin: 1.4rem 0 3rem !important;
+  margin: 1.4rem 0 3rem !important;
 }
 
 .question_table .text,
 .question_table tr:first-child {
-    background: var(--color-table-header) !important;
+  background: var(--color-table-header) !important;
 }
 
 .cgrldatarow:hover {
-	background: var(--color-table-highlight) !important;
+  background: var(--color-table-highlight) !important;
 }
 
 .question_table .answer_cell .answer {
-	margin: 0 !important;
+  margin: 0 !important;
 }

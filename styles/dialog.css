@@ -1,8 +1,8 @@
 /* Default Dialog Window */
 
 .ui-dialog {
-	box-sizing: unset !important;
-	box-shadow: var(--shadow-dialog) !important;
+  box-sizing: unset !important;
+  box-shadow: var(--shadow-dialog) !important;
 }
 
 /*.ui-dialog * {*/
@@ -10,57 +10,57 @@
 /*}*/
 
 .ui-dialog .ui-dialog-content {
-	width: initial !important;
-	height: initial !important;
+  width: initial !important;
+  height: initial !important;
 }
 
 .ui-dialog .ui-dialog-content > form {
-	display: flex !important;
-flex-direction: column !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .ui-dialog .ui-dialog-content > form > input {
-	margin-top: 6px !important;
+  margin-top: 6px !important;
 }
 
 .ui-dialog .ui-dialog-content > form > input.btn {
-	align-self: flex-end !important;
+  align-self: flex-end !important;
 }
 
 .ui-widget-content {
-	border: none !important;
-	background: var(--color-card) !important;
-	color: var(--color-text-primary) !important;
+  border: none !important;
+  background: var(--color-card) !important;
+  color: var(--color-text-primary) !important;
 }
 
 .ui-widget-header {
-	border: none !important;
-	background: var(--color-highlight) !important;
-	color: var(--color-text-primary) !important;
+  border: none !important;
+  background: var(--color-highlight) !important;
+  color: var(--color-text-primary) !important;
 }
 
 .ui-widget-overlay {
-	background: var(--color-dialog-fade) !important;
-	opacity: 1 !important;
+  background: var(--color-dialog-fade) !important;
+  opacity: 1 !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close {
-	border: none !important;
-	background: none !important;
-	color: var(--color-text-secondary) !important;
-	box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+  color: var(--color-text-secondary) !important;
+  box-shadow: none !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close > .ui-button-icon-primary {
-	display: none !important;
+  display: none !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close:before {
-	content: 'close' !important;
-	font-family: 'Material Icons Outlined' !important;
-	font-size: 18px !important;
+  content: "close" !important;
+  font-family: "Material Icons Outlined" !important;
+  font-size: 18px !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close:hover:before {
-	color: var(--color-text-highlight) !important;
+  color: var(--color-text-highlight) !important;
 }

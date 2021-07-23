@@ -2,155 +2,155 @@
 /* ----------------------------------------------- */
 
 div.timetable-buttonbar {
-	display: flex !important;
-	flex-direction: row !important;
-	align-items: center !important;
-	justify-content: flex-end !important;
-	flex-wrap: wrap !important;
-	white-space: nowrap !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap !important;
+  white-space: nowrap !important;
 }
 
 .timetable-btn {
-	margin: 0 0 1.4rem 1.4rem !important;
+  margin: 0 0 1.4rem 1.4rem !important;
 }
 
 div.consultations {
-	display: flex !important;
-	align-items: center !important;
-	float: none !important;
-	color: var(--color-text-primary) !important;
+  display: flex !important;
+  align-items: center !important;
+  float: none !important;
+  color: var(--color-text-primary) !important;
 }
 
 span.holiday {
-	background-color: var(--color-green) !important;
-	color: var(--color-text-primary-invert) !important;
-	padding: 0.4rem 0.8rem !important;
-	border-radius: 50rem !important;
-	margin-top: 0.6rem !important;
-	display: inline-block !important;
+  background-color: var(--color-green) !important;
+  color: var(--color-text-primary-invert) !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 50rem !important;
+  margin-top: 0.6rem !important;
+  display: inline-block !important;
 }
 
 .day {
-	border-radius: var(--radius-medium) !important;
-	background-color: var(--color-card) !important;
-	box-shadow: var(--shadow-main) !important;
-	overflow: hidden !important;
-	padding: 0.6rem 0 !important;
-	margin-bottom: 2rem !important;
+  border-radius: var(--radius-medium) !important;
+  background-color: var(--color-card) !important;
+  box-shadow: var(--shadow-main) !important;
+  overflow: hidden !important;
+  padding: 0.6rem 0 !important;
+  margin-bottom: 2rem !important;
 }
 
 .day h3 {
-	padding: 1rem 1.6rem 1.4rem !important;
-	margin: 0 !important;
-	font-size: 14px !important;
+  padding: 1rem 1.6rem 1.4rem !important;
+  margin: 0 !important;
+  font-size: 14px !important;
 }
 
 .week-select-header {
-	margin: 0 !important;
-	padding: .4rem 0 !important;
-	align-self: flex-start !important;
-	flex-grow: 3;
-	text-align: left !important;
+  margin: 0 !important;
+  padding: 0.4rem 0 !important;
+  align-self: flex-start !important;
+  flex-grow: 3;
+  text-align: left !important;
 }
 
 .week-select-header h3 {
-	margin: 0 !important;
-	font-size: 14px !important;
+  margin: 0 !important;
+  font-size: 14px !important;
 }
 
 .no_pairs {
-	padding: 1.2rem 1.6rem 2rem !important;
+  padding: 1.2rem 1.6rem 2rem !important;
 }
 
 .timetable {
-	display: flex !important;
-	flex-direction: column !important;
-	width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
 }
 
 .timetable td {
-	border: none !important;
-	vertical-align: middle !important;
-	padding-top: 0.2rem !important;
-	padding-bottom: 0.2rem !important;
-	font-size: 1.2rem !important;
+  border: none !important;
+  vertical-align: middle !important;
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+  font-size: 1.2rem !important;
 }
 
 .pair_num {
-	width: 8rem !important;
-	height: 5rem !important;
-	border: none !important;
-	font-size: 0 !important;
+  width: 8rem !important;
+  height: 5rem !important;
+  border: none !important;
+  font-size: 0 !important;
 }
 
 .pair_num .eval {
-	font-size: 1.1rem !important;
-	color: var(--color-text-secondary) !important;
+  font-size: 1.1rem !important;
+  color: var(--color-text-secondary) !important;
 }
 
 .pair_info {
-	padding-right: 1.4rem !important;
+  padding-right: 1.4rem !important;
 }
 
 .pair_info .dis a {
-	color: var(--color-text-primary) !important;
-	text-decoration: none !important;
-	font-size: 1.4rem !important;
+  color: var(--color-text-primary) !important;
+  text-decoration: none !important;
+  font-size: 1.4rem !important;
 }
 
 .pair_info .dis a:hover {
-	color: var(--color-text-highlight) !important;
+  color: var(--color-text-highlight) !important;
 }
 
 .pair_teacher {
-	width: 14rem !important;
-	text-align: right !important;
-	padding-right: 1.4rem !important;
+  width: 14rem !important;
+  text-align: right !important;
+  padding-right: 1.4rem !important;
 }
 
 .pair_teacher > a {
-	color: var(--color-text-secondary) !important;
-	text-decoration: none !important;
+  color: var(--color-text-secondary) !important;
+  text-decoration: none !important;
 }
 
 .pair_teacher > a:hover {
-	color: var(--color-text-highlight) !important;
+  color: var(--color-text-highlight) !important;
 }
 
 .pair_teacher .eval {
-	display: none !important;
+  display: none !important;
 }
 
 .pair_info .aud {
-	color: var(--color-text-secondary) !important;
-	font-size: 1.1rem !important;
+  color: var(--color-text-secondary) !important;
+  font-size: 1.1rem !important;
 }
 
 .pair_info .aud > a {
-	display: flex !important;
-	align-items: center !important;
-	color: var(--color-text-secondary) !important;
-	text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  color: var(--color-text-secondary) !important;
+  text-decoration: none !important;
 }
 
 .pair_info .aud > a:hover {
-	color: var(--color-text-highlight) !important;
+  color: var(--color-text-highlight) !important;
 }
 
 .pair_info .aud > a > img {
-	display: none !important;
+  display: none !important;
 }
 
 .pair_info .aud > a:before {
-	width: 18px !important;
-	height: 18px !important;
-	margin-right: 0.6rem !important;
-	
-	font-family: 'Material Icons Outlined' !important;
-	content: 'videocam' !important;
-	font-size: 1.8rem !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 0.6rem !important;
+
+  font-family: "Material Icons Outlined" !important;
+  content: "videocam" !important;
+  font-size: 1.8rem !important;
 }
 
 .pair_info div:nth-child(1) {
-	margin-bottom: 0.2rem !important;
+  margin-bottom: 0.2rem !important;
 }

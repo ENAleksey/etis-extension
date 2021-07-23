@@ -2,99 +2,100 @@
 /* ----------------------------------------------- */
 
 .login-container {
-	display: flex !important;
-	flex-direction: column !important;
-	height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
 }
 
 .login {
-	margin: 2rem auto !important;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	flex: 1 0 auto !important;
-	background: var(--color-body) !important;
+  margin: 2rem auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 0 auto !important;
+  background: var(--color-body) !important;
 }
 
-.login:before, .login:after {
-	display: none !important;
+.login:before,
+.login:after {
+  display: none !important;
 }
 
 .psu-logo {
-	position: relative !important;
-	content: '' !important;
-	height: 20rem !important;
-	width: 100% !important;
-	background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/8bc57f7b991ba8b6a07dec05809ac8c218082db4/psu_logo.svg") !important;
-	opacity: .6 !important;
-	background-size: 20rem !important;
-	background-position: center !important;
-	background-repeat: no-repeat !important;
-	margin-bottom: 4.8rem !important;
+  position: relative !important;
+  content: "" !important;
+  height: 20rem !important;
+  width: 100% !important;
+  background-image: url("https://raw.githubusercontent.com/ENAleksey/etis-extension/8bc57f7b991ba8b6a07dec05809ac8c218082db4/psu_logo.svg") !important;
+  opacity: 0.6 !important;
+  background-size: 20rem !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  margin-bottom: 4.8rem !important;
 }
 
 html[theme="light"] .psu-logo {
-	filter: invert(1) !important;
+  filter: invert(1) !important;
 }
 
 .login > form > .choose {
-	display: block !important;
-    padding: 0 !important;
-    border-bottom: none !important;
-	background: none !important;
-	margin-bottom: 2.4rem !important;
-	font-size: 0 !important;
+  display: block !important;
+  padding: 0 !important;
+  border-bottom: none !important;
+  background: none !important;
+  margin-bottom: 2.4rem !important;
+  font-size: 0 !important;
 }
 
 .login > form > .choose > .right {
-	display: none !important;
+  display: none !important;
 }
 
 .login > form > .choose > h1 {
-	font-size: 1.8rem !important;
+  font-size: 1.8rem !important;
 }
 
 .login-actions {
-	display: flex !important;
-	align-items: center !important;
-	justify-content: space-between !important;
-	font-size: 1.4rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-size: 1.4rem !important;
 }
 
 .forgot-password {
-	color: var(--color-text-secondary) !important;
+  color: var(--color-text-secondary) !important;
 }
 
 .grecaptcha-badge {
-	display: none !important;
+  display: none !important;
 }
 
 .footer {
-	margin: 0 auto !important;
-	max-width: var(--width-content) !important;
-	padding: 2rem !important;
-	color: var(--color-text-secondary) !important;
-	font-size: 1.2rem !important;
-	text-align: center !important;
+  margin: 0 auto !important;
+  max-width: var(--width-content) !important;
+  padding: 2rem !important;
+  color: var(--color-text-secondary) !important;
+  font-size: 1.2rem !important;
+  text-align: center !important;
 }
 
 .footer p + p {
-	margin-top: 1.2rem !important;
+  margin-top: 1.2rem !important;
 }
 
 .error_message {
-	position: fixed !important;
-	left: 0 !important;
-	right: 0 !important;
-	top: 0 !important;
-	padding: 0.8rem 0 !important;
-	background: var(--color-error) !important;
-	color: var(--color-white) !important;
-	font-size: 1.4rem !important;
-	text-align: center !important;
-	z-index: 1;
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  padding: 0.8rem 0 !important;
+  background: var(--color-error) !important;
+  color: var(--color-white) !important;
+  font-size: 1.4rem !important;
+  text-align: center !important;
+  z-index: 1;
 }
 
 .header_message {
-	display: none !important;
+  display: none !important;
 }

@@ -2,18 +2,18 @@
 /* ----------------------------------------------- */
 
 .week-select h3 {
-	display: none !important;
+  display: none !important;
 }
 
 .week-select {
-	margin: 0 auto 3.2rem !important;
-	width: 100% !important;
+  margin: 0 auto 3.2rem !important;
+  width: 100% !important;
 }
 
 .weeks {
-	display: flex !important;
-	justify-content: center !important;
-	flex-wrap: wrap !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
 }
 
 /*.weeks {*/
@@ -30,90 +30,96 @@
 /*}*/
 
 .week {
-	display: flex !important;
-	justify-content: center !important;
-	align-items: center !important;
-	
-	margin: 0 0.4rem 0.4rem 0 !important;
-	padding: 0 !important;
-	width: auto !important;
-	
-	background-color: var(--color-card) !important;
-	box-shadow: var(--shadow-main) !important;
-	border-radius: var(--radius-medium) !important;
-	border: none !important;
-	
-	font-size: 1.2rem !important;
-	overflow: hidden !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  margin: 0 0.4rem 0.4rem 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+
+  background-color: var(--color-card) !important;
+  box-shadow: var(--shadow-main) !important;
+  border-radius: var(--radius-medium) !important;
+  border: none !important;
+
+  font-size: 1.2rem !important;
+  overflow: hidden !important;
 }
 
 .week:hover {
-	background: var(--color-highlight) !important;
+  background: var(--color-highlight) !important;
 }
 
 .week:active {
-	box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .weeks > .week > a {
-	display: flex !important;
-	justify-content: center !important;
-	align-items: center !important;
-	width: 3.8rem !important;
-	height: 3.8rem !important;
-	color: var(--color-text-primary) !important;
-	text-decoration: none !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 3.8rem !important;
+  height: 3.8rem !important;
+  color: var(--color-text-primary) !important;
+  text-decoration: none !important;
 }
 
 .weeks > .week > a:active {
-	background: var(--color-highlight-light) !important;
+  background: var(--color-highlight-light) !important;
 }
 
 .weeks .week.current {
-	font-weight: bold !important;
-	width: 3.8rem !important;
-	height: 3.8rem !important;
-	
-	color: var(--color-accent) !important;
+  font-weight: bold !important;
+  width: 3.8rem !important;
+  height: 3.8rem !important;
+
+  color: var(--color-accent) !important;
 }
 
 .weeks .week.current::after {
-	position: absolute !important;
-	margin-top: 2.4rem !important;
-	width: 2.4rem !important;
-	height: 0.4rem !important;
-	
-	content: '' !important;
-	border-radius: var(--radius-medium) !important;
-	background: var(--color-accent) !important;
+  position: absolute !important;
+  margin-top: 2.4rem !important;
+  width: 2.4rem !important;
+  height: 0.4rem !important;
+
+  content: "" !important;
+  border-radius: var(--radius-medium) !important;
+  background: var(--color-accent) !important;
 }
 
-.weeks .week.session a, .weeks .week.session, .weeks .week.session.current {
-	color: var(--color-red) !important;
-	border: none !important;
-	border-radius: var(--radius-medium) !important;
+.weeks .week.session a,
+.weeks .week.session,
+.weeks .week.session.current {
+  color: var(--color-red) !important;
+  border: none !important;
+  border-radius: var(--radius-medium) !important;
 }
 
-.weeks .week.holiday a, .weeks .week.holiday, .weeks .week.holiday.current {
-	color: var(--color-green) !important;
-	border: none !important;
-	border-radius: var(--radius-medium) !important;
+.weeks .week.holiday a,
+.weeks .week.holiday,
+.weeks .week.holiday.current {
+  color: var(--color-green) !important;
+  border: none !important;
+  border-radius: var(--radius-medium) !important;
 }
 
-.weeks .week.pract a, .weeks .week.pract, .weeks .week.pract.current {
-	color: var(--color-yellow) !important;
-	border: none !important;
-	border-radius: var(--radius-medium) !important;
+.weeks .week.pract a,
+.weeks .week.pract,
+.weeks .week.pract.current {
+  color: var(--color-yellow) !important;
+  border: none !important;
+  border-radius: var(--radius-medium) !important;
 }
 
 .weeks .week.session.current::after {
-	background: var(--color-red) !important;
+  background: var(--color-red) !important;
 }
 
 .weeks .week.holiday.current::after {
-	background: var(--color-green) !important;
+  background: var(--color-green) !important;
 }
 
 .weeks .week.pract.current::after {
-	background: var(--color-yellow) !important;
+  background: var(--color-yellow) !important;
 }

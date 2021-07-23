@@ -3,118 +3,123 @@
 
 /* added class for messages */
 .nav.msg.message {
-	padding: 0 !important;
-	background-color: var(--color-card) !important;
+  padding: 0 !important;
+  background-color: var(--color-card) !important;
+}
+
+.nav.msg.answ.message {
+  border: 0.1rem solid var(--color-accent) !important;
 }
 
 /* added class for message's header */
 .nav.msg.message > .message-header {
-	display: flex !important;
-	justify-content: space-between !important;
-	background-color: var(--color-highlight) !important;
-	border-radius: var(--radius-medium) var(--radius-medium) 0 0 !important;
-	padding: 1.8rem 2.4rem 1.8rem 2.4rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  background-color: var(--color-highlight) !important;
+  border-radius: var(--radius-medium) var(--radius-medium) 0 0 !important;
+  padding: 1.8rem 2.4rem 1.8rem 2.4rem !important;
 }
 
 /* message's title */
 .message-header > font[style="font-weight:bold"] {
-	color: var(--color-text-primary) !important;
+  color: var(--color-text-primary) !important;
 }
 
 /* message's date and time */
 .message-header > font[color="#808080"] {
-	color: var(--color-text-secondary) !important;
-	min-width: 11rem !important;
-	margin-left: 5rem !important;
+  color: var(--color-text-secondary) !important;
+  min-width: 11rem !important;
+  margin-left: 5rem !important;
 }
 
 /* message's body */
 .nav.msg.message > li:nth-child(2) {
-	background-color: var(--color-card) !important;
-	border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
-	padding-top: 2.4rem !important;
-	padding-bottom: 2.4rem !important;
-	line-height: 1.5;
+  background-color: var(--color-card) !important;
+  border-radius: 0 0 var(--radius-medium) var(--radius-medium) !important;
+  padding-top: 2.4rem !important;
+  padding-bottom: 2.4rem !important;
+  line-height: 1.5;
 }
 
 .nav.msg.message > li {
-	padding-left: 2.4rem !important;
-	padding-right: 2.4rem !important;
+  padding-left: 2.4rem !important;
+  padding-right: 2.4rem !important;
 }
 
 .nav.msg.message > li > a:hover,
 .nav.msg.message > li > a:focus {
-	background: none !important;
-	text-decoration: underline !important;
+  background: none !important;
+  text-decoration: underline !important;
 }
 
 .nav.msg.message > li:nth-last-child(1) {
-	padding-bottom: 2.4rem !important;
+  padding-bottom: 2.4rem !important;
 }
-
 
 /* Teachers Messages Page only */
 
 /* added class for message page numbers */
 .message-pages {
-	display: flex !important;
-	justify-content: flex-start !important;
+  display: flex !important;
+  justify-content: flex-start !important;
 }
 
 .message-pages > li[style="width:5em"] {
-	display: none !important;
+  display: none !important;
 }
 
 /* message header's content */
 .message-info {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* teacher's name */
 .message-info.main-info > b > i {
-	display: flex !important;
-	align-items: center !important;
-	font-weight: normal !important;
-	font-size: 1.6rem !important;
+  display: flex !important;
+  align-items: center !important;
+  font-weight: normal !important;
+  font-size: 1.6rem !important;
 }
 
 .secondary-info {
-	text-align: right !important;
-	margin-left: 5rem !important;
+  text-align: right !important;
+  margin-left: 5rem !important;
 }
 
 .message-info.secondary-info > * {
-	color: var(--color-text-secondary) !important;
-	font-weight: normal !important;
+  color: var(--color-text-secondary) !important;
+  font-weight: normal !important;
 }
 
-.message-info.secondary-info > font[title="Показать все сообщения по этой дисциплине"]::before {
-	font-family: 'Material Icons Outlined' !important;
-	content: 'filter_alt' !important;
-	font-size: 1.6rem !important;
-	margin-right: 3px !important;
-	vertical-align: top !important;
-	width: 100% !important;
+.message-info.secondary-info
+  > font[title="Показать все сообщения по этой дисциплине"]::before {
+  font-family: "Material Icons Outlined" !important;
+  content: "filter_alt" !important;
+  font-size: 1.6rem !important;
+  margin-right: 3px !important;
+  vertical-align: top !important;
+  width: 100% !important;
 }
 
-.message-info.secondary-info > font[title="Показать все сообщения по этой дисциплине"]:hover {
-	color: var(--color-text-primary) !important;
+.message-info.secondary-info
+  > font[title="Показать все сообщения по этой дисциплине"]:hover {
+  color: var(--color-text-primary) !important;
 }
 
 .message-info.secondary-info {
-	flex-direction: row-reverse !important;
-	flex-wrap: wrap !important;
-	align-items: center !important;
+  flex-direction: row-reverse !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
 }
 
 .secondary-info > font:first-child {
-	margin: 0 !important;
+  margin: 0 !important;
 }
 
 .message-info.secondary-info > font {
-	margin: 0 .5rem !important;
+  margin: 0 0.5rem !important;
 }
 
 /* message's date and time */
@@ -124,65 +129,65 @@
 
 /* element above send button */
 .message.nav.msg > li:nth-last-child(3) {
-	padding-bottom: 3.2rem !important;
+  padding-bottom: 3.2rem !important;
 }
 
 /* send button added wrapper */
 .answer-wrapper {
-	display: flex !important;
-	flex-direction: row-reverse !important;
+  display: flex !important;
+  flex-direction: row-reverse !important;
 }
 
 .answer-wrapper > button {
-	padding: 0.6rem 1.2rem !important;
+  padding: 0.6rem 1.2rem !important;
 }
 
 /* send button's icon */
 .answer-wrapper > button::before {
-	font-family: 'Material Icons Outlined' !important;
-	content: 'add' !important;
-	font-size: 1.8rem !important;
-	margin-right: 0.5rem !important;
+  font-family: "Material Icons Outlined" !important;
+  content: "add" !important;
+  font-size: 1.8rem !important;
+  margin-right: 0.5rem !important;
 }
 
 /* form that appears after click on send button */
 .message > div > form {
-	display: flex !important;
-	flex-direction: column !important;
-	padding: 0 2.4rem 2.4rem 2.4rem !important
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 2.4rem 2.4rem 2.4rem !important;
 }
 
 .message > div > form > textarea {
-	margin: 0 0 1rem 0 !important;
+  margin: 0 0 1rem 0 !important;
 }
 
 .message > div > form > font {
-	font-size: 1.2rem !important;
-	color: var(--color-text-secondary) !important;
-	margin: 0 0 1rem 0 !important;
-	align-self: flex-end !important;
+  font-size: 1.2rem !important;
+  color: var(--color-text-secondary) !important;
+  margin: 0 0 1rem 0 !important;
+  align-self: flex-end !important;
 }
 
 .message > div > form > input {
-	width: 12.7rem !important;
-	height: 3.2rem !important;
+  width: 12.7rem !important;
+  height: 3.2rem !important;
 
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-	background-color: var(--color-highlight) !important;
-	color: var(--color-text-primary) !important;
-	border: 0 !important;
-	border-radius: var(--radius-small) !important;
-	align-self: flex-end !important;
+  background-color: var(--color-highlight) !important;
+  color: var(--color-text-primary) !important;
+  border: 0 !important;
+  border-radius: var(--radius-small) !important;
+  align-self: flex-end !important;
 }
 
 /* message that was sent to teacher */
 .message.repl_s.nav.msg {
-	padding: 2.4rem !important;
+  padding: 2.4rem !important;
 }
 
 .message.repl_s.nav.msg > li {
-	padding: 0 !important;
+  padding: 0 !important;
 }
