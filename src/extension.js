@@ -120,10 +120,13 @@ function setIcon() {
   document.querySelector('head').appendChild(icon);
 }
 
+// TODO: Replace with proper styles
 function computeNavPositions() {
-  const nbrStyle = window.getComputedStyle(document.querySelector('.navbar-inner'), null);
-  document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
-  document.documentElement.style.setProperty('--profile-margin', nbrStyle.getPropertyValue('margin-right'));
+  requestAnimationFrame(() => {
+    const nbrStyle = window.getComputedStyle(document.querySelector('.navbar-inner'), null);
+    document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
+    document.documentElement.style.setProperty('--profile-margin', nbrStyle.getPropertyValue('margin-right'));
+  });
 }
 
 // Style Pages
@@ -326,14 +329,16 @@ function stylePages() {
       navbar.after(sidebar);
       window.addEventListener("resize", computeNavPositions);
 
-      // Save scroll position for Sidebar on page reload
-      const top = sessionStorage.getItem("sidebar-scroll");
-      if (top) {
-        sidebar.scrollTop = parseInt(top, 10);
-      }
-      window.addEventListener("beforeunload", () => {
-        sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
-      });
+      requestAnimationFrame(() => {
+        // Save scroll position for Sidebar on page reload
+        const top = sessionStorage.getItem("sidebar-scroll");
+        if (top) {
+          sidebar.scrollTop = parseInt(top, 10);
+        }
+        window.addEventListener("beforeunload", () => {
+          sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
+        });
+      })
 
       // Add 'active' class to all active elements in Sidebar
       const asideElements = sidebar.querySelectorAll('.nav.nav-tabs.nav-stacked > li');
