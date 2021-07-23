@@ -49,6 +49,7 @@
   --color-green: #38a73d;
   --color-blue: #6d61a0;
   --color-yellow: #c47500;
+  --color-warning: #ff9900;
   --color-white: #fff;
   --color-error: #e53935;
   --color-dialog-fade: #aaa7;
@@ -88,6 +89,7 @@
   --color-green: #70c27e;
   --color-blue: #8ab4f8; /*9bb6df*/
   --color-yellow: #dad676;
+  --color-warning: #ff9900;
   --color-white: #fff;
   --color-error: #d04524;
   --color-dialog-fade: #0007;
@@ -117,6 +119,7 @@ font[style="color:#d00;"] {
   color: var(--color-red) !important;
 }
 
+span[style="color:green;"],
 font[color="green"],
 div[style="font-size:0.8em;color:green;"] {
   color: var(--color-green) !important;

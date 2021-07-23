@@ -357,6 +357,21 @@ function stylePages() {
       themeSwitcher.addEventListener('click', switchTheme, false);
 
       sidebar.querySelector('.nav:last-child').remove();
+
+      // Add point indicators
+      sidebar.querySelectorAll('li').forEach(li => {
+        a = li.querySelector('a');
+        if (a) {
+          const href = a.getAttribute('href');
+          if (href == 'stu_plus.add_snils' ||
+            href == 'ebl_stu.ebl_choice' ||
+            li.classList.contains('warn_menu')) {
+            const indicator = document.createElement('span');
+            indicator.className = 'badge-point';
+            a.appendChild(indicator);
+          }
+        }
+      });
     }
 
     // Main page content
@@ -659,6 +674,103 @@ function stylePages() {
 
             msg.appendChild(answerWrapper);
           }
+        })
+
+        break;
+
+      case 'cert_pkg.stu_certif':
+        el = span9.querySelector('span[style="color:#00b050;font-size:1.2em;font-weight:bold;"]');
+        if (el) {
+          el.className = 'certificates-info';
+        }
+
+        const orders = span9.querySelectorAll('.ord-name');
+        orders.forEach(ord => {
+          img = ord.querySelector('img');
+          if (img) {
+            btn = document.createElement('a');
+            btn.className = 'icon-button2';
+            btn.text = 'description';
+            btn.setAttribute('onclick', img.getAttribute('onclick'));
+            btn.title = img.title;
+            img.remove();
+            ord.prepend(btn);
+            ord.classList.add('flex-row');
+          }
+        });
+
+        const fonts = span9.querySelectorAll('font[color="blue"]');
+        fonts.forEach(font => {
+          img = span9.querySelector('img[src="/etis/pic/text-2.png"]');
+          if (img) {
+            btn = document.createElement('a');
+            btn.className = 'icon-button2';
+            btn.text = 'description';
+            btn.setAttribute('onclick', img.getAttribute('onclick'));
+            btn.title = img.title;
+            img.remove();
+            font.append(btn);
+            font.classList.add('flex-row');
+          }
+        });
+
+        break;
+
+      case 'stu.signs':
+        if (window.location.search.split('&')[0] !== '?p_mode=current') break;
+
+        let tooltipElem
+
+        // create tooltip for a control point
+        const renderTooltip = () => {
+          const target = event.target
+
+          const tooltipText = target.dataset.tooltip
+          if (!tooltipText) return
+
+          tooltipElem = document.createElement('div')
+          tooltipElem.className = 'sign-tooltip'
+          tooltipElem.innerText = tooltipText
+          document.body.appendChild(tooltipElem)
+
+          // position the element
+          const coords = target.getBoundingClientRect()
+
+          let right = coords.right + 5;
+
+          let top = coords.top - tooltipElem.offsetHeight;
+          // the element mustn't extend beyond the viewport
+          if (top < 0) {
+            top = coords.top + target.offsetHeight + 5;
+          }
+
+          tooltipElem.style.left = right + 'px';
+          tooltipElem.style.top = top + 'px';
+        }
+
+        const removeTooltip = () => {
+          if (tooltipElem) {
+            tooltipElem.remove();
+            tooltipElem = null;
+          }
+        }
+
+        document.addEventListener('wheel', removeTooltip)
+
+        const signTables = document.querySelectorAll('table.common')
+        signTables.forEach(table => {
+          const themes = table.querySelectorAll('a')
+          themes.forEach((theme, index) => {
+            if (theme.getAttribute('href').split('?')[0] !== 'stu.theme') {
+              console.log('Не тема:')
+              console.log(theme)
+              return
+            }
+            theme.setAttribute('data-tooltip', theme.innerText)
+            theme.innerHTML = 'КТ' + '&nbsp;' + (index + 1)
+            theme.addEventListener('mouseover', renderTooltip)
+            theme.addEventListener('mouseout', removeTooltip)
+          })
         })
 
         break;

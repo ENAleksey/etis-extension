@@ -23,6 +23,14 @@
   background: none !important;
 }
 
+/* margin between text and cards */
+.nav {
+  margin-bottom: 2rem !important;
+}
+.nav + .nav {
+  margin-top: 2rem !important;
+}
+
 .nav.answ > li > a:hover > font,
 .nav.msg > li > a:hover > font {
   color: var(--color-text-primary) !important;

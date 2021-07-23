@@ -25,6 +25,10 @@ table tr:nth-last-child(1) th {
   border-bottom: none !important;
 }
 
+.common {
+  margin-bottom: 2.4rem !important;
+}
+
 .common,
 .slimtab_nice,
 .teach_plan,

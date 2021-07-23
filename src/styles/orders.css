@@ -1,0 +1,33 @@
+/* Orders and Certificates Page */
+/* ----------------------------------------------- */
+
+.ord-inactive {
+  color: var(--color-text-secondary) !important;
+}
+
+.ord-name {
+  font-size: 1.2rem !important;
+}
+
+.ord-name > a {
+  text-decoration: none !important;
+}
+
+.ord-name > a:hover {
+  text-decoration: underline !important;
+}
+
+.ord-name > .icon-button2 {
+  margin: 0 0.4rem 0 0 !important;
+}
+
+.ord-name > .icon-button2:hover {
+  text-decoration: none !important;
+}
+
+.certificates-info {
+  color: var(--color-green) !important;
+  font-size: 1.2rem !important;
+  display: block !important;
+  margin-bottom: 2rem !important;
+}

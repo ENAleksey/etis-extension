@@ -16,6 +16,11 @@ body {
   overflow: hidden !important;
 }
 
+.flex-row {
+  display: flex !important;
+  align-items: center !important;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -63,6 +68,19 @@ input#menu__toggle[type="checkbox"] {
   width: auto !important;
   float: none !important;
   margin: 0 !important;
+}
+
+.span9 > h3 {
+  margin-bottom: 1.4rem !important;
+}
+
+.submenu {
+  font-size: 1.2rem !important;
+  margin-bottom: 2.4rem !important;
+}
+
+.submenu + .submenu {
+  margin-top: -1.2rem !important;
 }
 
 /* @media (max-width: 768px) {

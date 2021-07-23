@@ -5,6 +5,10 @@ form.que_form {
   margin-top: 1rem !important;
 }
 
+.cpt_list + h3 {
+  margin-top: 2rem !important;
+}
+
 .question_table {
   margin: 1.4rem 0 3rem !important;
 }
@@ -16,6 +20,11 @@ form.que_form {
 
 .cgrldatarow:hover {
   background: var(--color-table-highlight) !important;
+}
+
+/* remove vertical merged cell highlight on line hover */
+.cgrldatarow:hover td[rowspan="2"] {
+  background: var(--color-card) !important;
 }
 
 .question_table .answer_cell .answer {
