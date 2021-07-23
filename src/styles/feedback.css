@@ -1,0 +1,39 @@
+/* Feedback page */
+/* ----------------------------------------------- */
+
+.review {
+  padding-bottom: 3rem !important;
+  border-radius: var(--radius-medium) !important;
+  width: 100% !important;
+}
+
+.question {
+  margin: 0 0 1.6rem 0 !important;
+}
+
+.question li {
+  margin-left: 0.8rem !important;
+  margin-top: 0.4rem !important;
+}
+
+.question > .text {
+  color: var(--color-text-primary) !important;
+}
+
+.question label {
+  color: var(--color-text-secondary) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.comment > label {
+  color: var(--color-text-primary) !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.comment > textarea {
+  width: 100% !important;
+  height: 20rem !important;
+  padding: 0.8rem 1.2rem !important;
+  resize: none !important;
+}

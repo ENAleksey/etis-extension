@@ -1,0 +1,271 @@
+/* Navbar (Menu, Profile) */
+
+/* probably good idea to put those in _default */
+.navbar .material-icons {
+  font-family: "Material Icons Filled";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+.navbar .material-icons.outlined {
+  font-family: "Material Icons Outlined";
+}
+
+/* Navbar */
+
+.navbar {
+  padding: 0 1.2rem !important;
+  height: 4.8rem !important;
+  box-shadow: var(--shadow-main) !important;
+  background: var(--color-body) !important;
+  z-index: 10 !important;
+}
+
+.navbar-inner {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  position: relative !important;
+  max-width: var(--width-page) !important;
+  height: inherit !important;
+  min-height: inherit !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.navbar input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden !important;
+}
+
+.navbar-inner [class*="navbar"] {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  user-select: none;
+  cursor: pointer;
+}
+
+.navbar-dropdown-menu {
+  margin-right: auto !important;
+}
+
+.navbar-dropdown-menu span:first-child {
+  width: 24px;
+}
+
+.navbar-dropdown-menu span:last-child {
+  margin-left: 1rem !important;
+  font-size: 14px;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  font-size: 18px;
+}
+
+.navbar-notifications {
+  width: 24px;
+  margin-right: 2.5rem !important;
+}
+
+.navbar-profile span:first-child {
+  margin-right: 0.8rem !important;
+  font-size: 14px;
+}
+
+.navbar-profile span:last-child {
+  width: 28px;
+  font-size: 28px;
+}
+
+@media (max-width: 550px) {
+  .page-title {
+    visibility: hidden;
+  }
+}
+
+/* Sidebar */
+/* ----------------------------------------------- */
+
+:root {
+  --sidebar-margin: 0;
+}
+
+.span3 {
+  visibility: hidden;
+  position: fixed !important;
+  top: 4.8rem !important;
+  left: var(--sidebar-margin) !important;
+  bottom: 0 !important;
+  width: var(--width-aside) !important;
+  margin: 0 !important;
+  overflow-x: hidden !important;
+  float: none !important;
+  z-index: 11 !important;
+  box-shadow: var(--shadow-main);
+}
+
+.span3[visible] {
+  visibility: visible;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked {
+  border-radius: var(--radius-medium) !important;
+  background: var(--color-card) !important;
+  box-shadow: var(--shadow-main) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .warn_menu > a,
+.span3 > .nav.nav-tabs.nav-stacked > li > a[href="stu_plus.advice"] > font > b,
+.span3
+  > .nav.nav-tabs.nav-stacked
+  > li
+  > a[href="stu_plus.add_snils"]
+  > font
+  > b,
+.span3 > .nav.nav-tabs.nav-stacked > li > a[href="ebl_stu.ebl_choice"] > b {
+  color: var(--color-text-primary) !important;
+  font-weight: inherit !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked:last-child {
+  margin-bottom: 4rem !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li {
+  background: var(--color-card) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li:first-child {
+  border-top-right-radius: var(--radius-small) !important;
+  border-top-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li:last-child {
+  border-bottom-right-radius: var(--radius-small) !important;
+  border-bottom-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav-tabs.nav-stacked > li:first-child > a {
+  border-top-right-radius: var(--radius-small) !important;
+  border-top-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav-tabs.nav-stacked > li:last-child > a {
+  border-bottom-right-radius: var(--radius-small) !important;
+  border-bottom-left-radius: var(--radius-small) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked:last-child > li > a {
+  justify-content: left !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  user-select: none;
+  padding: 1.1rem 0.8rem 1.1rem 1.4rem !important;
+  background: var(--color-card) !important;
+  color: var(--color-text-primary) !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a:hover {
+  background: var(--color-highlight) !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active {
+  font-weight: bold !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active:before {
+  position: absolute !important;
+  width: 0.5rem !important;
+  height: 3.2rem !important;
+  z-index: 3 !important;
+
+  content: "" !important;
+  border-radius: var(--radius-medium) !important;
+  background: var(--color-accent) !important;
+  transition: height 0.08s ease-out !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active:hover:before {
+  height: 4rem !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > .active > a {
+  width: 100% !important;
+}
+
+.badge-point {
+  min-width: 0.8rem !important;
+  background-color: var(--color-warning);
+  width: 0.8rem !important;
+  height: 0.8rem;
+  padding: 0.2rem 0px !important;
+  margin: -1.2rem 0.8rem !important;
+  border-radius: 10rem;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a > .badge {
+  background-color: var(--color-accent) !important;
+  padding: 0.2rem 0 !important;
+  color: var(--color-text-primary-invert) !important;
+  border-radius: var(--radius-small) !important;
+  margin: -1.2rem 0 !important;
+  width: 2.4rem !important;
+  font-weight: normal !important;
+}
+
+.span3 .material-icons {
+  font-family: "Material Icons Outlined" !important;
+  font-size: 20px !important;
+  font-weight: normal !important;
+  pointer-events: none !important;
+}
+
+.span3 > .nav.nav-tabs.nav-stacked > li > a > .material-icons {
+  margin-right: 10px !important;
+}
+
+.span3 {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.span3::-webkit-scrollbar {
+  display: none;
+}

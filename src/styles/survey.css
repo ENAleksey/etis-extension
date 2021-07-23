@@ -1,0 +1,56 @@
+/* Survey Page and Visit Log Page */
+/* ----------------------------------------------- */
+
+.span9 > .nav.nav-tabs.nav-stacked > li > a {
+  border: none !important;
+}
+
+.span9 > .nav.answ.nav-tabs.nav-stacked > li > a:hover,
+.span9 > .nav.msg.nav-tabs.nav-stacked > li > a:hover {
+  text-decoration: none !important;
+}
+
+.span9 > .nav.answ.nav-tabs.nav-stacked {
+  border: 0.1rem solid var(--color-accent) !important;
+}
+
+.span9 > .nav.nav-tabs.nav-stacked > li > a:hover {
+  background: none !important;
+  text-decoration: underline !important;
+}
+
+.span9 > .nav.nav-tabs.nav-stacked > li > a:focus {
+  background: none !important;
+}
+
+/* margin between text and cards */
+.nav {
+  margin-bottom: 2rem !important;
+}
+.nav + .nav {
+  margin-top: 2rem !important;
+}
+
+.nav.answ > li > a:hover > font,
+.nav.msg > li > a:hover > font {
+  color: var(--color-text-primary) !important;
+}
+
+.nav.answ,
+.nav.msg {
+  padding: 1.2rem !important;
+  border: none !important;
+  border-radius: var(--radius-medium) !important;
+  background: var(--color-card) !important;
+  box-shadow: var(--shadow-main) !important;
+  text-decoration: none !important;
+}
+
+.nav.answ .review,
+.nav.msg .review {
+  padding: 0 !important;
+}
+
+.nav.answ .comment {
+  margin-bottom: 1.4rem !important;
+}
