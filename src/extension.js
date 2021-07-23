@@ -1,5 +1,7 @@
 let titles = {
+  'default': 'ЕТИС',
   'stu.teach_plan': 'Учебный план',
+  'ebl_stu.ebl_choice': 'Элективы',
   'stu.tpr': 'Оставить отзыв',
   'stu.teachers': 'Преподаватели',
   'stu.sc_portfolio': 'Портфолио',
@@ -91,7 +93,7 @@ function insertMeta() {
 }
 
 function changeTitle() {
-  let text = 'ЕТИС';
+  let text = titles.default;
   const page = window.location.pathname.split('/').pop();
   if (page in titles) {
     text += ' - ' + titles[page];
@@ -102,14 +104,6 @@ function changeTitle() {
 
 // Style
 document.addEventListener("DOMContentLoaded", function (event) {
-  // if (chrome.runtime.getManifest().stylesInPage){
-  // 	const styles = chrome.runtime.getURL('styles.css');
-  // 	const link = document.createElement('link');
-  // 	link.rel = 'stylesheet';
-  // 	link.type = 'text/css';
-  // 	link.href = styles;
-  // 	document.head.append(link);
-  // }
   insertMeta();
   setIcon();
   changeTitle();
@@ -267,7 +261,7 @@ function stylePages() {
       document.querySelector('.navbar .container').remove();
       const navbarDoc = new DocumentFragment();
 
-      let menuTitle = 'ЕТИС';
+      let menuTitle = titles.default;
       const page = window.location.pathname.split('/').pop();
       if (page in titles) {
         menuTitle = titles[page];
