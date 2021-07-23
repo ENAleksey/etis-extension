@@ -360,7 +360,7 @@ function stylePages() {
 
       // Add point indicators
       sidebar.querySelectorAll('li').forEach(li => {
-        a = li.querySelector('a');
+        const a = li.querySelector('a');
         if (a) {
           const href = a.getAttribute('href');
           if (href == 'stu_plus.add_snils' ||
@@ -679,16 +679,16 @@ function stylePages() {
         break;
 
       case 'cert_pkg.stu_certif':
-        el = span9.querySelector('span[style="color:#00b050;font-size:1.2em;font-weight:bold;"]');
-        if (el) {
-          el.className = 'certificates-info';
+        const elem = span9.querySelector('span[style="color:#00b050;font-size:1.2em;font-weight:bold;"]');
+        if (elem) {
+          elem.className = 'certificates-info';
         }
 
         const orders = span9.querySelectorAll('.ord-name');
         orders.forEach(ord => {
-          img = ord.querySelector('img');
+          const img = ord.querySelector('img');
           if (img) {
-            btn = document.createElement('a');
+            const btn = document.createElement('a');
             btn.className = 'icon-button2';
             btn.text = 'description';
             btn.setAttribute('onclick', img.getAttribute('onclick'));
@@ -701,9 +701,9 @@ function stylePages() {
 
         const fonts = span9.querySelectorAll('font[color="blue"]');
         fonts.forEach(font => {
-          img = span9.querySelector('img[src="/etis/pic/text-2.png"]');
+          const img = span9.querySelector('img[src="/etis/pic/text-2.png"]');
           if (img) {
-            btn = document.createElement('a');
+            const btn = document.createElement('a');
             btn.className = 'icon-button2';
             btn.text = 'description';
             btn.setAttribute('onclick', img.getAttribute('onclick'));
@@ -719,7 +719,7 @@ function stylePages() {
       case 'stu.signs':
         if (window.location.search.split('&')[0] !== '?p_mode=current') break;
 
-        let tooltipElem
+        let tooltipElem;
 
         // create tooltip for a control point
         const renderTooltip = () => {
