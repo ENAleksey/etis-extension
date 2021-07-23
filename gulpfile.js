@@ -20,7 +20,7 @@ export const scripts = () => {
     .pipe(babel({
       presets: ['@babel/preset-env']
     }))
-    .pipe(terser())
+    .pipe(terser()) // Comment this if you need to trace your js
     .pipe(gulp.dest('dist'));
 }
 
@@ -33,8 +33,9 @@ export const styles = () => {
 }
 
 export const watch = () => {
-  gulp.watch(['./src/styles/**/*.css'], gulp.series(styles));
+  gulp.watch(['./assets/*.*'], gulp.series(assets));
   gulp.watch(['./src/*.js'], gulp.series(scripts));
+  gulp.watch(['./src/styles/**/*.css'], gulp.series(styles));
 }
 
 export const build = gulp.series(
