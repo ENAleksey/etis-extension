@@ -134,14 +134,16 @@ function stylePages() {
 		// Style Sidebar
 		const sidebar = document.querySelector("div.span3");
 		if (sidebar) {
-			// Save scroll position for Sidebar on page reload
-			const top = sessionStorage.getItem("sidebar-scroll");
-			if (top) {
-				sidebar.scrollTop = parseInt(top, 10);
-			}
-			window.addEventListener("beforeunload", () => {
-				sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
-			});
+			requestAnimationFrame(() => {
+				// Save scroll position for Sidebar on page reload
+				const top = sessionStorage.getItem("sidebar-scroll");
+				if (top) {
+					sidebar.scrollTop = parseInt(top, 10);
+				}
+				window.addEventListener("beforeunload", () => {
+					sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
+				});
+			})
 
 			// Add 'active' class to all active elements in Sidebar
 			const asideElements = sidebar.querySelectorAll('.nav.nav-tabs.nav-stacked > li');
