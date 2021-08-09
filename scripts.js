@@ -548,11 +548,13 @@ function stylePages() {
 				let tooltipElem
 
 				// create tooltip for a control point
-				const renderTooltip = () => {
-					const target = event.target
+				const renderTooltip = (e) => {
+					let target = e.target
+					if (target.nodeName !== "TD")
+						target = target.parentNode
 
-					const tooltipText = target.dataset.tooltip
-					if (!tooltipText) return
+					const tooltipText = target.querySelector('a').dataset.tooltip
+					if (!tooltipText || tooltipElem) return
 
 					tooltipElem = document.createElement('div')
 					tooltipElem.className = 'sign-tooltip'
@@ -562,7 +564,7 @@ function stylePages() {
 					// position the element
 					const coords = target.getBoundingClientRect()
 
-					let right = coords.right + 5;
+					let left = (coords.left + coords.width / 2) - (tooltipElem.offsetWidth / 2);
 
 					let top = coords.top - tooltipElem.offsetHeight;
 					// the element mustn't extend beyond the viewport
@@ -570,7 +572,7 @@ function stylePages() {
 						top = coords.top + target.offsetHeight + 5;
 					}
 
-					tooltipElem.style.left = right + 'px';
+					tooltipElem.style.left = left + 'px';
 					tooltipElem.style.top = top + 'px';
 				}
 
@@ -595,7 +597,8 @@ function stylePages() {
 						theme.setAttribute('data-tooltip', theme.innerText)
 						theme.innerHTML = 'КТ' + '&nbsp;' + (index + 1)
 						theme.addEventListener('mouseover', renderTooltip)
-						theme.addEventListener('mouseout', removeTooltip)
+						theme.parentNode.addEventListener('mouseover', renderTooltip)
+						theme.parentNode.addEventListener('mouseout', removeTooltip)
 					})
 				})
 				break;
