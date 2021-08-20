@@ -545,7 +545,12 @@ function stylePages() {
 			case 'stu.signs':
 				if (window.location.search.split('&')[0] !== '?p_mode=current') break;
 
-				let tooltipElem
+				let tooltipWrapper
+				const tooltipElem = document.createElement('div')
+				tooltipElem.className = 'sign-tooltip'
+				const tooltipTriangle = document.createElement('img')
+				tooltipTriangle.src = chrome.runtime.getURL('tooltip-triangle.svg')
+				tooltipTriangle.className = 'sign-tooltip-triangle'
 
 				// create tooltip for a control point
 				const renderTooltip = (e) => {
@@ -554,32 +559,33 @@ function stylePages() {
 						target = target.parentNode
 
 					const tooltipText = target.querySelector('a').dataset.tooltip
-					if (!tooltipText || tooltipElem) return
+					if (!tooltipText || tooltipWrapper) return
 
-					tooltipElem = document.createElement('div')
-					tooltipElem.className = 'sign-tooltip'
+					tooltipWrapper = document.createElement('div')
+					tooltipWrapper.className = 'sign-tooltip-wrapper'
 					tooltipElem.innerText = tooltipText
-					document.body.appendChild(tooltipElem)
+					tooltipWrapper.append(tooltipElem, tooltipTriangle)
+					document.body.appendChild(tooltipWrapper)
 
 					// position the element
 					const coords = target.getBoundingClientRect()
 
-					let left = (coords.left + coords.width / 2) - (tooltipElem.offsetWidth / 2);
+					let left = (coords.left + coords.width / 2) - (tooltipWrapper.offsetWidth / 2);
 
-					let top = coords.top - tooltipElem.offsetHeight;
+					let top = coords.top - tooltipWrapper.offsetHeight;
 					// the element mustn't extend beyond the viewport
 					if (top < 0) {
 						top = coords.top + target.offsetHeight + 5;
 					}
 
-					tooltipElem.style.left = left + 'px';
-					tooltipElem.style.top = top + 'px';
+					tooltipWrapper.style.left = left + 'px';
+					tooltipWrapper.style.top = top + 'px';
 				}
 
 				const removeTooltip = () => {
-					if (tooltipElem) {
-						tooltipElem.remove();
-						tooltipElem = null;
+					if (tooltipWrapper) {
+						tooltipWrapper.remove();
+						tooltipWrapper = null;
 					}
 				}
 

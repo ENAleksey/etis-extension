@@ -16,7 +16,8 @@
 	"web_accessible_resources": [
 		{
 			"resources": [
-				"icon.svg"
+				"icon.svg",
+				"tooltip-triangle.svg"
 			],
 			"matches": [
 				"https://student.psu.ru/*"
