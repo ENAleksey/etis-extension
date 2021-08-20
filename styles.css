@@ -13,6 +13,7 @@
 	--radius-small: 5px;
 	--radius-medium: 8px;
 	--radius-large: 12px;
+	--radius-tooltip: 20px;
 	
 	--width-aside: 24rem;
 	--width-page: 1120px;
@@ -1808,12 +1809,13 @@ form > .items > .item {
 
 .sign-tooltip {
 	position: fixed;
-	padding: 1.2rem 2.4rem;
-	max-width: 50rem;
-	border: 1px solid var(--color-highlight-light);
-	border-radius: var(--radius-small);
+	padding: 0.8rem 1.6rem;
+	max-width: 26rem;
+	border-radius: var(--radius-tooltip);
 	font-size: 1.2rem;
+	line-height: 1.8rem;
 	text-align: center;
 	color: var(--color-white);
-	background: var(--color-body);
+	background: var(--color-highlight);
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
   }
