@@ -545,9 +545,11 @@ function stylePages() {
 			case 'stu.signs':
 				if (window.location.search.split('&')[0] !== '?p_mode=current') break;
 
+				// initialize elements of the tooltip 
 				let tooltipWrapper
 				const tooltipElem = document.createElement('div')
 				tooltipElem.className = 'sign-tooltip'
+				// triangle in the middle bottom (or middle top) of tooltip
 				const tooltipTriangle = document.createElement('img')
 				tooltipTriangle.src = chrome.runtime.getURL('tooltip-triangle.svg')
 				tooltipTriangle.className = 'sign-tooltip-triangle'
@@ -572,20 +574,27 @@ function stylePages() {
 
 					let left = (coords.left + coords.width / 2) - (tooltipWrapper.offsetWidth / 2);
 
-					let top = coords.top - tooltipWrapper.offsetHeight;
+					let top = coords.top - tooltipWrapper.offsetHeight
 					// the element mustn't extend beyond the viewport
 					if (top < 0) {
-						top = coords.top + target.offsetHeight + 5;
+						top = coords.top + target.offsetHeight
+						// move triange to the top
+						tooltipTriangle.style.bottom = '-2px'
+						tooltipTriangle.style.transform = 'scale(1, -1)'
+						tooltipWrapper.style.flexDirection = 'column-reverse'
+					} else {
+						tooltipTriangle.style.bottom = '2px'
+						tooltipTriangle.style.transform = 'scale(1, 1)'
 					}
 
-					tooltipWrapper.style.left = left + 'px';
-					tooltipWrapper.style.top = top + 'px';
+					tooltipWrapper.style.left = left + 'px'
+					tooltipWrapper.style.top = top + 'px'
 				}
 
 				const removeTooltip = () => {
 					if (tooltipWrapper) {
-						tooltipWrapper.remove();
-						tooltipWrapper = null;
+						tooltipWrapper.remove()
+						tooltipWrapper = null
 					}
 				}
 

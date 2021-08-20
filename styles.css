@@ -1831,5 +1831,5 @@ form > .items > .item {
 .sign-tooltip-triangle {
 	position: relative;
 	z-index: 11;
-	bottom: 2px;
+	display: block;
 }
