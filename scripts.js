@@ -71,7 +71,6 @@ function createTooltipTriangle() {
 	path.classList.add('tooltipTriangle')
 	path.setAttributeNS(null, 'd', 'M6.79289 7.79289L0.707107 1.70711C0.0771419 1.07714 0.523308 0 1.41421 0H13.5858C14.4767 0 14.9229 1.07714 14.2929 1.70711L8.20711 7.79289C7.81658 8.18342 7.18342 8.18342 6.79289 7.79289Z')
 
-	console.log(svg)
 	svg.appendChild(path)
 	return svg
 }
@@ -561,7 +560,7 @@ function stylePages() {
 				break;
 
 			case 'stu.signs':
-				if (window.location.search.split('&')[0] !== '?p_mode=current') break;
+				if (pageMode !== 'current') break;
 
 				// initialize elements of the tooltip 
 				let tooltipWrapper
