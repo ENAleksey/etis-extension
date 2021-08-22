@@ -57,6 +57,24 @@ function switchTheme(e) {
 
 detectTheme();
 
+function createTooltipTriangle() {
+	const xmlns = 'http://www.w3.org/2000/svg'
+
+	const svg = document.createElementNS(xmlns, 'svg');
+	svg.setAttributeNS(null, 'width', '15')
+	svg.setAttributeNS(null, 'height', '9')
+	svg.setAttributeNS(null, 'viewBox', '0 0 15 9')
+	svg.setAttributeNS(null, 'fill', 'none')
+	svg.classList.add('sign-tooltip-triangle')
+
+	const path = document.createElementNS(xmlns, 'path')
+	path.classList.add('tooltipTriangle')
+	path.setAttributeNS(null, 'd', 'M6.79289 7.79289L0.707107 1.70711C0.0771419 1.07714 0.523308 0 1.41421 0H13.5858C14.4767 0 14.9229 1.07714 14.2929 1.70711L8.20711 7.79289C7.81658 8.18342 7.18342 8.18342 6.79289 7.79289Z')
+
+	console.log(svg)
+	svg.appendChild(path)
+	return svg
+}
 
 // Style
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -550,8 +568,7 @@ function stylePages() {
 				const tooltipElem = document.createElement('div')
 				tooltipElem.className = 'sign-tooltip'
 				// triangle in the middle bottom (or middle top) of tooltip
-				const tooltipTriangle = document.createElement('img')
-				tooltipTriangle.className = 'sign-tooltip-triangle'
+				const tooltipTriangle = createTooltipTriangle()
 
 				// create tooltip for a control point
 				const renderTooltip = (e) => {
@@ -566,9 +583,9 @@ function stylePages() {
 					tooltipWrapper.className = 'sign-tooltip-wrapper'
 					tooltipElem.innerText = tooltipText
 					if (document.documentElement.getAttribute('theme') === 'dark')
-						tooltipTriangle.src = chrome.runtime.getURL('tooltip-triangle.svg')
+						tooltipTriangle.firstChild.setAttributeNS(null, 'fill', '#333333')
 					else
-						tooltipTriangle.src = chrome.runtime.getURL('tooltip-triangle-light.svg')
+						tooltipTriangle.firstChild.setAttributeNS(null, 'fill', '#F6F6F6')
 					tooltipWrapper.append(tooltipElem, tooltipTriangle)
 					document.body.appendChild(tooltipWrapper)
 
