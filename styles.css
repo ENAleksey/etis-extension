@@ -1815,7 +1815,6 @@ form > .items > .item {
 	flex-direction: column;
 	align-items: center;
 	filter: drop-shadow(var(--shadow-tooltip));
-	/* box-shadow: var(--shadow-dialog); */
 }
 
 .sign-tooltip {

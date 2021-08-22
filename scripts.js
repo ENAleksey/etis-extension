@@ -551,7 +551,6 @@ function stylePages() {
 				tooltipElem.className = 'sign-tooltip'
 				// triangle in the middle bottom (or middle top) of tooltip
 				const tooltipTriangle = document.createElement('img')
-				tooltipTriangle.src = chrome.runtime.getURL('tooltip-triangle.svg')
 				tooltipTriangle.className = 'sign-tooltip-triangle'
 
 				// create tooltip for a control point
@@ -566,6 +565,10 @@ function stylePages() {
 					tooltipWrapper = document.createElement('div')
 					tooltipWrapper.className = 'sign-tooltip-wrapper'
 					tooltipElem.innerText = tooltipText
+					if (document.documentElement.getAttribute('theme') === 'dark')
+						tooltipTriangle.src = chrome.runtime.getURL('tooltip-triangle.svg')
+					else
+						tooltipTriangle.src = chrome.runtime.getURL('tooltip-triangle-light.svg')
 					tooltipWrapper.append(tooltipElem, tooltipTriangle)
 					document.body.appendChild(tooltipWrapper)
 
@@ -595,6 +598,7 @@ function stylePages() {
 					if (tooltipWrapper) {
 						tooltipWrapper.remove()
 						tooltipWrapper = null
+						tooltipTriangle.src = ''
 					}
 				}
 

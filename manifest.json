@@ -17,7 +17,8 @@
 		{
 			"resources": [
 				"icon.svg",
-				"tooltip-triangle.svg"
+				"tooltip-triangle.svg",
+				"tooltip-triangle-light.svg"
 			],
 			"matches": [
 				"https://student.psu.ru/*"
