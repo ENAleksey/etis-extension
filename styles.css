@@ -1425,6 +1425,11 @@ span.holiday {
     margin-bottom: 2rem !important;
 }
 
+span[style="color:red;font-size:1.2em;font-weight:bold;"] {
+	color: var(--color-red) !important;
+	font-size: 1.2rem !important;
+}
+
 
 
 /* Login Page */
