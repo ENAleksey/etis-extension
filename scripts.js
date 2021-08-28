@@ -158,7 +158,7 @@ function stylePages() {
 					sidebar.scrollTop = parseInt(top, 10);
 				}
 				window.addEventListener("beforeunload", () => {
-					sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
+					sessionStorage.setItem("sidebar-scroll", Math.round(sidebar.scrollTop));
 				});
 			})
 
