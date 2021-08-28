@@ -313,7 +313,7 @@ function stylePages() {
 					btn.setAttribute('data-ttp', img.getAttribute('data-ttp'));
 					btn.setAttribute('data-dis', img.getAttribute('data-dis'));
 					btn.setAttribute('onclick', 'get_files()');
-					img.parentNode.appendChild(btn);
+					img.parentNode.prepend(btn);
 					img.remove();
 				});
 
