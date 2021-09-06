@@ -57,6 +57,23 @@ function switchTheme(e) {
 
 detectTheme();
 
+function createTooltipTriangle() {
+	const xmlns = 'http://www.w3.org/2000/svg'
+
+	const svg = document.createElementNS(xmlns, 'svg');
+	svg.setAttributeNS(null, 'width', '15')
+	svg.setAttributeNS(null, 'height', '9')
+	svg.setAttributeNS(null, 'viewBox', '0 0 15 9')
+	svg.setAttributeNS(null, 'fill', 'none')
+	svg.classList.add('sign-tooltip-triangle')
+
+	const path = document.createElementNS(xmlns, 'path')
+	path.classList.add('tooltipTriangle')
+	path.setAttributeNS(null, 'd', 'M6.79289 7.79289L0.707107 1.70711C0.0771419 1.07714 0.523308 0 1.41421 0H13.5858C14.4767 0 14.9229 1.07714 14.2929 1.70711L8.20711 7.79289C7.81658 8.18342 7.18342 8.18342 6.79289 7.79289Z')
+
+	svg.appendChild(path)
+	return svg
+}
 
 // Style
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -70,7 +87,7 @@ function setIcon() {
 	const icon = document.createElement('link');
 	icon.rel = 'icon';
 	icon.type = 'image/svg+xml';
-	icon.href = chrome.extension.getURL('icon.svg');
+	icon.href = chrome.runtime.getURL('icon.svg');
 	document.querySelector('head').appendChild(icon);
 }
 
@@ -134,14 +151,16 @@ function stylePages() {
 		// Style Sidebar
 		const sidebar = document.querySelector("div.span3");
 		if (sidebar) {
-			// Save scroll position for Sidebar on page reload
-			const top = sessionStorage.getItem("sidebar-scroll");
-			if (top) {
-				sidebar.scrollTop = parseInt(top, 10);
-			}
-			window.addEventListener("beforeunload", () => {
-				sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
-			});
+			requestAnimationFrame(() => {
+				// Save scroll position for Sidebar on page reload
+				const top = sessionStorage.getItem("sidebar-scroll");
+				if (top) {
+					sidebar.scrollTop = parseInt(top, 10);
+				}
+				window.addEventListener("beforeunload", () => {
+					sessionStorage.setItem("sidebar-scroll", Math.round(sidebar.scrollTop));
+				});
+			})
 
 			// Add 'active' class to all active elements in Sidebar
 			const asideElements = sidebar.querySelectorAll('.nav.nav-tabs.nav-stacked > li');
@@ -194,6 +213,21 @@ function stylePages() {
 					}
 				});
 			}
+
+			// Add point indicators
+			sidebar.querySelectorAll('li').forEach(li => {
+				a = li.querySelector('a');
+				if (a) {
+					const href = a.getAttribute('href');
+					if (href == 'stu_plus.add_snils' ||
+						href == 'ebl_stu.ebl_choice' ||
+						li.classList.contains('warn_menu')) {
+						const indicator = document.createElement('span');
+						indicator.className = 'badge-point';
+						a.appendChild(indicator);
+					}
+				}
+			});
 		}
 
 		// Main page content
@@ -279,7 +313,7 @@ function stylePages() {
 					btn.setAttribute('data-ttp', img.getAttribute('data-ttp'));
 					btn.setAttribute('data-dis', img.getAttribute('data-dis'));
 					btn.setAttribute('onclick', 'get_files()');
-					img.parentNode.appendChild(btn);
+					img.parentNode.prepend(btn);
 					img.remove();
 				});
 
@@ -485,6 +519,123 @@ function stylePages() {
 					}
 				})
 
+				break;
+
+			case 'cert_pkg.stu_certif':
+				el = span9.querySelector('span[style="color:#00b050;font-size:1.2em;font-weight:bold;"]');
+				if (el) {
+					el.className = 'certificates-info';
+				}
+
+				const orders = span9.querySelectorAll('.ord-name');
+				orders.forEach(ord => {
+					img = ord.querySelector('img');
+					if (img) {
+						btn = document.createElement('a');
+						btn.className = 'icon-button2';
+						btn.text = 'description';
+						btn.setAttribute('onclick', img.getAttribute('onclick'));
+						btn.title = img.title;
+						img.remove();
+						ord.prepend(btn);
+						ord.classList.add('flex-row');
+					}
+				});
+
+				const fonts = span9.querySelectorAll('font[color="blue"]');
+				fonts.forEach(font => {
+					img = span9.querySelector('img[src="/etis/pic/text-2.png"]');
+					if (img) {
+						btn = document.createElement('a');
+						btn.className = 'icon-button2';
+						btn.text = 'description';
+						btn.setAttribute('onclick', img.getAttribute('onclick'));
+						btn.title = img.title;
+						img.remove();
+						font.append(btn);
+						font.classList.add('flex-row');
+					}
+				});
+
+				break;
+
+			case 'stu.signs':
+				if (pageMode !== 'current') break;
+
+				// initialize elements of the tooltip 
+				let tooltipWrapper
+				const tooltipElem = document.createElement('div')
+				tooltipElem.className = 'sign-tooltip'
+				// triangle in the middle bottom (or middle top) of tooltip
+				const tooltipTriangle = createTooltipTriangle()
+
+				// create tooltip for a control point
+				const renderTooltip = (e) => {
+					let target = e.target
+					if (target.nodeName !== "TD")
+						target = target.parentNode
+
+					const tooltipText = target.querySelector('a').dataset.tooltip
+					if (!tooltipText || tooltipWrapper) return
+
+					tooltipWrapper = document.createElement('div')
+					tooltipWrapper.className = 'sign-tooltip-wrapper'
+					tooltipElem.innerText = tooltipText
+					if (document.documentElement.getAttribute('theme') === 'dark')
+						tooltipTriangle.firstChild.setAttributeNS(null, 'fill', '#333333')
+					else
+						tooltipTriangle.firstChild.setAttributeNS(null, 'fill', '#F6F6F6')
+					tooltipWrapper.append(tooltipElem, tooltipTriangle)
+					document.body.appendChild(tooltipWrapper)
+
+					// position the element
+					const coords = target.getBoundingClientRect()
+
+					let left = (coords.left + coords.width / 2) - (tooltipWrapper.offsetWidth / 2);
+
+					let top = coords.top - tooltipWrapper.offsetHeight
+					// the element mustn't extend beyond the viewport
+					if (top < 0) {
+						top = coords.top + target.offsetHeight
+						// move triange to the top
+						tooltipTriangle.style.bottom = '-2px'
+						tooltipTriangle.style.transform = 'scale(1, -1)'
+						tooltipWrapper.style.flexDirection = 'column-reverse'
+					} else {
+						tooltipTriangle.style.bottom = '2px'
+						tooltipTriangle.style.transform = 'scale(1, 1)'
+					}
+
+					tooltipWrapper.style.left = left + 'px'
+					tooltipWrapper.style.top = top + 'px'
+				}
+
+				const removeTooltip = () => {
+					if (tooltipWrapper) {
+						tooltipWrapper.remove()
+						tooltipWrapper = null
+						tooltipTriangle.src = ''
+					}
+				}
+
+				document.addEventListener('wheel', removeTooltip)
+
+				const signTables = document.querySelectorAll('table.common')
+				signTables.forEach(table => {
+					const themes = table.querySelectorAll('a')
+					themes.forEach((theme, index) => {
+						if (theme.getAttribute('href').split('?')[0] !== 'stu.theme') {
+							console.log('Не тема:')
+							console.log(theme)
+							return
+						}
+						theme.setAttribute('data-tooltip', theme.innerText)
+						theme.innerHTML = 'КТ ' + (index + 1)
+						theme.addEventListener('mouseover', renderTooltip)
+						theme.parentNode.addEventListener('mouseover', renderTooltip)
+						theme.parentNode.addEventListener('mouseout', removeTooltip)
+					})
+				})
 				break;
 		}
 	}

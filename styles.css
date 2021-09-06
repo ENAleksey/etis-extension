@@ -41,6 +41,7 @@
 	--color-green: #38a73d;
 	--color-blue: #6d61a0;
 	--color-yellow: #c47500;
+	--color-warning: #ff9900;
 	--color-white: #fff;
 	--color-error: #e53935;
 	--color-dialog-fade: #aaa7;
@@ -55,6 +56,7 @@
 	
 	--shadow-main: 0 8px 16px #a49dc220;
 	--shadow-dialog: 0 0 16px #a49dc280;
+	--shadow-tooltip: 0 0 10px #a49dc290;
 	
 	--border-input: 1px solid #a49dc2;
 }
@@ -81,6 +83,7 @@
 	--color-green: #70c27e;
 	--color-blue: #8ab4f8; /*9bb6df*/
 	--color-yellow: #dad676;
+	--color-warning: #ff9900;
 	--color-white: #fff;
 	--color-error: #d04524;
 	--color-dialog-fade: #0007;
@@ -95,6 +98,7 @@
 	
 	--shadow-main: 0 4px 12px #0002;
 	--shadow-dialog: 0 0 16px #00000080;
+	--shadow-tooltip: 0 0 10px #00000090;
 	
 	--border-input: 1px solid #333;
 }
@@ -147,6 +151,19 @@ body {
 	float: none !important;
 }
 
+.span9 > h3 {
+	margin-bottom: 1.4rem !important;
+}
+
+.submenu {
+    font-size: 1.2rem !important;
+    margin-bottom: 2.4rem !important;
+}
+
+.submenu + .submenu {
+    margin-top: -1.2rem !important;
+}
+
 .warning {
 	margin: 0 !important;
 	width: auto !important;
@@ -161,6 +178,11 @@ body {
 	color: var(--color-text-primary) !important;
 	border: 0.1rem solid var(--color-text-primary) !important;
 	padding: 0.4rem 0.6rem !important;
+}
+
+.flex-row {
+	display: flex !important;
+	align-items: center !important;
 }
 
 /* @media (max-width:960px) {
@@ -237,6 +259,7 @@ font[style="color:#d00;"] {
 	color: var(--color-red) !important;
 }
 
+span[style="color:green;"],
 font[color="green"],
 div[style="font-size:0.8em;color:green;"] {
 	color: var(--color-green) !important;
@@ -306,6 +329,10 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	border-bottom: none !important;
 }
 
+.common {
+	margin-bottom: 2.4rem !important;
+}
+
 .common,
 .slimtab_nice,
 .teach_plan,
@@ -356,6 +383,11 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	background: var(--color-table-highlight) !important;
 }
 
+/* remove vertical merged cell highlight on line hover */
+.cgrldatarow:hover td[rowspan="2"] {
+    background: var(--color-card) !important;
+}
+
 .common th,
 .common th.subheader,
 .common td[colspan="10"],
@@ -388,7 +420,8 @@ table tr:nth-last-child(1) td, table tr:nth-last-child(1) th {
 	text-align: left !important;
 }
 
-.teach_plan td.bg_bold, .teach_plan td.bgsu {
+.teach_plan td.bg_bold,
+.teach_plan td.bgsu {
 	background: var(--color-highlight) !important;
 }
 
@@ -843,10 +876,6 @@ form.que_form {
 	background: var(--color-card) !important;
 }
 
-.span3 > .nav.nav-tabs.nav-stacked > .warn_menu > a {
-	color: var(--color-text-accent) !important;
-}
-
 .span3 > .nav.nav-tabs.nav-stacked > li:first-child {
 	border-top-right-radius: var(--radius-small) !important;
 	border-top-left-radius: var(--radius-small) !important;
@@ -934,6 +963,24 @@ form.que_form {
 	margin-right: 10px !important;
 }
 
+.span3 > .nav.nav-tabs.nav-stacked > .warn_menu > a,
+.span3 > .nav.nav-tabs.nav-stacked > li > a[href="stu_plus.advice"] > font > b,
+.span3 > .nav.nav-tabs.nav-stacked > li > a[href="stu_plus.add_snils"] > font > b,
+.span3 > .nav.nav-tabs.nav-stacked > li > a[href="ebl_stu.ebl_choice"] > b {
+	color: var(--color-text-primary) !important;
+	font-weight: inherit !important;
+}
+
+.badge-point {
+    min-width: 0.8rem !important;
+    background-color: var(--color-warning);
+    width: 0.8rem !important;
+    height: 0.8rem;
+    padding: 0.2rem 0px !important;
+    margin: -1.2rem 0.8rem !important;
+    border-radius: 10rem;
+}
+
 
 
 /* Teach Plan Page */
@@ -964,6 +1011,10 @@ form.que_form {
 
 .ses_part {
 	line-height: 1.5 !important;
+}
+
+.cpt_list + h3 {
+    margin-top: 2rem !important;
 }
 
 
@@ -1330,13 +1381,25 @@ span.holiday {
 	margin-bottom: 1.4rem !important;
 }
 
+/* margin between text and cards */
+.nav {
+    margin-bottom: 2rem !important;
+}
+.nav + .nav {
+    margin-top: 2rem !important;
+}
 
 
-/* Orders Page */
+
+/* Orders and Certificates Page */
 /* ----------------------------------------------- */
 
 .ord-inactive {
 	color: var(--color-text-secondary) !important;
+}
+
+.ord-name {
+	font-size: 1.2rem !important;
 }
 
 .ord-name > a {
@@ -1345,6 +1408,26 @@ span.holiday {
 
 .ord-name > a:hover {
 	text-decoration: underline !important;
+}
+
+.ord-name > .icon-button2 {
+	margin: 0 0.4rem 0 0 !important;
+}
+
+.ord-name > .icon-button2:hover {
+	text-decoration: none !important;
+}
+
+.certificates-info {
+    color: var(--color-green) !important;
+    font-size: 1.2rem !important;
+    display: block !important;
+    margin-bottom: 2rem !important;
+}
+
+span[style="color:red;font-size:1.2em;font-weight:bold;"] {
+	color: var(--color-red) !important;
+	font-size: 1.2rem !important;
 }
 
 
@@ -1554,6 +1637,11 @@ form > .items > .item {
 	background-color: var(--color-card) !important;
 }
 
+/* unreaded message */
+.nav.msg.answ.message {
+	border: 0.1rem solid var(--color-accent) !important;
+}
+
 /* added class for message's header */
 .nav.msg.message > .message-header {
 	display: flex !important;
@@ -1661,7 +1749,7 @@ form > .items > .item {
 
 /* element above send button */
 .message.nav.msg > li:nth-last-child(3) {
-	padding-bottom: 3.2rem !important;
+	padding-bottom: 2.4rem !important;
 }
 
 /* send button added wrapper */
@@ -1672,6 +1760,7 @@ form > .items > .item {
 
 .answer-wrapper > button {
 	padding: 0.6rem 1.2rem !important;
+	font-size: 1.2rem !important;
 }
 
 /* send button's icon */
@@ -1722,4 +1811,31 @@ form > .items > .item {
 
 .message.repl_s.nav.msg > li {
 	padding: 0 !important;
+}
+
+/* Tooltip for control points cells */
+.sign-tooltip-wrapper {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	filter: drop-shadow(var(--shadow-tooltip));
+}
+
+.sign-tooltip {
+	padding: 0.8rem 1.6rem;
+	max-width: 26rem;
+	border-radius: var(--radius-large);
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	text-align: center;
+	color: var(--color-text-primary);
+	background: var(--color-highlight);
+	z-index: 12;
+  }
+
+.sign-tooltip-triangle {
+	position: relative;
+	z-index: 11;
+	display: block;
 }
