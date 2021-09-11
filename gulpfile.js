@@ -11,12 +11,12 @@ export const clear = () => {
 }
 
 export const assets = () => {
-  return gulp.src('./assets/*.*')
+  return gulp.src('./assets/**/*.*')
     .pipe(gulp.dest('dist'));
 }
 
 export const scripts = () => {
-  return gulp.src('src/extension.js')
+  return gulp.src('src/**/*.js')
     .pipe(babel({
       presets: ['@babel/preset-env']
     }))
@@ -33,8 +33,8 @@ export const styles = () => {
 }
 
 export const watch = () => {
-  gulp.watch(['./assets/*.*'], gulp.series(assets));
-  gulp.watch(['./src/*.js'], gulp.series(scripts));
+  gulp.watch(['./assets/**/*.*'], gulp.series(assets));
+  gulp.watch(['./src/**/*.js'], gulp.series(scripts));
   gulp.watch(['./src/styles/**/*.css'], gulp.series(styles));
 }
 
