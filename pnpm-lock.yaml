@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@types/chrome': ^0.0.157
   del: ^6.0.0
   gulp: ^4.0.2
   gulp-autoprefixer: ^7.0.1
@@ -9,6 +10,7 @@ specifiers:
   gulp-esbuild: ^0.8.7
 
 devDependencies:
+  '@types/chrome': 0.0.157
   del: 6.0.0
   gulp: 4.0.2
   gulp-autoprefixer: 7.0.1_gulp@4.0.2
@@ -37,6 +39,27 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@types/chrome/0.0.157:
+    resolution: {integrity: sha512-q5SSmA9nKaDzFi8QkJW9kW8MYwWg9O7PKPUdBxsz+3rPcIF1Kxw0Bexpd70Uq1mU6PN4DBp4qKMXQDybUeiI9w==}
+    dependencies:
+      '@types/filesystem': 0.0.32
+      '@types/har-format': 1.2.7
+    dev: true
+
+  /@types/filesystem/0.0.32:
+    resolution: {integrity: sha512-Yuf4jR5YYMR2DVgwuCiP11s0xuVRyPKmz8vo6HBY3CGdeMj8af93CFZX+T82+VD1+UqHOxTq31lO7MI7lepBtQ==}
+    dependencies:
+      '@types/filewriter': 0.0.29
+    dev: true
+
+  /@types/filewriter/0.0.29:
+    resolution: {integrity: sha512-BsPXH/irW0ht0Ji6iw/jJaK8Lj3FJemon2gvEqHKpCdDCeemHa+rI3WBGq5z7cDMZgoLjY40oninGxqk+8NzNQ==}
+    dev: true
+
+  /@types/har-format/1.2.7:
+    resolution: {integrity: sha512-/TPzUG0tJn5x1TUcVLlDx2LqbE58hyOzDVAc9kf8SpOEmguHjU6bKUyfqb211AdqLOmU/SNyXvLKPNP5qTlfRw==}
     dev: true
 
   /aggregate-error/3.1.0:

@@ -10,7 +10,7 @@ export const clear = () => {
 }
 
 export const scripts = () => {
-  return gulp.src('src/extension.js')
+  return gulp.src('src/extension.ts')
     .pipe(gulpEsbuild({
       outfile: "extension.js",
       bundle: true,

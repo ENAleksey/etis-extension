@@ -1,5 +1,5 @@
 export let theme = 'auto';
-export let prefersColorSchemeMedia = false;
+export let prefersColorSchemeMedia: MediaQueryList;
 
 export function setupTheme() {
   if (window.matchMedia) {
@@ -8,7 +8,7 @@ export function setupTheme() {
   detectTheme();
 }
 
-export function setDarkTheme(e) {
+export function setDarkTheme(e: MediaQueryListEvent) {
   document.documentElement.setAttribute('theme', e.matches ? 'dark' : 'light');
 }
 
@@ -40,19 +40,21 @@ export function detectTheme() {
   }
 }
 
-export function switchTheme(e) {
+export function switchTheme(e: MouseEvent) {
+  const elem = e.target as HTMLElement;
+
   if (theme == 'auto') {
     theme = 'light';
-    e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Системная', 'Светлая');
+    elem.innerHTML = elem.innerText.replace('Системная', 'Светлая');
     document.documentElement.setAttribute('theme', theme);
     removeSystemThemeDetection();
   } else if (theme == 'light') {
     theme = 'dark';
-    e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Светлая', 'Темная');
+    elem.innerHTML = elem.innerHTML.replace('Светлая', 'Темная');
     document.documentElement.setAttribute('theme', theme);
   } else if (theme == 'dark') {
     theme = 'auto';
-    e.srcElement.innerHTML = e.srcElement.innerHTML.replace('Темная', 'Системная');
+    elem.innerHTML = elem.innerHTML.replace('Темная', 'Системная');
     setSystemThemeDetection();
   }
 

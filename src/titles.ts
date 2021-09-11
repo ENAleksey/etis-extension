@@ -1,4 +1,4 @@
-export const titles = {
+export const titles: Record<string, string> = {
   'default': 'ЕТИС',
   'stu.teach_plan': 'Учебный план',
   'ebl_stu.ebl_choice': 'Элективы',

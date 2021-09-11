@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/ENAleksey/etis-extension#readme",
   "devDependencies": {
+    "@types/chrome": "^0.0.157",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
