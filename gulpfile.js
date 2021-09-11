@@ -14,7 +14,8 @@ export const scripts = () => {
     .pipe(gulpEsbuild({
       outfile: "extension.js",
       bundle: true,
-      // tsconfig: "./tsconfig.json"
+      // minify: true,
+      // tsconfig: "./tsconfig.json",
     }))
     .pipe(gulp.dest('extension/sources'));
 }
