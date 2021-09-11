@@ -1,1 +1,17 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><style>.cls-1{fill:#c62e3e;}.cls-2{fill:#fff;}</style></defs><title>icon</title><rect class="cls-1" width="128" height="128" rx="32"/><path class="cls-2" d="M32,69.4V87.72L64,105.21,96.05,87.72V69.4L64,86.89ZM64,22.79,13.63,50.26,64,77.74l41.21-22.49V86.89h9.16V50.26Z"/></svg>
+<svg id="etis-icon" data-name="etic-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: #c62e3e;
+            }
+
+            .cls-2 {
+                fill: #fff;
+            }
+        </style>
+    </defs>
+    <title>icon</title>
+    <rect class="cls-1" width="128" height="128" rx="32" />
+    <path class="cls-2"
+        d="M32,69.4V87.72L64,105.21,96.05,87.72V69.4L64,86.89ZM64,22.79,13.63,50.26,64,77.74l41.21-22.49V86.89h9.16V50.26Z" />
+</svg>
