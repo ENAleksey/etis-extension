@@ -25,9 +25,12 @@ function setIcon() {
 // TODO: Replace with proper styles
 function computeNavPositions() {
   requestAnimationFrame(() => {
-    const nbrStyle = window.getComputedStyle(document.querySelector('.navbar-inner'), null);
-    document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
-    document.documentElement.style.setProperty('--profile-margin', nbrStyle.getPropertyValue('margin-right'));
+    const inner = document.querySelector('.navbar-inner');
+    if (inner instanceof Element) {
+      const nbrStyle = window.getComputedStyle(inner, null);
+      document.documentElement.style.setProperty('--sidebar-margin', nbrStyle.getPropertyValue('margin-left'));
+      document.documentElement.style.setProperty('--profile-margin', nbrStyle.getPropertyValue('margin-right'));
+    }
   });
 }
 
