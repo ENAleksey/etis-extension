@@ -1,9 +1,8 @@
 import gulp from 'gulp';
 import autoprefixer from 'gulp-autoprefixer';
-import babel from 'gulp-babel';
 import cleancss from 'gulp-clean-css';
 import concat from 'gulp-concat';
-import terser from 'gulp-terser';
+import gulpEsbuild from 'gulp-esbuild';
 import del from 'del';
 
 export const clear = () => {
@@ -16,11 +15,12 @@ export const assets = () => {
 }
 
 export const scripts = () => {
-  return gulp.src('src/**/*.js')
-    .pipe(babel({
-      presets: ['@babel/preset-env']
+  return gulp.src('src/extension.js')
+    .pipe(gulpEsbuild({
+      outfile: "extension.js",
+      bundle: true,
+      // tsconfig: "./tsconfig.json"
     }))
-    .pipe(terser()) // Comment this if you need to trace your js
     .pipe(gulp.dest('dist'));
 }
 
