@@ -6,12 +6,7 @@ import gulpEsbuild from 'gulp-esbuild';
 import del from 'del';
 
 export const clear = () => {
-  return del(['dist']);
-}
-
-export const assets = () => {
-  return gulp.src('./assets/**/*.*')
-    .pipe(gulp.dest('dist'));
+  return del(['extension/sources']);
 }
 
 export const scripts = () => {
@@ -21,7 +16,7 @@ export const scripts = () => {
       bundle: true,
       // tsconfig: "./tsconfig.json"
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('extension/sources'));
 }
 
 export const styles = () => {
@@ -29,11 +24,10 @@ export const styles = () => {
     .pipe(concat('styles.css'))
     .pipe(autoprefixer('defaults'))
     .pipe(cleancss({ level: { 1: { specialComments: 0 } } }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('extension/sources'));
 }
 
 export const watch = () => {
-  gulp.watch(['./assets/**/*.*'], gulp.series(assets));
   gulp.watch(['./src/**/*.js'], gulp.series(scripts));
   gulp.watch(['./src/styles/**/*.css'], gulp.series(styles));
 }
@@ -41,7 +35,6 @@ export const watch = () => {
 export const build = gulp.series(
   clear,
   gulp.parallel(
-    assets,
     styles,
     scripts
   )

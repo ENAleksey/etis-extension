@@ -1,0 +1,33 @@
+{
+    "name": "ЕТИС 2.0",
+    "version": "1.2.0",
+    "description": "Удобная и современная версия ЕТИСа",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://student.psu.ru/*"
+            ],
+            "js": [
+                "sources/extension.js"
+            ],
+            "css": [
+                "sources/styles.css"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "icons": {
+        "128": "assets/logo.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/icon.svg"
+            ],
+            "matches": [
+                "https://student.psu.ru/*"
+            ]
+        }
+    ],
+    "manifest_version": 3
+}
