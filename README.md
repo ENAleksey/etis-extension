@@ -1,13 +1,14 @@
 # ЕТИС 2.0
+
 <p align="center">
-  <img src="screenshots/login_old.png" width="30%"/>
-  <img src="screenshots/login_light.png" width="30%"/>
-  <img src="screenshots/login_dark.png" width="30%"/>
+  <img src=".github/screenshots/login_old.png" width="30%"/>
+  <img src=".github/screenshots/login_light.png" width="30%"/>
+  <img src=".github/screenshots/login_dark.png" width="30%"/>
 </p>
 <p align="center">
-  <img src="screenshots/timetable_old.png" width="30%"/>
-  <img src="screenshots/timetable_light.png" width="30%"/>
-  <img src="screenshots/timetable_dark.png" width="30%"/>
+  <img src=".github/screenshots/timetable_old.png" width="30%"/>
+  <img src=".github/screenshots/timetable_light.png" width="30%"/>
+  <img src=".github/screenshots/timetable_dark.png" width="30%"/>
 </p>
 
 Браузерное расширение, меняющее дизайн [ЕТИС](https://student.psu.ru/)а, сайта электронного журнала студентов Пермского государственного национального исследовательского университета.
@@ -32,8 +33,8 @@
 
 Если у вас возникли вопросы или предложения по улучшению расширения, обратитесь в нашу службу технической поддержки:
 
-Официальное сообщество ВК - https://vk.com/etis20
+Официальное сообщество ВК - <https://vk.com/etis20>
 
-Наш телеграм-канал - https://t.me/etis20
+Наш телеграм-канал - <https://t.me/etis20>
 
-Владислав - https://t.me/landvermess
+Владислав - <https://t.me/landvermess>
