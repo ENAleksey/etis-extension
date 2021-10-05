@@ -76,9 +76,12 @@ function createTooltipTriangle() {
 }
 
 // Style
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
 	setIcon();
 	stylePages();
+	totalHours();
+	courseNumbers();
+	consultationsMemorizer();
 });
 
 
@@ -101,12 +104,12 @@ function stylePages() {
 	if (login) {
 		document.body.innerHTML = '<div class ="login-container">' + document.body.innerHTML + '</div>';
 		const loginContainer = document.querySelector('div.login-container');
-		
+
 		const loginItems = document.querySelector('#form > div.items');
 		const loginActions = document.createElement('div');
 		loginActions.className = 'login-actions';
 		loginItems.appendChild(loginActions);
-		
+
 		if (page != 'stu_email_pkg.send_r_email') {
 			document.querySelector('div.choose').remove();
 			const psuLogo = document.createElement('div');
@@ -120,7 +123,7 @@ function stylePages() {
 
 		el = document.getElementById('sbmt');
 		loginActions.appendChild(el);
-		
+
 		const items = loginItems.querySelectorAll('div.item');
 		items.forEach(item => {
 			const errorMessage = item.querySelector('div.error_message');
@@ -138,7 +141,7 @@ function stylePages() {
 				item.appendChild(label);
 			}
 		});
-		
+
 		if (page != 'stu_email_pkg.send_r_email') {
 			const infoStr = loginItems.textContent.split("\n").slice(-3)[0].trim();
 			const loginFooter = document.querySelector('div.header_message');
@@ -189,7 +192,7 @@ function stylePages() {
 					navIcon = document.createElement('span');
 					navIcon.className = 'material-icons';
 					a.prepend(navIcon);
-					
+
 					switch (a.getAttribute('href')) {
 						case null:
 							navIcon.innerHTML = 'brightness_6';
@@ -239,7 +242,7 @@ function stylePages() {
 		if (warning && span9) {
 			span9.prepend(warning);
 		}
-		
+
 		switch (page) {
 			case 'stu.teach_plan':
 
@@ -255,27 +258,27 @@ function stylePages() {
 					case null:
 						el = span9.querySelector('div:nth-child(2)');
 						el.className = 'teach-plan';
-						
+
 						el = span9.querySelector('div:nth-child(2) > div > a');
 						el.className = 'icon-button icon-feedback';
 						el.text = 'Оставить отзыв';
 
 						break;
 				}
-				
+
 				break;
-				
+
 			case 'stu.tpr':
 				el = span9.querySelector('a');
 				el.className = 'icon-button icon-feedback';
 				el.text = 'Оставить отзыв';
-				
+
 				break;
-				
+
 			case 'stu.teachers':
 				el = span9.querySelector('a');
 				el.className = 'icon-button icon-analytics';
-				
+
 				const descriptions = span9.querySelectorAll('.teacher_desc');
 				descriptions.forEach(desc => {
 					const name = desc.querySelector('.teacher_name');
@@ -287,7 +290,7 @@ function stylePages() {
 					btn.title = img.title;
 					img.remove();
 					name.appendChild(btn);
-					
+
 					const chair = desc.querySelector('.chair');
 					btn = document.createElement('a');
 					btn.className = 'icon-button2';
@@ -298,7 +301,7 @@ function stylePages() {
 					img.remove();
 					chair.appendChild(btn);
 				});
-				
+
 				break;
 
 			case 'stu.sc_portfolio':
@@ -318,33 +321,33 @@ function stylePages() {
 				});
 
 				break;
-				
+
 			case 'stu.timetable':
 				const buttonbar = document.createElement('div');
 				buttonbar.className = 'timetable-buttonbar';
 				span9.prepend(buttonbar);
-				
+
 				el = span9.querySelector('div:nth-child(6)');
 				el.className = 'timetable-btn consultations';
 				buttonbar.appendChild(el);
-				
+
 				el = span9.querySelector('a.estimate_tt');
 				el.className = 'timetable-btn icon-button icon-feedback';
 				el.text = 'Оставить отзыв';
 				buttonbar.appendChild(el);
-				
+
 				el = span9.querySelector('a:nth-child(5)');
 				el.className = 'timetable-btn icon-button icon-today';
 				buttonbar.appendChild(el);
-				
-				
+
+
 				// const disciplines = span9.querySelectorAll("span.dis > a");
 				// disciplines.forEach(dis => {
 				// 	dis.text = dis.text.replace('(лек)', '/ лекция');
 				// 	dis.text = dis.text.replace('(лаб)', '/ лабораторная');
 				// 	dis.text = dis.text.replace('(практ)', '/ практика');
 				// });
-				
+
 				const pairs = span9.querySelectorAll("div.day > table > tbody > tr");
 				pairs.forEach(pair => {
 					const teacher = pair.querySelector('span.teacher');
@@ -353,14 +356,14 @@ function stylePages() {
 						pairTeacher.className = 'pair_teacher';
 						pairTeacher.innerHTML = teacher.innerHTML;
 						pair.appendChild(pairTeacher);
-						
+
 						pair.querySelector('td.pair_jour').remove();
 						teacher.remove();
 					}
 				});
-				
+
 				break;
-			
+
 			case 'stu.change_pass_form':
 			case 'stu.change_pass':
 				const form = span9.querySelector('.form');
@@ -368,22 +371,22 @@ function stylePages() {
 				items.className = "items";
 				form.prepend(items);
 				form.prepend(span9.querySelector('h3'));
-				
+
 				const labels = form.querySelectorAll('label');
 				const inputs = form.querySelectorAll('input');
-				
+
 				for (i = 0; i < inputs.length; i++) {
 					inputs[i].placeholder = ' ';
-					
+
 					const item = document.createElement('div');
 					item.className = "item";
 					item.appendChild(inputs[i]);
 					item.appendChild(labels[i]);
 					items.appendChild(item);
 				}
-				
+
 				break;
-				
+
 			case 'stu_email_pkg.change_email':
 				const changeEmailForm = span9.querySelector('.form');
 				const changeEmailInfo = span9.querySelector('div');
@@ -397,13 +400,13 @@ function stylePages() {
 				const emailLabel = changeEmailForm.querySelector('label');
 				const emailInput = changeEmailForm.querySelector("#email");
 				emailInput.placeholder = ' ';
-					
+
 				const changeEmailItem = document.createElement('div');
 				changeEmailItem.className = "item";
 				changeEmailItem.appendChild(emailInput);
 				changeEmailItem.appendChild(emailLabel);
 				changeEmailItems.appendChild(changeEmailItem);
-				
+
 				break;
 
 			case 'stu.announce':
@@ -434,7 +437,7 @@ function stylePages() {
 				})
 
 				break;
-			
+
 			case 'stu.teacher_notes':
 				const weeks = document.querySelector('.weeks');
 				weeks.classList.add('message-pages');
@@ -445,7 +448,7 @@ function stylePages() {
 					msg.classList.add('message')
 
 					// don't style messages that were sent to teachers
-					if (!msg.className.match(/repl_s/)) 
+					if (!msg.className.match(/repl_s/))
 					{
 						// create new blocks into message's header
 						// and move teacher's name, title, time, discipline to them
@@ -562,7 +565,7 @@ function stylePages() {
 			case 'stu.signs':
 				if (pageMode !== 'current') break;
 
-				// initialize elements of the tooltip 
+				// initialize elements of the tooltip
 				let tooltipWrapper
 				const tooltipElem = document.createElement('div')
 				tooltipElem.className = 'sign-tooltip'
@@ -637,6 +640,63 @@ function stylePages() {
 					})
 				})
 				break;
+		}
+	}
+}
+
+// Total Hours
+function totalHours() {
+	// Только на странице учебного плана
+	if (window.location.href.toLowerCase().includes('teach_plan')) {
+		const tables = document.querySelectorAll('table.common');
+		tables.forEach(table => {
+			let sumHours = [0,0,0];
+			let rows = table.querySelectorAll("tr");
+			rows.forEach(row => {
+				let cells = row.querySelectorAll('td[align="right"]'); // Данные о количестве часов только в ячейках с align right
+				for (let i = 0; i < cells.length; i++) {
+					let hours = Number(cells[i].textContent);
+					if (hours > 0) { // Отбрасываем Nan, null и т.п.
+						sumHours[i] += hours;
+					}
+				}
+			});
+			// Добавляем строку с общим количеством часов
+			table.innerHTML += `
+			<tr class="cgrldatarow">
+				<td colspan="2">
+				<a>Всего</a></td><td align="center"></td><td align="right">${sumHours[0]}</td><td align="right">${sumHours[1]}</td><td align="right">${sumHours[2]}</td>
+			</tr>`;
+		});
+	}
+}
+
+// Course Numbers
+function courseNumbers() {
+	// Только на странице учебного плана
+	if (window.location.href.toLowerCase().includes('teach_plan')) {
+		const headers = document.querySelectorAll('.teach-plan h3');
+		headers.forEach(header => {
+			let content = header.textContent; // Получаем текст заголовка
+	    let number = Number(content.slice(0,content.indexOf(' '))); // Достаём из него номер триместра
+			header.textContent += ` (${Math.floor(number / 3)+1} курс, ${(number-1) % 3 + 1} триместр)`; // Вычисляем номер курса и добавляем к заголовку
+		});
+	}
+}
+
+// Remember Consultations Value
+function consultationsMemorizer() {
+	const button = document.querySelector('.timetable-btn.consultations');
+	const checkbox = document.querySelector('.timetable-btn.consultations input');
+	// Кнопка есть только на странице с расписанием
+	if (checkbox) {
+		// Если текущее состояние чекбокса не соответствует сохранённому - изменяем, имитируя клик
+		if (checkbox.checked != (localStorage.getItem('showConsultations') == 'true')) checkbox.click();
+		// Добавляем функцию на нажатие для сохранения состояния чекбокса
+		if (button) {
+			button.onclick = () => {
+	      localStorage.setItem('showConsultations',String(!checkbox.checked));
+	    };
 		}
 	}
 }
