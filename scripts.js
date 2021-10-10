@@ -650,6 +650,7 @@ function totalHours() {
 	if (window.location.href.toLowerCase().includes('teach_plan')) {
 		const tables = document.querySelectorAll('table.common');
 		tables.forEach(table => {
+			let showTotal = false;
 			let sumHours = [0,0,0];
 			let rows = table.querySelectorAll("tr");
 			rows.forEach(row => {
@@ -658,15 +659,18 @@ function totalHours() {
 					let hours = Number(cells[i].textContent);
 					if (hours > 0) { // Отбрасываем Nan, null и т.п.
 						sumHours[i] += hours;
+						if (!showTotal) showTotal = true;
 					}
 				}
 			});
 			// Добавляем строку с общим количеством часов
-			table.innerHTML += `
-			<tr class="cgrldatarow">
-				<td colspan="2">
-				<a>Всего</a></td><td align="center"></td><td align="right">${sumHours[0]}</td><td align="right">${sumHours[1]}</td><td align="right">${sumHours[2]}</td>
-			</tr>`;
+			const tbody = table.querySelector('tbody');
+			if (tbody && showTotal) {
+				tbody.innerHTML += `<tr class="cgrldatarow">
+					<td colspan="2">
+					<a>Всего</a></td><td align="center"></td><td align="right">${sumHours[0]}</td><td align="right">${sumHours[1]}</td><td align="right">${sumHours[2]}</td>
+				</tr>`;
+			}
 		});
 	}
 }
@@ -679,24 +683,23 @@ function courseNumbers() {
 		headers.forEach(header => {
 			let content = header.textContent; // Получаем текст заголовка
 	    let number = Number(content.slice(0,content.indexOf(' '))); // Достаём из него номер триместра
-			header.textContent += ` (${Math.floor(number / 3)+1} курс, ${(number-1) % 3 + 1} триместр)`; // Вычисляем номер курса и добавляем к заголовку
+			header.textContent = `${header.textContent} (${parseInt((number - 1) / 3 + 1)} курс, ${parseInt((number - 1) % 3 + 1)} триместр)`; // Вычисляем номер курса и добавляем к заголовку
 		});
 	}
 }
 
 // Remember Consultations Value
 function consultationsMemorizer() {
-	const button = document.querySelector('.timetable-btn.consultations');
-	const checkbox = document.querySelector('.timetable-btn.consultations input');
-	// Кнопка есть только на странице с расписанием
-	if (checkbox) {
-		// Если текущее состояние чекбокса не соответствует сохранённому - изменяем, имитируя клик
-		if (checkbox.checked != (localStorage.getItem('showConsultations') == 'true')) checkbox.click();
-		// Добавляем функцию на нажатие для сохранения состояния чекбокса
-		if (button) {
-			button.onclick = () => {
-	      localStorage.setItem('showConsultations',String(!checkbox.checked));
-	    };
-		}
-	}
+	// Только на странице с расписанием
+	if (window.location.href.toLowerCase().includes('timetable')) {
+  	const button = document.querySelector('.timetable-btn.consultations');
+  	const checkbox = document.querySelector('.timetable-btn.consultations input');
+  	// Кнопка есть только на странице с расписанием
+  	if (window.location.href.toLowerCase().includes('timetable')) {
+      // 
+      if (window.location.href.toLowerCase().includes('p_cons')) {
+        localStorage.setItem('showConsultations',window.location.href.toLowerCase().includes('p_cons=y'));
+      } else if (localStorage.getItem('showConsultations') != String(checkbox.checked)) button.click();
+  	}
+  }
 }
