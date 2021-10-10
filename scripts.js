@@ -694,12 +694,9 @@ function consultationsMemorizer() {
 	if (window.location.href.toLowerCase().includes('timetable')) {
   	const button = document.querySelector('.timetable-btn.consultations');
   	const checkbox = document.querySelector('.timetable-btn.consultations input');
-  	// Кнопка есть только на странице с расписанием
-  	if (window.location.href.toLowerCase().includes('timetable')) {
-      // 
-      if (window.location.href.toLowerCase().includes('p_cons')) {
-        localStorage.setItem('showConsultations',window.location.href.toLowerCase().includes('p_cons=y'));
-      } else if (localStorage.getItem('showConsultations') != String(checkbox.checked)) button.click();
-  	}
+    //
+    if (window.location.href.toLowerCase().includes('p_cons')) {
+      localStorage.setItem('showConsultations',window.location.href.toLowerCase().includes('p_cons=y'));
+    } else if (localStorage.getItem('showConsultations') != String(checkbox.checked)) button.click();
   }
 }
